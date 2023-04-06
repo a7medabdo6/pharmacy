@@ -115,3 +115,25 @@ a {
 .w-20{
   width: 20% !important;
 }
+.w-30{
+  width: 30% !important;
+}
+.CategorySliderCard{
+  background-image: url("../assets/img/Rectangle.png");
+  background-position: center;
+  width: 95%;
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-size: cover;
+  height: 100px;
+  position: relative;
+}
+.CategorySliderCard .product{
+width: 100%;
+height: 70px;
+position: absolute;
+top: 0px;
+}
