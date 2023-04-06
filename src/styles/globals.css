@@ -87,12 +87,7 @@ body {
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+ 
 }
 
 a {
@@ -104,4 +99,19 @@ a {
   html {
     color-scheme: dark;
   }
+}
+.btn.btn-primary{
+  background-color: #0F4392 !important;
+}
+.text-primary{
+  color: #0F4392 !important;
+}
+.w-80{
+  width: 80% !important;
+}
+.w-100{
+  width: 100% !important;
+}
+.w-20{
+  width: 20% !important;
 }

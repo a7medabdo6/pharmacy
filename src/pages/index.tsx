@@ -2,10 +2,19 @@ import Head from 'next/head'
 import Image from 'next/image'
 import { Inter } from 'next/font/google'
 import styles from '@/styles/Home.module.css'
-
+import { url } from 'inspector'
+import logo from '../assets/img/logo.png';
+import welcome from '../assets/img/welcome.png';
+import ReactPhoneInput from 'react-phone-input-2'
+import 'react-phone-input-2/lib/style.css'
+import { useState } from 'react'
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
+  const [phone, setphone] = useState("us")
+  function handleOnChange(value:any) {
+setphone(value)
+  }
   return (
     <>
       <Head>
@@ -16,18 +25,60 @@ export default function Home() {
       </Head>
       <main className={styles.main}>
       
+      <div className={styles.background}>
+        <Image
+            className={styles.logo}
+            src={logo}
+            alt="Next.js Logo"
+            width={100}
+            height={37}
+            priority
+          />
+           <Image
+            className={styles.welcome}
+            src={welcome}
+            alt="Next.js Logo"
+            width={100}
+            height={37}
+            priority
+          />
+      </div>
+      <div className='d-flex justify-content-center align-items-center flex-column'>
+        <h3 className='m-3'>Welcome to Well Medic</h3>
+        <h5 style={{color:"red"}}>live healthy … live well</h5>
+      </div>
+      <div className='d-flex justify-content-center align-items-center flex-column' style={{
+        backgroundColor:"rgba(15, 67, 146, 0.07)",
+    width:" 90%",
+    borderRadius: "15px",
+    marginBlock: "20px"}}>
+ <h2 style={{color:"#0F4392"}} className='m-2'>Sign up</h2>
+ <form className='d-flex justify-content-center  flex-column'>
+  <div className="form-group m-2">
+    <label htmlFor="exampleInputEmail1">Your Name*</label>
+    <input type="text" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Write here"/>
+  </div>
+  <div className="form-group m-2">
+    <label htmlFor="exampleInputPassword1">Phone Number* </label>
+    <ReactPhoneInput defaultCountry={'us'} value={phone} onChange={handleOnChange}/>
+  </div>
+  <div className="form-group m-2">
+    <label htmlFor="exampleInputPassword1">Select Hotel Name </label>
+    <input type="text" className="form-control" id="exampleInputPassword1" placeholder="Select here"/>
+  </div>
+  <button type="submit" className="btn btn-primary mb-3 mt-3">Next</button>
+</form>
+      </div>
 
-        <div className={styles.center}>
-          <Image
+          {/* <Image
             className={styles.logo}
             src="/curve.svg"
             alt="Next.js Logo"
             width={500}
             height={37}
             priority
-          />
+          /> */}
         
-        </div>
 
      
       </main>
