@@ -119,21 +119,63 @@ a {
   width: 30% !important;
 }
 .CategorySliderCard{
-  background-image: url("../assets/img/Rectangle.png");
+  /* background-image: url("../assets/img/Rectangle.png");
   background-position: center;
   width: 95%;
   
+ 
+  background-size: cover;
+  height: 100px; */
+  width: 95%;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  background-size: cover;
-  height: 100px;
+  background: #A5C2EE;
+  height: 60px;
+  text-align: center;
+  transform:rotate(45deg);
+	width:60px;
+    border-radius: 5px;
   position: relative;
 }
 .CategorySliderCard .product{
 width: 100%;
 height: 70px;
 position: absolute;
-top: 0px;
+top: -20px;
+transform:rotate(-45deg);
+left: -20px;
+
+}
+.OurServicesCard{
+border-radius: 5px;
+background-color: white;
+display: flex;
+justify-content: center;
+align-items: center;
+padding: 10px;
+}
+.Service{
+  width:100%;
+  /* height: 120px; */
+  margin: auto;
+}
+.text-service{
+  font-size: 11px;
+  margin-block: 5px;
+  font-weight: bold;
+}
+.box-grey{
+  width: 100%;
+  border: 1px solid grey;
+  border-radius: 10px;
+  padding: 30px 20px;
+}
+.box-grey-20{
+  width: 40%;
+  border: 1px solid grey;
+  border-radius: 5px;
+  padding: 8px 15px;
+  margin-top: 15px;
 }

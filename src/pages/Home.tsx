@@ -14,6 +14,8 @@ import CategorySliderCard from "../Components/CategorySliderCard"
 
 import 'react-phone-input-2/lib/style.css'
 import { useState } from 'react'
+import OurServicesCard from '@/Components/OurServicesCard';
+import Testimonial from '@/Components/Testimonial';
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Main() {
@@ -55,7 +57,7 @@ export default function Main() {
 <CardSlider/>
 <h4 className='w-80 align-start m-0 pt-2 pb-2'>LBig deals</h4>
 <CardBanner/>
-<h4 className='w-80 align-start m-0 pt-3 pb-2'>Categories.</h4>
+<h4 className='w-80 align-start mt-2 mb-2 m-0 pt-3 pb-2'>Categories.</h4> 
 
 <div className='w-80 mt-3 d-flex justify-content-between align-items-center flex-row '
  style={{
@@ -66,8 +68,18 @@ export default function Main() {
 <CategorySliderCard/>
 
 </div>
+<h4 className='w-80 align-start m-0 pt-3 pb-2'>Our services.</h4> 
 
+<div className='w-80 mt-3 d-flex justify-content-between align-items-center flex-row '
+ >
 
+  
+<OurServicesCard/>
+<OurServicesCard/>
+<OurServicesCard/>
+</div>
+
+<Testimonial/>
       </div>
      
 

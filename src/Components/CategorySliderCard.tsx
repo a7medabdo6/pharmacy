@@ -5,7 +5,7 @@ import Category from '../assets/img/category.png';
 function CategorySliderCard() {
   return (
     <div 
-    className='w-30 mt-2 m-2 pb-4 d-flex justify-content-center align-items-center'
+    className='w-30 mt-2 m-4  d-flex justify-content-center align-items-center'
      >
       <div className='CategorySliderCard'>
       <Image
