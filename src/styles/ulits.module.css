@@ -1,0 +1,9 @@
+.btn{
+    width:175px;
+    height:36px;
+    border:12px 24px 12px 24px;
+    gap: 10px;;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

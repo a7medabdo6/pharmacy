@@ -12,7 +12,7 @@ import starGood from '../assets/img/star_good.png';
 import startOk from '../assets/img/star_ok.png';
 import starGreat from '../assets/img/star_great.png';
 import upload from '../assets/img/arrow_up.png';
-import Modal from "../Components/Modal"
+import Modal from "../Components/Requests/ModalExampleModal"
 import 'react-phone-input-2/lib/style.css'
 import { useState } from 'react'
 const inter = Inter({ subsets: ['latin'] })
