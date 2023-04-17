@@ -151,7 +151,7 @@ const contactus = () => {
 
         <div className='position-absolute ' style={{bottom:0,width:"95%",    borderRadius: '15px'
 }}>
-        <BottomNav />
+        {/* <BottomNav /> */}
         </div>
         
   
