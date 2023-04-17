@@ -21,12 +21,12 @@ const InputWithButton = () => {
   return (
     <Paper
       component="form"
-      sx={{ p: '2px 4px', display: 'flex', alignItems: 'center', width: 400 }}
+      sx={{ p: '2px 4px', display: 'flex', alignItems: 'center', width: "100%" ,height:"40px"}}
     >
       
       <InputBase
         sx={{ ml: 1, flex: 1 }}
-        placeholder="Search Google Maps"
+        placeholder="Enter promocode"
         inputProps={{ 'aria-label': 'search google maps' }}
       />
      

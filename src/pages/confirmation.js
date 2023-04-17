@@ -36,7 +36,7 @@ const confirmation = () => {
 
   return (
     <main className={styles.main} style={{backgroundColor:"#EDEDED"}}>
-        <div className='w-80 mt-2 pt-4 pl-3 pr-3 pb-4 d-flex justify-content-center align-items-center '
+        <div className='w-100 mt-2 pt-4 pl-3 pr-3 pb-4 d-flex justify-content-center align-items-center '
      style={{backgroundColor:"#0F4392",borderRadius:10,height:"117px",position:"relative"}}>
         <div className=' d-flex justify-content-center align-items-center '>
             <h2 style={{color:"white",margin:"0px",fontWeight:"500"}}>confirmation</h2>

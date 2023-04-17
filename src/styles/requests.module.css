@@ -1,5 +1,5 @@
 .btn{
-    width:191px;
+    width:100%;
     height:39px;
     border:12px 24px 12px 24px;
     gap: 10px;;
@@ -54,6 +54,7 @@
     -webkit-box-orient: vertical;
   }
 
+  
   .main {
     display: flex;
     flex-direction: column;
@@ -62,7 +63,8 @@
     padding: 0rem;
     min-height: 100vh;
     position: relative;
-   
+    max-width: 100%;
+
   }
 @media only screen and (min-width: 600px) {
   .main {

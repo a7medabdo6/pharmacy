@@ -9,7 +9,6 @@ import whatsapp from '../assets/img/whatsapp.png';
 import telegram from '../assets/img/telegram.png';
 import location from '../assets/img/location.png';
 import phone from '../assets/img/phone.png';
-import BottomNav from "../Components/Ulits/BottomNav.js"
 
 import PhoneIcon from '@mui/icons-material/Phone';
 import ButtonTrack from "../Components/tracking/ButtonTrack"
@@ -20,7 +19,7 @@ import Sheet from 'react-modal-sheet';
 import { useState } from 'react';
 
 
-const contactus = () => {
+const Contactapharmachist = () => {
     const [isOpen, setOpen] = useState(false);
 
   return (
@@ -148,15 +147,9 @@ const contactus = () => {
     
     </>
         </div>
-
-        <div className='position-absolute ' style={{bottom:0,width:"95%",    borderRadius: '15px'
-}}>
-        <BottomNav />
-        </div>
-        
   
   </main>
   )
 }
 
-export default contactus
+export default Contactapharmachist

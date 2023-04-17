@@ -24,7 +24,7 @@ const EditInfo = () => {
     }
   return (
     <main className={styles.main} style={{backgroundColor:"#EDEDED"}}>
-    <div className='w-80 mt-2 pt-4 pl-3 pr-3 pb-4 d-flex justify-content-center align-items-center '
+    <div className='w-100 mt-2 pt-4 pl-3 pr-3 pb-4 d-flex justify-content-center align-items-center '
  style={{backgroundColor:"#0F4392",borderRadius:10,height:"117px",position:"relative"}}>
     <div className='w-100 d-flex justify-content-between align-items-center '>
       <div className='d-flex justify-content-center align-items-center ms-2' style={{border:"1px solid white",borderRadius:"5px",width:"25px",height:"25px"}}>
@@ -78,7 +78,7 @@ const EditInfo = () => {
 
     <div className='d-flex justify-content-center align-items-center flex-column my-2' style={{
         backgroundColor:"rgba(15, 67, 146, 0.07)",
-    width:" 78%",
+    width:" 93%",
     borderRadius: "15px",
     marginBlock: "20px"}}>
  <h2 style={{color:"#0F4392"}} className='m-2'>Sign up</h2>
