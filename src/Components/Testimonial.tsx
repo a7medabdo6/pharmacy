@@ -5,8 +5,8 @@ import usertesty from '../assets/img/usertesty.png';
 function Testimonial() {
   return (
     <div 
-    className='w-80 mt-2 p-3 d-flex justify-content-start align-items-start'
-     style={{backgroundColor:"white",borderRadius:10}}>
+    className=' mt-2 p-3 d-flex justify-content-start align-items-start'
+     style={{backgroundColor:"white",borderRadius:10,width:"95%"}}>
        <Image
             //  className="w-20"
             src={usertesty}

@@ -11,6 +11,7 @@ import CardSlider from "../Components/cardSlider"
 import CardBanner from "../Components/cardBanner"
 import CategorySliderCard from "../Components/CategorySliderCard"
 import Footer from "../Components/Footer"
+import Link from 'next/link'
 
 import 'react-phone-input-2/lib/style.css'
 import { useState } from 'react'
@@ -30,7 +31,7 @@ export default function Main() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={styles.main} style={{backgroundColor:"#EDEDED"}}>
-      <div className=' w-80 d-flex justify-content-between align-items-center flex-row  m-4'>
+      <div style={{width:"95%"}} className='  d-flex justify-content-between align-items-center flex-row  m-4'>
       <Image
             //  className="w-20"
             src={logo}
@@ -52,23 +53,34 @@ export default function Main() {
           </div>
       </div>
    
-      <div className='d-flex justify-content-center align-items-center flex-column'>
-      <Input icon='search' iconPosition='left' className='w-80 mb-2 mt-2' placeholder='Search users...' />
+      <div style={{width:"95%"}} className='d-flex justify-content-center align-items-center flex-column'>
+      <Input style={{width:"95%"}} icon='search' iconPosition='left' className=' mb-2 mt-2' placeholder='Search users...' />
 <CardSlider/>
-<h4 className='w-80 align-start m-0 pt-2 pb-2'>LBig deals</h4>
+<h4 style={{width:"95%"}} className=' align-start m-0 pt-2 pb-2'>LBig deals</h4>
 <CardBanner/>
-<h4 className='w-80 align-start mt-2 mb-2 m-0 pt-3 pb-2'>Categories.</h4> 
+<div style={{width:"95%"}} className='d-flex justify-content-between align-items-center '>
+<h4  className=' align-start mt-2 mb-2 m-0 pt-3 pb-2'>Categories.</h4> 
+<Link href="/CategoriesViewall" className='d-flex justify-content-between align-items-center '>
+<p  className=' align-start mt-2 mb-2 m-0 pt-3 pb-2'>view all</p> 
+</Link>
 
-<div className='w-80 mt-3 d-flex justify-content-between align-items-center flex-row '
- style={{
-}}>
+</div>
+
+<div  className=' mt-3 d-flex justify-content-between align-items-center flex-row '
+ style={{width:"95%"}}>
 <CategorySliderCard/>
 <CategorySliderCard/>
 <CategorySliderCard/>
 <CategorySliderCard/>
 
 </div>
-<h4 className='w-80 align-start m-0 pt-3 pb-2'>Our services.</h4> 
+<div style={{width:"95%"}} className='d-flex justify-content-between align-items-center '>
+<h4  className=' align-start mt-2 mb-2 m-0 pt-3 pb-2'>Our services.</h4> 
+<Link href="/CategoriesViewall" className='d-flex justify-content-between align-items-center '>
+<p  className=' align-start mt-2 mb-2 m-0 pt-3 pb-2'>view all</p> 
+</Link>
+
+</div>
 
 <div className='w-100 mt-3 d-flex justify-content-between align-items-center flex-column '
  >
@@ -77,6 +89,13 @@ export default function Main() {
 <OurServicesCard/>
 <OurServicesCard/>
 <OurServicesCard/>
+</div>
+<div style={{width:"95%"}} className='d-flex justify-content-between align-items-center '>
+<h4  className=' align-start mt-2 mb-2 m-0 pt-3 pb-2'>Testimonial</h4> 
+<Link href="/CategoriesViewall" className='d-flex justify-content-between align-items-center '>
+<p  className=' align-start mt-2 mb-2 m-0 pt-3 pb-2'>view all</p> 
+</Link>
+
 </div>
 
 <Testimonial/>

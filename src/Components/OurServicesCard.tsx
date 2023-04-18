@@ -7,7 +7,7 @@ function OurServicesCard() {
     <div 
     className='w-100   pb-4 d-flex justify-content-center align-items-center flex-column'
      >
-      <div className='OurServicesCard  justify-content-center align-items-start '>
+      <div style={{width:"95%"}} className='OurServicesCard   align-items-start '>
       <Image
              className=" Service"
             src={Service}
