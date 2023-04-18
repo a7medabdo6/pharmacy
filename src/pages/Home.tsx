@@ -10,7 +10,7 @@ import { Input } from 'semantic-ui-react'
 import CardSlider from "../Components/cardSlider"
 import CardBanner from "../Components/cardBanner"
 import CategorySliderCard from "../Components/CategorySliderCard"
-
+import Footer from "../Components/Footer"
 
 import 'react-phone-input-2/lib/style.css'
 import { useState } from 'react'
@@ -70,7 +70,7 @@ export default function Main() {
 </div>
 <h4 className='w-80 align-start m-0 pt-3 pb-2'>Our services.</h4> 
 
-<div className='w-80 mt-3 d-flex justify-content-between align-items-center flex-row '
+<div className='w-100 mt-3 d-flex justify-content-between align-items-center flex-column '
  >
 
   
@@ -80,6 +80,9 @@ export default function Main() {
 </div>
 
 <Testimonial/>
+      </div>
+      <div style={{width:"100%"}}>
+        <Footer />
       </div>
      
 

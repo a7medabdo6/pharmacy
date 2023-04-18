@@ -2,7 +2,7 @@ import Head from 'next/head'
 import Image from 'next/image'
 import { Inter } from 'next/font/google'
 import styles from '@/styles/verification.module.css'
-
+import Header from "../Components/Ulits/Header"
 import verification from '../assets/img/verification.png';
 import Left from '../assets/img/Left.png';
 import user from '../assets/img/user.svg';
@@ -10,17 +10,43 @@ import starTerible from '../assets/img/star_terrible.png';
 import starBad from '../assets/img/star_bad.png';
 import starGood from '../assets/img/star_good.png';
 import startOk from '../assets/img/star_ok.png';
+import thanksrate from '../assets/img/thanksrate.png';
+
+
 import starGreat from '../assets/img/star_great.png';
 import upload from '../assets/img/arrow_up.png';
-import Modal from "../Components/Requests/ModalExampleModal"
 import 'react-phone-input-2/lib/style.css'
 import { useState } from 'react'
+import Box from '@mui/material/Box';
+import Button from '@mui/material/Button';
+import Typography from '@mui/material/Typography';
+import Modal from '@mui/material/Modal';
+import ButtomReview from "../Components/Requests/ButtomReview"
+
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
   const [phone, setphone] = useState("us")
   const [open, setOpen] = useState(false)
+  const [modalShow, setModalShow] = useState(false);
 
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
+
+  const style = {
+    position: 'absolute',
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+    width: 400,
+    bgcolor: 'background.paper',
+    border: '2px solid white',
+    boxShadow: 24,
+    p: 4,
+    borderRadius:"10px",
+    padding:"7px"
+  };
+  
   return (
     <>
       <Head>
@@ -30,26 +56,9 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={styles.main}>
-      <div className='d-flex justify-content-around align-items-around flex-row w-100 m-4'>
-      <Image
-            //  className="w-20"
-            src={Left}
-            alt="Next.js Logo"
-            width={35}
-            height={30}
-            priority
-          />
-          <h3 className='text-primary w-60 m-0' style={{textAlign:"center"}}>
-          Write a review
-          </h3>
-          <Image
-            //  className="w-20"
-            src={user}
-            alt="Next.js Logo"
-            width={35}
-            height={30}
-            priority
-          />
+      <div className="d-flex justify-content-center  align-items-center " style={{width:"83%"}}>
+           <Header title='Contact us'/>
+
       </div>
       <h3>Rate your experience</h3>
       <div className={"d-flex justify-content-around align-items-around flex-row"}>
@@ -112,8 +121,39 @@ export default function Home() {
 
       </div>
     
-<Modal setOpen={setOpen} open={open}/>
+<div>
+      <Modal
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
+      >
+        <Box sx={style}>
+          <Typography id="modal-modal-title" variant="h6" component="h2" className='text-center' style={{color:"#0F4392",fontWeight:"bold",fontSize:"20px"}}>
+          </Typography>
+          <Typography id="modal-modal-description" sx={{ mt: 2 }} className='text-center' >
+            
+           <div>
+           <Image
+            src={thanksrate}
+            alt="Next.js Logo"
+            width={366}
+            height={315}
+            priority
+          />
+          <h3>Your review has been submitted successfully</h3>
+           </div>
+              
 
+            
+            <div className='w-100  d-flex justify-content-center align-items-center mt-3'>
+        <ButtomReview txtColor="white" bckColor="#0F4392" BRColor="#0F4392" text="Go To Home Page "/>
+
+      </div>
+          </Typography>
+        </Box>
+      </Modal>
+    </div>
      
       </main>
     </>

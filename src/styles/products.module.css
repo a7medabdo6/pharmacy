@@ -194,6 +194,12 @@ flex-grow: 0;
   order: 0;
   flex-grow: 1;
 }
+
+.bottomsheet{
+  width:50% !important ;
+  left: 25% !important;
+  
+}
 .txtExplore{
 height: 10px;
 
@@ -310,5 +316,9 @@ border-radius: 4px;
 
   }
 
-
+  .bottomsheet{
+    width:100%  ;
+    left:0 ;
+    
+  }
   }

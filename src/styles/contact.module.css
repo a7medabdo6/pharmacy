@@ -94,8 +94,9 @@ color: "blue";
   }
 
   .bottomsheet{
-    width:50% ;
-    left: 25% ;
+    width:50% !important ;
+    left: 25% !important;
+    height: 33%;
     
   }
 @media only screen and (min-width: 600px) {
@@ -113,8 +114,7 @@ color: "blue";
   }
 
   .bottomsheet{
-    width:100% ;
-    left: 0 
+    width:100% 
     
   }
   }

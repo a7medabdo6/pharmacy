@@ -156,15 +156,153 @@ justify-content: center;
 align-items: center;
 padding: 10px;
 }
+.boxnotify{
+height: 64px;
+width: 95%;
+position: relative;
+/* Medic-Primary color */
+background: rgb(200, 218, 244);
+border-radius: 4px;
+}
+.offergreen{
+  display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 4px 8px;
+
+position: absolute;
+left: 86.18%;
+right: 0.99%;
+top: 7.81%;
+
+background: #C3EFB9;
+border-radius: 4px;
+}
+.txtoffergreen{
+  width: 28px;
+height: 16px;
+
+/* Caption */
+font-family: 'Fira Sans';
+font-style: normal;
+font-weight: 400;
+font-size: 12px;
+line-height: 16px;
+/* identical to box height, or 133% */
+
+/* Green 1 */
+color: #219653;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+}
+.boxnotifywhite{
+  height: 64px;
+width: 95%;
+
+/* Medic-Primary color */
+background: white;
+border-radius: 4px;
+}
+.titlenotify{
+left: 5.03%;
+right: 10.8%;
+
+
+/* small screen-small */
+font-family: 'Fira Sans';
+font-style: normal;
+font-size: 20px;
+line-height: 24px;
+/* or 150% */
+
+color: #2F3032;
+}
+.policybox{
+  background-color: white;
+  margin-left: 15px;
+  margin-right: 15px;
+  margin-top: 15px;
+  border-radius: 15px;
+}
+.titlepolicy{
+margin-bottom: 0;
+font-weight: bold;
+}
 .Service{
-  width:100%;
-  /* height: 120px; */
-  margin: auto;
+width: 100px;
+height: 80px;
+
+}
+.footer{
+  border-radius: 15px 15px 0 0;
+  margin-top: 15px;
+
+}
+.text-footer{
+
+  left: 79.77%;
+  right: 6.05%;
+  top: 43.8%;
+  bottom: 47.93%;
+  
+  /* small screen-caption */
+  font-family: 'Fira Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 20px;
+  /* identical to box height, or 154% */
+  
+  color: #FFFFFF;
+  
 }
 .text-service{
-  font-size: 11px;
-  margin-block: 5px;
-  font-weight: bold;
+  width: 107px;
+height: 24px;
+margin-bottom: 0;
+margin-top: 0;
+/* small screen-small */
+font-family: 'Fira Sans';
+font-style: normal;
+font-weight: 400;
+font-size: 16px;
+line-height: 24px;
+/* identical to box height, or 150% */
+
+/* Medic-Primary color */
+color: #0F4392;
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+}
+.info-card{
+
+width: 250px;
+height: 40px;
+margin-top: 0;
+font-family: 'Fira Sans';
+font-style: normal;
+font-weight: 400;
+font-size: 13px;
+line-height: 20px;
+/* or 154% */
+
+/* Medic-Primary color */
+color: #0F4392;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+align-self: stretch;
+flex-grow: 0;
 }
 .box-grey{
   width: 100%;

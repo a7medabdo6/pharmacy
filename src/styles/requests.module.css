@@ -17,6 +17,27 @@
   align-items: center;
   margin: 15px;
 }
+.buttonReview{
+  width:366px;
+  height:44px;
+  border:12px 24px 12px 24px;
+  gap: 10px;;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 15px;
+}
+
+.ButtonWriteReview{
+  width:90%;
+  height:44px;
+  border:12px 24px 12px 24px;
+  gap: 10px;;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 15px;
+}
 .btnCheckOurPrpducts{
   width:70%;
   height:44px;

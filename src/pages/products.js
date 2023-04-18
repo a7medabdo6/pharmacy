@@ -27,8 +27,10 @@ import iconfilter from '../assets/img/iconfilter.png';
 import SearchInput from '../Components/products/SearchInput';
 import ButtonContact from '../Components/products/ButtonContact';
 import CardProduct from '../Components/products/CardProduct';
-
 const products = () => {
+  const [isOpen, setOpen] = useState(false);
+  const snapPoints = [ 400, 600]; // Define the height values that the modal can snap to
+
 
   return (
     <main className={styles.main} style={{backgroundColor:"#EDEDED"}}>
@@ -84,7 +86,7 @@ const products = () => {
 
     </div>
     <div style={{width:"95%"}} className=' d-flex justify-content-between mx-3 align-items-center flex-row-reverse mt-5 '>
-      <div  className={styles.boxfilter}>
+      <div onClick={() => setOpen(true)} className={styles.boxfilter}>
       <Image
         //  className="w-20"
         src={iconfilter}
@@ -210,6 +212,22 @@ const products = () => {
           <CardProduct dis={true} />
           <CardProduct />
         </div>
+
+        <div className='w-80 d-flex  justify-content-start align-items-center  '>
+                <Sheet isOpen={isOpen}  onClose={() => setOpen(false)} snapPoints={snapPoints}>
+        <Sheet.Container className={styles.bottomsheet}  >
+          <Sheet.Header />
+          <div className='w-100 d-flex  justify-content-center align-items-center  '>
+            <h4 style={{color:"#0F4392"}}>Request a call</h4>
+          </div>
+          
+          <Sheet.Content>
+          </Sheet.Content>
+        </Sheet.Container>
+
+        <Sheet.Backdrop />
+      </Sheet>
+                </div>
   
   </main>
   )

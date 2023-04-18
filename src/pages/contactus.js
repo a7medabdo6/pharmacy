@@ -18,10 +18,12 @@ import Button from '../Components/Ulits/Button';
 import ButtonRequestOrder from '../Components/Ulits/ButtonRequestOrder';
 import Sheet from 'react-modal-sheet';
 import { useState } from 'react';
-
+import ModalContent from "../Components/Ulits/ModalContent"
 
 const contactus = () => {
     const [isOpen, setOpen] = useState(false);
+    const snapPoints = [ 400, 600]; // Define the height values that the modal can snap to
+
 
   return (
     <main className={styles.main} style={{backgroundColor:"#EDEDED"}}>
@@ -127,10 +129,16 @@ const contactus = () => {
             />                <p className={styles.number}>Tal avenu- white hills hotel, Sharm Elsheikh, Egypt</p>
 
 <div className='w-80 d-flex  justify-content-start align-items-center  '>
-                <Sheet isOpen={isOpen}  onClose={() => setOpen(false)}>
+                <Sheet isOpen={isOpen}  onClose={() => setOpen(false)} snapPoints={snapPoints}>
         <Sheet.Container className={styles.bottomsheet}  >
           <Sheet.Header />
-          <Sheet.Content>{/* Your sheet content goes here */}</Sheet.Content>
+          <div className='w-100 d-flex  justify-content-center align-items-center  '>
+            <h4 style={{color:"#0F4392"}}>Request a call</h4>
+          </div>
+          
+          <Sheet.Content>
+            <ModalContent />
+          </Sheet.Content>
         </Sheet.Container>
 
         <Sheet.Backdrop />
