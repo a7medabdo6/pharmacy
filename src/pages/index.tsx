@@ -8,6 +8,8 @@ import welcome from '../assets/img/welcome.png';
 import ReactPhoneInput from 'react-phone-input-2'
 import 'react-phone-input-2/lib/style.css'
 import { useState } from 'react'
+import Link from 'next/link'
+
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
@@ -66,8 +68,11 @@ setphone(value)
     <label htmlFor="exampleInputPassword1">Select Hotel Name </label>
     <input type="text" className="form-control" id="exampleInputPassword1" placeholder="Select here"/>
   </div>
-  <button type="submit" className="btn btn-primary mb-3 mt-3">Next</button>
-</form>
+
+  <Link href="/verification" className='w-100'>
+
+<button type="submit" className="btn btn-primary mb-3 mt-3 w-100">Next</button>
+</Link></form>
       </div>
 
           {/* <Image
