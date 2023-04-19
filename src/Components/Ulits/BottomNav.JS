@@ -20,7 +20,7 @@ const BottomNav = () => {
     }
   
     return (
-        <Box sx={{ width: "100%" }}>
+        <Box sx={{ width: "100%",height:"100px" }}>
         <BottomNavigation
           showLabels
           value={value}

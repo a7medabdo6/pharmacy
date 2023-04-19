@@ -32,7 +32,7 @@ const contactus = () => {
     <Header title='Contact us'/>
 
     </div>
-    <div style={{backgroundColor:"white",width:"95%"}} className=' mt-2  d-flex justify-content-center align-items-center flex-column'>
+    <div style={{backgroundColor:"white",width:"95%",borderRadius:"15px"}} className=' mt-2  d-flex justify-content-center align-items-center flex-column'>
         <p className={styles.title}> We are here for you</p>
 
         <div className='w-100 text-center d-flex justify-content-center align-items-center flex-column'>
@@ -145,13 +145,15 @@ const contactus = () => {
       </Sheet>
                 </div>
                     </div>
+                    <div style={{width:"95%"}} onClick={() => setOpen(true)}>
                     <ButtonRequestOrder
                 txtColor="white" bckColor="#0F4392" BRColor="#0F4392" text="Request a call"/>
+                    </div>
+             
              
             </div>
 
             <>
-      <button onClick={() => setOpen(true)}>Open sheet</button>
 
     
     </>
@@ -162,7 +164,10 @@ const contactus = () => {
         {/* <BottomNav /> */}
         </div>
         
-  
+        <div className='position-absolute ' style={{bottom:0,width:"100%",    borderRadius: '15px'
+}}>
+        <BottomNav />
+        </div>
   </main>
   )
 }

@@ -6,13 +6,20 @@ import alert from '../../assets/img/alert.png';
 import left from '../../assets/img/Leftwhite.png';
 
 import Image from 'next/image'
+import { useRouter } from 'next/router';
+import Link from 'next/link'
 
 const Header = ({title}) => {
+  const router = useRouter();
+
+  const handleBack = () => {
+    router.back();
+  };
   return (
     <div className='w-100 mt-2 pt-4 pl-3 pr-3 pb-4 d-flex justify-content-center align-items-center '
  style={{backgroundColor:"#0F4392",borderRadius:10,height:"117px",position:"relative"}}>
     <div className='w-100 d-flex justify-content-between align-items-center '>
-      <div className='d-flex justify-content-center align-items-center ms-3' style={{border:"1px solid white",borderRadius:"5px",width:"25px",height:"25px"}}>
+      <div onClick={handleBack} className='d-flex justify-content-center align-items-center ms-3' style={{border:"1px solid white",borderRadius:"5px",width:"25px",height:"25px"}}>
       <Image
         //  className="w-20"
         src={left}
@@ -31,17 +38,18 @@ const Header = ({title}) => {
       </div>
   
         <div className='d-flex justify-content-center align-items-center '>
-
+        <Link href="/Notifications" >
         <Image
         //  className="w-20"
         src={alert}
-        style={{position:"absolute",right:"80px"}}
+        style={{position:"absolute",right:"80px",top:"46px"}}
 
         alt="Next.js Logo"
         width={19}
         height={24}
         priority
         />
+        </Link>
          <div className=' d-flex justify-content-center align-items-center ' style={{height:"24px",width:'24px',borderRadius:"50%",backgroundColor:"#C5CAD4",position:"absolute",right:"20px"}}>
         <Image
         //  className="w-20"

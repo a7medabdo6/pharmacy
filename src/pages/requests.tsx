@@ -72,12 +72,15 @@ const requests = () => {
           <CardOrder />
 
         </div>
+        <div className=' ms-5 mt-5 me-1  d-flex justify-content-start align-items-center ' style={{width:"90%"}}>
+          <h3>Promocodes</h3>
+        </div>
         <div style={{width:"90%"}} className='my-5'>
         <InputWithButton/>
         </div>
         </div>
        
-        <div className='position-relative ' style={{bottom:0,width:"90%",    borderRadius: '15px'
+        <div className='position-relative ' style={{bottom:0,width:"100%",    borderRadius: '15px'
 }}>
         <BottomNav />
         </div>

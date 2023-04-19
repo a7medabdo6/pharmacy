@@ -27,11 +27,19 @@ import iconfilter from '../assets/img/iconfilter.png';
 import SearchInput from '../Components/products/SearchInput';
 import ButtonContact from '../Components/products/ButtonContact';
 import CardProduct from '../Components/products/CardProduct';
+import { useRouter } from 'next/router';
+import Link from 'next/link'
+import DropdownFilter from '../Components/products/DropdownFilter';
+
 const products = () => {
   const [isOpen, setOpen] = useState(false);
   const snapPoints = [ 400, 600]; // Define the height values that the modal can snap to
 
+  const router = useRouter();
 
+  const handleBack = () => {
+    router.back();
+  };
   return (
     <main className={styles.main} style={{backgroundColor:"#EDEDED"}}>
     <div className='w-100 text-center d-flex justify-content-center align-items-center flex-column'>
@@ -39,7 +47,7 @@ const products = () => {
     <div className='w-100 mt-2 pt-4 pl-3 pr-3 pb-4 d-flex justify-content-center align-items-center flex-column '
  style={{backgroundColor:"#0F4392",borderRadius:10,height:"150px",position:"relative"}}>
     <div className='w-100 d-flex justify-content-between align-items-center '>
-      <div className='d-flex justify-content-center align-items-center ms-3' style={{border:"1px solid white",borderRadius:"5px",width:"25px",height:"25px"}}>
+      <div onClick={handleBack} className='d-flex justify-content-center align-items-center ms-3' style={{border:"1px solid white",borderRadius:"5px",width:"25px",height:"25px"}}>
       <Image
         //  className="w-20"
         src={left}
@@ -59,16 +67,18 @@ const products = () => {
   
         <div className='d-flex justify-content-center align-items-center '>
 
+        <Link href="/Notifications" className='w-100'>
         <Image
         //  className="w-20"
         src={alert}
-        style={{position:"absolute",right:"80px"}}
+        style={{position:"absolute",right:"80px",top:"24px"}}
 
         alt="Next.js Logo"
         width={19}
         height={24}
         priority
         />
+        </Link>
          <div className=' d-flex justify-content-center align-items-center ' style={{height:"24px",width:'24px',borderRadius:"50%",backgroundColor:"#C5CAD4",position:"absolute",right:"20px"}}>
         <Image
         //  className="w-20"
@@ -222,13 +232,17 @@ const products = () => {
           </div>
           
           <Sheet.Content>
+            <DropdownFilter />
           </Sheet.Content>
         </Sheet.Container>
 
         <Sheet.Backdrop />
       </Sheet>
                 </div>
-  
+                <div className='position-relative ' style={{bottom:0,width:"100%",    borderRadius: '15px'
+}}>
+        <BottomNav />
+        </div>
   </main>
   )
 }
