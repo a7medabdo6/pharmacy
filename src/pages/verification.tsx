@@ -8,6 +8,8 @@ import Left from '../assets/img/Left.png';
 
 import 'react-phone-input-2/lib/style.css'
 import { useState } from 'react'
+import Link from 'next/link'
+
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
@@ -67,8 +69,10 @@ export default function Home() {
   </div>
   </div>
  
-  
-  <button type="submit" className="btn btn-primary mb-3 mt-3">Next</button>
+  <Link href="/Home" className='w-100'>
+
+  <button type="submit" className="btn btn-primary mb-3 mt-3 w-100">Next</button>
+  </Link>
 </form>
       </div>
 
