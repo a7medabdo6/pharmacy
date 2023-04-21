@@ -69,8 +69,12 @@ export default function Home() {
   </div>
   </div>
  
+<<<<<<< HEAD
   <Link href="/Home" className='w-100'>
 
+=======
+  <Link href="/login" className='w-100'>
+>>>>>>> d390864811b5ead4ce8ccabaf712d9abd993f025
   <button type="submit" className="btn btn-primary mb-3 mt-3 w-100">Next</button>
   </Link>
 </form>

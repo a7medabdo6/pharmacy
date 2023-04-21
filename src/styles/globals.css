@@ -40,6 +40,14 @@
   --card-border-rgb: 131, 134, 135;
 }
 
+.carousel-root{
+  width: 95%;
+}
+
+.MuiBottomNavigation-root{
+  height: 100px;
+}
+
 @media (prefers-color-scheme: dark) {
   :root {
     --foreground-rgb: 255, 255, 255;
@@ -152,7 +160,7 @@ left: -20px;
 border-radius: 5px;
 background-color: white;
 display: flex;
-justify-content: center;
+justify-content: start;
 align-items: center;
 padding: 10px;
 }

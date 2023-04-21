@@ -5,8 +5,8 @@ import slider from '../assets/img/slider.png';
 function CardSlider() {
   return (
     <div 
-    className='w-80 mt-2 pt-4 pl-3 pr-3 pb-4 d-flex justify-content-center align-items-center'
-     style={{backgroundColor:"#0F4392",borderRadius:10}}>
+    className=' mt-2 pt-4 pl-3 pr-3 pb-4 d-flex justify-content-center align-items-center'
+     style={{backgroundColor:"#0F4392",borderRadius:10,width:"95%"}}>
        <Image
             //  className="w-20"
             src={slider}
