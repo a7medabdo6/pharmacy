@@ -142,9 +142,9 @@ export default function Home() {
           }}
         >
           <div className="d-flex justify-content-center align-items-center flex-column">
-            <span className="text-primary mt-3" style={{ fontSize: "20px" }}>
+            <h3 className="text-primary mt-3" style={{ fontSize: "20px" }}>
               Verification
-            </span>{" "}
+            </h3>{" "}
             <h4 className="m-3 large text-center titlever">
               Please enter the code that have been sent to{" "}
               <span className="text-primary">22655987411236</span>{" "}
