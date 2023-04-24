@@ -11,24 +11,42 @@ import starBad from '../assets/img/star_bad.png';
 import starGood from '../assets/img/star_good.png';
 import startOk from '../assets/img/star_ok.png';
 import thanksrate from '../assets/img/thanksrate.png';
-
-
+import Rateing from "../Components/Ulits/Rateing"
+import UploadFile from "../Components/Ulits/UploadFile"
 import starGreat from '../assets/img/star_great.png';
 import upload from '../assets/img/arrow_up.png';
 import 'react-phone-input-2/lib/style.css'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
 import ButtomReview from "../Components/Requests/ButtomReview"
-
+import PostReview from "../Apis/PostReview"
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
+
+ 
+
+  
+
   const [phone, setphone] = useState("us")
   const [open, setOpen] = useState(false)
+  const [selectedFile, setSelectedFile] = useState(null);
+  const handleFileChange = (event) => {
+    setSelectedFile(event.target.files[0]);
+  }
+
+  
   const [modalShow, setModalShow] = useState(false);
+  const [description,setdescription]=useState()
+      const [file,setfile]=useState()
+      const [rate,setrate]=useState()
+      const [Data,setData] =useState()
+const Onchangemessage =(e:any)=>{
+  setdescription(e.target.value)
+}
 
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
@@ -46,7 +64,32 @@ export default function Home() {
     borderRadius:"10px",
     padding:"7px"
   };
+    
+  const SendReview = async (e:any) => {
+    e.preventDefault()
+
+    const formData = new FormData();
+    formData.append('description', description);
+    formData.append('file', file);
+    formData.append('rate', rate);
+    formData.append('user', 1);
+
+
+    const res = await PostReview(formData);
+    if(res)
+    setData(res)
+    
+    return res;
+  };
+
+  // useEffect(()=>{
+  //   setTimeout(()=>{
+  //     if(Data){
+  //       setOpen(false)
+  //     }
+  //   },2000)
   
+  // },[Data])
   return (
     <>
       <Head>
@@ -63,45 +106,12 @@ export default function Home() {
       <h3>Rate your experience</h3>
       <div className={"d-flex justify-content-around align-items-around flex-row"}>
        
-           <Image
-            src={starTerible}
-            alt="Next.js Logo"
-            // width={80}
-            // height={37}
-            priority
-          />
-           <Image
-            src={starBad}
-            alt="Next.js Logo"
-            // width={80}
-            // height={37}
-            priority
-          />
-           <Image
-            src={startOk}
-            alt="Next.js Logo"
-            // width={80}
-            // height={37}
-            priority
-          />
-           <Image
-            src={starGood}
-            alt="Next.js Logo"
-            // width={80}
-            // height={37}
-            priority
-          /> <Image
-          src={starGreat}
-          alt="Next.js Logo"
-          // width={80}
-          // height={37}
-          priority
-        />
+          <Rateing setrate={setrate} />
       </div>
       <div className='d-flex justify-content-center align-items-center flex-column w-80 mt-5'>
       <div className="form-group w-100">
     <label htmlFor="exampleFormControlTextarea1">Leave your message*</label>
-    <textarea className="form-control" id="exampleFormControlTextarea1" rows={3}></textarea>
+    <textarea onChange={Onchangemessage} className="form-control" id="exampleFormControlTextarea1" rows={3}></textarea>
   </div>
   <p className='w-100 m-0 mt-2'>Upload a file</p>
   <div className='d-flex justify-content-center align-items-center flex-column box-grey'>
@@ -112,12 +122,13 @@ export default function Home() {
             // height={37}
             priority
           />
-          <div className='d-flex justify-content-center align-items-center flex-column box-grey-20 '>
-            Add Files
+          <div style={{cursor:"pointer"}} className='d-flex justify-content-center align-items-center flex-column box-grey-20 '>
+            <UploadFile setfile={setfile} />
+ 
           </div>
           <p className='text-muted m-2'>Or drop files to upload</p>
   </div>
-  <button onClick={()=>setOpen(true)} type="submit" className="btn btn-primary mb-3 mt-3 w-100">Submit</button>
+  <button onClick={SendReview} type="submit" className="btn btn-primary mb-3 mt-3 w-100">Submit</button>
 
       </div>
     
