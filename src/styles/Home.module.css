@@ -321,3 +321,13 @@
     background-size: cover;
   }
 }
+@media only screen and (min-width: 900px) {
+  .form-control{
+    padding-block: .8rem !important;
+    text-align: left;
+
+  }
+}
+
+
+

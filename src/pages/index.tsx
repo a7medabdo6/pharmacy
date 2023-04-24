@@ -57,8 +57,8 @@ setphone(value)
           />
       </div>
       <div className='d-flex justify-content-center align-items-center flex-column'>
-        <h3 className='m-3'>Welcome to Well Medic</h3>
-        <h5 style={{color:"red"}}>live healthy … live well</h5>
+        <h3 className='m-3 font-xs-16'>Welcome to Well Medic</h3>
+        <h5 style={{color:"red "}}>live healthy … live well</h5>
       </div>
       <div className='d-flex justify-content-center align-items-center flex-column' style={{
         backgroundColor:"rgba(15, 67, 146, 0.07)",
@@ -119,9 +119,9 @@ setphone(value)
         <Image src={frame} alt="Next Logo" className="logoFrame" priority />
       </div>
 
-      <div className="divsignup d-flex justify-content-around align-items-center flex-column">
+      <div className="divsignup d-flex justify-content-end align-items-center flex-column">
         <div className="d-flex justify-content-center align-items-center flex-column">
-          <h3 className="m-3">Welcome to Well Medic</h3>
+          <h3 className="m-3 font-xs-16">Welcome to Well Medic</h3>
           <h5 style={{ color: "red" }}>live healthy … live well</h5>
         </div>
         <div
@@ -130,7 +130,7 @@ setphone(value)
             backgroundColor: "rgba(15, 67, 146, 0.07)",
             width: " 80%",
             borderRadius: "15px",
-            height: "500px",
+            height: "75vh",
 
             marginBlock: "20px",
           }}

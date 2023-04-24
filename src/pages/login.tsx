@@ -138,8 +138,8 @@ setphone(value)
 
       <div className="divsignup d-flex justify-content-around align-items-center flex-column">
         <div className="d-flex justify-content-center align-items-center flex-column">
-          <h3 className="m-3">Welcome to Well Medic</h3>
-          <h5 style={{ color: "red" }}>live healthy … live well</h5>
+        <h3 className='m-3 font-xs-16'>Welcome to Well Medic</h3>
+        <h5 style={{color:"red font-xs-14"}}>live healthy … live well</h5>
         </div>
         <div
           className="d-flex justify-content-center align-items-center flex-column"

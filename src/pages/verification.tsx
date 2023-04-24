@@ -45,7 +45,7 @@ export default function Home() {
         
 
         alt="Next.js Logo"
-        width={14}
+        width={14} 
         height={16}
         priority
         />
@@ -76,7 +76,8 @@ export default function Home() {
           />
       </div>
       <div className='d-flex justify-content-center align-items-center flex-column'>
-        <h3 className='m-3 text-center'>Please enter the code that have been sent to <span className='text-primary'>22655987411236</span>  </h3>
+        <h5 className='m-3 text-center'>Please enter the code that have been sent to
+         <span className='text-primary'>22655987411236</span>  </h5>
       </div>
       <div className='d-flex justify-content-center align-items-center flex-column' style={{
     width:" 90%",
@@ -127,7 +128,7 @@ export default function Home() {
 
       <div className="divsignup d-flex justify-content-center align-items-center flex-column">
         <div className="d-flex justify-content-center align-items-center flex-column">
-          <h3 className="m-3">Welcome to Well Medic</h3>
+        <h3 className='m-3 font-xs-16'>Welcome to Well Medic</h3>
           <h5 style={{ color: "red", marginBottom: "45px", marginTop: 0 }}>
             live healthy … live well
           </h5>
@@ -144,10 +145,10 @@ export default function Home() {
             <span className="text-primary mt-3" style={{ fontSize: "20px" }}>
               Verification
             </span>{" "}
-            <h3 className="m-3 text-center titlever">
+            <h4 className="m-3 large text-center titlever">
               Please enter the code that have been sent to{" "}
               <span className="text-primary">22655987411236</span>{" "}
-            </h3>
+            </h4>
           </div>
           <div
             className="d-flex justify-content-center align-items-center flex-column"
@@ -202,14 +203,14 @@ export default function Home() {
                   type="submit"
                   className="btn btn-primary mb-3 mt-3 w-100"
                 >
-                  Next
+                  Verify
                 </button>
               </Link>
             </form>
           </div>
           <div className="d-flex justify-content-around align-items-center mb-3 ">
             <p className="me-4 mb-0">Didn’t receive the code?</p>
-            <p className="text-primary ms-4">Resend code</p>
+            <p className="text-primary ms-4 mb-0">Resend code</p>
           </div>
         </div>
       </div>

@@ -327,6 +327,16 @@ flex-grow: 0;
 }
 
 
+@media only screen and (min-width: 900px) {
+  .form-control{
+    padding-block: .8rem !important;
+    text-align: left;
+  }
+  label {
+    display: inline-block;
+    font-size: 1.3rem;
+}
+}
 
 
 
@@ -355,12 +365,12 @@ flex-grow: 0;
 }
 .logowell{
   width: 47%;
-height: 161px;
+/* height: 161px; */
 }
 
 .logoFrame{
   width: 85%;
-height: 300px;
+height: auto;
 }
 
 
@@ -370,4 +380,49 @@ height: 300px;
 
 .inputsearch{
   background-color: "#FAFBFB";
+}
+.font-xs-14 {font-size:18px;} /*1rem = 16px*/
+.font-sm-16 {font-size:20px;} /*1rem = 16px*/
+.font-lg-20 {font-size:24px;} /*1rem = 16px*/
+.font-xl-24 {font-size:28px;} /*1rem = 16px*/ 
+/* Small devices (landscape phones, 544px and up) */
+@media (min-width: 544px) {  
+  .font-xs-14 {font-size:14px;} /*1rem = 16px*/
+  .font-sm-16 {font-size:16px;} /*1rem = 16px*/
+  .font-lg-20 {font-size:20px;} /*1rem = 16px*/
+  .font-xl-24 {font-size:24px;} /*1rem = 16px*/
+
+
+}
+ 
+@media only screen and (min-width: 900px) {
+  .form-control{
+    padding-block: .8rem !important;
+    text-align: left;
+
+  }
+  p{
+    font-size: 20px !important;
+  }
+  h3 {
+    font-size: 2.5rem !important;
+}
+.h5, h5 {
+  font-size: 1.5rem !important;
+  margin-top: 0px !important;
+}
+.h4, h4 {
+  font-size: 1.8rem !important;
+  margin-top: 0px !important;
+  font-weight:400 !important
+}
+.form-group {
+  text-align: left !important;
+  margin-block:15px !important
+}
+}
+ 
+
+.react-tel-input .form-control{
+  width: 100% !important;
 }
