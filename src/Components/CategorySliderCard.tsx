@@ -1,10 +1,12 @@
 import Image from 'next/image'
 import React from 'react'
 import Category from '../assets/img/category.png';
+import Link from 'next/link';
 
-function CategorySliderCard() {
+function CategorySliderCard({item}) {
   return (
-    <div 
+    <Link href={`/products/${item?.id}`}>
+     <div 
     
     className=' mt-5 m-4  d-flex justify-content-center align-items-center flex-wrap'
      >
@@ -21,6 +23,8 @@ function CategorySliderCard() {
       </div>
        
     </div>
+    </Link>
+   
 
   )
 }

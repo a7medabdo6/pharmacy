@@ -34,7 +34,7 @@ export default function Home() {
   const [phone, setphone] = useState("us")
   const [open, setOpen] = useState(false)
   const [selectedFile, setSelectedFile] = useState(null);
-  const handleFileChange = (event) => {
+  const handleFileChange = (event:any) => {
     setSelectedFile(event.target.files[0]);
   }
 
@@ -82,14 +82,14 @@ const Onchangemessage =(e:any)=>{
     return res;
   };
 
-  // useEffect(()=>{
-  //   setTimeout(()=>{
-  //     if(Data){
-  //       setOpen(false)
-  //     }
-  //   },2000)
+  useEffect(()=>{
+    setTimeout(()=>{
+      if(Data){
+        setOpen(true)
+      }
+    },2000)
   
-  // },[Data])
+  },[Data])
   return (
     <>
       <Head>

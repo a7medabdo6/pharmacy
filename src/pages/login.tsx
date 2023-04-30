@@ -136,10 +136,10 @@ setphone(value)
         <Image src={frame} alt="Next Logo" className="logoFrame" priority />
       </div>
 
-      <div className="divsignup d-flex justify-content-around align-items-center flex-column">
+      <div className="divsignup d-flex justify-content-center align-items-center flex-column">
         <div className="d-flex justify-content-center align-items-center flex-column">
-        <h3 className='m-3 font-xs-16'>Welcome to Well Medic</h3>
-        <h5 style={{color:"red font-xs-14"}}>live healthy … live well</h5>
+        <h5 className='m-3 font-xs-16'>Welcome Back</h5>
+        <p  style={{color:"#DD1717 ",lineHeight:"28px",fontSize:"25px !important"}}>live healthy … live well</p>
         </div>
         <div
           className="d-flex justify-content-center align-items-center flex-column"
@@ -147,7 +147,6 @@ setphone(value)
             backgroundColor: "rgba(15, 67, 146, 0.07)",
             width: " 80%",
             borderRadius: "15px",
-            height: "500px",
 
             marginBlock: "20px",
           }}
@@ -158,13 +157,13 @@ setphone(value)
           <div className="d-flex justify-content-center  align-items-center w-80">
             <label htmlFor="exampleInputPassword1">
               {" "}
-              Already have an account?{" "}
+              Don’t have an account?{" "}
             </label>
 
             {/* <h4 style={{ color: "#202223" }} className="m-2">
               Already have an account?
             </h4> */}
-            <a className="m-2">Sign in</a>
+            <a className="m-2">Sign up</a>
           </div>
 
           <form className="d-flex justify-content-center  flex-column w-80">
@@ -196,7 +195,7 @@ setphone(value)
               onClick={submit}
               className="btn btn-primary mb-3 mt-3 w-100"
             >
-              Next
+              Sign in
             </button>
             {/* </Link> */}
           </form>

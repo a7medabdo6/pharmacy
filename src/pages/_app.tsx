@@ -7,7 +7,12 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { config } from "@fortawesome/fontawesome-svg-core";
 // Tell Font Awesome to skip adding the CSS automatically 
 // since it's already imported above
+import { store } from '../store'
+import { Provider } from 'react-redux'
 config.autoAddCss = false; 
 export default function App({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />
+  return   <Provider store={store}>
+  <Component {...pageProps} />
+  </Provider>
+
 }

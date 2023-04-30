@@ -1,42 +1,45 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styles from "@/styles/products.module.css";
-import Header from "../Components/Ulits/Header";
-import StepProgress from "../Components/Ulits/StepProgressBar";
-import Frame from "../assets/img/Frame.png";
-import viber from "../assets/img/viber.png";
-import messenger from "../assets/img/messenger.png";
-import whatsapp from "../assets/img/whatsapp.png";
-import telegram from "../assets/img/telegram.png";
-import location from "../assets/img/location.png";
-import phone from "../assets/img/phone.png";
-import BottomNav from "../Components/Ulits/BottomNav.js";
 
-import PhoneIcon from "@mui/icons-material/Phone";
-import ButtonTrack from "../Components/tracking/ButtonTrack";
+import BottomNav from "../../../Components/Ulits/BottomNav";
+
 import Image from "next/image";
-import Button from "../Components/Ulits/Button";
-import ButtonRequestOrder from "../Components/Ulits/ButtonRequestOrder";
+
 import Sheet from "react-modal-sheet";
 import { useState } from "react";
-import icon from "../assets/img/icon.png";
-import alert from "../assets/img/alert.png";
-import left from "../assets/img/Leftwhite.png";
-import exit from "../assets/img/exit.png";
+import icon from "../../../assets/img/icon.png";
+import alert from "../../../assets/img/alert.png";
+import left from "../../../assets/img/Leftwhite.png";
+import exit from "../../../assets/img/exit.png";
 
-import iconfilter from "../assets/img/iconfilter.png";
-import SearchInput from "../Components/products/SearchInput";
-import ButtonContact from "../Components/products/ButtonContact";
-import CardProduct from "../Components/products/CardProduct";
+import iconfilter from "../../../assets/img/iconfilter.png";
+import SearchInput from "../../../Components/products/SearchInput";
+import ButtonContact from "../../../Components/products/ButtonContact";
+import CardProduct from "../../../Components/products/CardProduct";
 import { useRouter } from "next/router";
 import Link from "next/link";
-import DropdownFilter from "../Components/products/DropdownFilter";
-
+import DropdownFilter from "../../../Components/products/DropdownFilter";
+import gettAllProducts from "../../../Apis/products";
 const products = () => {
   const [isOpen, setOpen] = useState(false);
+  const [products, setproducts] = useState([]);
+
   const snapPoints = [400, 600]; // Define the height values that the modal can snap to
 
   const router = useRouter();
-
+  const { id } = router.query;
+  console.log(id, "idd");
+  const getHomeData = async (e) => {
+    const res = await gettAllProducts({ id: e });
+    console.log(res, "ressss");
+    setproducts(res?.results);
+    return res;
+  };
+  useEffect(() => {
+    if (id) {
+      getHomeData(id);
+    }
+  }, [id]);
   const handleBack = () => {
     router.back();
   };
@@ -256,10 +259,9 @@ const products = () => {
         className="d-flex justify-content-center mt-3 align-items-center flex-wrap "
         style={{ width: "95%" }}
       >
-        <CardProduct dis={true} />
-        <CardProduct />
-        <CardProduct dis={true} />
-        <CardProduct />
+        {products?.map((item) => (
+          <CardProduct item={item} id={id} />
+        ))}
       </div>
 
       <div className="w-80 d-flex  justify-content-start align-items-center  ">
