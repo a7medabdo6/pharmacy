@@ -311,9 +311,13 @@ export default function Main() {
                             </a>
                           </li>
                           <li className="nav-item mx-3">
-                            <a className="nav-link" href="#">
+                            <Link
+                              href="/"
+                              className="d-flex justify-content-between align-items-center "
+                            >
+                              {" "}
                               Our Products
-                            </a>
+                            </Link>
                           </li>
                           <li className="nav-item mx-3">
                             <a className="nav-link" href="#">
@@ -510,9 +514,11 @@ export default function Main() {
               className=" mt-3 d-flex justify-content-center align-items-center flex-column w-100 "
               style={{ width: "100%" }}
             >
-              <h5 style={{ color: "#0F4392", fontSize: "14px !important" }}>
-                Check all reviews
-              </h5>
+              <Link href="/allreview">
+                <h5 style={{ color: "#0F4392", fontSize: "14px !important" }}>
+                  Check all reviews
+                </h5>
+              </Link>
               <FooterDesk />
             </div>
           </div>

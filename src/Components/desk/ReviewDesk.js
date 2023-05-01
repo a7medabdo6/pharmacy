@@ -61,6 +61,7 @@ const ReviewDesk = () => {
 
     const res = await PostReview(formData);
     if (res) setData(res);
+    if (res) handleOpen();
 
     return res;
   };
