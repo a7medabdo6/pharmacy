@@ -3,7 +3,7 @@ import styles from "@/styles/verification.module.css";
 
 import logo from "../assets/img/logo2.png";
 import user from "../assets/img/user.svg";
-
+import SerachBar from "../Components/SerachBar";
 import { Input } from "semantic-ui-react";
 import CardSlider from "../Components/cardSlider";
 import CardBanner from "../Components/cardBanner";
@@ -45,6 +45,7 @@ import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
 import ButtomReview from "@/Components/Requests/ButtomReview";
 import ReviewDesk from "../Components/desk/ReviewDesk";
+import NavBar from "../Components/desk/NavBar";
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Main() {
@@ -124,13 +125,7 @@ export default function Main() {
                 style={{ width: "95%" }}
                 className="d-flex justify-content-center align-items-center flex-column"
               >
-                <Input
-                  style={{ width: "95%" }}
-                  icon="search"
-                  iconPosition="left"
-                  className=" mb-2 mt-2"
-                  placeholder="Search users..."
-                />
+                <SerachBar />
                 <CardSlider />
                 <h4
                   style={{ width: "95%" }}
@@ -269,99 +264,7 @@ export default function Main() {
               </p>
             </div>
             <div className="d-flex justify-content-start align-items-start flex-column    w-100">
-              <div className="w-100">
-                <nav className="navbar navbar-expand-lg bg-body-tertiary boxshadow w-100">
-                  <div className="container-fluid" style={{ width: "80%" }}>
-                    <div className="d-flex justify-content-center align-items-center">
-                      <a className="navbar-brand" href="#">
-                        <Image
-                          //  className="w-20"
-                          src={logo2}
-                          alt="Next.js Logo"
-                          width={50}
-                          height={30}
-                          priority
-                        />{" "}
-                      </a>
-                      <button
-                        className="navbar-toggler"
-                        type="button"
-                        data-bs-toggle="collapse"
-                        data-bs-target="#navbarSupportedContent"
-                        aria-controls="navbarSupportedContent"
-                        aria-expanded="false"
-                        aria-label="Toggle navigation"
-                      >
-                        <span className="navbar-toggler-icon"></span>
-                      </button>
-                    </div>
-                    <div className="d-flex justify-content-center align-items-center">
-                      <div
-                        className="collapse navbar-collapse"
-                        id="navbarSupportedContent"
-                      >
-                        <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-                          <li className="nav-item mx-3">
-                            <a
-                              className="nav-link active"
-                              aria-current="page"
-                              href="#"
-                            >
-                              Home
-                            </a>
-                          </li>
-                          <li className="nav-item mx-3">
-                            <Link
-                              href="/"
-                              className="d-flex justify-content-between align-items-center "
-                            >
-                              {" "}
-                              Our Products
-                            </Link>
-                          </li>
-                          <li className="nav-item mx-3">
-                            <a className="nav-link" href="#">
-                              Requests
-                            </a>
-                          </li>
-                          <li className="nav-item mx-3">
-                            <a className="nav-link " href="#">
-                              Contact us
-                            </a>
-                          </li>
-                        </ul>
-                      </div>
-                    </div>
-                    <div className="d-flex justify-content-center align-items-center">
-                      <form className="d-flex" role="search">
-                        <button
-                          className="btn btn-outline-success me-2"
-                          type="submit"
-                          style={{
-                            backgroundColor: "white",
-                            borderColor: "#0F4392",
-                            color: "#0F4392",
-                            width: "100px",
-                          }}
-                        >
-                          sign in
-                        </button>
-                        <button
-                          className="btn btn-outline-success"
-                          style={{
-                            color: "white",
-                            backgroundColor: "#0F4392",
-                            width: "100px",
-                          }}
-                          type="submit"
-                        >
-                          sign up
-                        </button>
-                      </form>
-                    </div>
-                  </div>
-                </nav>
-              </div>
+              <NavBar />
 
               <div
                 class="input-group mb-3 position-relative mt-3 d-flex justify-content-center align-items-center flex-column"

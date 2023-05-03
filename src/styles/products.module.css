@@ -164,7 +164,6 @@ order: 0;
 flex-grow: 0;
 }
 .button{
-  width:171px;
   height:39px;
   border:12px 24px 12px 24px;
   display: flex;

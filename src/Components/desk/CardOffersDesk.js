@@ -8,25 +8,35 @@ import {
   faCircleXmark,
   faPen,
 } from "@fortawesome/free-solid-svg-icons";
-import ButtonOffers from "./ButtonOffers";
+import ButtonOffers from "../../Components/Offers/ButtonOffers";
 
-const CardOffers = () => {
+const CardOffersDesk = () => {
   return (
     <div
-      className="w-100 d-flex -justify-content-start align-items-center mt-3"
+      className="w-100 d-flex -justify-content-start align-items-center flex-column mt-3"
       style={{
         backgroundColor: "white",
         borderRadius: "10px",
         height: "160px",
       }}
     >
+      <h3
+        style={{
+          fontSize: "17px !important",
+          fontWeight: "bold",
+          color: "#DD1717",
+          lineHeight: "24px",
+        }}
+        className="mb-1"
+      >
+        10 % discount
+      </h3>
       <div
         className="m-3 d-flex justify-content-center align-items-center position-relative"
         style={{
-          border: "1px solid grey",
           borderRadius: "5px",
           height: "128px",
-          width: "148px",
+          width: "100%",
         }}
       >
         <Image
@@ -37,24 +47,15 @@ const CardOffers = () => {
           height={80}
           priority
         />
-        <div className={styles.ofer}>
-          <p style={{ fontSize: "15px !important" }}>-10 %</p>
+        <div
+          className={styles.ofer}
+          style={{ width: "25%", left: "64%", borderRadius: 0 }}
+        >
+          <p style={{ fontSize: "11px !important" }}>-10 %</p>
         </div>
       </div>
 
       <div>
-        <h3
-          style={{
-            fontSize: "17px !important",
-            fontWeight: "bold",
-            color: "#DD1717",
-            lineHeight: "24px",
-          }}
-          className="mb-1"
-        >
-          10 % discount
-        </h3>
-
         <div className="w-100 d-flex justify-content-between align-items-center">
           <h3
             style={{
@@ -88,4 +89,4 @@ const CardOffers = () => {
   );
 };
 
-export default CardOffers;
+export default CardOffersDesk;
