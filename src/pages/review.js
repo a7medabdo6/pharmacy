@@ -1,6 +1,6 @@
 import Head from "next/head";
 import Image from "next/image";
-import { Inter } from "next/font/google";
+
 import styles from "@/styles/verification.module.css";
 import Header from "../Components/Ulits/Header";
 import verification from "../assets/img/verification.png";
@@ -28,8 +28,6 @@ import PostReview from "../Apis/PostReview";
 import FooterDesk from "@/Components/desk/FooterDesk";
 import logo2 from "../assets/img/logo2.png";
 import NavBar from "@/Components/desk/NavBar";
-
-const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
   const [phone, setphone] = useState("us");

@@ -18,7 +18,6 @@ import thanksrate from "../assets/img/thanksrate.png";
 
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
-import { Inter } from "next/font/google";
 
 import ver from "../assets/desk/ver.png";
 import logo2 from "../assets/img/logo2.png";
@@ -46,7 +45,6 @@ import Modal from "@mui/material/Modal";
 import ButtomReview from "@/Components/Requests/ButtomReview";
 import ReviewDesk from "../Components/desk/ReviewDesk";
 import NavBar from "../Components/desk/NavBar";
-const inter = Inter({ subsets: ["latin"] });
 
 export default function Main() {
   const [open, setOpen] = useState(false);

@@ -1,6 +1,6 @@
 import Head from "next/head";
 import Image from "next/image";
-import { Inter } from "next/font/google";
+
 import styles from "@/styles/Home.module.css";
 import logo from "../assets/img/logo.png";
 import welcome from "../assets/img/welcome.png";
@@ -11,7 +11,6 @@ import Link from "next/link";
 import loginUser from "../Apis/Auth";
 import frame from "../assets/desk/Frame.png";
 import well from "../assets/desk/well.png";
-const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
   const [password, setpassword] = useState("");

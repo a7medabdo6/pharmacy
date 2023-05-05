@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
-import { Inter } from "next/font/google";
+
 import OurServicesCard from "@/Components/OurServicesCard";
 import Footer from "../Components/Footer";
 
@@ -25,7 +25,6 @@ import CategorySliderDesk from "../Components/desk/CategorySliderDesk";
 import Testimonialdesk from "../Components/desk/Testimonialdesk";
 import FooterDesk from "../Components/desk/FooterDesk";
 import SliderOffer from "../Components/desk/SliderOffer";
-const inter = Inter({ subsets: ["latin"] });
 
 const desktop = () => {
   const [categories, setcateogies] = useState([]);

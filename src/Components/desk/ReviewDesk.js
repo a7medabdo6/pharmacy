@@ -1,6 +1,6 @@
 import Head from "next/head";
 import Image from "next/image";
-import { Inter } from "next/font/google";
+
 import styles from "@/styles/verification.module.css";
 
 import thanksrate from "../../assets/img/thanksrate.png";
@@ -14,7 +14,6 @@ import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
 import ButtomReview from "../../Components/Requests/ButtomReview";
 import PostReview from "../../Apis/PostReview";
-const inter = Inter({ subsets: ["latin"] });
 
 const ReviewDesk = () => {
   const [phone, setphone] = useState("us");
