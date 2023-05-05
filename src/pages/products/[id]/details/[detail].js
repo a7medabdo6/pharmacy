@@ -65,14 +65,14 @@ const productdetails = () => {
         </div>
 
         <div style={{ width: "50%" }}>
-          <Link href="/ProductDetailsMakeOrder" className="w-100">
+          
             <ButtonProductDetails
               txtColor="white"
               bckColor="#0F4392"
               BRColor="#0F4392"
               text="Make a  request"
             />
-          </Link>
+          
         </div>
       </div>
 
