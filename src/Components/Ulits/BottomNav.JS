@@ -50,7 +50,7 @@ const BottomNav = () => {
           onClick={() => handleIconClick("/contactus")}
         />
       </BottomNavigation>
-    </Box>
+    </Box> //test
   );
 };
 export default BottomNav;
