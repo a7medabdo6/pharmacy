@@ -72,7 +72,7 @@ const products = () => {
       <main className={styles.main} style={{ backgroundColor: "transparent" }}>
         <div className="w-100 text-center d-flex justify-content-center align-items-center flex-column">
           <div
-            className="w-100 mt-2 pt-4 pl-3 pr-3 pb-4 d-flex justify-content-center  d-block d-sm-none align-items-center flex-column "
+            className="w-100 pt-4 pl-3 pr-3 pb-4 d-flex justify-content-center  d-block d-sm-none align-items-center flex-column "
             style={{
               backgroundColor: "#0F4392",
               borderRadius: 10,

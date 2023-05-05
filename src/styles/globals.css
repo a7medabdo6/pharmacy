@@ -47,7 +47,18 @@
 .MuiBottomNavigation-root{
   height: 100px;
 }
-
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  min-width: 320px;
+  background: #FFF;
+  font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
+  font-size: 13px !important;
+  line-height: 1.4285em;
+  color: rgba(0,0,0,.87);
+  font-smoothing: antialiased;
+}
 @media (prefers-color-scheme: dark) {
   :root {
     --foreground-rgb: 255, 255, 255;
