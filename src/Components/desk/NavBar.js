@@ -6,7 +6,10 @@ import Link from "next/link";
 const NavBar = () => {
   return (
     <div className="w-100" style={{ backgroundColor: "white" }}>
-      <nav className="navbar navbar-expand-lg bg-body-tertiary boxshadow w-100">
+      <nav
+        className="navbar navbar-expand-lg bg-body-tertiary  w-100"
+        style={{ boxShadow: "0px 18px 40px rgba(0, 0, 0, 0.06)" }}
+      >
         <div className="container-fluid" style={{ width: "80%" }}>
           <div className="d-flex justify-content-center align-items-center">
             <a className="navbar-brand" href="#">
@@ -42,7 +45,7 @@ const NavBar = () => {
                     Home
                   </a>
                 </li>
-                <li className="nav-item mx-3">
+                <li className="nav-item mx-3 d-flex justify-content-between align-items-center ">
                   <Link
                     href="/"
                     className="d-flex justify-content-between align-items-center "

@@ -1,22 +1,21 @@
-import React from 'react'
-import Multiselect from 'multiselect-react-dropdown';
-import { useState } from 'react';
+import React from "react";
+import Multiselect from "multiselect-react-dropdown";
+import { useState } from "react";
 
-const DropdownFilter = () => {
-    const [options,setoptions] =useState([{name: 'Option 1️⃣', id: 1},{name: 'Option 2️⃣', id: 2}])
-
+const DropdownFilter = ({ options, title }) => {
   return (
-    <div>
+    <div className="w-100 mb-2 mt-2">
+      <p className="mb-1">{title}</p>
       <Multiselect
-options={options} // Options to display in the dropdown
-// Function will trigger on remove event
-showCheckbox={true}
-placeholder="All"
-disablePreSelectedValues={false}
-displayValue="name" // Property name to display in the dropdown options
-/>
+        options={options} // Options to display in the dropdown
+        // Function will trigger on remove event
+        showCheckbox={true}
+        placeholder="All"
+        disablePreSelectedValues={false}
+        displayValue="name" // Property name to display in the dropdown options
+      />
     </div>
-  )
-}
+  );
+};
 
-export default DropdownFilter
+export default DropdownFilter;

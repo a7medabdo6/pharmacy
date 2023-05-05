@@ -19,18 +19,16 @@ const CardProduct = ({ item, id }) => {
 
   return (
     <div className={styles.boxcardprdoduct} onClick={onCardClick}>
-      <div>
-        <Image
-          //  className="w-20"
-          loader={() => item?.home_image}
-          src={item?.home_image}
-          className={styles.cardproductImage}
-          alt="Next.js Logo"
-          width={92}
-          height={112}
-          priority
-        />
-      </div>
+      <Image
+        //  className="w-20"
+        loader={() => item?.home_image}
+        src={item?.home_image}
+        className={styles.cardproductImage}
+        alt="Next.js Logo"
+        width={92}
+        height={200}
+        priority
+      />
       <div className={styles.boxinfo}>
         <p className={styles.titlecard}>{item?.name}</p>
         <p className={styles.txtcard}>{item?.description}</p>

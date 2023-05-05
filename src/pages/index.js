@@ -264,26 +264,29 @@ export default function Main() {
               </p>
             </div>
             <div className="d-flex justify-content-start align-items-start flex-column    w-100">
-              <NavBar />
+              {/*  */}
+              <>
+                <NavBar />
+                <div
+                  class="input-group mb-3 position-relative mt-3 d-flex justify-content-center align-items-center flex-column"
+                  style={{ width: "100%" }}
+                >
+                  <input
+                    type="text"
+                    style={{
+                      backgroundColor: "#FAFBFB",
+                      borderRadius: "10px",
+                      width: "78% !important",
+                    }}
+                    className="form-control w-100 inputsearch"
+                    placeholder="Search products"
+                    aria-label="Search"
+                    aria-describedby="button-addon2"
+                  />
+                  {/* <SearchIcon style={{ position: "absolute", left: "0px" }} /> */}
+                </div>
+              </>
 
-              <div
-                class="input-group mb-3 position-relative mt-3 d-flex justify-content-center align-items-center flex-column"
-                style={{ width: "100%" }}
-              >
-                <input
-                  type="text"
-                  style={{
-                    backgroundColor: "#FAFBFB",
-                    borderRadius: "10px",
-                    width: "78% !important",
-                  }}
-                  className="form-control w-100 inputsearch"
-                  placeholder="Search products"
-                  aria-label="Search"
-                  aria-describedby="button-addon2"
-                />
-                {/* <SearchIcon style={{ position: "absolute", left: "0px" }} /> */}
-              </div>
               <div className="d-flex justify-content-center align-items-center flex-column mt-5   w-100">
                 <h5 style={{ color: "#0F4392" }}>How it works</h5>
                 <div
