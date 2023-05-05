@@ -95,6 +95,7 @@ body {
 
 body {
   color: rgb(var(--foreground-rgb));
+  background-color: #C7C7C7 !important;
  
 }
 
@@ -336,8 +337,27 @@ flex-grow: 0;
 }
 }
 
+.confirm-custom{
+  width: 90%;
+  margin: auto;
+  border: unset;
+  margin: 20px;
+  padding: 20px;
+  border-radius: 10px;
+  background-color: white;
+}
+@media only screen and (min-width: 900px) {
+  .confirm-custom{
+    width: 40%;
+    margin: auto;
+    border: 1px solid grey;
+    margin: 20px;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: white;
 
-
+  }
+}
 
 
 
@@ -485,4 +505,7 @@ background: rgba(221, 23, 23, 0.3);
     display: flex;
     white-space: nowrap;
     justify-content: center;
+}
+#__next{
+  background-color: white !important;
 }

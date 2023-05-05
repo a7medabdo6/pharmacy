@@ -24,9 +24,9 @@ export default function Home() {
     setphone(value);
   }
   return (
-    <div className="container text-center">
+    <div className=" text-center" style={{ backgroundColor: "white" }}>
       <div className="row">
-        <div className="d-sm-none">
+        <div className="d-sm-none p-0">
           <>
             <Head>
               <title>Create Next App</title>

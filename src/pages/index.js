@@ -24,10 +24,12 @@ import logo2 from "../assets/img/logo2.png";
 import ReactPhoneInput from "react-phone-input-2";
 import Link from "next/link";
 import Steps from "../Components/desk/Steps";
+import infoImage from "../assets/desk/info.png";
 import step1 from "../assets/desk/step1.png";
+
 import step2 from "../assets/desk/step2.png";
 import step3 from "../assets/desk/step3.png";
-import cart from "../assets/desk/cart.png";
+import cart from "../assets/desk/shopping.png";
 import line from "../assets/desk/line.png";
 import maik from "../assets/desk/maik.png";
 import descond from "../assets/desk/descond.png";
@@ -75,7 +77,10 @@ export default function Main() {
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
   return (
-    <div classNameName="container text-center">
+    <div
+      classNameName="container text-center"
+      style={{ backgroundColor: "white" }}
+    >
       <div className="row">
         <div className="d-sm-none">
           <>
@@ -254,6 +259,7 @@ export default function Main() {
                 top: "19%",
                 transform: "rotate(-90deg)",
                 textAlign: "center",
+                cursor: "pointer",
               }}
               className="position-absolute d-flex justify-content-center align-items-center"
             >
@@ -346,13 +352,23 @@ export default function Main() {
                 </div>
                 <SliderOffer />
               </div>
-              <div style={{ marginRight: "20px" }}>
+              <div>
                 <Image
                   //  className="w-20"
                   src={cart}
                   alt="Next.js Logo"
                   width={200}
                   height={180}
+                  priority
+                />{" "}
+              </div>
+              <div style={{ marginRight: "20px" }}>
+                <Image
+                  //  className="w-20"
+                  src={infoImage}
+                  alt="Next.js Logo"
+                  width={80}
+                  height={80}
                   priority
                 />{" "}
               </div>
@@ -405,7 +421,7 @@ export default function Main() {
                 <div className="boxshadow ">
                   <Testimonialdesk />
                 </div>
-                <div className="boxshadow mx-2">
+                <div className="boxshadow mx-4">
                   <Testimonialdesk />
                 </div>
                 <div className="boxshadow ">

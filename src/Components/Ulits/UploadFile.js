@@ -32,7 +32,7 @@ const UploadFile = ({ setfile }) => {
         options={options}
         onComplete={handleComplete}
       >
-        {({ onClick }) => <h5 onClick={onClick}>Add a file...</h5>}
+        {({ onClick }) => <p onClick={onClick}>Add a file...</p>}
       </UploadButton>
     </div>
   );
