@@ -2,7 +2,7 @@ import React from "react";
 import styles from "@/styles/Testimonials.module.css";
 import Image from "next/image";
 import StarIcon from "@mui/icons-material/Star";
-import avatar from "../../assets/img/avatar.png";
+import avatar from "../../assets/img/Avatar.png";
 
 function Testimonail() {
   return (

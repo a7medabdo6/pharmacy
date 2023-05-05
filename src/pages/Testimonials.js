@@ -3,7 +3,7 @@ import styles from "@/styles/Testimonials.module.css";
 import Header from "../Components/Ulits/Header";
 import StarIcon from "@mui/icons-material/Star";
 import Image from "next/image";
-import avatar from "../assets/img/avatar.png";
+import avatar from "../assets/img/Avatar.png";
 import ButtomReview from "../Components/Requests/ButtomReview";
 import ButtonWriteReview from "../Components/Testimonials/ButtonWriteReview";
 import getAllReviews from "../Apis/Testimonails";

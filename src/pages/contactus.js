@@ -9,7 +9,7 @@ import whatsapp from "../assets/img/whatsapp.png";
 import telegram from "../assets/img/telegram.png";
 import location from "../assets/img/location.png";
 import phone from "../assets/img/phone.png";
-import BottomNav from "../Components/Ulits/BottomNav.js";
+import BottomNav from "../Components/Ulits/BottomNav";
 
 import PhoneIcon from "@mui/icons-material/Phone";
 import ButtonTrack from "../Components/tracking/ButtonTrack";

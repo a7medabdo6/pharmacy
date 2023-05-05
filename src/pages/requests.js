@@ -3,7 +3,7 @@ import styles from "@/styles/requests.module.css";
 import ButtonRequests from "../Components/Requests/ButtonRequests";
 import CardInfo from "../Components/Requests/CardInfo";
 import CardOrder from "../Components/Requests/CardOrder";
-import BottomNav from "../Components/Ulits/BottomNav.js";
+import BottomNav from "../Components/Ulits/BottomNav";
 import InputWithButton from "../Components/Requests/InputWithButton";
 import Header from "../Components/Ulits/Header";
 import NavBar from "@/Components/desk/NavBar";
