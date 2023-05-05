@@ -1,0 +1,296 @@
+"use strict";
+(() => {
+var exports = {};
+exports.id = 3772;
+exports.ids = [3772];
+exports.modules = {
+
+/***/ 5243:
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "Z": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({"src":"/_next/static/media/Group2.77054c31.png","height":258,"width":295,"blurDataURL":"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAHCAYAAAA1WQxeAAAAzUlEQVR42mOAgb3LF7OC6PuPHmc+uH////0HD74+ePAgiAEESpPTOUD0lZ5ilXs3b/x4+PSZ3f379xOB+BuDqy0DS318PRtIQbVDcd6Jw6f+//3/V/nunbv+YAUa9hWiDEAQ7KCSx6CS9mf91sPPnj978v/evfv/gQoqGficJhWbOhcwgxTJ6wfPCo7Mbn758sXte/fuXWIAAX7nSTy6JuosILals18RA4Pu+g8fPxrdvXtXmwEGvJ2jwCb4OQQ6RvtEZAOZYEefOnaMGQD4dFw8BFgPJQAAAABJRU5ErkJggg==","blurWidth":8,"blurHeight":7});
+
+/***/ }),
+
+/***/ 5756:
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "Z": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({"src":"/_next/static/media/vector.6a698475.png","height":118,"width":167,"blurDataURL":"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAGCAMAAADJ2y/JAAAAV1BMVEUPQ5IOQ5IPQpEOQpIOQpEOQ5IOQpEPQpEOQpEPQpEOQpIPQpEPQpEPQpEOQpIOQpIOQpEPQpEOQpIOQ5IPQpEPQpEPQpEPQpEPQpEPQpEPQpEPQpEOQpFt5uGsAAAAHXRSTlMAAAAAAAEBAgIDAwQFIkpVZ36Cg4+WnZ6oqq620ye4fcIAAAA2SURBVHjaBYCHEYAwDAPfsiGE3vv+c+Zo6/A+xhf3Jmv+BiaC9TFx3GynKePLv1uVhLg6JakAMi8ByAlFg/QAAAAASUVORK5CYII=","blurWidth":8,"blurHeight":6});
+
+/***/ }),
+
+/***/ 8672:
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(997);
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(6689);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _styles_Tracking_module_css__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(1272);
+/* harmony import */ var _styles_Tracking_module_css__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(_styles_Tracking_module_css__WEBPACK_IMPORTED_MODULE_8__);
+/* harmony import */ var _Components_Ulits_Header__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(7248);
+/* harmony import */ var _Components_Ulits_StepProgressBar__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(9342);
+/* harmony import */ var _assets_img_Group2_png__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(5243);
+/* harmony import */ var _Components_tracking_ButtonTrack__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(5058);
+/* harmony import */ var next_image__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(5675);
+/* harmony import */ var next_image__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(next_image__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var _assets_img_vector_png__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(5756);
+
+
+
+
+
+
+
+
+
+const trackingdelivered = ()=>{
+    return /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("main", {
+        className: (_styles_Tracking_module_css__WEBPACK_IMPORTED_MODULE_8___default().main),
+        style: {
+            backgroundColor: "#EDEDED"
+        },
+        children: /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
+            className: "w-100 text-center d-flex justify-content-center align-items-center flex-column",
+            children: [
+                /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_Components_Ulits_Header__WEBPACK_IMPORTED_MODULE_2__/* ["default"] */ .Z, {
+                    title: "Order tracking"
+                }),
+                /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_Components_Ulits_StepProgressBar__WEBPACK_IMPORTED_MODULE_3__/* ["default"] */ .Z, {}),
+                /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("div", {
+                    children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("div", {
+                        className: (_styles_Tracking_module_css__WEBPACK_IMPORTED_MODULE_8___default().Bigcircle),
+                        children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("div", {
+                            className: (_styles_Tracking_module_css__WEBPACK_IMPORTED_MODULE_8___default().circle),
+                            style: {
+                                backgroundColor: "#0f439242"
+                            },
+                            children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("div", {
+                                className: " d-flex justify-content-center align-items-center mt-3 ",
+                                style: {
+                                    position: "absolute"
+                                },
+                                children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx((next_image__WEBPACK_IMPORTED_MODULE_6___default()), {
+                                    //  className="w-20"
+                                    src: _assets_img_vector_png__WEBPACK_IMPORTED_MODULE_7__/* ["default"] */ .Z,
+                                    style: {
+                                        position: "absolute",
+                                        bottom: "-24px",
+                                        left: "-66px"
+                                    },
+                                    alt: "Next.js Logo",
+                                    width: 165,
+                                    height: 130,
+                                    priority: true
+                                })
+                            })
+                        })
+                    })
+                }),
+                /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
+                    className: "w-80 text-center d-flex justify-content-center align-items-center flex-column",
+                    children: [
+                        /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("p", {
+                            className: (_styles_Tracking_module_css__WEBPACK_IMPORTED_MODULE_8___default().title),
+                            children: "Your order has een delivered successfully."
+                        }),
+                        /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("p", {
+                            className: (_styles_Tracking_module_css__WEBPACK_IMPORTED_MODULE_8___default().title),
+                            children: "We wish you speedy recovery."
+                        })
+                    ]
+                }),
+                /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_Components_tracking_ButtonTrack__WEBPACK_IMPORTED_MODULE_5__/* ["default"] */ .Z, {
+                    txtColor: "white",
+                    bckColor: "#0F4392",
+                    BRColor: "#0F4392",
+                    text: "Write a review"
+                }),
+                /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("p", {
+                    className: (_styles_Tracking_module_css__WEBPACK_IMPORTED_MODULE_8___default().contact),
+                    children: "contact us"
+                })
+            ]
+        })
+    });
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (trackingdelivered);
+
+
+/***/ }),
+
+/***/ 3918:
+/***/ ((module) => {
+
+module.exports = require("next/dist/shared/lib/amp-context.js");
+
+/***/ }),
+
+/***/ 5732:
+/***/ ((module) => {
+
+module.exports = require("next/dist/shared/lib/amp-mode.js");
+
+/***/ }),
+
+/***/ 3280:
+/***/ ((module) => {
+
+module.exports = require("next/dist/shared/lib/app-router-context.js");
+
+/***/ }),
+
+/***/ 2796:
+/***/ ((module) => {
+
+module.exports = require("next/dist/shared/lib/head-manager-context.js");
+
+/***/ }),
+
+/***/ 4486:
+/***/ ((module) => {
+
+module.exports = require("next/dist/shared/lib/image-blur-svg.js");
+
+/***/ }),
+
+/***/ 744:
+/***/ ((module) => {
+
+module.exports = require("next/dist/shared/lib/image-config-context.js");
+
+/***/ }),
+
+/***/ 5843:
+/***/ ((module) => {
+
+module.exports = require("next/dist/shared/lib/image-config.js");
+
+/***/ }),
+
+/***/ 9552:
+/***/ ((module) => {
+
+module.exports = require("next/dist/shared/lib/image-loader");
+
+/***/ }),
+
+/***/ 4964:
+/***/ ((module) => {
+
+module.exports = require("next/dist/shared/lib/router-context.js");
+
+/***/ }),
+
+/***/ 1751:
+/***/ ((module) => {
+
+module.exports = require("next/dist/shared/lib/router/utils/add-path-prefix.js");
+
+/***/ }),
+
+/***/ 3938:
+/***/ ((module) => {
+
+module.exports = require("next/dist/shared/lib/router/utils/format-url.js");
+
+/***/ }),
+
+/***/ 1109:
+/***/ ((module) => {
+
+module.exports = require("next/dist/shared/lib/router/utils/is-local-url.js");
+
+/***/ }),
+
+/***/ 8854:
+/***/ ((module) => {
+
+module.exports = require("next/dist/shared/lib/router/utils/parse-path.js");
+
+/***/ }),
+
+/***/ 3297:
+/***/ ((module) => {
+
+module.exports = require("next/dist/shared/lib/router/utils/remove-trailing-slash.js");
+
+/***/ }),
+
+/***/ 7782:
+/***/ ((module) => {
+
+module.exports = require("next/dist/shared/lib/router/utils/resolve-href.js");
+
+/***/ }),
+
+/***/ 2470:
+/***/ ((module) => {
+
+module.exports = require("next/dist/shared/lib/side-effect.js");
+
+/***/ }),
+
+/***/ 9232:
+/***/ ((module) => {
+
+module.exports = require("next/dist/shared/lib/utils.js");
+
+/***/ }),
+
+/***/ 618:
+/***/ ((module) => {
+
+module.exports = require("next/dist/shared/lib/utils/warn-once.js");
+
+/***/ }),
+
+/***/ 1853:
+/***/ ((module) => {
+
+module.exports = require("next/router");
+
+/***/ }),
+
+/***/ 6689:
+/***/ ((module) => {
+
+module.exports = require("react");
+
+/***/ }),
+
+/***/ 8946:
+/***/ ((module) => {
+
+module.exports = require("react-step-progress-bar");
+
+/***/ }),
+
+/***/ 997:
+/***/ ((module) => {
+
+module.exports = require("react/jsx-runtime");
+
+/***/ })
+
+};
+;
+
+// load runtime
+var __webpack_require__ = require("../webpack-runtime.js");
+__webpack_require__.C(exports);
+var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
+var __webpack_exports__ = __webpack_require__.X(0, [2636,5675,1664,5192,7248,2810], () => (__webpack_exec__(8672)));
+module.exports = __webpack_exports__;
+
+})();

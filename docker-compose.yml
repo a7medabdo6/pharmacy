@@ -1,26 +1,8 @@
-version: "3.1"
+version: "3"
 services:
-  nginx-app:
-    build:
-      context: ./
-      dockerfile: Dockerfile.nginx
-    container_name: ngnix_container
-    # image: a7medabdo6/pharmacy-ngnix
-
-    # volumes:
-    #     - ./Care_Frontend/build:/usr/share/nginx/html:ro
+  nextjs:
+    build: ./
+  nginx:
+    build: ./nginx
     ports:
       - 80:80
-    restart: always
-
-  watchtower:
-    image: containrrr/watchtower
-    restart: always
-    environment:
-      # WATCHTOWER_SCHEDULE: "0 0 1 * * *"
-      TZ: America/Chicago
-      WATCHTOWER_CLEANUP: "true"
-      WATCHTOWER_DEBUG: "true"
-    volumes:
-      - /var/run/docker.sock:/var/run/docker.sock
-    command: --interval 30 ngnix_container

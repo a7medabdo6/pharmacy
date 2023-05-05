@@ -1,14 +1,30 @@
-FROM node:14.19.3
+# Base on offical Node.js Alpine image
+FROM node:alpine
 
-WORKDIR .
+# Set working directory
+WORKDIR /usr/app
 
-COPY package.json yarn.lock ./
+RUN npm install --global pm2
 
-# RUN npm install --frozen-lockfile --force 
+# Copy package.json and package-lock.json before other files
+# Utilise Docker cache to save re-installing dependencies if unchanged
+COPY ./package*.json ./
 
+# Install dependencies
+RUN npm install --production
 
+# Copy all files
+COPY ./ ./
 
-COPY . .
+# Build app
+RUN npm run build
 
-# Build the project and copy the files
-#RUN npm run build
+# Expose the listening port
+EXPOSE 3000
+
+# Run container as non-root (unprivileged) user
+# The node user is provided in the Node.js Alpine base image
+USER node
+
+# Run npm start script when container starts
+CMD [ "pm2-runtime", "npm", "--", "start" ]
