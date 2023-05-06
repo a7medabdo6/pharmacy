@@ -357,6 +357,15 @@ flex-grow: 0;
   border-radius: 10px;
   background-color: white;
 }
+.confirm-custom-grey{
+  width: 100%;
+  margin: auto;
+  border: unset;
+  margin: 20px;
+  padding: 20px;
+  border-radius: 10px;
+  background-color: #EDEDED;
+}
 @media only screen and (min-width: 900px) {
   .confirm-custom{
     width: 40%;
@@ -368,8 +377,21 @@ flex-grow: 0;
     background-color: white;
 
   }
+  .confirm-custom-grey{
+    width: 40%;
+    margin: auto;
+    border: unset;
+    margin: 20px;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: white;
+  }
 }
-
+.slide-home-image{
+  width: 100px !important;
+  height: 80px !important;
+  margin-left: 5px;
+}
 
 
 
@@ -519,4 +541,5 @@ background: rgba(221, 23, 23, 0.3);
 }
 #__next{
   background-color: white !important;
+  height: 100%;
 }

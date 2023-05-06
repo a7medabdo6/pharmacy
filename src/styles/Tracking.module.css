@@ -56,7 +56,7 @@ text-align: center;
     font-family: 'Fira Sans';
 font-style: normal;
 font-weight: 800;
-font-size: 21px;
+font-size: 18px;
 margin: 0;
 line-height: 28px;
 /* or 133% */
@@ -73,6 +73,29 @@ top: 2px;
 color: "blue";
 
   }
+  
+.circle{
+  width:126px;
+  height:118px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 80%;
+  position: relative;
+}
+.Bigcircle{
+    width:188px;
+    height:188px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: "#EDEDED";
+    
+    border: 2px solid #0f439242;
+
+}
 @media only screen and (min-width: 600px) {
   .main {
     display: flex;

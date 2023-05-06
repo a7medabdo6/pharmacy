@@ -19,18 +19,32 @@ import ButtonRequestOrder from "../Components/Ulits/ButtonRequestOrder";
 import Sheet from "react-modal-sheet";
 import { useState } from "react";
 import ModalContent from "../Components/Ulits/ModalContent";
+import NavBar from "../Components/desk/NavBar";
+import { Col, Row } from "react-bootstrap";
 
 const contactus = () => {
   const [isOpen, setOpen] = useState(false);
   const snapPoints = [400, 600]; // Define the height values that the modal can snap to
 
   return (
-    <main className={styles.main} style={{ backgroundColor: "#EDEDED" }}>
-      <div className="w-100 text-center d-flex justify-content-center align-items-center flex-column">
-        <Header title="Contact us" />
+    <main
+      style={{
+        backgroundColor: "#EDEDED",
+        width: "100%",
+        margin: "auto",
+        height: "100%",
+      }}
+      className="d-flex  align-items-center flex-column"
+    >
+      <div className="d-block d-sm-none w-100">
+        <Header title="Contact Us" />
+      </div>
+
+      <div className="d-none d-sm-block w-100 ">
+        <NavBar />
       </div>
       <div
-        style={{ backgroundColor: "white", width: "95%", borderRadius: "15px" }}
+        style={{ backgroundColor: "grey", width: "95%", borderRadius: "15px" }}
         className=" mt-2  d-flex justify-content-center align-items-center flex-column"
       >
         <p className={styles.title}> We are here for you</p>
@@ -43,9 +57,13 @@ const contactus = () => {
             width="100%"
             height="100%"
             priority
+            style={{ maxWidth: "90%" }}
           />
         </div>
-        <p className={styles.textsub}> Social media contacts</p>
+        <p className={styles.textsub} style={{ marginTop: 15 }}>
+          {" "}
+          Social media contacts
+        </p>
         <p className={styles.textsub1}>
           {" "}
           If you need a help from our pharmacists or want to order a specific
@@ -91,64 +109,132 @@ const contactus = () => {
         </div>
         <div
           className="my-2"
-          style={{ height: "1px", backgroundColor: "grey", width: "80%" }}
+          style={{ height: "1px", backgroundColor: "grey", width: "90%" }}
         ></div>
 
         <p className={styles.textsub}> Reach us via</p>
         <div className="w-90 d-flex text-center justify-content-around align-items-center  flex-column">
-          <div className="w-100 d-flex text-center justify-content-between align-items-center mx-5 ">
-            <div className=" d-flex text-center justify-content-center align-items-center ">
-              <Image
-                //  className="w-20"
-                src={phone}
-                alt="Next.js Logo"
-                width="15px"
-                height="20px"
-                priority
-              />{" "}
-              <p className={styles.number}>(+20)1050777117</p>
-            </div>
-            <div className=" d-flex justify-content-center align-items-center  ">
-              <Button
-                txtColor="#0F4392"
-                bckColor="white"
-                BRColor="#0F4392"
-                text="Call now"
-              />
-            </div>
+          <div className="w-90 d-flex text-center justify-content-center align-items-center mx-5 ">
+            <Row className=" d-flex text-center justify-content-center align-items-center ">
+              <Col className="col-6" style={{ backgroundColor: "white" }}>
+                <Row>
+                  <Col className="col-12 d-flex text-center justify-content-center align-items-cente">
+                    <div className=" d-flex text-center justify-content-center align-items-center ">
+                      <Image
+                        //  className="w-20"
+                        src={phone}
+                        alt="Next.js Logo"
+                        width="15px"
+                        height="20px"
+                        priority
+                      />{" "}
+                      <p className={styles.number}>(+20)1050777117</p>
+                    </div>
+                    <button
+                      className="btn btn-outline-primary"
+                      style={{ color: "#0F4392", border: "1px solid #0F4392" }}
+                    >
+                      <Image
+                        //  className="w-20"
+                        src={phone}
+                        alt="Next.js Logo"
+                        width="15px"
+                        height="20px"
+                        priority
+                        style={{ marginInline: 8 }}
+                      />{" "}
+                      Call Now
+                    </button>
+                  </Col>
+                  <Col className="col-12">
+                    <div className=" d-flex text-center justify-content-center align-items-center">
+                      <Image
+                        //  className="w-20"
+                        src={location}
+                        alt="Next.js Logo"
+                        width="15px"
+                        height="20px"
+                        priority
+                      />{" "}
+                      <p className={styles.number}>
+                        Tal avenu- white hills hotel, Sharm Elsheikh, Egypt
+                      </p>
+                    </div>
+                  </Col>
+                </Row>
+              </Col>
+            </Row>
+            <Row className=" d-flex d-none text-center justify-content-center align-items-center ">
+              <Col className="col-6">
+                <div className=" d-flex text-center justify-content-center align-items-center ">
+                  <Image
+                    //  className="w-20"
+                    src={phone}
+                    alt="Next.js Logo"
+                    width="15px"
+                    height="20px"
+                    priority
+                  />{" "}
+                  <p className={styles.number}>(+20)1050777117</p>
+                </div>
+              </Col>
+              <Col className="col-6">
+                <button
+                  className="btn btn-outline-primary"
+                  style={{ color: "#0F4392", border: "1px solid #0F4392" }}
+                >
+                  <Image
+                    //  className="w-20"
+                    src={phone}
+                    alt="Next.js Logo"
+                    width="15px"
+                    height="20px"
+                    priority
+                    style={{ marginInline: 8 }}
+                  />{" "}
+                  Call Now
+                </button>
+              </Col>
+              <Col className="col-12 mt-3">
+                <Row>
+                  <Col className="col-1">
+                    <Image
+                      //  className="w-20"
+                      src={location}
+                      alt="Next.js Logo"
+                      width="15px"
+                      height="20px"
+                      priority
+                    />{" "}
+                  </Col>
+                  <Col>
+                    <p className={styles.number}>
+                      Tal avenu- white hills hotel, Sharm Elsheikh, Egypt
+                    </p>
+                  </Col>
+                </Row>
+              </Col>
+            </Row>
           </div>
-          <div className="w-100 d-flex text-center justify-content-start align-items-center mt-3 ">
-            <Image
-              //  className="w-20"
-              src={location}
-              alt="Next.js Logo"
-              width="15px"
-              height="20px"
-              priority
-            />{" "}
-            <p className={styles.number}>
-              Tal avenu- white hills hotel, Sharm Elsheikh, Egypt
-            </p>
-            <div className="w-80 d-flex  justify-content-start align-items-center  ">
-              <Sheet
-                isOpen={isOpen}
-                onClose={() => setOpen(false)}
-                snapPoints={snapPoints}
-              >
-                <Sheet.Container className={styles.bottomsheet}>
-                  <Sheet.Header />
-                  <div className="w-100 d-flex  justify-content-center align-items-center  ">
-                    <h4 style={{ color: "#0F4392" }}>Request a call</h4>
-                  </div>
+          <div className="w-80 d-flex  justify-content-start align-items-center  ">
+            <Sheet
+              isOpen={isOpen}
+              onClose={() => setOpen(false)}
+              snapPoints={snapPoints}
+            >
+              <Sheet.Container className={styles.bottomsheet}>
+                <Sheet.Header />
+                <div className="w-100 d-flex  justify-content-center align-items-center  ">
+                  <h4 style={{ color: "#0F4392" }}>Request a call</h4>
+                </div>
 
-                  <Sheet.Content>
-                    <ModalContent setOpen={setOpen} />
-                  </Sheet.Content>
-                </Sheet.Container>
+                <Sheet.Content>
+                  <ModalContent setOpen={setOpen} />
+                </Sheet.Content>
+              </Sheet.Container>
 
-                <Sheet.Backdrop />
-              </Sheet>
-            </div>
+              <Sheet.Backdrop />
+            </Sheet>
           </div>
           <div style={{ width: "95%" }} onClick={() => setOpen(true)}>
             <ButtonRequestOrder
@@ -168,13 +254,6 @@ const contactus = () => {
         style={{ bottom: 0, width: "95%", borderRadius: "15px" }}
       >
         {/* <BottomNav /> */}
-      </div>
-
-      <div
-        className="position-absolute "
-        style={{ bottom: 0, width: "100%", borderRadius: "15px" }}
-      >
-        <BottomNav />
       </div>
     </main>
   );
