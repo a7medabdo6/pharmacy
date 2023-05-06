@@ -19,7 +19,8 @@ const Header = ({ title }) => {
       className="w-100  pt-4 pl-3 pr-3 pb-4 d-flex justify-content-center align-items-center "
       style={{
         backgroundColor: "#0F4392",
-        borderRadius: 10,
+        borderBottomLeftRadius: 10,
+                   borderBottomRightRadius:10,
         height: "117px",
         position: "relative",
       }}

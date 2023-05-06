@@ -125,6 +125,8 @@ export default function Main() {
               >
                 <SerachBar />
                 <Carousel
+                  autoPlay={true}
+                  infiniteLoop={true}
                   showIndicators={false}
                   style={{ backgroundColor: "white", width: "100%" }}
                 >
