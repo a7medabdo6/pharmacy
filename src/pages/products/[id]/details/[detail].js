@@ -110,7 +110,7 @@ const productdetails = () => {
           >
             Brand:
           </p>
-          <p style={{ color: "grey", fontSize: "18px" }}>Lorem Ipsum</p>
+          <p style={{ color: "grey", fontSize: "18px" }}>  {details?.brand} </p>
         </div>
 
         <div
