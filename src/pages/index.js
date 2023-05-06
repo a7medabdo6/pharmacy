@@ -13,6 +13,9 @@ import Footer from "../Components/Footer";
 import slider from "../assets/img/slider.png";
 import slider2 from "../assets/img/slider2.png";
 import slider3 from "../assets/img/slider3.png";
+import Service from "../assets/img/service.png";
+import Service2 from "../assets/img/service2.png";
+import Service3 from "../assets/img/service3.png";
 
 import "react-phone-input-2/lib/style.css";
 import OurServicesCard from "@/Components/OurServicesCard";
@@ -153,7 +156,7 @@ export default function Main() {
                   style={{ width: "95%" }}
                   className=" align-start m-0 pt-2 pb-2"
                 >
-                  LBig deals
+                  Big deals
                 </h4>
                 <CardBanner />
                 {categories?.length > 0 && (
@@ -202,9 +205,22 @@ export default function Main() {
                 </div>
 
                 <div className="w-100 mt-3 d-flex justify-content-between align-items-center flex-column ">
-                  <OurServicesCard />
-                  <OurServicesCard />
-                  <OurServicesCard />
+                  <OurServicesCard
+                    image={Service}
+                    title="Online doctors"
+                    desc="You can consult with one of our online doctors in all specialties."
+                  />
+
+                  <OurServicesCard
+                    image={Service2}
+                    title="Delivery to your room"
+                    desc="Make a request to receive what you want at your hotel room."
+                  />
+                  <OurServicesCard
+                    image={Service3}
+                    title="Call us"
+                    desc="You can call our pharmacists to request what you want or send a prescription"
+                  />
                 </div>
                 <div
                   style={{ width: "95%" }}
@@ -421,9 +437,21 @@ export default function Main() {
                 className="d-flex justify-content-center align-items-center  mt-5 boxshadow boxshadow"
                 style={{ width: "78%" }}
               >
-                <OurServicesCard />
-                <OurServicesCard />
-                <OurServicesCard />
+                <OurServicesCard
+                  image={Service}
+                  title="Online doctors"
+                  desc="You can consult with one of our online doctors in all specialties."
+                />
+                <OurServicesCard
+                  image={Service2}
+                  title="Delivery to your room"
+                  desc="Make a request to receive what you want at your hotel room."
+                />
+                <OurServicesCard
+                  image={Service3}
+                  title="Call us"
+                  desc="You can call our pharmacists to request what you want or send a prescription"
+                />
               </div>
             </div>
 

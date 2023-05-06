@@ -23,6 +23,8 @@ import Link from "next/link";
 import DropdownFilter from "../../../Components/products/DropdownFilter";
 import gettAllProducts from "../../../Apis/products";
 import { Col, Row } from "react-bootstrap";
+import Filter from "../../../Components/desk/Filter";
+import ButtonOfferDEsk from "../../../Components/desk/ButtonOfferDEsk";
 const products = () => {
   const [isOpen, setOpen] = useState(false);
   const [products, setproducts] = useState([]);
@@ -47,7 +49,7 @@ const products = () => {
     router.back();
   };
   return (
-    <div>
+    <div style={{ backgroundColor: "white" }}>
       <div className="d-none d-sm-block w-100 ">
         <NavBar />
         <div
@@ -69,7 +71,10 @@ const products = () => {
           {/* <SearchIcon style={{ position: "absolute", left: "0px" }} /> */}
         </div>
       </div>
-      <main className={styles.main} style={{ backgroundColor: "transparent" }}>
+      <main
+        className={styles.main}
+        style={{ backgroundColor: "white", marginBottom: "100px" }}
+      >
         <div className="w-100 text-center d-flex justify-content-center align-items-center flex-column">
           <div
             className="w-100  pt-4 pl-3 pr-3 pb-4 d-flex justify-content-center  d-block d-sm-none align-items-center flex-column "
@@ -186,8 +191,9 @@ const products = () => {
               style={{
                 backgroundColor: "rgba(221, 23, 23, 0.2)",
                 borderRadius: "4px",
-                width: "119px",
+                // width: "119px",
                 height: "28px",
+                padding: 5,
               }}
             >
               <p className={styles.label}>Top 50 medicines</p>
@@ -198,7 +204,7 @@ const products = () => {
               style={{
                 backgroundColor: "rgba(221, 23, 23, 0.2)",
                 borderRadius: "4px",
-                width: "119px",
+                padding: 5,
                 height: "28px",
               }}
             >
@@ -210,7 +216,7 @@ const products = () => {
               style={{
                 backgroundColor: "rgba(221, 23, 23, 0.2)",
                 borderRadius: "4px",
-                width: "119px",
+                padding: 5,
                 height: "28px",
               }}
             >
@@ -219,9 +225,33 @@ const products = () => {
           </div>
         </div>
 
-        <Row className="mt-3 m-2">
+        <Row className="mt-3 m-2 mb-5 pb-5" style={{ marginBottom: "80px" }}>
           <Col md={3} sm={12} className="d-none d-sm-block">
-            tt
+            <div
+              style={{
+                borderRadius: "8px",
+                boxShadow: "0px 18px 40px rgba(0, 0, 0, 0.12)",
+              }}
+              className="d-flex justify-content-center  align-items-center flex-column  "
+            >
+              <h5 className="my-3">Filter by</h5>
+
+              <Filter label="By diseases" />
+              <Filter label="By users" />
+              <Filter label="By ingredients" />
+              <div
+                style={{ width: "80%" }}
+                className="d-flex justify-content-around my-3 w-100 align-items-end flex-row-reverse "
+              >
+                <button className="btn btn-primary">Apply</button>
+                <button
+                  className="btn btn-outline-primary"
+                  style={{ color: "#0F4392" }}
+                >
+                  Clear All
+                </button>
+              </div>
+            </div>
           </Col>
           <Col md={9} sm={12}>
             <div
@@ -288,7 +318,7 @@ const products = () => {
             </div>
             <Row>
               {products?.map((item) => (
-                <Col className="col-md-6 col-lg-4 col-sm-6 col-12">
+                <Col className="col-md-6 col-lg-4 col-sm-6 col-6 mb-3">
                   <CardProduct item={item} id={id} />
                 </Col>
               ))}
@@ -358,14 +388,11 @@ const products = () => {
             <Sheet.Backdrop />
           </Sheet>
         </div>
-        <div
-          className="position-relative "
-          style={{ bottom: 0, width: "100%", borderRadius: "15px" }}
-        >
-          <BottomNav />
-        </div>
       </main>
-      <div className="d-none d-sm-block w-100 ">
+      <div className="d-block d-sm-none">
+        <BottomNav />
+      </div>
+      <div className="d-none d-sm-block ">
         <FooterDesk />
       </div>
     </div>

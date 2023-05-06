@@ -1,8 +1,7 @@
 import Image from "next/image";
 import React from "react";
-import Service from "../assets/img/service.png";
 
-function OurServicesCard() {
+function OurServicesCard({ image, desc, title }) {
   return (
     <div className="w-100   pb-4 d-flex justify-content-center align-items-center flex-column">
       <div
@@ -11,16 +10,14 @@ function OurServicesCard() {
       >
         <Image
           className=" Service"
-          src={Service}
+          src={image}
           width={152}
           height={104}
           alt="Next.js Logo"
         />
         <div className=" d-flex flex-column justify-content-start align-items-start ms-3 ">
-          <p className="text-service text-primary">Online doctors</p>
-          <p className="info-card">
-            You can consult with one of our online doctors in all specialties.
-          </p>
+          <p className="text-service text-primary">{title}</p>
+          <p className="info-card">{desc}</p>
         </div>
       </div>
     </div>

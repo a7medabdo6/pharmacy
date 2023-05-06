@@ -11,7 +11,7 @@ const Filter = ({ label }) => {
   };
 
   return (
-    <div className="d-flex justify-content-center align-items-start flex-column ms-1 w-100">
+    <div className="d-flex justify-content-center align-items-start flex-column ms-1 w-100 p-2">
       <p className="mb-0" style={{ fontSize: "13px !important" }}>
         {label}
       </p>

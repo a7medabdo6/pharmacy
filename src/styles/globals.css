@@ -543,3 +543,7 @@ background: rgba(221, 23, 23, 0.3);
   background-color: white !important;
   height: 100%;
 }
+.btn-outline-primary{
+color: #0F4392 !important;
+border: 1px solid #0F4392;
+}
