@@ -22,7 +22,7 @@ import OurServicesCard from "@/Components/OurServicesCard";
 import Testimonial from "@/Components/Testimonial";
 import getallCategories from "../Apis/Category";
 import thanksrate from "../assets/img/thanksrate.png";
-
+import CategorySlider from "../Components/CategorySlider";
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
 
@@ -182,6 +182,9 @@ export default function Main() {
                   className=" mt-3 d-flex justify-content-start align-items-center flex-row "
                   style={{ width: "95%", overflow: "scroll" }}
                 >
+                  {/* {categories?.length > 0 && (
+                    <CategorySlider categories={categories} />
+                  )} */}
                   {categories?.length > 0 &&
                     categories.map((item) => {
                       return <CategorySliderCard item={item} />;
