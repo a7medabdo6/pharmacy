@@ -161,7 +161,7 @@ const productdetails = () => {
           >
             Russian similar:
           </p>
-          <p style={{ color: "grey", fontSize: "18px" }}>Lorem Ipsum</p>
+          <p style={{ color: "grey", fontSize: "18px" }}>{details?.russian_similar}</p>
         </div>
 
         <div
