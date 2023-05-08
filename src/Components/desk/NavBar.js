@@ -4,6 +4,11 @@ import logo2 from "../../assets/img/logo2.png";
 import Link from "next/link";
 
 const NavBar = () => {
+  // const token = JSON.parse(localStorage.getItem("token"));
+  
+
+
+    
   return (
     <div className="w-100" style={{ backgroundColor: "white" }}>
       <nav

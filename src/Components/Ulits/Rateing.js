@@ -4,7 +4,7 @@ import { render } from "react-dom";
 import Image from "next/image";
 import rate from "../../assets/img/star_good.png";
 
-const Rateing = ({ setrate }) => {
+const Rateing = ({ setrate ,Val}) => {
   const ratingChanged = (newRating) => {
     setrate(newRating);
     console.log(newRating);
@@ -14,6 +14,7 @@ const Rateing = ({ setrate }) => {
     <div className="d-flex">
       <ReactStars
         count={5}
+        value={Val}
         onChange={ratingChanged}
         size={24}
         isHalf={true}

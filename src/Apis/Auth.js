@@ -3,7 +3,7 @@ import axios from "axios";
 async function loginUser(credentials) {
   try {
     const response = await axios.post(
-      "http://18.130.40.220/accounts/register/",
+      "http://18.130.40.220/accounts/login/",
       credentials
     );
     console.log(response.data);
