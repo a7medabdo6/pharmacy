@@ -7,6 +7,7 @@ import { useRouter } from "next/navigation";
 
 import ButtonMak from "./ButtonMak";
 import { useEffect } from "react";
+import PostCart from "../../Apis/Cart/PostCart";
 
 const CardProduct = ({ item, id }) => {
   const dispatch = useDispatch();
@@ -16,7 +17,20 @@ const CardProduct = ({ item, id }) => {
     router.push(`/products/${id}/details/${item?.id}`);
     dispatch(setProductDetails(item));
   };
+  const SendCartFun = async (e) => {
+    e.preventDefault();
 
+ const formData = {
+  "product":id,
+  "quantity":1
+}
+
+    const res = await PostCart(formData);
+    console.log(res);
+    // if (res) setData(res);
+
+    return res;
+  };
   return (
     <div className={styles.boxcardprdoduct} onClick={onCardClick}>
       <Image
@@ -33,7 +47,7 @@ const CardProduct = ({ item, id }) => {
         <p className={styles.titlecard}>{item?.name}</p>
         <p className={styles.txtcard}>{item?.description}</p>
       </div>
-      <button className="btn btn-primary " style={{ width: "90%" }}>
+      <button className="btn btn-primary " onClick={SendCartFun} style={{ width: "90%" }}>
         Make a request
       </button>
 

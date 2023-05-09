@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useState,useEffect} from "react";
 import styles from "@/styles/requests.module.css";
 import ButtonRequests from "../Components/Requests/ButtonRequests";
 import CardInfo from "../Components/Requests/CardInfo";
@@ -9,6 +9,11 @@ import Header from "../Components/Ulits/Header";
 import NavBar from "@/Components/desk/NavBar";
 import { Col, Row } from "react-bootstrap";
 import FooterDesk from "@/Components/desk/FooterDesk";
+
+import GetCart from "../Apis/Cart/GetCart"
+import PostCart from "../Apis/Cart/PostCart"
+
+
 const requests = () => {
   const circleStyle = {
     backgroundColor: "#0F4392",
@@ -21,6 +26,19 @@ const requests = () => {
     color: "white",
     fontSize: "16px",
   };
+
+
+
+  const [CartList, setCartList] = useState([]);
+  const GetCartFun = async () => {
+    const res = await GetCart();
+    setCartList(res?.cart_items);
+    return res;
+  };
+  useEffect(() => {
+    GetCartFun();
+  }, []);
+  console.log(CartList);
   return (
     <main style={{ backgroundColor: "#EDEDED", width: "100%", margin: "auto" }}>
       <div className="d-block d-sm-none">
@@ -64,8 +82,12 @@ const requests = () => {
                   className="  mt-1  d-flex justify-content-start flex-column align-items-center "
                   style={{ width: "100%" }}
                 >
-                  <CardOrder />
-                  <CardOrder />
+                  {
+                    CartList?.map((item)=>{return(
+                      <CardOrder item={item} />
+
+                    )})
+                  }
                 </div>
               </Row>
             </Col>

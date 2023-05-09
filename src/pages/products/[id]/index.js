@@ -25,6 +25,7 @@ import gettAllProducts from "../../../Apis/products";
 import { Col, Row } from "react-bootstrap";
 import Filter from "../../../Components/desk/Filter";
 import ButtonOfferDEsk from "../../../Components/desk/ButtonOfferDEsk";
+import PostCart from "../../../Apis/Cart/PostCart";
 const products = () => {
   const [isOpen, setOpen] = useState(false);
   const [products, setproducts] = useState([]);
@@ -48,6 +49,10 @@ const products = () => {
   const handleBack = () => {
     router.back();
   };
+
+  console.log(products);
+
+
   return (
     <div style={{ backgroundColor: "white" }}>
       <div className="d-none d-sm-block w-100 ">
