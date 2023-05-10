@@ -9,8 +9,23 @@ import {
   faPen,
 } from "@fortawesome/free-solid-svg-icons";
 import ButtonOffers from "./ButtonOffers";
+import PostCart from "../../Apis/Cart/PostCart";
 
-const CardOffers = () => {
+const CardOffers = ({item}) => {
+  const SendCartFun = async (e) => {
+    e.preventDefault();
+
+ const formData = {
+  "product":2,
+  "quantity":5
+}
+
+    const res = await PostCart(formData);
+    console.log(res);
+    // if (res) setData(res);
+
+    return res;
+  };
   return (
     <div
       className="w-100 d-flex -justify-content-start align-items-center mt-3"
@@ -81,6 +96,7 @@ const CardOffers = () => {
             bckColor="#0F4392"
             BRColor="#0F4392"
             text="Get the offer"
+            onPress={SendCartFun}
           />
         </div>
       </div>

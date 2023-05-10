@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useState} from "react";
 import Image from "next/image";
 import telfast from "../../assets/img/telfast.webp";
 import ButtonRequests from "./ButtonRequests";
@@ -9,8 +9,61 @@ import {
   faCircleXmark,
   faPen,
 } from "@fortawesome/free-solid-svg-icons";
+import PostCart from "@/Apis/Cart/PostCart";
 
-const CardOrder = () => {
+const CardOrder = ({item}) => {
+  const [imag,setimag]=useState(item?.product?.home_image )
+  const [count,setcount]=useState(item?.quantity)
+  const [quantity,setquantity]=useState(count)
+  const [id,setid]=useState(item?.product?.id)
+
+
+const SendCartFundes = async (e) => {
+  // e.preventDefault();
+
+const formData = {
+"product":id,
+"quantity":-1
+}
+
+  const res = await PostCart(formData);
+  console.log(res);
+  // if (res) setData(res);
+
+  return res;
+};
+
+  const SendCartFunplus = async (e) => {
+    // e.preventDefault();
+
+ const formData = {
+  "product":id,
+  "quantity":1
+}
+
+    const res = await PostCart(formData);
+    console.log(res);
+    // if (res) setData(res);
+
+    return res;
+  };
+
+  const increase=()=>{
+    setid(item?.product?.id);
+
+    setcount(count + 1)
+    console.log(id);
+    console.log(item);
+    if(item)
+    SendCartFunplus()
+  }
+  const desincrease=()=>{
+    setid(item?.product?.id);
+
+    setcount(count - 1)
+    if(item)
+     SendCartFundes()
+  }
   return (
     <div
       className="w-100 d-flex -justify-content-start align-items-center mt-3"
@@ -42,7 +95,7 @@ const CardOrder = () => {
       <div>
         <div className="w-100 d-flex justify-content-between align-items-center">
           <h5 style={{ fontSize: "16px", fontWeight: "bold" }} className="mb-1">
-            telfast 180gm
+            {item?.product?.name}
           </h5>
           <FontAwesomeIcon
             icon={faCircleXmark}
@@ -61,6 +114,7 @@ const CardOrder = () => {
         </p>
         <div className="d-flex justify-content-start align-items-center">
           <button
+          onClick={increase}
             style={{
               width: "36px",
               height: "32px",
@@ -81,9 +135,11 @@ const CardOrder = () => {
               height: "32px",
             }}
           >
-            3
+            {count}
           </h5>
           <button
+                    onClick={desincrease}
+
             style={{
               width: "36px",
               height: "32px",

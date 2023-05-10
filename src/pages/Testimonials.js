@@ -14,8 +14,12 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
 import ReviewDesk from "../Components/desk/ReviewDesk";
+import Rateing from "../Components/Ulits/Rateing";
+
 const Testimonials = () => {
   const [open, setOpen] = useState(false);
+  const [rate, setrate] = useState();
+  const [Val, setVal] = useState();
 
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
@@ -41,7 +45,7 @@ const Testimonials = () => {
     return res;
   };
   useEffect(() => {
-    // getReviewsData();
+    getReviewsData();
   }, []);
   return (
     <div classNameName="container text-center">
@@ -73,11 +77,13 @@ const Testimonials = () => {
                       <div className="ms-2">
                         <p className={styles.username}>user name</p>
                         <div>
+                        <Rateing setrate={setrate} Val={item?.rate} />
+
+                          {/* <StarIcon style={{ color: "#E67136" }} />
                           <StarIcon style={{ color: "#E67136" }} />
                           <StarIcon style={{ color: "#E67136" }} />
                           <StarIcon style={{ color: "#E67136" }} />
-                          <StarIcon style={{ color: "#E67136" }} />
-                          <StarIcon style={{ color: "#E67136" }} />
+                          <StarIcon style={{ color: "#E67136" }} /> */}
                         </div>
                         <p>“Lorem ipsumLorem ipsumLorem ipsumLorem ipsum”</p>
                       </div>
@@ -155,55 +161,16 @@ const Testimonials = () => {
               className="d-flex justify-content-center flex-wrap align-items-center"
               style={{ width: "75%" }}
             >
-              <div className="boxshadow m-3 ">
-                <Testimonialdesk />
+            {
+               reviews?.length > 0 &&
+               reviews.map((item)=>{return(
+                <div className="boxshadow m-3 ">
+                <Testimonialdesk item={item}/>
               </div>
-              <div className="boxshadow m-3 ">
-                <Testimonialdesk />
-              </div>
-              <div className="boxshadow m-3">
-                <Testimonialdesk />
-              </div>
-
-              <div className="boxshadow m-3 ">
-                <Testimonialdesk />
-              </div>
-              <div className="boxshadow m-3 ">
-                <Testimonialdesk />
-              </div>
-              <div className="boxshadow m-3">
-                <Testimonialdesk />
-              </div>
-
-              <div className="boxshadow m-3 ">
-                <Testimonialdesk />
-              </div>
-              <div className="boxshadow m-3 ">
-                <Testimonialdesk />
-              </div>
-              <div className="boxshadow m-3">
-                <Testimonialdesk />
-              </div>
-
-              <div className="boxshadow m-3 ">
-                <Testimonialdesk />
-              </div>
-              <div className="boxshadow m-3 ">
-                <Testimonialdesk />
-              </div>
-              <div className="boxshadow m-3">
-                <Testimonialdesk />
-              </div>
-
-              <div className="boxshadow m-3 ">
-                <Testimonialdesk />
-              </div>
-              <div className="boxshadow m-3 ">
-                <Testimonialdesk />
-              </div>
-              <div className="boxshadow m-3">
-                <Testimonialdesk />
-              </div>
+               )})
+            }
+             
+     
             </div>
           </div>
         </div>

@@ -1,8 +1,12 @@
 import Image from "next/image";
-import React from "react";
+import React,{useState} from "react";
 import usertesty from "../../assets/img/usertesty.png";
+import Rateing from "../../Components/Ulits/Rateing";
 
-function Testimonialdesk() {
+function Testimonialdesk({item}) {
+  const [rate, setrate] = useState();
+  const [img, setimg] = useState(item?.file.toString());
+  console.log(img);
   return (
     <div
       className="  p-3 d-flex justify-content-start align-items-start "
@@ -10,10 +14,11 @@ function Testimonialdesk() {
     >
       <Image
         //  className="w-20"
-        src={usertesty}
+        src={"https://wellmedic2.s3.amazonaws.com/wellmedic2/static/review_fiels/Ellipse_1.svg"}
         alt="Next.js Logo"
-        width={40}
-        height={40}
+        width={30}
+        style={{marginTop:"7px"}}
+        height={30}
         priority
       />
       <div
@@ -27,11 +32,13 @@ function Testimonialdesk() {
           User Name
         </h3>
         <div className="d-flex mb-2 justify-content-start align-items-start ">
+        <Rateing setrate={setrate} Val={item?.rate} />
+
+          {/* <i className="star icon" style={{ color: "gold" }}></i>
           <i className="star icon" style={{ color: "gold" }}></i>
           <i className="star icon" style={{ color: "gold" }}></i>
           <i className="star icon" style={{ color: "gold" }}></i>
-          <i className="star icon" style={{ color: "gold" }}></i>
-          <i className="star icon" style={{ color: "gold" }}></i>
+          <i className="star icon" style={{ color: "gold" }}></i> */}
         </div>
 
         <p className="text-dark" style={{ fontSize: "10px !important" }}>
