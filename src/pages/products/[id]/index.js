@@ -309,12 +309,14 @@ const products = () => {
             </div>
             <div className={styles.boxwhite}>
               <p className={styles.txtExplore}>Explore our products or </p>
-              <ButtonContact
-                txtColor="#0F4392"
-                bckColor="white"
-                BRColor="#0F4392"
-                text="Contact a pharmacist"
-              />
+              <Link href={"/contactus"}>
+                <ButtonContact
+                  txtColor="#0F4392"
+                  bckColor="white"
+                  BRColor="#0F4392"
+                  text="Contact a pharmacist"
+                />
+              </Link>
             </div>
             <Row>
               {products?.map((item) => (

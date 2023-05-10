@@ -44,7 +44,7 @@ const contactus = () => {
         <NavBar />
       </div>
       <div
-        style={{ backgroundColor: "grey", width: "95%", borderRadius: "15px" }}
+        style={{ backgroundColor: "white", width: "95%", borderRadius: "15px" }}
         className=" mt-2  d-flex justify-content-center align-items-center flex-column"
       >
         <p className={styles.title}> We are here for you</p>
@@ -116,9 +116,12 @@ const contactus = () => {
         <div className="w-90 d-flex text-center justify-content-around align-items-center  flex-column">
           <div className="w-90 d-flex text-center justify-content-center align-items-center mx-5 ">
             <Row className=" d-flex text-center justify-content-center align-items-center ">
-              <Col className="col-6" style={{ backgroundColor: "white" }}>
+              <Col
+                className="col-12 col-sm-6 col-md-6"
+                style={{ backgroundColor: "white" }}
+              >
                 <Row>
-                  <Col className="col-12 d-flex text-center justify-content-center align-items-cente">
+                  <Col className="col-12 d-flex text-center justify-content-between align-items-cente">
                     <div className=" d-flex text-center justify-content-center align-items-center ">
                       <Image
                         //  className="w-20"

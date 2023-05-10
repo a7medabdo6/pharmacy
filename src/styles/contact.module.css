@@ -136,8 +136,8 @@ color: "blue";
   }
 
   .bottomsheet{
-    width:50% !important ;
-    left: 25% !important;
+    /* width:50% !important ;
+    left: 25% !important; */
     height: 33%;
     
   }
