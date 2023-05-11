@@ -6,6 +6,7 @@ import CategorySliderCard from "../Components/CategorySliderCard";
 import { useState, useEffect } from "react";
 import ButtonContact from "../Components/products/ButtonContact";
 import getallCategories from "../Apis/Category";
+import Link from "next/link";
 
 const CategoriesViewall = () => {
   const [isOpen, setOpen] = useState(false);
@@ -29,12 +30,14 @@ const CategoriesViewall = () => {
 
       <div className={styles.boxwhite}>
         <p className={styles.txtExplore}>Explore our products or </p>
-        <ButtonContact
-          txtColor="#0F4392"
-          bckColor="white"
-          BRColor="#0F4392"
-          text="Contact a pharmacist"
-        />
+        <Link href={"/contactus"}>
+          <ButtonContact
+            txtColor="#0F4392"
+            bckColor="white"
+            BRColor="#0F4392"
+            text="Contact a pharmacist"
+          />
+        </Link>
       </div>
 
       <div

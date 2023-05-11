@@ -1,9 +1,9 @@
 import Image from "next/image";
-import React,{useState} from "react";
+import React, { useState } from "react";
 import usertesty from "../../assets/img/usertesty.png";
 import Rateing from "../../Components/Ulits/Rateing";
 
-function Testimonialdesk({item}) {
+function Testimonialdesk({ item }) {
   const [rate, setrate] = useState();
   const [img, setimg] = useState(item?.file.toString());
   console.log(img);
@@ -14,10 +14,10 @@ function Testimonialdesk({item}) {
     >
       <Image
         //  className="w-20"
-        src={"https://wellmedic2.s3.amazonaws.com/wellmedic2/static/review_fiels/Ellipse_1.svg"}
+        src={item?.file}
         alt="Next.js Logo"
         width={30}
-        style={{marginTop:"7px"}}
+        style={{ marginTop: "7px" }}
         height={30}
         priority
       />
@@ -32,7 +32,7 @@ function Testimonialdesk({item}) {
           User Name
         </h3>
         <div className="d-flex mb-2 justify-content-start align-items-start ">
-        <Rateing setrate={setrate} Val={item?.rate} />
+          <Rateing setrate={undefined} Val={item?.rate} />
 
           {/* <i className="star icon" style={{ color: "gold" }}></i>
           <i className="star icon" style={{ color: "gold" }}></i>
@@ -42,8 +42,7 @@ function Testimonialdesk({item}) {
         </div>
 
         <p className="text-dark" style={{ fontSize: "10px !important" }}>
-          {" "}
-          “Lorem ipsumLorem ipsumLorem ipsumLorem ipsum”
+          {item?.description}
         </p>
       </div>
     </div>

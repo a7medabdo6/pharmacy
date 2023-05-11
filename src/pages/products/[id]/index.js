@@ -52,7 +52,6 @@ const products = () => {
 
   console.log(products);
 
-
   return (
     <div style={{ backgroundColor: "white" }}>
       <div className="d-none d-sm-block w-100 ">
@@ -230,7 +229,10 @@ const products = () => {
           </div>
         </div>
 
-        <Row className="mt-3 m-2 mb-5 pb-5" style={{ marginBottom: "80px" }}>
+        <Row
+          className="mt-3 m-2 mb-5 pb-5"
+          style={{ marginBottom: "80px", width: "96%" }}
+        >
           <Col md={3} sm={12} className="d-none d-sm-block">
             <div
               style={{

@@ -7,7 +7,7 @@ import Postcontactus from "@/Apis/Contact";
 import Alert from "@mui/material/Alert";
 import Stack from "@mui/material/Stack";
 
-const ModalContent = ({ setOpen,setModalShow }) => {
+const ModalContent = ({ setOpen, setModalShow }) => {
   const [phone, setphone] = useState("us");
   const [Name, setName] = useState();
   const [Data, setData] = useState();
@@ -40,7 +40,7 @@ const ModalContent = ({ setOpen,setModalShow }) => {
     setTimeout(() => {
       if (Data) {
         setOpen(false);
-        setModalShow(false)
+        // setModalShow(false)
       }
     }, 2000);
   }, [Data]);
@@ -84,7 +84,7 @@ const ModalContent = ({ setOpen,setModalShow }) => {
       <button
         onClick={(e) => SentContactUs(e)}
         type="submit"
-        style={{ borderRadius: "4px",height:"45px" }}
+        style={{ borderRadius: "4px", height: "45px" }}
         className="btn btn-primary "
       >
         send the request

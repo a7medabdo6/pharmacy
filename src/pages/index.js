@@ -1,4 +1,3 @@
-import Head from "next/head";
 import styles from "@/styles/verification.module.css";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from "react-responsive-carousel";
@@ -16,44 +15,35 @@ import slider3 from "../assets/img/slider3.png";
 import Service from "../assets/img/service.png";
 import Service2 from "../assets/img/service2.png";
 import Service3 from "../assets/img/service3.png";
+import getAllReviews from "../Apis/Testimonails";
 
 import "react-phone-input-2/lib/style.css";
 import OurServicesCard from "@/Components/OurServicesCard";
 import Testimonial from "@/Components/Testimonial";
 import getallCategories from "../Apis/Category";
-import thanksrate from "../assets/img/thanksrate.png";
-import CategorySlider from "../Components/CategorySlider";
+
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
-
-import ver from "../assets/desk/ver.png";
-import logo2 from "../assets/img/logo2.png";
-import ReactPhoneInput from "react-phone-input-2";
 import Link from "next/link";
 import Steps from "../Components/desk/Steps";
 import infoImage from "../assets/desk/info.png";
 import step1 from "../assets/desk/step1.png";
-
 import step2 from "../assets/desk/step2.png";
 import step3 from "../assets/desk/step3.png";
 import cart from "../assets/desk/shopping.png";
 import line from "../assets/desk/line.png";
 import maik from "../assets/desk/maik.png";
-import descond from "../assets/desk/descond.png";
-import SearchIcon from "@mui/icons-material/Search";
-
 import CategorySliderDesk from "../Components/desk/CategorySliderDesk";
 import Testimonialdesk from "../Components/desk/Testimonialdesk";
 import FooterDesk from "../Components/desk/FooterDesk";
 import SliderOffer from "../Components/desk/SliderOffer";
-
 import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
 import ButtomReview from "@/Components/Requests/ButtomReview";
 import ReviewDesk from "../Components/desk/ReviewDesk";
 import NavBar from "../Components/desk/NavBar";
+import { Col, Row } from "react-bootstrap";
 
 export default function Main() {
   const [open, setOpen] = useState(false);
@@ -67,6 +57,16 @@ export default function Main() {
   };
   useEffect(() => {
     getHomeData();
+  }, []);
+  const [reviews, setReviews] = useState([]);
+  const getReviewsData = async () => {
+    const res = await getAllReviews();
+    console.log(res, "ressss");
+    setReviews(res?.results);
+    return res;
+  };
+  useEffect(() => {
+    getReviewsData();
   }, []);
   const style = {
     position: "absolute",
@@ -233,7 +233,7 @@ export default function Main() {
                     Testimonial
                   </h4>
                   <Link
-                    href="/CategoriesViewall"
+                    href="/testimonials"
                     className="d-flex justify-content-between align-items-center "
                   >
                     <p className=" align-start mt-2 mb-2 m-0 pt-3 pb-2">
@@ -241,8 +241,18 @@ export default function Main() {
                     </p>
                   </Link>
                 </div>
-
-                <Testimonial />
+                {reviews.map((item, i) => {
+                  if (i < 1) {
+                    return (
+                      <div
+                        className="boxshadow w-100"
+                        style={{ background: "white" }}
+                      >
+                        <Testimonial item={item} />
+                      </div>
+                    );
+                  }
+                })}
               </div>
               <div style={{ width: "100%" }}>
                 <Footer />
@@ -311,7 +321,7 @@ export default function Main() {
                 <NavBar />
                 <div
                   class="input-group mb-3 position-relative mt-3 d-flex justify-content-center align-items-center flex-column"
-                  style={{ width: "100%" }}
+                  style={{ width: "80%", margin: "auto" }}
                 >
                   <input
                     type="text"
@@ -468,15 +478,19 @@ export default function Main() {
                 className="d-flex justify-content-between align-items-center  mt-5  "
                 style={{ width: "78%" }}
               >
-                <div className="boxshadow ">
-                  <Testimonialdesk />
-                </div>
-                <div className="boxshadow mx-4">
-                  <Testimonialdesk />
-                </div>
-                <div className="boxshadow ">
-                  <Testimonialdesk />
-                </div>
+                <Row className="w-100">
+                  {reviews.map((item, i) => {
+                    if (i < 3) {
+                      return (
+                        <Col className="col-4">
+                          <div className="boxshadow ">
+                            <Testimonialdesk item={item} />
+                          </div>
+                        </Col>
+                      );
+                    }
+                  })}
+                </Row>
               </div>
             </div>
 
@@ -484,10 +498,10 @@ export default function Main() {
               className=" mt-3 d-flex justify-content-center align-items-center flex-column w-100 "
               style={{ width: "100%" }}
             >
-              <Link href="/allreview">
-                <h5 style={{ color: "#0F4392", fontSize: "14px !important" }}>
+              <Link href="/testimonials">
+                <p style={{ color: "#0F4392", fontSize: "14px !important" }}>
                   Check all reviews
-                </h5>
+                </p>
               </Link>
               <FooterDesk />
             </div>

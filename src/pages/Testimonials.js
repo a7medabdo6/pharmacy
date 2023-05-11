@@ -15,6 +15,7 @@ import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
 import ReviewDesk from "../Components/desk/ReviewDesk";
 import Rateing from "../Components/Ulits/Rateing";
+import { Col, Row } from "react-bootstrap";
 
 const Testimonials = () => {
   const [open, setOpen] = useState(false);
@@ -48,8 +49,8 @@ const Testimonials = () => {
     getReviewsData();
   }, []);
   return (
-    <div classNameName="container text-center">
-      <div className="row">
+    <div classNameName="container text-center ">
+      <div className="row pt-5">
         <div className="d-sm-none">
           <main className={styles.main} style={{ backgroundColor: "#EDEDED" }}>
             <div className="w-100 text-center d-flex justify-content-center align-items-center flex-column">
@@ -67,7 +68,7 @@ const Testimonials = () => {
                     <div className={styles.boxtest}>
                       <div className="ms-3">
                         <Image
-                          src={avatar}
+                          src={item?.file}
                           alt="Next.js Logo"
                           width={60}
                           height={60}
@@ -77,7 +78,7 @@ const Testimonials = () => {
                       <div className="ms-2">
                         <p className={styles.username}>user name</p>
                         <div>
-                        <Rateing setrate={setrate} Val={item?.rate} />
+                          <Rateing setrate={setrate} Val={item?.rate} />
 
                           {/* <StarIcon style={{ color: "#E67136" }} />
                           <StarIcon style={{ color: "#E67136" }} />
@@ -85,7 +86,7 @@ const Testimonials = () => {
                           <StarIcon style={{ color: "#E67136" }} />
                           <StarIcon style={{ color: "#E67136" }} /> */}
                         </div>
-                        <p>“Lorem ipsumLorem ipsumLorem ipsumLorem ipsum”</p>
+                        <p>{item?.description}</p>
                       </div>
                     </div>
                   );
@@ -107,7 +108,10 @@ const Testimonials = () => {
         </div>
         {/* <div className="d-none d-sm-block d-md-none">deskllll</div> */}
         <div className="d-none d-md-block w-100">
-          <div className="d-flex justify-content-center w-100 align-items-center flex-column">
+          <div
+            className="d-flex justify-content-center w-100 align-items-center flex-column"
+            style={{ background: "white" }}
+          >
             <h3 style={{ color: "#0F4392" }}>All reviews</h3>
             <div>
               <Modal
@@ -161,16 +165,18 @@ const Testimonials = () => {
               className="d-flex justify-content-center flex-wrap align-items-center"
               style={{ width: "75%" }}
             >
-            {
-               reviews?.length > 0 &&
-               reviews.map((item)=>{return(
-                <div className="boxshadow m-3 ">
-                <Testimonialdesk item={item}/>
-              </div>
-               )})
-            }
-             
-     
+              <Row>
+                {reviews?.length > 0 &&
+                  reviews.map((item) => {
+                    return (
+                      <Col className={"col-4"}>
+                        <div className="boxshadow m-3 ">
+                          <Testimonialdesk item={item} />
+                        </div>
+                      </Col>
+                    );
+                  })}
+              </Row>
             </div>
           </div>
         </div>

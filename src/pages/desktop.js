@@ -119,18 +119,21 @@ const desktop = () => {
               </div>
               <div className="d-flex justify-content-center align-items-center">
                 <form className="d-flex" role="search">
-                  <button
-                    className="btn btn-outline-success me-2"
-                    type="submit"
-                    style={{
-                      backgroundColor: "white",
-                      borderColor: "#0F4392",
-                      color: "#0F4392",
-                      width: "100px",
-                    }}
-                  >
-                    sign in
-                  </button>
+                  <Link href={"/login"}>
+                    <button
+                      className="btn btn-outline-success me-2"
+                      type="submit"
+                      style={{
+                        backgroundColor: "white",
+                        borderColor: "#0F4392",
+                        color: "#0F4392",
+                        width: "100px",
+                      }}
+                    >
+                      sign in
+                    </button>
+                  </Link>
+
                   <button
                     className="btn btn-outline-success"
                     style={{

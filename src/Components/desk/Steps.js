@@ -6,7 +6,7 @@ const Steps = ({ imgsource, title, text, desc }) => {
   return (
     <div
       className="d-flex boxsteps justify-content-center align-items-center flex-column   mx-2"
-      style={{ height: "301px" }}
+      style={{ minHeight: "383px" }}
     >
       <p
         style={{
@@ -22,7 +22,7 @@ const Steps = ({ imgsource, title, text, desc }) => {
       <Image
         //  className="w-20"
         src={imgsource}
-        style={{ width: "75%", height: "50%" }}
+        // style={{ width: "75%", height: "50%" }}
         alt="Next.js Logo"
         // width={300}
         priority

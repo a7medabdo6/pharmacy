@@ -20,10 +20,10 @@ const CardProduct = ({ item, id }) => {
   const SendCartFun = async (e) => {
     e.preventDefault();
 
- const formData = {
-  "product":id,
-  "quantity":1
-}
+    const formData = {
+      product: id,
+      quantity: 1,
+    };
 
     const res = await PostCart(formData);
     console.log(res);
@@ -32,22 +32,29 @@ const CardProduct = ({ item, id }) => {
     return res;
   };
   return (
-    <div className={styles.boxcardprdoduct} onClick={onCardClick}>
-      <Image
-        //  className="w-20"
-        loader={() => item?.home_image}
-        src={item?.home_image}
-        className={styles.cardproductImage}
-        alt="Next.js Logo"
-        width={92}
-        height={150}
-        priority
-      />
-      <div className={styles.boxinfo}>
-        <p className={styles.titlecard}>{item?.name}</p>
-        <p className={styles.txtcard}>{item?.description}</p>
+    <div className={styles.boxcardprdoduct}>
+      <div style={{ width: "90%" }} onClick={onCardClick}>
+        <Image
+          //  className="w-20"
+          loader={() => item?.home_image}
+          src={item?.home_image}
+          className={styles.cardproductImage}
+          alt="Next.js Logo"
+          width={92}
+          height={150}
+          priority
+        />
+        <div className={styles.boxinfo}>
+          <p className={styles.titlecard}>{item?.name}</p>
+          <p className={styles.txtcard}>{item?.description}</p>
+        </div>
       </div>
-      <button className="btn btn-primary " onClick={SendCartFun} style={{ width: "90%" }}>
+
+      <button
+        className="btn btn-primary "
+        onClick={SendCartFun}
+        style={{ width: "90%" }}
+      >
         Make a request
       </button>
 
