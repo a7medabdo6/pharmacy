@@ -14,22 +14,50 @@ import BottomNav from "../Components/Ulits/BottomNav";
 import PhoneIcon from "@mui/icons-material/Phone";
 import ButtonTrack from "../Components/tracking/ButtonTrack";
 import Image from "next/image";
-import Button from "../Components/Ulits/Button";
 import ButtonRequestOrder from "../Components/Ulits/ButtonRequestOrder";
 import Sheet from "react-modal-sheet";
 import { useState } from "react";
 import ModalContent from "../Components/Ulits/ModalContent";
 import NavBar from "../Components/desk/NavBar";
 import { Col, Row } from "react-bootstrap";
+import Button from 'react-bootstrap/Button';
+import Modal from 'react-bootstrap/Modal';
 
+function MyVerticallyCenteredModal(props) {
+    const [modalShow, setModalShow] = React.useState(false);
+
+  return (
+    <Modal
+      {...props}
+      size="lg"
+      aria-labelledby="contained-modal-title-vcenter"
+      centered
+    >
+      <Modal.Header closeButton>
+        <Modal.Title id="contained-modal-title-vcenter">
+        <div className="w-100 d-flex  justify-content-center align-items-center  ">
+                  <h4 style={{ color: "#0F4392" }}>Request a call</h4>
+                </div>        </Modal.Title>
+      </Modal.Header>
+      <Modal.Body>
+      <ModalContent setModalShow={setModalShow} />
+
+      </Modal.Body>
+      <Modal.Footer>
+        <Button onClick={props.onHide}>Close</Button>
+      </Modal.Footer>
+    </Modal>
+  );
+}
 const contactus = () => {
   const [isOpen, setOpen] = useState(false);
   const snapPoints = [400, 600]; // Define the height values that the modal can snap to
+  const [modalShow, setModalShow] = React.useState(false);
 
   return (
     <main
       style={{
-        backgroundColor: "#EDEDED",
+        backgroundColor: "white",
         width: "100%",
         margin: "auto",
         height: "100%",
@@ -44,7 +72,7 @@ const contactus = () => {
         <NavBar />
       </div>
       <div
-        style={{ backgroundColor: "white", width: "95%", borderRadius: "15px" }}
+        style={{ backgroundColor: "#EDEDED", width: "95%", borderRadius: "15px" }}
         className=" mt-2  d-flex justify-content-center align-items-center flex-column"
       >
         <p className={styles.title}> We are here for you</p>
@@ -60,6 +88,11 @@ const contactus = () => {
             style={{ maxWidth: "90%" }}
           />
         </div>
+
+
+<div   className="d-flex w-100 justify-content-center align-items-center mt-3">
+
+<div  style={{backgroundColor:"white",width:"40%"}} className="d-flex w-100 justify-content-center align-items-center mt-3 flex-column">
         <p className={styles.textsub} style={{ marginTop: 15 }}>
           {" "}
           Social media contacts
@@ -107,12 +140,15 @@ const contactus = () => {
             priority
           />
         </div>
-        <div
+        </div>
+       
+        {/* <div
           className="my-2"
           style={{ height: "1px", backgroundColor: "grey", width: "90%" }}
-        ></div>
+        ></div> */}
+<div style={{backgroundColor:"white",width:"40%"}}  className="d-flex w-100 justify-content-center align-items-center mt-3 flex-column">
 
-        <p className={styles.textsub}> Reach us via</p>
+<p className={styles.textsub}> Reach us via</p>
         <div className="w-90 d-flex text-center justify-content-around align-items-center  flex-column">
           <div className="w-90 d-flex text-center justify-content-center align-items-center mx-5 ">
             <Row className=" d-flex text-center justify-content-center align-items-center ">
@@ -197,6 +233,16 @@ const contactus = () => {
                   />{" "}
                   Call Now
                 </button>
+                <>
+      <Button variant="primary" onClick={() => setModalShow(true)}>
+        Launch vertically centered modal
+      </Button>
+
+      <MyVerticallyCenteredModal
+        show={modalShow}
+        onHide={() => setModalShow(false)}
+      />
+    </>
               </Col>
               <Col className="col-12 mt-3">
                 <Row>
@@ -214,6 +260,7 @@ const contactus = () => {
                     <p className={styles.number}>
                       Tal avenu- white hills hotel, Sharm Elsheikh, Egypt
                     </p>
+                    
                   </Col>
                 </Row>
               </Col>
@@ -239,7 +286,7 @@ const contactus = () => {
               <Sheet.Backdrop />
             </Sheet>
           </div>
-          <div style={{ width: "95%" }} onClick={() => setOpen(true)}>
+          <div style={{ width: "50%", cursor:"pointer" }} onClick={() => setModalShow(true)}>
             <ButtonRequestOrder
               txtColor="white"
               bckColor="#0F4392"
@@ -249,7 +296,16 @@ const contactus = () => {
           </div>
         </div>
 
-        <></>
+</div>
+
+</div>
+
+
+
+
+
+     
+
       </div>
 
       <div
