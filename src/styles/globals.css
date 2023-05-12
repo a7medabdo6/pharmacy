@@ -333,7 +333,9 @@ flex-grow: 0;
   padding: 8px 15px;
   margin-top: 15px;
 }
-
+.w-custom {
+  width: 93% !important;
+}
 
 @media only screen and (min-width: 900px) {
   .form-control{
@@ -344,7 +346,11 @@ flex-grow: 0;
     display: inline-block;
     font-size: 1.3rem;
 }
+.w-custom {
+  width: 50% !important;
 }
+}
+
 
 .confirm-custom{
   width: 90%;
