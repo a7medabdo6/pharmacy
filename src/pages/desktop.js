@@ -36,6 +36,13 @@ const desktop = () => {
   useEffect(() => {
     getHomeData();
   }, []);
+  const [user, setuser] = useState(null);
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      // Perform localStorage action
+      setuser(localStorage?.getItem("user"));
+    }
+  }, []);
   return (
     <div
       className="d-flex justify-content-between align-items-start flex-column  position-relative w-100"
@@ -118,34 +125,36 @@ const desktop = () => {
                 </div>
               </div>
               <div className="d-flex justify-content-center align-items-center">
-                <form className="d-flex" role="search">
-                  <Link href={"/login"}>
+                {user ? null : (
+                  <form className="d-flex" role="search">
+                    <Link href={"/login"}>
+                      <button
+                        className="btn btn-outline-success me-2"
+                        type="submit"
+                        style={{
+                          backgroundColor: "white",
+                          borderColor: "#0F4392",
+                          color: "#0F4392",
+                          width: "100px",
+                        }}
+                      >
+                        sign in
+                      </button>
+                    </Link>
+
                     <button
-                      className="btn btn-outline-success me-2"
-                      type="submit"
+                      className="btn btn-outline-success"
                       style={{
-                        backgroundColor: "white",
-                        borderColor: "#0F4392",
-                        color: "#0F4392",
+                        color: "white",
+                        backgroundColor: "#0F4392",
                         width: "100px",
                       }}
+                      type="submit"
                     >
-                      sign in
+                      sign up
                     </button>
-                  </Link>
-
-                  <button
-                    className="btn btn-outline-success"
-                    style={{
-                      color: "white",
-                      backgroundColor: "#0F4392",
-                      width: "100px",
-                    }}
-                    type="submit"
-                  >
-                    sign up
-                  </button>
-                </form>
+                  </form>
+                )}
               </div>
             </div>
           </nav>

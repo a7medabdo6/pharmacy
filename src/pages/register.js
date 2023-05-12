@@ -8,23 +8,36 @@ import ReactPhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import { GetHotels, GetRooms, loginUser } from "../Apis/Auth";
+import { GetHotels, GetRooms, Register } from "../Apis/Auth";
 import frame from "../assets/desk/Frame.png";
 import well from "../assets/desk/well.png";
-import { useRouter } from "next/router";
 
 export default function Home() {
   const [password, setpassword] = useState("");
-  const router = useRouter();
+  const [hotel_id, sethotel_id] = useState("");
+
+  const [room_id, setroom_id] = useState("");
 
   const [hotels, setHotels] = useState([]);
   const [rooms, setRooms] = useState([]);
 
-  const submit = async () => {
-    const res = await loginUser({ password, phone });
-    if (res.token) {
-      router.push("/");
-    }
+  const getHotelsData = async () => {
+    const res = await GetHotels();
+    setHotels(res?.results);
+    return res;
+  };
+  const getRoomsData = async () => {
+    const res = await GetRooms();
+    setRooms(res?.results);
+    return res;
+  };
+
+  useEffect(() => {
+    getHotelsData();
+    getRoomsData();
+  }, []);
+  const submit = () => {
+    Register({ password, hotel_id, phone });
   };
   const [phone, setphone] = useState("us");
   function handleOnChange(value) {
@@ -82,11 +95,14 @@ export default function Home() {
                 <div className="d-flex justify-content-center  align-items-center w-80">
                   <label htmlFor="exampleInputPassword1">
                     {" "}
-                    Don't have an account?{" "}
+                    Already have an account?{" "}
                   </label>
 
-                  <Link href={"/register"}>
-                    <p className="m-2">Sign up</p>
+                  {/* <h4 style={{ color: "#202223" }} className="m-2">
+              Already have an account?
+            </h4> */}
+                  <Link href={"/login"}>
+                    <p className="m-2">Sign in</p>
                   </Link>
                 </div>
                 <form className="d-flex justify-content-center  flex-column">
@@ -100,7 +116,25 @@ export default function Home() {
                       onChange={handleOnChange}
                     />
                   </div>
+                  <div className="form-group m-2">
+                    <label htmlFor="exampleInputPassword1">
+                      Select Hotel Name{" "}
+                    </label>
+                    <select
+                      type="text"
+                      className="form-control"
+                      value={hotel_id}
+                      onChange={(e) => sethotel_id(e.target.value)}
+                      id="exampleInputPassword1"
+                      placeholder="Select here"
+                    >
+                      <option> Select Hotel Name</option>
 
+                      {hotels.map((item) => (
+                        <option id={item?.id}>{item.name}</option>
+                      ))}
+                    </select>
+                  </div>
                   <div className="form-group m-2">
                     <label htmlFor="exampleInputEmail1"> Password*</label>
                     <input
@@ -112,6 +146,24 @@ export default function Home() {
                       placeholder="Write here"
                     />
                   </div>
+                  <div className="form-group m-2">
+                    <label htmlFor="exampleInputEmail1">
+                      Select Room Number*
+                    </label>
+                    <select
+                      type="text"
+                      className="form-control"
+                      value={room_id}
+                      onChange={(e) => setroom_id(e.target.value)}
+                      id="exampleInputPassword1"
+                      placeholder="Select here"
+                    >
+                      {rooms?.map((item) => (
+                        <option id={item?.id}>{item.name}</option>
+                      ))}
+                    </select>
+                  </div>
+                  {/* <Link href="/verification" className='w-100'> */}
 
                   <button
                     type="button"
@@ -182,8 +234,11 @@ export default function Home() {
                     {" "}
                     Already have an account?{" "}
                   </label>
-                  <Link href={"/register"}>
-                    <p className="m-2">Sign up</p>
+                  {/* <h4 style={{ color: "#202223" }} className="m-2">
+              Already have an account?
+            </h4> */}
+                  <Link href={"/login"}>
+                    <p className="m-2">Sign in</p>
                   </Link>{" "}
                 </div>
 
@@ -198,7 +253,25 @@ export default function Home() {
                       onChange={handleOnChange}
                     />
                   </div>
+                  <div className="form-group m-2">
+                    <label htmlFor="exampleInputPassword1">
+                      Select Hotel Name{" "}
+                    </label>
+                    <select
+                      type="text"
+                      className="form-control"
+                      value={hotel_id}
+                      onChange={(e) => sethotel_id(e.target.value)}
+                      id="exampleInputPassword1"
+                      placeholder="Select here"
+                    >
+                      <option> Select Hotel Name</option>
 
+                      {hotels.map((item) => (
+                        <option value={item?.id}>{item.name}</option>
+                      ))}
+                    </select>
+                  </div>
                   <div className="form-group m-2">
                     <label htmlFor="exampleInputEmail1"> Password*</label>
                     <input
@@ -210,6 +283,24 @@ export default function Home() {
                       placeholder="Write here"
                     />
                   </div>
+                  <div className="form-group m-2">
+                    <label htmlFor="exampleInputEmail1">
+                      Select Room Number*
+                    </label>
+                    <select
+                      type="text"
+                      className="form-control"
+                      value={room_id}
+                      onChange={(e) => setroom_id(e.target.value)}
+                      id="exampleInputPassword1"
+                      placeholder="Select here"
+                    >
+                      {rooms?.map((item) => (
+                        <option id={item?.id}>{item.name}</option>
+                      ))}
+                    </select>
+                  </div>
+                  {/* <Link href="/verification" className='w-100'> */}
 
                   <button
                     type="button"

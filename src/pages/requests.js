@@ -1,4 +1,4 @@
-import React,{useState,useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import styles from "@/styles/requests.module.css";
 import ButtonRequests from "../Components/Requests/ButtonRequests";
 import CardInfo from "../Components/Requests/CardInfo";
@@ -10,9 +10,8 @@ import NavBar from "@/Components/desk/NavBar";
 import { Col, Row } from "react-bootstrap";
 import FooterDesk from "@/Components/desk/FooterDesk";
 
-import GetCart from "../Apis/Cart/GetCart"
-import PostCart from "../Apis/Cart/PostCart"
-
+import GetCart from "../Apis/Cart/GetCart";
+import PostCart from "../Apis/Cart/PostCart";
 
 const requests = () => {
   const circleStyle = {
@@ -27,8 +26,6 @@ const requests = () => {
     fontSize: "16px",
   };
 
-
-
   const [CartList, setCartList] = useState([]);
   const GetCartFun = async () => {
     const res = await GetCart();
@@ -39,6 +36,13 @@ const requests = () => {
     GetCartFun();
   }, []);
   console.log(CartList);
+  const [user, setuser] = useState(null);
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      // Perform localStorage action
+      setuser(JSON.parse(localStorage?.getItem("user")));
+    }
+  }, []);
   return (
     <main style={{ backgroundColor: "#EDEDED", width: "100%", margin: "auto" }}>
       <div className="d-block d-sm-none">
@@ -67,7 +71,7 @@ const requests = () => {
                     className="  mt-1  d-flex justify-content-start align-items-center "
                     style={{ width: "100%" }}
                   >
-                    <CardInfo />
+                    <CardInfo user={user} />
                   </div>
                 </Col>
                 <Col className="col-12 "></Col>
@@ -82,12 +86,9 @@ const requests = () => {
                   className="  mt-1  d-flex justify-content-start flex-column align-items-center "
                   style={{ width: "100%" }}
                 >
-                  {
-                    CartList?.map((item)=>{return(
-                      <CardOrder item={item} />
-
-                    )})
-                  }
+                  {CartList?.map((item) => {
+                    return <CardOrder item={item} />;
+                  })}
                 </div>
               </Row>
             </Col>

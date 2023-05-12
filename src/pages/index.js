@@ -241,7 +241,7 @@ export default function Main() {
                     </p>
                   </Link>
                 </div>
-                {reviews.map((item, i) => {
+                {reviews?.map((item, i) => {
                   if (i < 1) {
                     return (
                       <div
@@ -479,7 +479,7 @@ export default function Main() {
                 style={{ width: "78%" }}
               >
                 <Row className="w-100">
-                  {reviews.map((item, i) => {
+                  {reviews?.map((item, i) => {
                     if (i < 3) {
                       return (
                         <Col className="col-4">

@@ -1,11 +1,17 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import logo2 from "../../assets/img/logo2.png";
 import Link from "next/link";
 
 const NavBar = () => {
   // const token = JSON.parse(localStorage.getItem("token"));
-
+  const [user, setuser] = useState(null);
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      // Perform localStorage action
+      setuser(localStorage?.getItem("user"));
+    }
+  }, []);
   return (
     <div className="w-100" style={{ backgroundColor: "white" }}>
       <nav
@@ -43,11 +49,16 @@ const NavBar = () => {
             >
               <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                 <li className="nav-item mx-3">
-                  <a className="nav-link active" aria-current="page" href="#">
-                    Home
-                  </a>
+                  <Link
+                    href="/"
+                    className="d-flex justify-content-between align-items-center "
+                  >
+                    <p className="nav-link active" aria-current="page" href="#">
+                      Home
+                    </p>
+                  </Link>
                 </li>
-                <li className="nav-item mx-3 d-flex justify-content-between align-items-center ">
+                {/* <li className="nav-item mx-3 d-flex justify-content-between align-items-center ">
                   <Link
                     href="/"
                     className="d-flex justify-content-between align-items-center "
@@ -55,48 +66,61 @@ const NavBar = () => {
                     {" "}
                     Our Products
                   </Link>
+                </li> */}
+                <li className="nav-item mx-3">
+                  <Link
+                    href="/requests"
+                    className="d-flex justify-content-between align-items-center "
+                  >
+                    <p className="nav-link active" aria-current="page" href="#">
+                      Requests
+                    </p>
+                  </Link>
                 </li>
                 <li className="nav-item mx-3">
-                  <a className="nav-link" href="#">
-                    Requests
-                  </a>
-                </li>
-                <li className="nav-item mx-3">
-                  <a className="nav-link " href="#">
-                    Contact us
-                  </a>
+                  <Link
+                    href="/contactus"
+                    className="d-flex justify-content-between align-items-center "
+                  >
+                    <p className="nav-link active" aria-current="page" href="#">
+                      Contact us
+                    </p>
+                  </Link>
                 </li>
               </ul>
             </div>
           </div>
           <div className="d-flex justify-content-center align-items-center">
-            <form className="d-flex" role="search">
-              <Link href={"/login"}>
+            {user ? null : (
+              <form className="d-flex" role="search">
+                <Link href={"/login"}>
+                  <button
+                    className="btn btn-outline-success me-2"
+                    type="submit"
+                    style={{
+                      backgroundColor: "white",
+                      borderColor: "#0F4392",
+                      color: "#0F4392",
+                      width: "100px",
+                    }}
+                  >
+                    sign in
+                  </button>
+                </Link>
+
                 <button
-                  className="btn btn-outline-success me-2"
-                  type="submit"
+                  className="btn btn-outline-success"
                   style={{
-                    backgroundColor: "white",
-                    borderColor: "#0F4392",
-                    color: "#0F4392",
+                    color: "white",
+                    backgroundColor: "#0F4392",
                     width: "100px",
                   }}
+                  type="submit"
                 >
-                  sign in
+                  sign up
                 </button>
-              </Link>
-              <button
-                className="btn btn-outline-success"
-                style={{
-                  color: "white",
-                  backgroundColor: "#0F4392",
-                  width: "100px",
-                }}
-                type="submit"
-              >
-                sign up
-              </button>
-            </form>
+              </form>
+            )}
           </div>
         </div>
       </nav>

@@ -67,7 +67,7 @@ const products = () => {
               borderRadius: "10px",
               width: "78% !important",
             }}
-            className="form-control w-100 inputsearch"
+            className="form-control w-80 inputsearch"
             placeholder="Search products"
             aria-label="Search"
             aria-describedby="button-addon2"
@@ -328,7 +328,7 @@ const products = () => {
             <Row>
               {products?.map((item) => (
                 <Col className="col-md-6 col-lg-4 col-sm-6 col-6 mb-3">
-                  <CardProduct item={item} id={id} />
+                  <CardProduct item={item} id={item?.id} />
                 </Col>
               ))}
             </Row>
