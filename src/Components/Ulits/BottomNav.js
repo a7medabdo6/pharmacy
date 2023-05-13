@@ -31,22 +31,24 @@ const BottomNav = () => {
       >
         <BottomNavigationAction
           label="Home"
-          icon={<HomeIcon />}
-          onClick={() => handleIconClick("/Home")}
+          icon={<HomeIcon style={{ color: value == 0 ? "blue" : "grey" }} />}
+          onClick={() => handleIconClick("/")}
         />
         <BottomNavigationAction
           label="Products"
-          icon={<StoreIcon />}
-          onClick={() => handleIconClick("/products")}
+          icon={<StoreIcon style={{ color: value == 1 ? "blue" : "grey" }} />}
+          onClick={() => handleIconClick("/products/all")}
         />
         <BottomNavigationAction
           label="Requests"
-          icon={<HomeIcon />}
+          icon={<HomeIcon style={{ color: value == 2 ? "blue" : "grey" }} />}
           onClick={() => handleIconClick("/requests")}
         />
         <BottomNavigationAction
           label="Contact Us"
-          icon={<PhoneEnabledIcon />}
+          icon={
+            <PhoneEnabledIcon style={{ color: value == 3 ? "blue" : "grey" }} />
+          }
           onClick={() => handleIconClick("/contactus")}
         />
       </BottomNavigation>

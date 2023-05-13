@@ -5,6 +5,7 @@ import viber from "../assets/img/viber.png";
 import messenger from "../assets/img/messenger.png";
 import whatsapp from "../assets/img/whatsapp.png";
 import telegram from "../assets/img/telegram.png";
+import Link from "next/link";
 
 const Footer = () => {
   return (
@@ -24,7 +25,9 @@ const Footer = () => {
 
       <div className="w-100 d-flex my-2  justify-content-around align-items-center">
         <p className="text-footer">About us</p>
-        <p className="text-footer">Our products</p>
+        <p className="text-footer">
+          <Link href={"/products/all"}>Our products</Link>
+        </p>
         <p className="text-footer">How to order</p>
         <p className="text-footer">Our policy</p>
       </div>
