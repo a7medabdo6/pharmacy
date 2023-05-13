@@ -2,17 +2,20 @@ import React from "react";
 import { Input } from "semantic-ui-react";
 import Image from "next/image";
 import search from "../assets/img/searchicon.png";
+import { Icon } from "semantic-ui-react";
 
 const SerachBar = () => {
   return (
     <div className="position-relative" style={{ width: "95%" }}>
-      <Image
-        src={search}
-        style={{ position: "absolute", right: "80px", top: "4px",left:"1px" }}
-        alt="Next.js Logo"
-        width={19}
-        height={24}
-        priority
+      <Icon
+        disabled
+        name="search"
+        style={{
+          position: "absolute",
+          top: "13px",
+          left: " 4px",
+          fontSize: "15px",
+        }}
       />
       <input
         type="text"
@@ -22,9 +25,9 @@ const SerachBar = () => {
           width: "100% !important",
           // Apply styles to the placeholder
           "::placeholder": {
-            marginLeft:"15px",
+            marginLeft: "15px",
             fontStyle: "italic",
-            color:"red"
+            color: "red",
             /* You can add any other styles you want to the placeholder here */
           },
         }}

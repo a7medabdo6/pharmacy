@@ -100,26 +100,26 @@ export default function Main() {
                 style={{ width: "95%" }}
                 className="  d-flex justify-content-between align-items-center flex-row position-relative m-4"
               >
-                 <div
-              onClick={() => {
-                setOpen(true);
-              }}
-              style={{
-                backgroundColor: "#DD1717",
-                width: "130px",
-                height: "25px",
-                right: "-62px",
-                top: "1400%",
-                transform: "rotate(-90deg)",
-                textAlign: "center",
-                cursor: "pointer",
-              }}
-              className="position-absolute d-flex justify-content-center align-items-center"
-            >
-              <p style={{ color: "white", fontSize: "12px !important" }}>
-                Write Review
-              </p>
-            </div>
+                <div
+                  onClick={() => {
+                    setOpen(true);
+                  }}
+                  style={{
+                    backgroundColor: "#DD1717",
+                    width: "130px",
+                    height: "25px",
+                    right: "-62px",
+                    top: "1400%",
+                    transform: "rotate(-90deg)",
+                    textAlign: "center",
+                    cursor: "pointer",
+                  }}
+                  className="position-absolute d-flex justify-content-center align-items-center"
+                >
+                  <p style={{ color: "white", fontSize: "12px !important" }}>
+                    Write Review
+                  </p>
+                </div>
                 <Image
                   //  className="w-20"
                   src={logo}
@@ -130,27 +130,30 @@ export default function Main() {
                 />
                 <div
                   className="text-primary  m-0"
-                  style={{ textAlign: "center",top:"4px !important"}}
+                  style={{ textAlign: "center", top: "4px !important" }}
                 >
                   <Image
                     //  className="w-20"
                     src={user}
-
                     alt="Next.js Logo"
                     width={35}
                     height={30}
                     priority
                   />
-                    <Link href="/Notifications">
-            <Image
-              src={alertblue}
-              style={{ position: "absolute", right: "80px", top: "4px" }}
-              alt="Next.js Logo"
-              width={19}
-              height={24}
-              priority
-            />
-          </Link>
+                  <Link href="/Notifications">
+                    <Image
+                      src={alertblue}
+                      style={{
+                        position: "absolute",
+                        right: "80px",
+                        top: "4px",
+                      }}
+                      alt="Next.js Logo"
+                      width={19}
+                      height={24}
+                      priority
+                    />
+                  </Link>
                 </div>
               </div>
 
@@ -203,11 +206,10 @@ export default function Main() {
                       href="/CategoriesViewall"
                       className="d-flex justify-content-between align-items-center "
                     >
-<<<<<<< HEAD
-                      <p className=" align-start mt-2 mb-2 m-0 pt-3 pb-2" style={{fontWeight:"bold"}}>
-=======
-                      <p className=" align-start mt-2 mb-2 m-0 pt-3 pb-2 font-weight-bold">
->>>>>>> 591ffb11b88973fed519637dbc4956ad9e23dd7c
+                      <p
+                        className=" align-start mt-2 mb-2 m-0 pt-3 pb-2 font-weight-bold"
+                        style={{ fontWeight: "bold" }}
+                      >
                         view all
                       </p>
                     </Link>
@@ -230,27 +232,6 @@ export default function Main() {
                   style={{ width: "95%" }}
                   className="d-flex justify-content-between align-items-center postion-relative "
                 >
-
-<div
-              onClick={() => {
-                setOpen(true);
-              }}
-              style={{
-                backgroundColor: "#DD1717",
-                width: "130px",
-                height: "25px",
-                right: "-52px",
-                top: "67%",
-                transform: "rotate(-90deg)",
-                textAlign: "center",
-                cursor: "pointer",
-              }}
-              className="position-absolute d-flex justify-content-center align-items-center"
-            >
-              <p style={{ color: "white", fontSize: "12px !important" }}>
-                Write Review
-              </p>
-            </div>
                   <h4 className=" align-start mt-2 mb-2 m-0 pt-3 pb-2">
                     Our services.
                   </h4>
@@ -258,13 +239,19 @@ export default function Main() {
                     href="/CategoriesViewall"
                     className="d-flex justify-content-between align-items-center "
                   >
-                    <p className=" align-start mt-2 mb-2 m-0 pt-3 pb-2 font-weight-bold">
+                    <p
+                      className=" align-start mt-2 mb-2 m-0 pt-3 pb-2 font-weight-bold"
+                      style={{ fontWeight: "bold" }}
+                    >
                       view all
                     </p>
                   </Link>
                 </div>
 
-                <div className="w-100 mt-3 d-flex justify-content-between align-items-center flex-column " style={{backgroundColor:"white",borderRadius:"8px"}}>
+                <div
+                  className="w-100 mt-3 d-flex justify-content-between align-items-center flex-column "
+                  style={{ backgroundColor: "white", borderRadius: "8px" }}
+                >
                   <OurServicesCard
                     image={Service}
                     title="Online doctors"
@@ -303,7 +290,7 @@ export default function Main() {
                     return (
                       <div
                         className="boxshadow w-100"
-                        style={{ background: "white" ,borderRadius:"7px"}}
+                        style={{ background: "white", borderRadius: "7px" }}
                       >
                         <Testimonial item={item} />
                       </div>
@@ -385,6 +372,8 @@ export default function Main() {
                     style={{
                       backgroundColor: "#FAFBFB",
                       borderRadius: "10px",
+                      padding: "10px 20px",
+
                       width: "78% !important",
                     }}
                     className="form-control w-100 inputsearch"

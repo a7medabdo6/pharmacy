@@ -36,7 +36,9 @@ const FooterDesk = () => {
         style={{ height: "2px", backgroundColor: "grey", width: "85%" }}
       ></div>
       <div className="w-100   my-2 d-flex justify-content-center align-items-center ">
-        <p className="text-footer">cotact us</p>
+        <p className="text-footer" style={{ fontWeight: "bold" }}>
+          contact us
+        </p>
       </div>
       <div className="w-100 text-center d-flex justify-content-center align-items-center ">
         <Image

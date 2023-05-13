@@ -50,7 +50,7 @@ const Testimonials = () => {
   }, []);
   return (
     <div classNameName="container text-center ">
-      <div className="row pt-5">
+      <div className="row ">
         <div className="d-sm-none">
           <main className={styles.main} style={{ backgroundColor: "#EDEDED" }}>
             <div className="w-100 text-center d-flex justify-content-center align-items-center flex-column">
