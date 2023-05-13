@@ -9,6 +9,7 @@ import { config } from "@fortawesome/fontawesome-svg-core";
 // since it's already imported above
 // import { NotificationContainer } from '././../Components/react-notifications/index';
 import 'react-notifications/lib/notifications.css';
+// @ts-ignore
 import { NotificationContainer } from 'react-notifications';
 
 import { store } from '../store'
