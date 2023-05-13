@@ -44,6 +44,7 @@ import ButtomReview from "@/Components/Requests/ButtomReview";
 import ReviewDesk from "../Components/desk/ReviewDesk";
 import NavBar from "../Components/desk/NavBar";
 import { Col, Row } from "react-bootstrap";
+import alertblue from "../assets/img/alertblue.png";
 
 export default function Main() {
   const [open, setOpen] = useState(false);
@@ -97,8 +98,28 @@ export default function Main() {
             >
               <div
                 style={{ width: "95%" }}
-                className="  d-flex justify-content-between align-items-center flex-row  m-4"
+                className="  d-flex justify-content-between align-items-center flex-row position-relative m-4"
               >
+                 <div
+              onClick={() => {
+                setOpen(true);
+              }}
+              style={{
+                backgroundColor: "#DD1717",
+                width: "130px",
+                height: "25px",
+                right: "-62px",
+                top: "1400%",
+                transform: "rotate(-90deg)",
+                textAlign: "center",
+                cursor: "pointer",
+              }}
+              className="position-absolute d-flex justify-content-center align-items-center"
+            >
+              <p style={{ color: "white", fontSize: "12px !important" }}>
+                Write Review
+              </p>
+            </div>
                 <Image
                   //  className="w-20"
                   src={logo}
@@ -109,16 +130,27 @@ export default function Main() {
                 />
                 <div
                   className="text-primary  m-0"
-                  style={{ textAlign: "center" }}
+                  style={{ textAlign: "center",top:"4px !important"}}
                 >
                   <Image
                     //  className="w-20"
                     src={user}
+
                     alt="Next.js Logo"
                     width={35}
                     height={30}
                     priority
                   />
+                    <Link href="/Notifications">
+            <Image
+              src={alertblue}
+              style={{ position: "absolute", right: "80px", top: "4px" }}
+              alt="Next.js Logo"
+              width={19}
+              height={24}
+              priority
+            />
+          </Link>
                 </div>
               </div>
 
@@ -171,7 +203,7 @@ export default function Main() {
                       href="/CategoriesViewall"
                       className="d-flex justify-content-between align-items-center "
                     >
-                      <p className=" align-start mt-2 mb-2 m-0 pt-3 pb-2">
+                      <p className=" align-start mt-2 mb-2 m-0 pt-3 pb-2" style={{fontWeight:"bold"}}>
                         view all
                       </p>
                     </Link>
@@ -207,7 +239,7 @@ export default function Main() {
                   </Link>
                 </div>
 
-                <div className="w-100 mt-3 d-flex justify-content-between align-items-center flex-column ">
+                <div className="w-100 mt-3 d-flex justify-content-between align-items-center flex-column " style={{backgroundColor:"white",borderRadius:"8px"}}>
                   <OurServicesCard
                     image={Service}
                     title="Online doctors"
@@ -232,14 +264,14 @@ export default function Main() {
                   <h4 className=" align-start mt-2 mb-2 m-0 pt-3 pb-2">
                     Testimonial
                   </h4>
-                  <Link
+                  {/* <Link
                     href="/testimonials"
                     className="d-flex justify-content-between align-items-center "
                   >
                     <p className=" align-start mt-2 mb-2 m-0 pt-3 pb-2">
                       view all
                     </p>
-                  </Link>
+                  </Link> */}
                 </div>
                 {reviews?.map((item, i) => {
                   if (i < 1) {

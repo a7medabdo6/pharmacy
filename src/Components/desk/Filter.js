@@ -15,7 +15,7 @@ const Filter = ({ label }) => {
       <p className="mb-0" style={{ fontSize: "13px !important" }}>
         {label}
       </p>
-      <FormControl sx={{ m: 1, minWidth: 120 }} size="small">
+      <FormControl sx={{ m: 1, width:"95%" }} size="small">
         <InputLabel id="demo-select-small-label">All</InputLabel>
         <Select
           labelId="demo-select-small-label"
@@ -23,7 +23,7 @@ const Filter = ({ label }) => {
           value={age}
           label="Age"
           className="ms-0"
-          style={{ width: "180px", margin: 0 }}
+          style={{ width: "100%", margin: 0 }}
           onChange={handleChange}
         >
           <MenuItem value="">

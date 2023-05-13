@@ -255,7 +255,7 @@ const contactus = () => {
             </Row>
           </Col>
         </Row>
-        <div style={{ width: "100%" }}>
+        <div style={{ width: "100%",position:"absolute",bottom:0 }}>
           <Footer />
         </div>
       </div>

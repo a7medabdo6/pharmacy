@@ -278,6 +278,7 @@ height: 80px;
   /* identical to box height, or 154% */
   
   color: #FFFFFF;
+  margin-bottom: 0 !important;
   
 }
 .text-service{
@@ -477,7 +478,9 @@ height: auto;
 }
 }
  
-
+.titlenotify{
+font-size: 16px;
+}
 .react-tel-input .form-control{
   width: 100% !important;
 }

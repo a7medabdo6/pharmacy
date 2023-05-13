@@ -34,6 +34,7 @@ const CardProduct = ({ item, id }) => {
   return (
     <div className={styles.boxcardprdoduct}>
       <div style={{ width: "90%" }} onClick={onCardClick}>
+        <div className="d-flex justify-content-center align-items-center w-100">
         <Image
           //  className="w-20"
           loader={() => item?.home_image}
@@ -44,6 +45,8 @@ const CardProduct = ({ item, id }) => {
           height={150}
           priority
         />
+        </div>
+       
         <div className={styles.boxinfo}>
           <p className={styles.titlecard}>{item?.name}</p>
           <p className={styles.txtcard}>{item?.description}</p>

@@ -8,9 +8,9 @@ import { config } from "@fortawesome/fontawesome-svg-core";
 // Tell Font Awesome to skip adding the CSS automatically 
 // since it's already imported above
 // import { NotificationContainer } from '././../Components/react-notifications/index';
-import 'react-notifications/lib/notifications.css';
+// import 'react-notifications/lib/notifications.css';
 // @ts-ignore
-import { NotificationContainer } from 'react-notifications';
+// import { NotificationContainer } from 'react-notifications';
 
 import { store } from '../store'
 import { Provider } from 'react-redux'
@@ -18,7 +18,7 @@ config.autoAddCss = false;
 export default function App({ Component, pageProps }: AppProps) {
   return   <Provider store={store}>
   <Component {...pageProps} />
-  <NotificationContainer />
+  {/* <NotificationContainer /> */}
 
   </Provider>
 
