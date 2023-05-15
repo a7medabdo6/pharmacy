@@ -1,29 +1,34 @@
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
+import { useRouter } from "next/router";
+// CSS Module
+import styles from "@/styles/Notifications.module.css";
+// IMGS
 import logo2 from "../../assets/img/logo2.png";
 import alertblue from "../../assets/img/alertblue.png";
 import profile from "../../assets/img/icon.png";
-import Link from "next/link";
 
 const NavBar = () => {
-  // const token = JSON.parse(localStorage.getItem("token"));
   const [user, setuser] = useState(null);
   const [showNotify, setShowNotify] = useState(false);
+  const router = useRouter();
+
   useEffect(() => {
     if (typeof window !== "undefined") {
-      // Perform localStorage action
       setuser(localStorage?.getItem("user"));
     }
   }, []);
+
   return (
     <nav
-      class="navbar navbar-expand-lg bg-white d-none d-lg-block"
+      className="navbar navbar-expand-lg bg-white d-none d-lg-block"
       style={{
         boxShadow: "0px 18px 40px 0px rgba(0, 0, 0, 0.06)",
       }}
     >
-      <div class="container">
-        <Link class="navbar-brand" href="/">
+      <div className="container">
+        <Link className="navbar-brand" href="/">
           <Image
             src={logo2}
             alt="Next.js Logo"
@@ -33,7 +38,7 @@ const NavBar = () => {
           />
         </Link>
         <button
-          class="navbar-toggler"
+          className="navbar-toggler"
           type="button"
           data-bs-toggle="collapse"
           data-bs-target="#navbarSupportedContent"
@@ -41,32 +46,46 @@ const NavBar = () => {
           aria-expanded="false"
           aria-label="Toggle navigation"
         >
-          <span class="navbar-toggler-icon"></span>
+          <span className="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-              <Link class="nav-link active" aria-current="page" href="/">
+        <div className="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul className="navbar-nav mx-auto mb-2 mb-lg-0">
+            <li
+              className={`${router.pathname === "/" ? "active" : ""} nav-item`}
+            >
+              <Link className="nav-link" aria-current="page" href="/">
                 Home
               </Link>
             </li>
-            <li class="nav-item">
-              <Link class="nav-link" href="/products/all">
+            <li
+              className={`${
+                router.pathname === "/products/all" ? "active" : ""
+              } nav-item`}
+            >
+              <Link className="nav-link" href="/products/all">
                 Our Products
               </Link>
             </li>
-            <li class="nav-item">
-              <Link class="nav-link" href="/requests">
+            <li
+              className={`${
+                router.pathname === "/requests" ? "active" : ""
+              } nav-item`}
+            >
+              <Link className="nav-link" href="/requests">
                 Requests
               </Link>
             </li>
-            <li class="nav-item">
-              <Link class="nav-link" href="/contactus">
+            <li
+              className={`${
+                router.pathname === "/contactus" ? "active" : ""
+              } nav-item`}
+            >
+              <Link className="nav-link" href="/contactus">
                 Contact us
               </Link>
             </li>
           </ul>
-          <div class="d-flex justify-content-center align-items-center gap-3">
+          <div className="d-flex justify-content-center align-items-center gap-3">
             {user ? (
               <>
                 <div
@@ -102,14 +121,83 @@ const NavBar = () => {
                         boxShadow: "0px 18px 40px 0px #00000029",
                         right: "10px",
                         width: "430px",
-                        fontSize: "15px",
+                        fontSize: "16px",
+                        zIndex: "11111",
                       }}
                     >
                       <h6 className="text-primary text-end fw-bold">
                         Make all as read
                       </h6>
-
-                      <h6 className="fw-bold">New</h6>
+                      <div
+                        className="box-new-notify pb-3"
+                        style={{
+                          borderBottom: "0.5px solid #828282",
+                        }}
+                      >
+                        <h6 className="fw-bold mb-4">New</h6>
+                        <div className={`${styles.notifyItem} ${styles.new}`}>
+                          Order Placed Successfully. Thank you for shopping with
+                          us.
+                          <div
+                            className="offer position-absolute"
+                            style={{
+                              top: "5px",
+                              right: "5px",
+                              background: "#C3EFB9",
+                              color: "#219653",
+                              padding: "0 12px",
+                              fontSize: "12px",
+                              borderRadius: "12px",
+                            }}
+                          >
+                            Offer
+                          </div>
+                        </div>
+                        <div className={`${styles.notifyItem} ${styles.new}`}>
+                          Order Placed Successfully. Thank you for shopping with
+                          us.
+                        </div>
+                        <div className={`${styles.notifyItem} ${styles.new}`}>
+                          Order Placed Successfully. Thank you for shopping with
+                          us.
+                        </div>
+                        <div className={`${styles.notifyItem} ${styles.new}`}>
+                          Order Placed Successfully. Thank you for shopping with
+                          us.
+                        </div>
+                      </div>
+                      <div className="box-notify mt-2">
+                        <div className={styles.notifyItem}>
+                          Order Placed Successfully. Thank you for shopping with
+                          us.
+                          <div
+                            className="offer position-absolute"
+                            style={{
+                              top: "5px",
+                              right: "5px",
+                              background: "#C3EFB9",
+                              color: "#219653",
+                              padding: "0 12px",
+                              fontSize: "12px",
+                              borderRadius: "12px",
+                            }}
+                          >
+                            Offer
+                          </div>
+                        </div>
+                        <div className={styles.notifyItem}>
+                          Order Placed Successfully. Thank you for shopping with
+                          us.
+                        </div>
+                        <div className={styles.notifyItem}>
+                          Order Placed Successfully. Thank you for shopping with
+                          us.
+                        </div>
+                        <div className={styles.notifyItem}>
+                          Order Placed Successfully. Thank you for shopping with
+                          us.
+                        </div>
+                      </div>
                     </div>
                   )}
                 </div>

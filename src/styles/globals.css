@@ -92,6 +92,7 @@ body {
   background: #FFF;
   color: rgba(0,0,0,.87);
   height: initial !important;
+  font-size: 16px !important;
 }
 @media(max-width: 600px) {
   body {
@@ -138,12 +139,16 @@ a {
 .w-30{
   width: 30% !important;
 }
+
+.navbar .nav-item.active .nav-link {
+  color: #0F4392;
+}
+
 .CategorySliderCard{
   /* background-image: url("../assets/img/Rectangle.png");
   background-position: center;
   width: 95%;
   
- 
   background-size: cover;
   height: 100px; */
   width: 95%;
