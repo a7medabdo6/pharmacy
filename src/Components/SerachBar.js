@@ -1,7 +1,16 @@
 import React from "react";
 import { Icon } from "semantic-ui-react";
+import { searchAllProducts } from "../Apis/products";
 
-const SerachBar = ({ showBigScreen }) => {
+const SerachBar = ({ showBigScreen, setProducts }) => {
+  const handleSearch = async (e) => {
+    const wordSearch = e.target.value;
+    const targetProducts = await searchAllProducts(wordSearch);
+    if (targetProducts.count) {
+      setProducts(targetProducts.results);
+    }
+  };
+
   return (
     <div
       className={`position-relative w-100 mb-2 ${
@@ -29,6 +38,7 @@ const SerachBar = ({ showBigScreen }) => {
         placeholder="Search products"
         aria-label="Search"
         aria-describedby="button-addon2"
+        onChange={handleSearch}
       />
     </div>
   );

@@ -31,26 +31,20 @@ import NavBarMobail from "../../Components/desk/NavBarMobail";
 const products = () => {
   const [isOpen, setOpen] = useState(false);
   const [products, setproducts] = useState([]);
+  const router = useRouter();
+  const { id } = router.query;
 
   const snapPoints = [400, 600]; // Define the height values that the modal can snap to
 
-  const router = useRouter();
-  const { id } = router.query;
-  console.log(id, "idd");
   const getHomeData = async () => {
     const res = await getallProductsWithNoCategory();
-    console.log(res, "ressss");
     setproducts(res?.results);
     return res;
   };
+
   useEffect(() => {
     getHomeData();
   }, []);
-  const handleBack = () => {
-    router.back();
-  };
-
-  console.log(products);
 
   return (
     <div>
@@ -78,7 +72,7 @@ const products = () => {
 
               <p className={styles.txtfilter}>Filter</p>
             </div>
-            <SearchInput />
+            <SearchInput setProducts={setproducts} />
           </div>
         </div>
       </div>
@@ -98,7 +92,11 @@ const products = () => {
           Our products
         </h1>
 
-        <SerachBar showBigScreen={true} />
+        <SerachBar
+          showBigScreen={true}
+          setProducts={setproducts}
+          products={products}
+        />
         <main className={styles.main}>
           <div className="w-100 text-center d-flex justify-content-center align-items-center flex-column">
             <div
@@ -143,7 +141,7 @@ const products = () => {
             </div>
           </div>
 
-          <Row className="mt-3 mt-lg-5">
+          <Row className="mt-3 mt-lg-5 w-100">
             <Col md={3} sm={12} className="d-none d-sm-block">
               <div
                 style={{
@@ -251,16 +249,16 @@ const products = () => {
             </Col>
           </Row>
 
-          <div className="w-80 d-flex  justify-content-start align-items-center  ">
+          <div className="w-80 d-flex justify-content-start align-items-center">
             <Sheet
               isOpen={isOpen}
               onClose={() => setOpen(false)}
               snapPoints={snapPoints}
-              className="w-100 d-flex  justify-content-center align-items-center  "
+              className="w-100 d-flex justify-content-center align-items-center"
             >
               <Sheet.Container className={styles.bottomsheet}>
                 <Sheet.Header />
-                <div className="w-100 d-flex  justify-content-center align-items-center mb-3 ">
+                <div className="w-100 d-flex justify-content-center align-items-center mb-3">
                   <h4 style={{ color: "#0F4392" }}>Filter by</h4>
                 </div>
 
