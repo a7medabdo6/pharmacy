@@ -9,10 +9,12 @@ import ReactPhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
 import { useState } from "react";
 import NavBar from "../Components/desk/NavBar";
+import NavBarMobaile from "../Components/desk/NavBarMobail";
 import { useRouter } from "next/router";
 import { GetHotels, GetRooms } from "../Apis/Auth";
 import FooterDesk from "../Components/desk/FooterDesk";
 import BottomNav from "../Components/Ulits/BottomNav";
+import { Breadcrumb, Container } from "react-bootstrap";
 const EditInfo = () => {
   const [phone, setphone] = useState("us");
   const [hotel_id, sethotel_id] = useState(1);
@@ -55,114 +57,122 @@ const EditInfo = () => {
     getRoomsData();
   }, []);
   return (
-    <main
-      style={{
-        width: "100%",
-        margin: "auto",
-      }}
-      className="d-flex  align-items-center flex-column"
-    >
-      <div className="d-block d-sm-none w-100">
-        <Header title="Edit  Info" />
-      </div>
+    <>
+      <NavBar />
+      <NavBarMobaile titlePage="Edit Info" />
 
-      <div className="d-none d-sm-block w-100 ">
-        <NavBar />
+      <div className="overflow-hidden" style={{ background: "#eaeaea" }}>
+        <Container>
+          <Breadcrumb
+            style={{ fontSize: "12px" }}
+            className="d-none d-lg-block mt-3"
+          >
+            <Breadcrumb.Item>Home</Breadcrumb.Item>
+            <Breadcrumb.Item>Our products</Breadcrumb.Item>
+            <Breadcrumb.Item>Requests</Breadcrumb.Item>
+            <Breadcrumb.Item active>Edit info</Breadcrumb.Item>
+          </Breadcrumb>
+        </Container>
       </div>
-
-      <div
-        className="d-flex w-custom justify-content-center align-items-center flex-column my-2"
+      <main
         style={{
-          backgroundColor: "rgba(15, 67, 146, 0.07)",
-
-          borderRadius: "15px",
-          marginBlock: "20px",
+          width: "100%",
+          height: "100%",
+          backgroundColor: "#eaeaea",
         }}
+        className="d-flex align-items-center flex-column pt-5"
       >
-        <h2 style={{ color: "#0F4392" }} className="m-2">
-          Edit Info
-        </h2>
-        <form
-          className="d-flex justify-content-center  flex-column "
-          style={{ width: "90%" }}
+        <div
+          className="d-flex w-custom justify-content-center align-items-center flex-column my-2 bg-white py-4 rounded-3"
+          style={{
+            boxShadow: "0px 18px 40px 0px rgba(0, 0, 0, 0.12)",
+          }}
         >
-          <div className="form-group m-2">
-            <label htmlFor="exampleInputEmail1">Your Name*</label>
-            <input
-              type="text"
-              className="form-control "
-              id="exampleInputEmail1"
-              aria-describedby="emailHelp"
-              placeholder="Write here"
-              value={user?.first_name}
-            />
-          </div>
-          <div className="form-group m-2">
-            <label htmlFor="exampleInputPassword1">Phone Number* </label>
-            <ReactPhoneInput
-              defaultCountry={"us"}
-              value={user?.phone}
-              onChange={handleOnChange}
-              className="w-100"
-            />
-          </div>
-          <div className="form-group m-2">
-            <label htmlFor="exampleInputPassword1">Select Hotel Name </label>
-            <select
-              type="text"
-              className="form-control"
-              onChange={(e) => sethotel_id(e.target.value)}
-              id="exampleInputPassword1"
-              placeholder="Select here"
-            >
-              <option> Select Hotel Name</option>
-              {hotels.map((item) => (
-                <option selected={hotel_id == item?.id} value={item?.id}>
-                  {item.name}
-                </option>
-              ))}
-            </select>
-          </div>
-          <div className="form-group m-2">
-            <label htmlFor="exampleInputEmail1">Room Number*</label>
-            <select
-              type="text"
-              className="form-control"
-              onChange={(e) => setRooms(e.target.value)}
-              id="exampleInputPassword1"
-              placeholder="Select here"
-            >
-              <option> Select Room Number</option>
-              {rooms.map((item) => (
-                <option selected={rooms == item?.id} value={item?.id}>
-                  {item.name}
-                </option>
-              ))}
-            </select>
-          </div>
-          <div className="w-100 d-flex justify-content-center align-items-center  mt-5">
-            <ButtonEditInfo
-              txtColor="#0F4392"
-              bckColor="white"
-              BRColor="#0F4392"
-              text="Discard"
-            />
-            <ButtonEditInfo
-              txtColor="white"
-              bckColor="#0F4392"
-              BRColor="#0F4392"
-              text="Save Changes  "
-            />
-          </div>
-        </form>
-      </div>
-      <div className="d-block d-sm-none w-100">
-        <BottomNav />
-      </div>
-      <div className="d-none d-sm-block w-100">
-        <FooterDesk />
-      </div>
-    </main>
+          <h2 style={{ color: "#0F4392" }} className="m-2">
+            Edit Info
+          </h2>
+          <form
+            className="d-flex justify-content-center  flex-column"
+            style={{ width: "90%" }}
+          >
+            <div className="form-group m-2">
+              <label htmlFor="exampleInputEmail1">Your Name*</label>
+              <input
+                type="text"
+                className="form-control "
+                id="exampleInputEmail1"
+                aria-describedby="emailHelp"
+                placeholder="Write here"
+                value={user?.first_name}
+              />
+            </div>
+            <div className="form-group m-2">
+              <label htmlFor="exampleInputPassword1">Phone Number* </label>
+              <ReactPhoneInput
+                defaultCountry={"us"}
+                value={user?.phone}
+                onChange={handleOnChange}
+                className="w-100"
+              />
+            </div>
+            <div className="form-group m-2">
+              <label htmlFor="exampleInputPassword1">Select Hotel Name </label>
+              <select
+                type="text"
+                className="form-control"
+                onChange={(e) => sethotel_id(e.target.value)}
+                id="exampleInputPassword1"
+                placeholder="Select here"
+              >
+                <option> Select Hotel Name</option>
+                {hotels.map((item) => (
+                  <option selected={hotel_id == item?.id} value={item?.id}>
+                    {item.name}
+                  </option>
+                ))}
+              </select>
+            </div>
+            <div className="form-group m-2">
+              <label htmlFor="exampleInputEmail1">Room Number*</label>
+              <select
+                type="text"
+                className="form-control"
+                onChange={(e) => setRooms(e.target.value)}
+                id="exampleInputPassword1"
+                placeholder="Select here"
+              >
+                <option> Select Room Number</option>
+                {rooms.map((item) => (
+                  <option selected={rooms == item?.id} value={item?.id}>
+                    {item.name}
+                  </option>
+                ))}
+              </select>
+            </div>
+            <div className="w-100 d-flex justify-content-center align-items-center  mt-5">
+              <ButtonEditInfo
+                txtColor="#0F4392"
+                bckColor="white"
+                BRColor="#0F4392"
+                text="Discard"
+              />
+              <ButtonEditInfo
+                txtColor="white"
+                bckColor="#0F4392"
+                BRColor="#0F4392"
+                text="Save Changes  "
+              />
+            </div>
+          </form>
+        </div>
+        <div className="d-block d-sm-none w-100">
+          <BottomNav />
+        </div>
+        <div className="d-none d-sm-block w-100">
+          <FooterDesk />
+        </div>
+      </main>
+    </>
   );
 };
 

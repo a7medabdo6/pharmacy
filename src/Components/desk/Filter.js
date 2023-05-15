@@ -1,21 +1,21 @@
-import * as React from "react";
+import React, { useState } from "react";
 import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select, { SelectChangeEvent } from "@mui/material/Select";
 const Filter = ({ label }) => {
-  const [age, setAge] = React.useState("");
+  const [age, setAge] = useState("");
 
   const handleChange = (event) => {
     setAge(event.target.value);
   };
 
   return (
-    <div className="d-flex justify-content-center align-items-start flex-column ms-1 w-100 p-2">
-      <p className="mb-0" style={{ fontSize: "13px !important" }}>
+    <div className="d-flex justify-content-center align-items-start flex-column w-100 px-2 py-2 fw-bold">
+      <p className="mb-3" style={{ fontSize: "13px !important" }}>
         {label}
       </p>
-      <FormControl sx={{ m: 1, width:"95%" }} size="small">
+      <FormControl sx={{ m: 1, width: "100%" }} size="small" className="mx-0">
         <InputLabel id="demo-select-small-label">All</InputLabel>
         <Select
           labelId="demo-select-small-label"
@@ -34,7 +34,6 @@ const Filter = ({ label }) => {
           <MenuItem value={30}>Thirty</MenuItem>
         </Select>
       </FormControl>
-      <div></div>
     </div>
   );
 };

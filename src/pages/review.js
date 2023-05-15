@@ -21,7 +21,7 @@ import ButtomReview from "../Components/Requests/ButtomReview";
 import PostReview from "../Apis/PostReview";
 import FooterDesk from "@/Components/desk/FooterDesk";
 import logo2 from "../assets/img/logo2.png";
-import NavBar from "@/Components/desk/NavBar";
+import NavBarMobile from "../Components/desk/NavBarMobail";
 
 export default function Home() {
   const [phone, setphone] = useState("us");
@@ -80,22 +80,119 @@ export default function Home() {
     }, 2000);
   }, [Data]);
   return (
-    <div className=" text-center">
+    <div>
+      <div
+        className="d-none d-sm-flex justify-content-center align-items-center"
+        style={{
+          position: "absolute",
+          width: "100%",
+          height: "100%",
+          backgroundColor: "rgba(0, 0, 0, 0.2)",
+        }}
+      >
+        <main
+          className="d-flex flex-column align-items-center bg-white mx-auto pt-5 pb-3 px-2 rounded-3"
+          style={{ width: "600px" }}
+        >
+          <h2 className="text-primary">Write a review</h2>
+          <h3>Rate your experience</h3>
+          <div className="d-flex justify-content-around align-items-around flex-row">
+            <Rateing setrate={setrate} />
+          </div>
+          <div className="d-flex justify-content-center align-items-center flex-column w-80 ">
+            <div className="form-group w-100">
+              <label htmlFor="exampleFormControlTextarea1">
+                Leave your message*
+              </label>
+              <textarea
+                onChange={Onchangemessage}
+                className="form-control"
+                id="exampleFormControlTextarea1"
+                rows={3}
+              ></textarea>
+            </div>
+            <p className="w-100 m-0 mt-2">Upload a file</p>
+            <div className="d-flex justify-content-center align-items-center flex-column box-grey">
+              <Image
+                src={upload}
+                alt="Next.js Logo"
+                // width={80}
+                // height={37}
+                priority
+              />
+              <div
+                style={{ cursor: "pointer" }}
+                className="d-flex justify-content-center align-items-center flex-column box-grey-20 "
+              >
+                <UploadFile setfile={setfile} />
+              </div>
+              <p className="text-muted m-2">Or drop files to upload</p>
+            </div>
+            <button
+              onClick={SendReview}
+              type="submit"
+              className="btn btn-primary mb-3 mt-3 w-100"
+            >
+              Submit
+            </button>
+          </div>
+
+          <div>
+            <Modal
+              open={open}
+              onClose={handleClose}
+              aria-labelledby="modal-modal-title"
+              aria-describedby="modal-modal-description"
+            >
+              <Box sx={style}>
+                <Typography
+                  id="modal-modal-title"
+                  variant="h6"
+                  component="h2"
+                  className="text-center"
+                  style={{
+                    color: "#0F4392",
+                    fontWeight: "bold",
+                    fontSize: "20px",
+                  }}
+                ></Typography>
+                <Typography
+                  id="modal-modal-description"
+                  sx={{ mt: 2 }}
+                  className="text-center"
+                >
+                  <div>
+                    <Image
+                      src={thanksrate}
+                      alt="Next.js Logo"
+                      width={366}
+                      height={315}
+                      priority
+                    />
+                    <h3>Your review has been submitted successfully</h3>
+                  </div>
+
+                  <div className="w-100  d-flex justify-content-center align-items-center mt-3">
+                    <ButtomReview
+                      txtColor="white"
+                      bckColor="#0F4392"
+                      BRColor="#0F4392"
+                      text="Go To Home Page "
+                    />
+                  </div>
+                </Typography>
+              </Box>
+            </Modal>
+          </div>
+        </main>
+      </div>
       <div className="d-sm-none">
-        <>
-          <Header title="Write a review" />
+        <div>
+          <NavBarMobile titlePage="Write a review" />
 
           <main className={styles.main}>
-            <div
-              className="d-flex justify-content-center  align-items-center "
-              style={{ width: "83%", height: "90%" }}
-            ></div>
             <h3>Rate your experience</h3>
-            <div
-              className={
-                "d-flex justify-content-around align-items-around flex-row"
-              }
-            >
+            <div className="d-flex justify-content-around align-items-around flex-row">
               <Rateing setrate={setrate} />
             </div>
             <div className="d-flex justify-content-center align-items-center flex-column w-80 ">
@@ -184,9 +281,8 @@ export default function Home() {
               </Modal>
             </div>
           </main>
-        </>{" "}
+        </div>
       </div>
-      {/* <div className="d-none d-sm-block d-md-none">deskllll</div> */}
     </div>
   );
 }

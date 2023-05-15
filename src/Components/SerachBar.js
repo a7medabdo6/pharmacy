@@ -1,37 +1,31 @@
 import React from "react";
-import { Input } from "semantic-ui-react";
-import Image from "next/image";
-import search from "../assets/img/searchicon.png";
 import { Icon } from "semantic-ui-react";
 
-const SerachBar = () => {
+const SerachBar = ({ showBigScreen }) => {
   return (
-    <div className="position-relative" style={{ width: "95%" }}>
+    <div
+      className={`position-relative w-100 mb-2 ${
+        showBigScreen ? "d-none d-md-block" : "d-block d-md-none"
+      }`}
+    >
       <Icon
-        disabled
         name="search"
+        className="position-absolute"
         style={{
-          position: "absolute",
-          top: "13px",
-          left: " 4px",
-          fontSize: "15px",
+          top: "50%",
+          left: "10px",
+          transform: "translateY(-50%)",
+          opacity: "0.4",
+          height: "fit-content",
         }}
       />
       <input
         type="text"
         style={{
-          backgroundColor: "#FAFBFB",
-          borderRadius: "10px",
-          width: "100% !important",
-          // Apply styles to the placeholder
-          "::placeholder": {
-            marginLeft: "15px",
-            fontStyle: "italic",
-            color: "red",
-            /* You can add any other styles you want to the placeholder here */
-          },
+          paddingLeft: "2.55rem",
+          backgroundColor: "#f7f7f7",
         }}
-        className="form-control w-100 inputsearch"
+        className="form-control py-2 fs-6"
         placeholder="Search products"
         aria-label="Search"
         aria-describedby="button-addon2"

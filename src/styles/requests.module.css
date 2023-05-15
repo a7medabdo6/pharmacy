@@ -1,92 +1,91 @@
-.btn{
-    width:100%;
-    height:39px;
-    border:12px 24px 12px 24px;
-    gap: 10px;;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.btn {
+  width: 100%;
+  height: 39px;
+  border: 12px 24px 12px 24px;
+  gap: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
 }
-.btnConfirm{
-  width:188px;
-  height:44px;
-  border:12px 24px 12px 24px;
-  gap: 10px;;
+.btnConfirm {
+  width: 188px;
+  height: 44px;
+  border: 12px 24px 12px 24px;
+  gap: 10px;
   display: flex;
   justify-content: center;
   align-items: center;
   margin: 5px;
 }
-.buttonReview{
-  width:366px;
-  height:44px;
-  border:12px 24px 12px 24px;
-  gap: 10px;;
+.buttonReview {
+  width: 366px;
+  height: 44px;
+  border: 12px 24px 12px 24px;
+  gap: 10px;
   display: flex;
   justify-content: center;
   align-items: center;
   margin: 15px;
 }
 
-.ButtonWriteReview{
-  width:90%;
-  height:44px;
-  border:12px 24px 12px 24px;
-  gap: 10px;;
+.ButtonWriteReview {
+  width: 90%;
+  height: 44px;
+  border: 12px 24px 12px 24px;
+  gap: 10px;
   display: flex;
   justify-content: center;
   align-items: center;
   margin: 15px;
 }
-.btnCheckOurPrpducts{
-  width:70%;
-  height:44px;
-  border:12px 24px 12px 24px;
-  gap: 10px;;
+.btnCheckOurPrpducts {
+  width: 70%;
+  height: 44px;
+  border: 12px 24px 12px 24px;
+  gap: 10px;
   display: flex;
   justify-content: center;
   align-items: center;
   margin: 15px;
 }
-.btnEditInfo{
-  width:175px;
-  height:44px;
-  border:12px 24px 12px 24px;
-  gap: 10px;;
+.btnEditInfo {
+  width: 175px;
+  height: 44px;
+  border: 12px 24px 12px 24px;
+  gap: 10px;
   display: flex;
   justify-content: center;
   align-items: center;
   margin: 15px;
 }
-.button{
-  width:80px;
-  height:39px;
-  border:12px 24px 12px 24px;
-  gap: 10px;;
+.button {
+  width: 80px;
+  height: 39px;
+  border: 12px 24px 12px 24px;
+  gap: 10px;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 .heddin {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    display: -webkit-box;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
-  }
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
 
-  
-  .main {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-    padding: 0rem;
-    min-height: 100vh;
-    position: relative;
-    max-width: 100%;
-
-  }
+.main {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 0rem;
+  min-height: 100vh;
+  position: relative;
+  max-width: 100%;
+}
 @media only screen and (min-width: 600px) {
   .main {
     display: flex;
@@ -96,8 +95,7 @@
     padding: 0rem;
     min-height: 100vh;
     max-width: 50%;
-      margin: auto;
-      position: relative;
-
+    margin: auto;
+    position: relative;
   }
-  }
+}

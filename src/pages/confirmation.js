@@ -1,21 +1,17 @@
-import React from "react";
-import styles from "@/styles/confirmation.module.css";
-import vector from "../assets/img/vector.png";
-
-import icon from "../assets/img/icon.png";
-import alert from "../assets/img/alert.png";
-
+import React, { useState } from "react";
 import Image from "next/image";
-import ButtonConfirmation from "../Components/Requests/ButtonConfirmation";
-
 import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
-import Header from "../Components/Ulits/Header";
 import NavBar from "../Components/desk/NavBar";
+import Header from "../Components/Ulits/Header";
+import ButtonConfirmation from "../Components/Requests/ButtonConfirmation";
 import BottomNav from "../Components/Ulits/BottomNav";
 import FooterDesk from "../Components/desk/FooterDesk";
+// CSS Module
+import styles from "@/styles/confirmation.module.css";
+// IMGS
+import vector from "../assets/img/vector.png";
 
 const style = {
   position: "absolute",
@@ -32,9 +28,9 @@ const style = {
 };
 
 const confirmation = () => {
-  const [modalShow, setModalShow] = React.useState(false);
+  const [modalShow, setModalShow] = useState(false);
+  const [open, setOpen] = useState(false);
 
-  const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 

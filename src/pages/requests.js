@@ -7,11 +7,12 @@ import BottomNav from "../Components/Ulits/BottomNav";
 import InputWithButton from "../Components/Requests/InputWithButton";
 import Header from "../Components/Ulits/Header";
 import NavBar from "@/Components/desk/NavBar";
-import { Col, Row } from "react-bootstrap";
+import { Breadcrumb, Col, Container, Row } from "react-bootstrap";
 import FooterDesk from "@/Components/desk/FooterDesk";
 
 import GetCart from "../Apis/Cart/GetCart";
 import PostCart from "../Apis/Cart/PostCart";
+import SerachBar from "../Components/SerachBar";
 
 const requests = () => {
   const circleStyle = {
@@ -49,26 +50,44 @@ const requests = () => {
         <Header title="Requests" />
       </div>
 
-      <div className="d-none d-sm-block w-100 ">
-        <NavBar />
-      </div>
-      <div style={{ width: "90%", margin: "auto" }}>
-        <div
-          className=" flex-column  d-flex justify-content-start align-items-center mt-4 "
-          style={{ overflowY: "scroll" }}
+      <NavBar />
+
+      <Container>
+        <Breadcrumb
+          style={{ fontSize: "12px" }}
+          className="d-none d-lg-block mt-3"
         >
+          <Breadcrumb.Item>Home</Breadcrumb.Item>
+          <Breadcrumb.Item>Our products</Breadcrumb.Item>
+          <Breadcrumb.Item active>Requests</Breadcrumb.Item>
+        </Breadcrumb>
+
+        <SerachBar showBigScreen={true} />
+      </Container>
+
+      <h1
+        className="text-center h3 my-4 d-none d-lg-block fw-bold"
+        style={{ color: "#0F4392" }}
+      >
+        Requests
+      </h1>
+      <div
+        style={{ width: "90%", margin: "auto" }}
+        className="padding-bottom-sm"
+      >
+        <div className="flex-column d-flex justify-content-start align-items-center mt-4 pb-4">
           <Row>
             <Col className="col-12 col-sm-8 col-md-8">
               <Row>
-                <Col className="col-12 ">
+                <Col className="col-12">
                   <div
-                    className="   me-1  d-flex justify-content-start align-items-center "
+                    className="me-1 d-flex justify-content-start align-items-center"
                     style={{ width: "100%" }}
                   >
                     <h5>Your Info</h5>
                   </div>
                   <div
-                    className="  mt-1  d-flex justify-content-start align-items-center "
+                    className="  mt-1  d-flex justify-content-start align-items-center"
                     style={{ width: "100%" }}
                   >
                     <CardInfo user={user} />
@@ -76,14 +95,14 @@ const requests = () => {
                 </Col>
                 <Col className="col-12 "></Col>
                 <div
-                  className="  mt-5 me-1  d-flex justify-content-start align-items-center "
+                  className="  mt-5 me-1  d-flex justify-content-start align-items-center"
                   style={{ width: "100%" }}
                 >
                   <h5>Your Order</h5>
                 </div>
 
                 <div
-                  className="  mt-1  d-flex justify-content-start flex-column align-items-center "
+                  className="  mt-1  d-flex justify-content-start flex-column align-items-center"
                   style={{ width: "100%" }}
                 >
                   {CartList?.map((item) => {
@@ -94,7 +113,7 @@ const requests = () => {
             </Col>
             <Col className="col-12 col-sm-4 col-md-4">
               <div
-                className="w-100  pt-4 pl-3 pr-3 pb-4 d-flex justify-content-center align-items-center "
+                className="w-100  pt-4 pl-3 pr-3 pb-4 d-flex justify-content-center align-items-center"
                 style={{
                   backgroundColor: "white",
                   borderRadius: 10,
@@ -103,7 +122,7 @@ const requests = () => {
                 }}
               >
                 <div
-                  className="  d-flex justify-content-start align-items-center flex-column  "
+                  className="  d-flex justify-content-start align-items-center flex-column"
                   style={{
                     bottom: 0,
                     marginLeft: "5px",
@@ -128,7 +147,7 @@ const requests = () => {
                     />
                   </div>
                   <div
-                    className="w-100  d-flex justify-content-start align-items-center  "
+                    className="w-100  d-flex justify-content-start align-items-center"
                     style={{ marginBottom: "20px" }}
                   >
                     <div style={circleStyle}>
@@ -147,7 +166,7 @@ const requests = () => {
                     </p>
                   </div>
 
-                  <div className="w-100  d-flex justify-content-start align-items-center ">
+                  <div className="w-100  d-flex justify-content-start align-items-center">
                     <ButtonRequests
                       txtColor="white"
                       bckColor="#0F4392"
@@ -155,7 +174,7 @@ const requests = () => {
                       text="Place Order"
                     />
                   </div>
-                  <div className="w-100  d-flex justify-content-start align-items-center ">
+                  <div className="w-100  d-flex justify-content-start align-items-center">
                     <p style={{ textAlign: "center", color: "#DD1717" }}>
                       Note that: your order will not be confirmed before you
                       receive a call from us to let you know your order price to
@@ -182,14 +201,14 @@ const requests = () => {
         </div>
 
         <div
-          className="position-relative "
+          className="position-relative"
           style={{ bottom: 0, width: "100%", borderRadius: "15px" }}
         ></div>
       </div>
       <div className="d-block d-sm-none">
         <BottomNav />
       </div>
-      <div className="d-none d-sm-block ">
+      <div className="d-none d-sm-block">
         <FooterDesk />
       </div>
     </main>

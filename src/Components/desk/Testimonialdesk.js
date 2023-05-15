@@ -9,7 +9,7 @@ function Testimonialdesk({ item }) {
   console.log(img);
   return (
     <div
-      className="  p-3 d-flex justify-content-start align-items-start "
+      className="p-3 d-flex justify-content-start align-items-start m-2 shadow"
       style={{ backgroundColor: "white" }}
     >
       <Image

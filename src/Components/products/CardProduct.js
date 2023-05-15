@@ -31,33 +31,39 @@ const CardProduct = ({ item, id }) => {
 
     return res;
   };
+
   return (
-    <div className={styles.boxcardprdoduct}>
-      <div style={{ width: "90%" }} onClick={onCardClick}>
-        <div className="d-flex justify-content-center align-items-center w-100">
-        <Image
-          //  className="w-20"
-          loader={() => item?.home_image}
-          src={item?.home_image}
-          className={styles.cardproductImage}
-          alt="Next.js Logo"
-          width={92}
-          height={150}
-          priority
-        />
+    <div className={`${styles.boxcardprdoduct} px-2`}>
+      <div
+        style={{ width: "100%", padding: "5px 8px" }}
+        className="pb-0"
+        onClick={onCardClick}
+      >
+        <div
+          className="d-flex justify-content-center align-items-center w-100 mb-3"
+          style={{
+            boxShadow: "0px 18px 40px 0px rgba(0, 0, 0, 0.1)",
+            borderRadius: "3px",
+          }}
+        >
+          <Image
+            loader={() => item?.home_image}
+            src={item?.home_image}
+            className={styles.cardproductImage}
+            alt="Next.js Logo"
+            width={100}
+            height={150}
+            priority
+          />
         </div>
-       
+
         <div className={styles.boxinfo}>
           <p className={styles.titlecard}>{item?.name}</p>
           <p className={styles.txtcard}>{item?.description}</p>
         </div>
       </div>
 
-      <button
-        className="btn btn-primary "
-        onClick={SendCartFun}
-        style={{ width: "90%" }}
-      >
+      <button className="btn btn-primary w-100" onClick={SendCartFun}>
         Make a request
       </button>
 

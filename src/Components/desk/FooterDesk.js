@@ -10,7 +10,7 @@ const FooterDesk = () => {
   return (
     <div
       style={{ backgroundColor: "#DD1717" }}
-      className="w-100  footer  d-flex justify-content-center align-items-center flex-column"
+      className="w-100 footer mt-0 d-flex justify-content-center align-items-center flex-column py-3"
     >
       <div className="w-100  my-2 mb-3 d-flex justify-content-center align-items-center ">
         <Image

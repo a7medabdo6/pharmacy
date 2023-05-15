@@ -47,18 +47,7 @@
 .MuiBottomNavigation-root{
   height: 100px;
 }
-body {
-  margin: 0;
-  padding: 0;
-  overflow-x: hidden;
-  min-width: 320px;
-  background: #FFF;
-  font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
-  font-size: 13px !important;
-  line-height: 1.4285em;
-  color: rgba(0,0,0,.87);
-  font-smoothing: antialiased;
-}
+
 @media (prefers-color-scheme: dark) {
   :root {
     --foreground-rgb: 255, 255, 255;
@@ -98,16 +87,16 @@ body {
   margin: 0;
 }
 
-html,
-body {
-  max-width: 100vw;
-  overflow-x: hidden;
-}
-
 body {
   color: rgb(var(--foreground-rgb));
-  background-color: #C7C7C7 !important;
- 
+  background: #FFF;
+  color: rgba(0,0,0,.87);
+  height: initial !important;
+}
+@media(max-width: 600px) {
+  body {
+    background-color: #eaeaea !important;
+  }
 }
 
 a {
@@ -126,6 +115,17 @@ a {
 .text-primary{
   color: #0F4392 !important;
 }
+
+.padding-bottom-sm {
+  padding-bottom: 80px !important;
+}
+
+@media (min-width: 567px) {
+  .padding-bottom-sm {
+    padding-bottom: 0 !important;
+  }
+}
+
 .w-80{
   width: 80% !important;
 }
@@ -546,10 +546,6 @@ background: rgba(221, 23, 23, 0.3);
     white-space: nowrap;
     justify-content: center;
 }
-#__next{
-  background-color: white !important;
-  height: 100%;
-}
 .btn-outline-primary{
 color: #0F4392 !important;
 border: 1px solid #0F4392;
@@ -557,4 +553,52 @@ border: 1px solid #0F4392;
 
 .inputsearch{
   padding: 10px 20px !important;
+}
+
+.keen-slider {
+  box-shadow: 0px 18px 40px 0px rgba(0, 0, 0, 0.12);
+
+}
+
+[class^="number-slide"],
+[class*=" number-slide"] {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 50px;
+  color: #fff;
+  font-weight: 500;
+  height: 390px;
+  max-height: 100vh;
+}
+
+.number-slide1 {
+  background: white;
+}
+
+.number-slide1 img {
+  width: 40%;
+  height: 85%;
+}
+
+.thumbnail .keen-slider__slide {
+  font-size: 30px;
+  margin-top: 10px;
+  height: 100px;
+  cursor: pointer;
+  border-radius: 5px;
+  border: 1px solid black;
+}
+.thumbnail .keen-slider__slide.active {
+  border: 1px solid #DD1717;
+}
+
+@media (max-width: 576px) {
+  [class^="number-slide"],
+[class*=" number-slide"] {
+  height: 200px;
+}
+.thumbnail .keen-slider__slide {
+  height: 80px;
+}
 }

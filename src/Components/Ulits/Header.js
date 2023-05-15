@@ -20,7 +20,7 @@ const Header = ({ title }) => {
       style={{
         backgroundColor: "#0F4392",
         borderBottomLeftRadius: 10,
-                   borderBottomRightRadius:10,
+        borderBottomRightRadius: 10,
         height: "117px",
         position: "relative",
       }}
