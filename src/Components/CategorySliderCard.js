@@ -6,7 +6,7 @@ import Link from "next/link";
 function CategorySliderCard({ item }) {
   return (
     <Link href={`/products/${item?.id}`}>
-      <div className=" mt-5 m-4 flex-column d-flex justify-content-center align-items-center flex-wrap">
+      <div className="mt-5 m-4 flex-column d-flex justify-content-center align-items-center">
         <div className="CategorySliderCard">
           <Image
             className=" product"
@@ -17,8 +17,8 @@ function CategorySliderCard({ item }) {
             priority
           />
         </div>
-        <div className="mt-4" style={{ color: "black" }}>
-          {item?.name}
+        <div className="mt-4" style={{ color: "black", height: "20px" }}>
+          {item?.name?.toLowerCase()}
         </div>
       </div>
     </Link>
