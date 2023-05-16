@@ -67,6 +67,7 @@ export default function Home() {
               <h5
                 style={{ color: "#DD1717", marginTop: "0", fontSize: "18px" }}
               >
+<<<<<<< HEAD
                 live healthy … live well
               </h5>
             </div>
@@ -143,6 +144,75 @@ export default function Home() {
               Next
             </button>
           </Link>
+=======
+                <h2 style={{ color: "#0F4392" }} className="m-2">
+                  Sign in
+                </h2>
+                <div className="d-flex justify-content-center  align-items-center w-80">
+                  <label htmlFor="exampleInputPassword1">
+                    {" "}
+                    Don't have an account?{" "}
+                  </label>
+
+                  <Link href={"/register"}>
+                    <p className="m-2">Sign up</p>
+                  </Link>
+                </div>
+                <form className="d-flex justify-content-center  flex-column">
+                  <div className="form-group m-2">
+                    <label
+                      htmlFor="exampleInputPassword1"
+                      style={{ width: "100%", textAlign: "left" }}
+                    >
+                      Phone Number*{" "}
+                    </label>
+                    <ReactPhoneInput
+                      defaultCountry={"us"}
+                      value={phone}
+                      onChange={handleOnChange}
+                    />
+                  </div>
+
+                  <div className="form-group m-2">
+                    <label
+                      htmlFor="exampleInputEmail1"
+                      style={{ width: "100%", textAlign: "left" }}
+                    >
+                      {" "}
+                      Password*
+                    </label>
+                    <input
+                      type="password"
+                      className="form-control"
+                      value={password}
+                      onChange={(e) => setpassword(e.target.value)}
+                      id="exampleInputEmail1"
+                      placeholder="Write here"
+                    />
+                  </div>
+
+                  <button
+                    type="button"
+                    onClick={submit}
+                    className="btn btn-primary mb-3 mt-3 w-100"
+                  >
+                    Next
+                  </button>
+                  {/* </Link> */}
+                </form>
+              </div>
+
+              {/* <Image
+            className={styles.logo}
+            src="/curve.svg"
+            alt="Next.js Logo"
+            width={500}
+            height={37}
+            priority
+          /> */}
+            </main>
+          </>{" "}
+>>>>>>> 75ea1a7d764b3e329b00ad39efa23285860b5f68
         </div>
         <div className="d-none d-md-block">
           <div
@@ -204,9 +274,20 @@ export default function Home() {
                   </Link>
                 </div>
 
+<<<<<<< HEAD
                 <form className="d-flex justify-content-center flex-column w-100 px-4">
                   <div className="form-group mt-2">
                     <label htmlFor="phone">Phone Number*</label>
+=======
+                <form className="d-flex justify-content-center  flex-column w-80">
+                  <div className="form-group m-2">
+                    <label
+                      htmlFor="exampleInputPassword1"
+                      style={{ width: "100%", textAlign: "left" }}
+                    >
+                      Phone Number*{" "}
+                    </label>
+>>>>>>> 75ea1a7d764b3e329b00ad39efa23285860b5f68
                     <ReactPhoneInput
                       country={"ng"}
                       className="mt-3 font-sm-16"
@@ -215,8 +296,20 @@ export default function Home() {
                       id="phone"
                     />
                   </div>
+<<<<<<< HEAD
                   <div className="form-group mt-3">
                     <label htmlFor="password">Password*</label>
+=======
+
+                  <div className="form-group m-2">
+                    <label
+                      htmlFor="exampleInputEmail1"
+                      style={{ width: "100%", textAlign: "left" }}
+                    >
+                      {" "}
+                      Password*
+                    </label>
+>>>>>>> 75ea1a7d764b3e329b00ad39efa23285860b5f68
                     <input
                       type="password"
                       className="form-control mt-3 font-sm-16 py-2"

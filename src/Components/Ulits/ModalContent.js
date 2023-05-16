@@ -6,6 +6,7 @@ import { useState } from "react";
 import Postcontactus from "@/Apis/Contact";
 import Alert from "@mui/material/Alert";
 import Stack from "@mui/material/Stack";
+import { Button } from "react-bootstrap";
 
 const ModalContent = ({ setOpen, setModalShow }) => {
   const [phone, setphone] = useState("us");
@@ -23,8 +24,6 @@ const ModalContent = ({ setOpen, setModalShow }) => {
   }
 
   const SentContactUs = async (e) => {
-    e.preventDefault();
-
     let Data = {
       name: Name,
       phone_number: phone,
@@ -44,7 +43,17 @@ const ModalContent = ({ setOpen, setModalShow }) => {
       }
     }, 2000);
   }, [Data]);
+  const [isLoading, setLoading] = useState(false);
 
+  useEffect(() => {
+    if (isLoading) {
+      SentContactUs().then(() => {
+        setLoading(false);
+      });
+    }
+  }, [isLoading]);
+
+  const handleClick = () => setLoading(true);
   return (
     <form className="d-flex justify-content-center m-5 flex-column">
       <div className="form-group m-2">
@@ -81,14 +90,14 @@ const ModalContent = ({ setOpen, setModalShow }) => {
         </Stack>
       ) : null}
 
-      <button
-        onClick={(e) => SentContactUs(e)}
-        type="submit"
-        style={{ borderRadius: "4px", height: "45px" }}
-        className="btn btn-primary "
+      <Button
+        variant="primary"
+        className="w-100"
+        disabled={isLoading}
+        onClick={!isLoading ? handleClick : null}
       >
-        send the request
-      </button>
+        {isLoading ? "Loading…" : "send the request"}
+      </Button>
     </form>
   );
 };

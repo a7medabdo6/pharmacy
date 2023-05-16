@@ -90,7 +90,8 @@ const NavBar = () => {
               <>
                 <div
                   className="position-relative"
-                  onClick={() => setShowNotify(true)}
+                  style={{ cursor: "pointer" }}
+                  onClick={() => setShowNotify((old) => !old)}
                 >
                   <Image
                     src={alertblue}

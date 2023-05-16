@@ -80,6 +80,7 @@ export default function Home() {
               <h5
                 style={{ color: "#DD1717", marginTop: "0", fontSize: "18px" }}
               >
+<<<<<<< HEAD
                 live healthy … live well
               </h5>
             </div>
@@ -100,6 +101,108 @@ export default function Home() {
                 <Link href={"/login"}>
                   <p className="ms-2">Sign in</p>
                 </Link>
+=======
+                <h2 style={{ color: "#0F4392" }} className="m-2">
+                  Sign up
+                </h2>
+                <div className="d-flex justify-content-center  align-items-center w-80">
+                  <label htmlFor="exampleInputPassword1">
+                    {" "}
+                    Already have an account?{" "}
+                  </label>
+
+                  {/* <h4 style={{ color: "#202223" }} className="m-2">
+              Already have an account?
+            </h4> */}
+                  <Link href={"/login"}>
+                    <p className="m-2">Sign in</p>
+                  </Link>
+                </div>
+                <form className="d-flex justify-content-center  flex-column">
+                  <div className="form-group m-2">
+                    <label
+                      htmlFor="exampleInputPassword1"
+                      style={{ width: "100%", textAlign: "left" }}
+                    >
+                      Phone Number*{" "}
+                    </label>
+                    <ReactPhoneInput
+                      defaultCountry={"us"}
+                      value={phone}
+                      onChange={handleOnChange}
+                    />
+                  </div>
+                  <div className="form-group m-2">
+                    <label
+                      htmlFor="exampleInputPassword1"
+                      style={{ width: "100%", textAlign: "left" }}
+                    >
+                      Select Hotel Name{" "}
+                    </label>
+                    <select
+                      type="text"
+                      className="form-control"
+                      value={hotel_id}
+                      onChange={(e) => sethotel_id(e.target.value)}
+                      id="exampleInputPassword1"
+                      placeholder="Select here"
+                    >
+                      <option> Select Hotel Name</option>
+
+                      {hotels.map((item) => (
+                        <option id={item?.id}>{item.name}</option>
+                      ))}
+                    </select>
+                  </div>
+                  <div className="form-group m-2">
+                    <label
+                      htmlFor="exampleInputEmail1"
+                      style={{ width: "100%", textAlign: "left" }}
+                    >
+                      {" "}
+                      Password*
+                    </label>
+                    <input
+                      type="password"
+                      className="form-control"
+                      value={password}
+                      onChange={(e) => setpassword(e.target.value)}
+                      id="exampleInputEmail1"
+                      placeholder="Write here"
+                    />
+                  </div>
+                  <div className="form-group m-2">
+                    <label
+                      htmlFor="exampleInputEmail1"
+                      style={{ width: "100%", textAlign: "left" }}
+                    >
+                      Select Room Number*
+                    </label>
+                    <select
+                      type="text"
+                      className="form-control"
+                      value={room_id}
+                      onChange={(e) => setroom_id(e.target.value)}
+                      id="exampleInputPassword1"
+                      placeholder="Select here"
+                    >
+                      {rooms?.map((item) => (
+                        <option id={item?.id}>{item.name}</option>
+                      ))}
+                    </select>
+                  </div>
+                  {/* <Link href="/verification" className='w-100'> */}
+
+                  <button
+                    type="button"
+                    onClick={submit}
+                    className="btn btn-primary mb-3 mt-3 w-100"
+                  >
+                    Next
+                  </button>
+                  {/* </Link> */}
+                </form>
+>>>>>>> 75ea1a7d764b3e329b00ad39efa23285860b5f68
               </div>
               <form className="text-start d-flex justify-content-center flex-column w-100 px-4">
                 <div className="form-group mt-3">
@@ -235,6 +338,7 @@ export default function Home() {
                   </Link>
                 </div>
 
+<<<<<<< HEAD
                 <form className="d-flex justify-content-center flex-column w-100 px-4">
                   <div className="form-group mt-3">
                     <label htmlFor="name">Your Name*</label>
@@ -257,6 +361,29 @@ export default function Home() {
                   </div>
                   <div className="form-group mt-2">
                     <label htmlFor="hotel">Select Hotel Name</label>
+=======
+                <form className="d-flex justify-content-center  flex-column w-80">
+                  <div className="form-group m-2">
+                    <label
+                      htmlFor="exampleInputPassword1"
+                      style={{ width: "100%", textAlign: "left" }}
+                    >
+                      Phone Number*{" "}
+                    </label>
+                    <ReactPhoneInput
+                      defaultCountry={"us"}
+                      value={phone}
+                      onChange={handleOnChange}
+                    />
+                  </div>
+                  <div className="form-group m-2">
+                    <label
+                      htmlFor="exampleInputPassword1"
+                      style={{ width: "100%", textAlign: "left" }}
+                    >
+                      Select Hotel Name{" "}
+                    </label>
+>>>>>>> 75ea1a7d764b3e329b00ad39efa23285860b5f68
                     <select
                       type="text"
                       className="form-select mt-3 font-sm-16 py-2"
@@ -272,9 +399,37 @@ export default function Home() {
                       ))}
                     </select>
                   </div>
+<<<<<<< HEAD
                   <div className="form-group mt-3">
                     <label htmlFor="room">Room Number*</label>
                     <input
+=======
+                  <div className="form-group m-2">
+                    <label
+                      htmlFor="exampleInputEmail1"
+                      style={{ width: "100%", textAlign: "left" }}
+                    >
+                      {" "}
+                      Password*
+                    </label>
+                    <input
+                      type="password"
+                      className="form-control"
+                      value={password}
+                      onChange={(e) => setpassword(e.target.value)}
+                      id="exampleInputEmail1"
+                      placeholder="Write here"
+                    />
+                  </div>
+                  <div className="form-group m-2">
+                    <label
+                      htmlFor="exampleInputEmail1"
+                      style={{ width: "100%", textAlign: "left" }}
+                    >
+                      Select Room Number*
+                    </label>
+                    <select
+>>>>>>> 75ea1a7d764b3e329b00ad39efa23285860b5f68
                       type="text"
                       className="form-control mt-3 font-sm-16"
                       value={room_id}

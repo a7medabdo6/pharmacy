@@ -32,6 +32,7 @@ const productdetails = () => {
   return (
     <div className="product-details mb-2">
       <NavBar />
+      {/* <Header title="Products details" /> */}
       <NavBarMobail titlePage="Products details" />
 
       <Container className="mt-3 pb-5">

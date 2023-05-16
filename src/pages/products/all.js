@@ -141,7 +141,7 @@ const products = () => {
             </div>
           </div>
 
-          <Row className="mt-3 mt-lg-5 w-100">
+          <Row className="mt-3 mt-lg-5 w-100 mr-0" style={{ margin: 0 }}>
             <Col md={3} sm={12} className="d-none d-sm-block">
               <div
                 style={{
@@ -269,22 +269,22 @@ const products = () => {
                   <DropdownFilter
                     title={"By Disease"}
                     options={[
-                      { name: "Option ", id: 1 },
-                      { name: "Option ", id: 2 },
+                      { name: "A ", id: 1 },
+                      { name: "B ", id: 2 },
                     ]}
                   />
                   <DropdownFilter
                     title={"By Users"}
                     options={[
-                      { name: "All ", id: 1 },
-                      { name: "Option", id: 2 },
+                      { name: "B ", id: 1 },
+                      { name: "A", id: 2 },
                     ]}
                   />
                   <DropdownFilter
                     title={"By ingredients"}
                     options={[
                       { name: "All ", id: 1 },
-                      { name: "Option", id: 2 },
+                      { name: "C", id: 2 },
                     ]}
                   />
                   <div className="d-flex justify-content-between mt-5">
@@ -292,7 +292,7 @@ const products = () => {
                       className="btn btn-primary pb-2 pt-2 pr-5 pl-5"
                       style={{ paddingInline: "25px", width: "45%" }}
                     >
-                      Aplly
+                      apply
                     </div>
                     <div
                       className="btn btn-outline-primary pb-2 pt-2 pr-5 pl-5"

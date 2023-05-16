@@ -21,8 +21,14 @@ const BottomNav = () => {
 
   return (
     <Box
-      sx={{ width: "100%", height: "80px", position: "fixed", bottom: 0 }}
-      style={{ boxShadow: "0px -18px 40px 0px #0000001F" }}
+      sx={{
+        width: "100%",
+        height: "80px",
+        position: "fixed",
+        bottom: 0,
+        backgroundColor: "white",
+      }}
+      style={{ boxShadow: "0px -18px 40px 0px #0000001F", background: "white" }}
     >
       <BottomNavigation
         showLabels

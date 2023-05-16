@@ -125,7 +125,7 @@ const contactus = () => {
                     Reach us via
                   </p>
                   <div className="w-90 d-flex text-center justify-content-around align-items-center  flex-column">
-                    <div className="w-90 d-flex text-center justify-content-center align-items-center mx-5 ">
+                    <div className="w-95 d-flex text-center justify-content-center align-items-center mx-5 ">
                       <Row className=" d-flex text-center justify-content-center align-items-center ">
                         <Col
                           className="col-12 col-sm-12 col-md-12"
@@ -329,7 +329,7 @@ const contactus = () => {
 
             <p className={styles.textsub}>Reach us via</p>
             <div className="w-90 d-flex text-center justify-content-around align-items-center  flex-column">
-              <div className="w-90 d-flex text-center justify-content-center align-items-center mx-5 ">
+              <div className="w-95 d-flex text-center justify-content-center align-items-center mx-5 ">
                 <Row className=" d-flex text-center justify-content-center align-items-center">
                   <Col
                     className="col-12 col-sm-6 col-md-6"
@@ -474,7 +474,12 @@ const contactus = () => {
           </Sheet>
         </div>
       </main>
-      <FooterDesk />
+      <div className="d-block d-sm-none">
+        <BottomNav />
+      </div>
+      <div className="d-none d-sm-block ">
+        <FooterDesk />
+      </div>
     </>
   );
 };

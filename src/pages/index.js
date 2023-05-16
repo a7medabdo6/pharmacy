@@ -372,16 +372,13 @@ export default function Main() {
                 <Steps
                   imgsource={step2}
                   title="Step2"
-                  text="
-             
- confirm your order"
+                  text="confirm your order"
                   desc="We will contact you with prices before we ship the order to you "
                 />
                 <Steps
                   imgsource={step3}
                   title="Step3"
-                  text="
-              shipment and delivery"
+                  text="shipment and delivery"
                   desc="After confirming your order price, we will deliver the order to your address"
                 />
               </div>
