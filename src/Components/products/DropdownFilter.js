@@ -9,9 +9,10 @@ const DropdownFilter = ({ options, title }) => {
       <Multiselect
         options={options} // Options to display in the dropdown
         // Function will trigger on remove event
-        showCheckbox={true}
+        // showCheckbox={true}
+        singleSelect={true}
         placeholder="All"
-        disablePreSelectedValues={false}
+        disablePreSelectedValues={true}
         displayValue="name" // Property name to display in the dropdown options
       />
     </div>

@@ -94,11 +94,16 @@ export default function Main() {
       >
         <SerachBar showBigScreen={true} />
         <div className="row">
-          <div className="d-sm-none">
+          <div className="d-sm-none" style={{ padding: " 0px" }}>
             <>
               <main
                 className={styles.main}
-                style={{ backgroundColor: "#EDEDED" }}
+                style={{
+                  backgroundColor: "#EDEDED",
+                  padding: "0px",
+                  margin: "0px !important",
+                  marginRight: "0px !important",
+                }}
               >
                 <div
                   style={{ width: "95%" }}
@@ -327,32 +332,32 @@ export default function Main() {
               </Box>
             </Modal>
           </div>
+          <div
+            onClick={() => {
+              setOpen(true);
+            }}
+            style={{
+              backgroundColor: "#DD1717",
+              width: "130px",
+              height: "25px",
+              right: "-52px",
+              top: "45%",
+              transform: "rotate(-90deg)",
+              textAlign: "center",
+              cursor: "pointer",
+            }}
+            className="position-absolute d-flex justify-content-center align-items-center"
+          >
+            <p style={{ color: "white", fontSize: "12px !important" }}>
+              Write Review
+            </p>
+          </div>
           {/* <div className="d-none d-sm-block d-md-none">deskllll</div> */}
           <div className="d-none d-md-block">
             <div
               className="d-flex justify-content-between align-items-start flex-column  position-relative w-100"
               style={{ minHeight: "100vh" }}
             >
-              <div
-                onClick={() => {
-                  setOpen(true);
-                }}
-                style={{
-                  backgroundColor: "#DD1717",
-                  width: "130px",
-                  height: "25px",
-                  right: "-52px",
-                  top: "19%",
-                  transform: "rotate(-90deg)",
-                  textAlign: "center",
-                  cursor: "pointer",
-                }}
-                className="position-absolute d-flex justify-content-center align-items-center"
-              >
-                <p style={{ color: "white", fontSize: "12px !important" }}>
-                  Write Review
-                </p>
-              </div>
               <div className="d-flex justify-content-start align-items-start flex-column  w-100">
                 <div className="d-flex justify-content-center align-items-center flex-column mt-5   w-100">
                   <h5 style={{ color: "#0F4392" }}>How it works</h5>

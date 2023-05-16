@@ -33,7 +33,7 @@ const NavBarMobail = ({ titlePage }) => {
         <Image src={back} alt="Next.js Logo" width={15} height={15} priority />
       </div>
       <div>
-        <h2 className="text-white fw-bold">{titlePage}</h2>
+        <h3 className="text-white fw-bold">{titlePage}</h3>
       </div>
       <div className="d-flex justify-content-center align-items-center gap-3">
         {user ? (

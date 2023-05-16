@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "@/styles/products.module.css";
 import Image from "next/image";
 import { setProductDetails } from "../../Slices/productSlice";
@@ -8,18 +8,13 @@ import { useRouter } from "next/navigation";
 import ButtonMak from "./ButtonMak";
 import { useEffect } from "react";
 import PostCart from "../../Apis/Cart/PostCart";
+import { Button } from "react-bootstrap";
 
 const CardProduct = ({ item, id }) => {
   const dispatch = useDispatch();
   const router = useRouter();
-
-  const onCardClick = () => {
-    router.push(`/products/${id}/details/${item?.id}`);
-    dispatch(setProductDetails(item));
-  };
+  const [isLoading, setLoading] = useState(false);
   const SendCartFun = async (e) => {
-    e.preventDefault();
-
     const formData = {
       product: id,
       quantity: 1,
@@ -30,6 +25,19 @@ const CardProduct = ({ item, id }) => {
     // if (res) setData(res);
 
     return res;
+  };
+  useEffect(() => {
+    if (isLoading) {
+      SendCartFun().then(() => {
+        setLoading(false);
+      });
+    }
+  }, [isLoading]);
+
+  const handleClick = () => setLoading(true);
+  const onCardClick = () => {
+    router.push(`/products/${id}/details/${item?.id}`);
+    dispatch(setProductDetails(item));
   };
 
   return (
@@ -62,11 +70,14 @@ const CardProduct = ({ item, id }) => {
           <p className={styles.txtcard}>{item?.description}</p>
         </div>
       </div>
-
-      <button className="btn btn-primary w-100" onClick={SendCartFun}>
-        Make a request
-      </button>
-
+      <Button
+        variant="primary"
+        className="w-100"
+        disabled={isLoading}
+        onClick={!isLoading ? handleClick : null}
+      >
+        {isLoading ? "Loading…" : "Make A Request"}
+      </Button>
       {item?.description === true ? (
         <div className={styles.discount}>
           <p style={{ color: "#0F4392", fontSize: "10px" }}>-10 %</p>

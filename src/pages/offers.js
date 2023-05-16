@@ -224,7 +224,7 @@ const offers = () => {
                       className="btn btn-primary pb-2 pt-2 pr-5 pl-5"
                       style={{ paddingInline: "25px", width: "45%" }}
                     >
-                      Aplly
+                      apply
                     </div>
                     <div
                       className="btn btn-outline-primary pb-2 pt-2 pr-5 pl-5"

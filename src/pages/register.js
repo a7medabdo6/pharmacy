@@ -107,7 +107,10 @@ export default function Home() {
                 </div>
                 <form className="d-flex justify-content-center  flex-column">
                   <div className="form-group m-2">
-                    <label htmlFor="exampleInputPassword1">
+                    <label
+                      htmlFor="exampleInputPassword1"
+                      style={{ width: "100%", textAlign: "left" }}
+                    >
                       Phone Number*{" "}
                     </label>
                     <ReactPhoneInput
@@ -117,7 +120,10 @@ export default function Home() {
                     />
                   </div>
                   <div className="form-group m-2">
-                    <label htmlFor="exampleInputPassword1">
+                    <label
+                      htmlFor="exampleInputPassword1"
+                      style={{ width: "100%", textAlign: "left" }}
+                    >
                       Select Hotel Name{" "}
                     </label>
                     <select
@@ -136,7 +142,13 @@ export default function Home() {
                     </select>
                   </div>
                   <div className="form-group m-2">
-                    <label htmlFor="exampleInputEmail1"> Password*</label>
+                    <label
+                      htmlFor="exampleInputEmail1"
+                      style={{ width: "100%", textAlign: "left" }}
+                    >
+                      {" "}
+                      Password*
+                    </label>
                     <input
                       type="password"
                       className="form-control"
@@ -147,7 +159,10 @@ export default function Home() {
                     />
                   </div>
                   <div className="form-group m-2">
-                    <label htmlFor="exampleInputEmail1">
+                    <label
+                      htmlFor="exampleInputEmail1"
+                      style={{ width: "100%", textAlign: "left" }}
+                    >
                       Select Room Number*
                     </label>
                     <select
@@ -244,7 +259,10 @@ export default function Home() {
 
                 <form className="d-flex justify-content-center  flex-column w-80">
                   <div className="form-group m-2">
-                    <label htmlFor="exampleInputPassword1">
+                    <label
+                      htmlFor="exampleInputPassword1"
+                      style={{ width: "100%", textAlign: "left" }}
+                    >
                       Phone Number*{" "}
                     </label>
                     <ReactPhoneInput
@@ -254,7 +272,10 @@ export default function Home() {
                     />
                   </div>
                   <div className="form-group m-2">
-                    <label htmlFor="exampleInputPassword1">
+                    <label
+                      htmlFor="exampleInputPassword1"
+                      style={{ width: "100%", textAlign: "left" }}
+                    >
                       Select Hotel Name{" "}
                     </label>
                     <select
@@ -273,7 +294,13 @@ export default function Home() {
                     </select>
                   </div>
                   <div className="form-group m-2">
-                    <label htmlFor="exampleInputEmail1"> Password*</label>
+                    <label
+                      htmlFor="exampleInputEmail1"
+                      style={{ width: "100%", textAlign: "left" }}
+                    >
+                      {" "}
+                      Password*
+                    </label>
                     <input
                       type="password"
                       className="form-control"
@@ -284,7 +311,10 @@ export default function Home() {
                     />
                   </div>
                   <div className="form-group m-2">
-                    <label htmlFor="exampleInputEmail1">
+                    <label
+                      htmlFor="exampleInputEmail1"
+                      style={{ width: "100%", textAlign: "left" }}
+                    >
                       Select Room Number*
                     </label>
                     <select
