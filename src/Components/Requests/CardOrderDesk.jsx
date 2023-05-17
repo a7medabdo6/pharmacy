@@ -1,4 +1,14 @@
 import React from "react";
+import Image from "next/image";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faSearch,
+  faCircleXmark,
+  faPen,
+} from "@fortawesome/free-solid-svg-icons";
+import { Col, Row } from "react-bootstrap";
+import telfast from "../../assets/img/telfast.webp";
+import Quantity from "../Ulits/Quantity";
 
 const CardOrderDesk = () => {
   return (
@@ -7,7 +17,7 @@ const CardOrderDesk = () => {
       style={{
         backgroundColor: "white",
         borderRadius: "10px",
-        height: "400px",
+        height: "164px",
         position: "relative",
       }}
     >
@@ -23,15 +33,15 @@ const CardOrderDesk = () => {
         }}
       />
 
-      <Row>
-        <Col md={6}>
+      <Row className="align-items-center">
+        <Col md={4}>
           <div
             className="m-3"
             style={{
               borderRadius: "5px",
               display: "flex",
-              width: "165px",
-              height: "100%",
+              width: "145px",
+              height: "80%",
               justifyContent: "center",
               border: "1px solid #C9CCCF",
             }}
@@ -43,22 +53,18 @@ const CardOrderDesk = () => {
               height={116}
               style={{ width: "100%", height: "100%" }}
               priority
-              className=""
             />
           </div>
         </Col>
-        <Col xs={6}>
+        <Col md={8}>
           <div>
             <div className="w-100 d-flex justify-content-between align-items-center">
-              <h5 style={{ fontSize: "16px", fontWeight: "bold" }} className="">
+              <h5 style={{ fontSize: "16px", fontWeight: "bold" }}>
                 Telfast 180mg
               </h5>
             </div>
 
-            <p
-              className={styles.heddin}
-              style={{ color: "grey", fontSize: "12px" }}
-            >
+            <p style={{ color: "grey", fontSize: "12px" }}>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
               eiusmod tempo Lorem ipsum dolor sit amet, co....
             </p>

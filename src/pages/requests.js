@@ -3,6 +3,7 @@ import styles from "@/styles/requests.module.css";
 import ButtonRequests from "../Components/Requests/ButtonRequests";
 import CardInfo from "../Components/Requests/CardInfo";
 import CardOrder from "../Components/Requests/CardOrder";
+import CardOrderDesk from "../Components/Requests/CardOrderDesk";
 import BottomNav from "../Components/Ulits/BottomNav";
 import InputWithButton from "../Components/Requests/InputWithButton";
 import Header from "../Components/Ulits/Header";
@@ -15,6 +16,8 @@ import PostCart from "../Apis/Cart/PostCart";
 import SerachBar from "../Components/SerachBar";
 import NavBarMobail from "@/Components/desk/NavBarMobail";
 import CardInfoDesk from "../Components/Requests/CardInfoDesk";
+import circleCancel from "../assets/img/circle-cancel_minor.png";
+import Image from "next/image";
 
 const requests = () => {
   const circleStyle = {
@@ -47,6 +50,9 @@ const requests = () => {
       setuser(JSON.parse(localStorage?.getItem("user")));
     }
   }, []);
+
+  const [promocode, setPromocode] = useState("");
+  const handlePromoCode = (e) => setPromocode(e.target.value);
   return (
     <main style={{ backgroundColor: "#EDEDED", width: "100%" }}>
       <div className="d-block d-sm-none">
@@ -155,15 +161,70 @@ const requests = () => {
           Requests
         </h1>
 
-        <Container>
+        <Container className="pb-4">
+          <h2>Your info</h2>
           <Row>
             <Col md={6}>
-              <h2>Your info</h2>
               <CardInfoDesk />
               <h2>Your orders</h2>
-              <CardOrder />
+              <CardOrderDesk />
+              <CardOrderDesk />
+              <CardOrderDesk />
             </Col>
-            <Col md={6}></Col>
+            <Col md={6}>
+              <div
+                className="promocode bg-white py-4 px-3 rounded-2"
+                style={{ height: "319px" }}
+              >
+                <h5>Promocodes</h5>
+                <div className="position-relative">
+                  <input
+                    type="text"
+                    placeholder="well20"
+                    value={promocode}
+                    onChange={handlePromoCode}
+                    className="form-control text-primary"
+                  />
+                  <Image
+                    src={circleCancel}
+                    width={20}
+                    height={20}
+                    className="position-absolute"
+                    style={{
+                      top: "50%",
+                      right: "10px",
+                      cursor: "pointer",
+                      transform: "translateY(-50%)",
+                    }}
+                    onClick={() => setPromocode("")}
+                  />
+                </div>
+
+                <div className="d-flex justify-content-start align-items-center gap-2 my-3">
+                  <div style={circleStyle}>
+                    <span>4</span>
+                  </div>
+                  <p
+                    style={{
+                      color: "#0F4392",
+                      fontSize: "18px",
+                    }}
+                  >
+                    Products have been selected
+                  </p>
+                </div>
+                <button className="btn btn-primary w-100 fs-5">
+                  Place order
+                </button>
+                <p
+                  className="text-center mt-3"
+                  style={{ fontSize: "16px", color: "#DD1717" }}
+                >
+                  Note that: your order will not be confirmed before you receive
+                  a call from us to let you know your order price to confirm.
+                </p>
+              </div>
+            </Col>
           </Row>
         </Container>
       </div>
