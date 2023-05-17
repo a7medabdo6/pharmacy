@@ -275,16 +275,14 @@ const contactus = () => {
                 style={{ maxWidth: "90%" }}
               />
             </div>
-            <p className={styles.textsub} style={{ marginTop: 15 }}>
-              {" "}
+            <h4 className={styles.textsub} style={{ marginTop: 15 }}>
               Social media contacts
-            </p>
-            <p className={styles.textsub1}>
-              {" "}
+            </h4>
+            <p className="text-center px-4" style={{ fontSize: "16px" }}>
               If you need a help from our pharmacists or want to order a
-              specific prescription contact us via{" "}
+              specific prescription contact us via
             </p>
-            <div className="w-100 text-center d-flex justify-content-center align-items-center ">
+            <div className="w-100 text-center d-flex justify-content-center align-items-center">
               <Image
                 //  className="w-20"
                 src={telegram}

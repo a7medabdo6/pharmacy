@@ -41,7 +41,7 @@ const ReviewDesk = () => {
     left: "50%",
     height: "90%",
     transform: "translate(-50%, -50%)",
-    width: 400,
+    width: 6100,
     bgcolor: "background.paper",
     border: "2px solid white",
     boxShadow: 24,
@@ -79,13 +79,13 @@ const ReviewDesk = () => {
             "d-flex justify-content-around align-items-around flex-row"
           }
         >
-          <Rateing setrate={setrate} />
+          <Rateing />
         </div>
         <div className="d-flex justify-content-center align-items-center flex-column w-80 m-auto ">
           <div className="form-group w-100">
-            <p className="mb-0" htmlFor="exampleFormControlTextarea1">
+            <label className="mb-2 fs-5" htmlFor="exampleFormControlTextarea1">
               Leave your message*
-            </p>
+            </label>
             <textarea
               onChange={Onchangemessage}
               className="form-control"
@@ -93,22 +93,16 @@ const ReviewDesk = () => {
               rows={3}
             ></textarea>
           </div>
-          <p className="w-100 m-0 mt-2">Upload a file</p>
+          <p className="text-start fs-5 w-100 mb-2 mt-2">Upload a file</p>
           <div className="d-flex justify-content-center align-items-center flex-column box-grey">
-            <Image
-              src={upload}
-              alt="Next.js Logo"
-              // width={80}
-              // height={37}
-              priority
-            />
+            <Image src={upload} alt="Next.js Logo" priority />
             <div
               style={{ cursor: "pointer" }}
-              className="d-flex justify-content-center align-items-center flex-column box-grey-20 "
+              className="d-flex justify-content-center align-items-center flex-column box-grey-20"
             >
               <UploadFile setfile={setfile} />
             </div>
-            <p className="text-muted m-2">Or drop files to upload</p>
+            <p className="text-muted m-2 fs-6">Or drop files to upload</p>
           </div>
           <button
             onClick={SendReview}

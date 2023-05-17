@@ -64,7 +64,7 @@ const EditInfo = () => {
       <div className="overflow-hidden" style={{ background: "#eaeaea" }}>
         <Container>
           <Breadcrumb
-            style={{ fontSize: "12px" }}
+            style={{ fontSize: "18px" }}
             className="d-none d-lg-block mt-3"
           >
             <Breadcrumb.Item>Home</Breadcrumb.Item>

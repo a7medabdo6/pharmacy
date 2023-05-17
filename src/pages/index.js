@@ -514,7 +514,6 @@ export default function Main() {
                   style={{
                     height: "230px",
                   }}
-                  slidesPerView={3}
                   spaceBetween={30}
                   pagination={{
                     clickable: true,

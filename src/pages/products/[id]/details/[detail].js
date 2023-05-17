@@ -19,6 +19,7 @@ import SearchInput from "../../../../Components/products/SearchInput";
 import SerachBar from "../../../../Components/SerachBar";
 import SliderProductDetails from "../../../../Components/products/SliderProductDetails";
 import Quantity from "../../../../Components/Ulits/Quantity";
+import accept from "../../../../assets/img/mobile-accept_major.png";
 
 const productdetails = () => {
   const [isOpen, setOpen] = useState(false);
@@ -47,19 +48,49 @@ const productdetails = () => {
         <SerachBar showBigScreen={true} />
 
         <h1
-          className="text-center h3 my-4 d-none d-lg-block fw-bold"
+          className="text-center h3 my-4 d-none d-md-block fw-bold"
           style={{ color: "#0F4392" }}
         >
           Product details
         </h1>
+        <div
+          className="message w-100 d-flex justify-content-start align-items-center gap-4 py-2 px-3 mb-3 rounded-3"
+          style={{
+            backgroundColor: "#219653",
+            color: "white",
 
-        <Row>
-          <Col sm={12} md={6}>
+            boxShadow:
+              "0px 8px 20px -4px #1718181F, 0px 3px 6px -3px #17181814",
+          }}
+        >
+          <Image src={accept} />
+          <p
+            style={{
+              fontSize: "15px",
+            }}
+          >
+            Two panadol Extra have been added to your requests
+          </p>
+        </div>
+        <Row className="px-3">
+          <Col
+            sm={12}
+            md={6}
+            className="bg-white py-3 rounded-3"
+            style={{
+              boxShadow: "0px 18px 40px 0px #0000001F",
+            }}
+          >
             <SliderProductDetails />
           </Col>
           <Col sm={12} md={6}>
             <div className="details mt-4 mt-lg-0">
-              <div className="top">
+              <div
+                className="top"
+                style={{
+                  border-: "0.5px solid #828282",
+                }}
+              >
                 <h6 className="fw-bold mb-1" style={{ fontSize: "1.2rem" }}>
                   Product category
                 </h6>

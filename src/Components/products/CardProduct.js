@@ -41,10 +41,10 @@ const CardProduct = ({ item, id }) => {
   };
 
   return (
-    <div className={`${styles.boxcardprdoduct} px-2`}>
+    <div className={`${styles.boxcardprdoduct} px-0 px-md-2 py-0 pb-2 py-md-3`}>
       <div
         style={{ width: "100%", padding: "5px 8px" }}
-        className="pb-0"
+        className={styles.boxImg1}
         onClick={onCardClick}
       >
         <div
@@ -52,6 +52,8 @@ const CardProduct = ({ item, id }) => {
           style={{
             boxShadow: "0px 18px 40px 0px rgba(0, 0, 0, 0.1)",
             borderRadius: "3px",
+            width: "237px",
+            height: "167px",
           }}
         >
           <Image
@@ -72,7 +74,7 @@ const CardProduct = ({ item, id }) => {
       </div>
       <Button
         variant="primary"
-        className="w-100"
+        className="w-95"
         disabled={isLoading}
         onClick={!isLoading ? handleClick : null}
       >

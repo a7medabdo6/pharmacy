@@ -28,6 +28,19 @@ import SerachBar from "../../Components/SerachBar";
 import ButtonOfferDEsk from "../../Components/desk/ButtonOfferDEsk";
 import PostCart from "../../Apis/Cart/PostCart";
 import NavBarMobail from "../../Components/desk/NavBarMobail";
+import { ImageGroup } from "semantic-ui-react";
+
+// Import Swiper React components
+import { Swiper, SwiperSlide } from "swiper/react";
+
+// Import Swiper styles
+import "swiper/css";
+import "swiper/css/free-mode";
+import "swiper/css/pagination";
+
+// import required modules
+import { FreeMode, Pagination } from "swiper";
+
 const products = () => {
   const [isOpen, setOpen] = useState(false);
   const [products, setproducts] = useState([]);
@@ -76,9 +89,9 @@ const products = () => {
           </div>
         </div>
       </div>
-      <Container className="padding-bottom-sm">
+      <Container className="padding-bottom-sm px-0">
         <Breadcrumb
-          style={{ fontSize: "12px" }}
+          style={{ fontSize: "18px" }}
           className="d-none d-lg-block mt-3"
         >
           <Breadcrumb.Item>Home</Breadcrumb.Item>
@@ -99,56 +112,69 @@ const products = () => {
         />
         <main className={styles.main}>
           <div className="w-100 text-center d-flex justify-content-center align-items-center flex-column">
-            <div
-              className="d-flex justify-content-start align-items-center mt-3 gap-2"
-              style={{ width: "100%" }}
+            <Swiper
+              slidesPerView={10}
+              spaceBetween={5}
+              freeMode={true}
+              modules={[FreeMode]}
+              className="mySwiper px-2 pt-3"
             >
-              <div
-                className="d-flex justify-content-center align-items-center rounded-1 py-1 px-2"
-                style={{
-                  backgroundColor: "#DD1717",
-                }}
-              >
-                <p className={styles.label}>All</p>
-              </div>
-
-              <div
-                className="d-flex justify-content-center align-items-center rounded-1 py-1 px-2"
-                style={{
-                  backgroundColor: "rgba(221, 23, 23, 0.2)",
-                }}
-              >
-                <p className={styles.label}>Top 50 medicines</p>
-              </div>
-
-              <div
-                className="d-flex justify-content-center align-items-center rounded-1 py-1 px-2"
-                style={{
-                  backgroundColor: "rgba(221, 23, 23, 0.2)",
-                }}
-              >
-                <p className={styles.label}>Natural oils and herbs </p>
-              </div>
-
-              <div
-                className="d-flex justify-content-center align-items-center rounded-1 py-1 px-2"
-                style={{
-                  backgroundColor: "rgba(221, 23, 23, 0.2)",
-                }}
-              >
-                <p className={styles.label}>Cosmtics </p>
-              </div>
-            </div>
+              <SwiperSlide>
+                <div
+                  className={
+                    styles.boxLabeld + " active rounded-1 pt-1 pb-0 px-2"
+                  }
+                  style={{
+                    backgroundColor: "#DD1717",
+                  }}
+                >
+                  <p className={styles.label}>All</p>
+                </div>
+              </SwiperSlide>
+              <SwiperSlide>
+                {" "}
+                <div
+                  className="d-flex justify-content-center align-items-center rounded-1 pt-1 pb-0 px-2"
+                  style={{
+                    backgroundColor: "rgba(221, 23, 23, 0.2)",
+                  }}
+                >
+                  <p className={styles.label}>Top 50 medicines</p>
+                </div>
+              </SwiperSlide>
+              <SwiperSlide>
+                <div
+                  className="d-flex justify-content-center align-items-center rounded-1 pt-1 pb-0"
+                  style={{
+                    backgroundColor: "rgba(221, 23, 23, 0.2)",
+                  }}
+                >
+                  <p className={styles.label + " w-100"}>
+                    Natural oils and herbs{" "}
+                  </p>
+                </div>
+              </SwiperSlide>
+              <SwiperSlide>
+                <div
+                  className="d-flex justify-content-center align-items-center rounded-1 pt-1 pb-0 px-2"
+                  style={{
+                    backgroundColor: "rgba(221, 23, 23, 0.2)",
+                  }}
+                >
+                  <p className={styles.label}>Cosmtics </p>
+                </div>
+              </SwiperSlide>
+            </Swiper>
           </div>
 
-          <Row className="mt-3 mt-lg-5 w-100 mr-0" style={{ margin: 0 }}>
+          <Row className="mt-0 mt-lg-5 w-100 mr-0" style={{ margin: 0 }}>
             <Col md={3} sm={12} className="d-none d-sm-block">
               <div
                 style={{
                   borderRadius: "8px",
                   boxShadow: "0px 18px 40px rgba(0, 0, 0, 0.12)",
                 }}
-                className="d-flex justify-content-center  align-items-center flex-column  "
+                className="d-flex justify-content-center align-items-center flex-column  "
               >
                 <h5 className="my-3">Filter by</h5>
 
@@ -171,13 +197,12 @@ const products = () => {
             </Col>
             <Col md={9} sm={12} className="d-flex flex-column">
               <div
-                className="d-flex justify-content-start align-items-center gap-2 flex-wrap mb-3 order-2"
+                className="d-none d-md-flex justify-content-start align-items-center gap-2 flex-wrap mb-3 order-2"
                 style={{ width: "100%" }}
               >
                 <div className={styles.greybox}>
                   <p className={styles.txtofboxgrey}>Diclofenac Sodium</p>
                   <Image
-                    //  className="w-20"
                     src={exit}
                     className="mx-1 fs-5"
                     alt="Next.js Logo"
@@ -188,8 +213,7 @@ const products = () => {
                 </div>
                 <div className={styles.greybox} style={{ width: "134px" }}>
                   <p className={styles.txtofboxgrey}>Sodium Chloride</p>
-                  <Image
-                    //  className="w-20"
+                  <ImageGroup
                     src={exit}
                     className="mx-1"
                     alt="Next.js Logo"
@@ -201,7 +225,6 @@ const products = () => {
                 <div className={styles.greybox} style={{ width: "94px" }}>
                   <p className={styles.txtofboxgrey}>Ibuprofen</p>
                   <Image
-                    //  className="w-20"
                     src={exit}
                     className="mx-1"
                     alt="Next.js Logo"
@@ -213,7 +236,6 @@ const products = () => {
                 <div className={styles.greybox} style={{ width: "134px" }}>
                   <p className={styles.txtofboxgrey}>Sodium Chloride</p>
                   <Image
-                    //  className="w-20"
                     src={exit}
                     className="mx-1"
                     alt="Next.js Logo"
@@ -235,9 +257,9 @@ const products = () => {
                 </Link>
               </div>
               <Row
-                className="order-3"
+                className="order-3 gap-50"
                 style={{
-                  bsGutterX: "1.5rem",
+                  "--bs-gutter-x": "0.5rem",
                 }}
               >
                 {products?.map((item) => (
