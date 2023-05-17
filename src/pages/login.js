@@ -64,145 +64,65 @@ export default function Home() {
             </div>
             <div className="d-flex justify-content-center align-items-center flex-column">
               <h3 className="mt-3 fs-3">Welcome to Well+ pharmacy</h3>
-              <h5
-                style={{ color: "#DD1717", marginTop: "0", fontSize: "18px" }}
-              >
-<<<<<<< HEAD
-                live healthy … live well
-              </h5>
-            </div>
-            <div
-              className="d-flex justify-content-center align-items-center flex-column mt-4"
-              style={{
-                backgroundColor: "rgba(15, 67, 146, 0.07)",
-                width: "90%",
-                height: "290px",
-                borderRadius: "15px",
-              }}
-            >
+
               <h2 style={{ color: "#0F4392" }} className="m-2">
                 Sign in
               </h2>
-              <div className="d-flex justify-content-center align-items-center mt-2">
-                <span>Don't have an account?</span>
+              <div className="d-flex justify-content-center  align-items-center w-80">
+                <label htmlFor="exampleInputPassword1">
+                  {" "}
+                  Don't have an account?{" "}
+                </label>
+
                 <Link href={"/register"}>
-                  <p className="ms-2">Sign up</p>
+                  <p className="m-2">Sign up</p>
                 </Link>
               </div>
-              <form className="text-start d-flex justify-content-center flex-column w-100 px-4">
-                <div className="form-group mt-3">
-                  <label htmlFor="phone">Phone Number*</label>
+              <form className="d-flex justify-content-center  flex-column">
+                <div className="form-group m-2">
+                  <label
+                    htmlFor="exampleInputPassword1"
+                    style={{ width: "100%", textAlign: "left" }}
+                  >
+                    Phone Number*{" "}
+                  </label>
                   <ReactPhoneInput
                     defaultCountry={"us"}
-                    className="mt-2 font-sm-16"
                     value={phone}
                     onChange={handleOnChange}
-                    id="phone"
                   />
                 </div>
-                <div className="form-group mt-3">
-                  <label htmlFor="password">Password*</label>
+
+                <div className="form-group m-2">
+                  <label
+                    htmlFor="exampleInputEmail1"
+                    style={{ width: "100%", textAlign: "left" }}
+                  >
+                    {" "}
+                    Password*
+                  </label>
                   <input
                     type="password"
-                    className="form-control mt-3 font-sm-16 py-2"
-                    id="password"
+                    className="form-control"
+                    value={password}
+                    onChange={(e) => setpassword(e.target.value)}
+                    id="exampleInputEmail1"
                     placeholder="Write here"
                   />
                 </div>
-                <div className="form-check d-flex justify-content-between align-items-center">
-                  <div className="remember-me">
-                    <input
-                      type="checkbox"
-                      className="form-check-input"
-                      id="remember-me"
-                    />
-                    <label htmlFor="remember-me" className="form-check-label">
-                      Remember me
-                    </label>
-                  </div>
-                  <Link href="/" className="forget-password">
-                    <span className="text-primary fs-5 fw-bold">
-                      Forget password
-                    </span>
-                  </Link>
-                </div>
+
+                <button
+                  type="button"
+                  onClick={submit}
+                  className="btn btn-primary mb-3 mt-3 w-100"
+                >
+                  Next
+                </button>
+                {/* </Link> */}
               </form>
             </div>
-          </main>
-          <Link
-            href="/verification"
-            className="w-100 position-fixed bottom-0 start-0 bg-white pt-2 pb-3 px-4"
-            style={{
-              boxShadow: "0px -18px 40px 0px #0000001F",
-            }}
-          >
-            <button
-              type="button"
-              onClick={submit}
-              className="btn btn-primary mt-3 w-100"
-            >
-              Next
-            </button>
-          </Link>
-=======
-                <h2 style={{ color: "#0F4392" }} className="m-2">
-                  Sign in
-                </h2>
-                <div className="d-flex justify-content-center  align-items-center w-80">
-                  <label htmlFor="exampleInputPassword1">
-                    {" "}
-                    Don't have an account?{" "}
-                  </label>
 
-                  <Link href={"/register"}>
-                    <p className="m-2">Sign up</p>
-                  </Link>
-                </div>
-                <form className="d-flex justify-content-center  flex-column">
-                  <div className="form-group m-2">
-                    <label
-                      htmlFor="exampleInputPassword1"
-                      style={{ width: "100%", textAlign: "left" }}
-                    >
-                      Phone Number*{" "}
-                    </label>
-                    <ReactPhoneInput
-                      defaultCountry={"us"}
-                      value={phone}
-                      onChange={handleOnChange}
-                    />
-                  </div>
-
-                  <div className="form-group m-2">
-                    <label
-                      htmlFor="exampleInputEmail1"
-                      style={{ width: "100%", textAlign: "left" }}
-                    >
-                      {" "}
-                      Password*
-                    </label>
-                    <input
-                      type="password"
-                      className="form-control"
-                      value={password}
-                      onChange={(e) => setpassword(e.target.value)}
-                      id="exampleInputEmail1"
-                      placeholder="Write here"
-                    />
-                  </div>
-
-                  <button
-                    type="button"
-                    onClick={submit}
-                    className="btn btn-primary mb-3 mt-3 w-100"
-                  >
-                    Next
-                  </button>
-                  {/* </Link> */}
-                </form>
-              </div>
-
-              {/* <Image
+            {/* <Image
             className={styles.logo}
             src="/curve.svg"
             alt="Next.js Logo"
@@ -210,9 +130,7 @@ export default function Home() {
             height={37}
             priority
           /> */}
-            </main>
-          </>{" "}
->>>>>>> 75ea1a7d764b3e329b00ad39efa23285860b5f68
+          </main>
         </div>
         <div className="d-none d-md-block">
           <div
@@ -274,11 +192,6 @@ export default function Home() {
                   </Link>
                 </div>
 
-<<<<<<< HEAD
-                <form className="d-flex justify-content-center flex-column w-100 px-4">
-                  <div className="form-group mt-2">
-                    <label htmlFor="phone">Phone Number*</label>
-=======
                 <form className="d-flex justify-content-center  flex-column w-80">
                   <div className="form-group m-2">
                     <label
@@ -287,7 +200,6 @@ export default function Home() {
                     >
                       Phone Number*{" "}
                     </label>
->>>>>>> 75ea1a7d764b3e329b00ad39efa23285860b5f68
                     <ReactPhoneInput
                       country={"ng"}
                       className="mt-3 font-sm-16"
@@ -296,10 +208,6 @@ export default function Home() {
                       id="phone"
                     />
                   </div>
-<<<<<<< HEAD
-                  <div className="form-group mt-3">
-                    <label htmlFor="password">Password*</label>
-=======
 
                   <div className="form-group m-2">
                     <label
@@ -309,7 +217,6 @@ export default function Home() {
                       {" "}
                       Password*
                     </label>
->>>>>>> 75ea1a7d764b3e329b00ad39efa23285860b5f68
                     <input
                       type="password"
                       className="form-control mt-3 font-sm-16 py-2"
