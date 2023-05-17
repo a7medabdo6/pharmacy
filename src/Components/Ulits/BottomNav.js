@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from "react";
-import Box from "@mui/material/Box";
-import BottomNavigation from "@mui/material/BottomNavigation";
-import BottomNavigationAction from "@mui/material/BottomNavigationAction";
-import HomeIcon from "@mui/icons-material/Home";
-import StoreIcon from "@mui/icons-material/Store";
-import PhoneEnabledIcon from "@mui/icons-material/PhoneEnabled";
 import { useRouter } from "next/router"; // Import useRouter hook from next/router
-import Postcontactus from "../../Apis/Contact";
+import Image from "next/image";
+import homeIcon from "../../assets/img/home_major.png";
+import productsIcon from "../../assets/img/Default3.png";
+import requestsIcon from "../../assets/img/Frame 72.png";
+import contactIcon from "../../assets/img/Default53.png";
+import Link from "next/link";
+
 const BottomNav = () => {
-  const [value, setValue] = React.useState(0);
+  const [value, setValue] = useState(0);
   const router = useRouter(); // Initialize useRouter hook
 
   const handleChange = (event, newValue) => {
@@ -20,48 +20,84 @@ const BottomNav = () => {
   };
 
   return (
-    <Box
-      sx={{
+    <div
+      style={{
+        position: "fixed",
         width: "100%",
         height: "80px",
-        position: "fixed",
         bottom: 0,
+        left: 0,
         backgroundColor: "white",
+        boxShadow: "0px -18px 40px rgba(0, 0, 0, 0.12)",
+        display: "flex",
+        justifyContent: "space-around",
+        alignItems: "center",
       }}
-      style={{ boxShadow: "0px -18px 40px 0px #0000001F", background: "white" }}
+      className="navBotom"
     >
-      <BottomNavigation
-        showLabels
-        value={value}
-        onChange={(event, newValue) => {
-          setValue(newValue);
-        }}
-        sx={{ borderRadius: "15px 15px 0 0" }}
+      <Link
+        href="/"
+        className={`${router.pathname === "/" ? "active" : ""} nav-item`}
       >
-        <BottomNavigationAction
-          label="Home"
-          icon={<HomeIcon style={{ color: value == 0 ? "blue" : "grey" }} />}
-          onClick={() => handleIconClick("/")}
-        />
-        <BottomNavigationAction
-          label="Products"
-          icon={<StoreIcon style={{ color: value == 1 ? "blue" : "grey" }} />}
-          onClick={() => handleIconClick("/products/all")}
-        />
-        <BottomNavigationAction
-          label="Requests"
-          icon={<HomeIcon style={{ color: value == 2 ? "blue" : "grey" }} />}
-          onClick={() => handleIconClick("/requests")}
-        />
-        <BottomNavigationAction
-          label="Contact Us"
-          icon={
-            <PhoneEnabledIcon style={{ color: value == 3 ? "blue" : "grey" }} />
-          }
-          onClick={() => handleIconClick("/contactus")}
-        />
-      </BottomNavigation>
-    </Box> //test
+        <div
+          className="box d-flex flex-column justify-content-center align-items-center"
+          style={{ fontSize: "14px" }}
+        >
+          <Image src={homeIcon} width={20} height={20} />
+          <div>
+            <span>Home</span>
+          </div>
+        </div>
+      </Link>
+      <Link
+        href="/products/all"
+        className={`${
+          router.pathname === "/products/all" ? "active" : ""
+        } nav-item`}
+      >
+        <div
+          className="box d-flex flex-column justify-content-center align-items-center"
+          style={{ fontSize: "14px" }}
+        >
+          <Image src={productsIcon} width={20} height={20} />
+          <div>
+            <span>Products</span>
+          </div>
+        </div>
+      </Link>
+      <Link
+        href="/requests"
+        className={`${
+          router.pathname === "/requests" ? "active" : ""
+        } nav-item`}
+      >
+        <div
+          className="box d-flex flex-column justify-content-center align-items-center"
+          style={{ fontSize: "14px" }}
+        >
+          <Image src={requestsIcon} width={20} height={20} />
+          <div>
+            <span>Requests</span>
+          </div>
+        </div>
+      </Link>
+      <Link
+        href="/contactus"
+        className={`${
+          router.pathname === "/contactus" ? "active" : ""
+        } nav-item`}
+      >
+        <div
+          className="box d-flex flex-column justify-content-center align-items-center"
+          style={{ fontSize: "14px" }}
+        >
+          <Image src={contactIcon} width={20} height={20} />
+          <div>
+            <span>Contact us</span>
+          </div>
+        </div>
+      </Link>
+    </div>
   );
 };
 export default BottomNav;

@@ -63,16 +63,7 @@ const NavBarMobail = ({
         )}
       </div>
       <div>
-<<<<<<< HEAD
-        <h2
-          className="text-white fw-bold"
-          style={{ fontSize: "21px", fontWeight: "500" }}
-        >
-          {titlePage}
-        </h2>
-=======
         <h3 className="text-white fw-bold">{titlePage}</h3>
->>>>>>> 75ea1a7d764b3e329b00ad39efa23285860b5f68
       </div>
       <div>
         {sectionRight ? (

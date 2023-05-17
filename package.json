@@ -45,6 +45,7 @@
     "react-uploader": "^3.19.0",
     "semantic-ui-react": "^2.1.4",
     "styled-components": "^5.3.9",
+    "swiper": "^9.3.2",
     "typescript": "5.0.3"
   },
   "devDependencies": {

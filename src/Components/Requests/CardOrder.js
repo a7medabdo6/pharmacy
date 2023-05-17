@@ -10,6 +10,8 @@ import {
   faPen,
 } from "@fortawesome/free-solid-svg-icons";
 import PostCart from "@/Apis/Cart/PostCart";
+import Quantity from "../Ulits/Quantity";
+import { Col, Row } from "react-bootstrap";
 
 const CardOrder = ({ item }) => {
   const [imag, setimag] = useState(item?.product?.home_image);
@@ -63,7 +65,7 @@ const CardOrder = ({ item }) => {
   };
   return (
     <div
-      className="w-100 d-flex -justify-content-start align-items-center mt-3"
+      className="w-100 d-flex justify-content-start align-items-center mt-3 pe-3"
       style={{
         backgroundColor: "white",
         borderRadius: "10px",
@@ -82,82 +84,49 @@ const CardOrder = ({ item }) => {
           position: "absolute",
         }}
       />
-      <div
-        className="m-3"
-        style={{
-          border: "1px solid grey",
-          borderRadius: "5px",
-          width: "70px",
-          display: "flex",
-          justifyContent: "center",
-          minWidth: "70px",
-        }}
-      >
-        <Image
-          //  className="w-20"
-          src={item?.product?.home_image}
-          alt="Next.js Logo"
-          width={100}
-          height={116}
-          style={{ width: "50px", height: "auto" }}
-          priority
-          className="py-3 px-0"
-        />
-      </div>
 
-      <div>
-        <div className="w-100 d-flex justify-content-between align-items-center">
-          <h5 style={{ fontSize: "16px", fontWeight: "bold" }} className="mb-1">
-            {item?.product?.name}
-          </h5>
-        </div>
-
-        <p
-          className={styles.heddin}
-          style={{ color: "grey", fontSize: "12px" }}
-        >
-          {item?.product?.description}
-        </p>
-        <div className="d-flex justify-content-start align-items-center">
-          <button
-            onClick={increase}
+      <Row>
+        <Col xs={5}>
+          <div
+            className="m-3"
             style={{
-              width: "36px",
-              height: "32px",
-              backgroundColor: "#0F4392",
-              borderRadius: "5px 0px 0px 5px",
-              border: "none",
-              color: "white",
+              borderRadius: "5px",
+              display: "flex",
+              height: "80%",
+              justifyContent: "center",
+              border: "1px solid #C9CCCF",
             }}
           >
-            +
-          </button>
+            <Image
+              src={telfast}
+              alt="Next.js Logo"
+              width={100}
+              height={116}
+              style={{ width: "100%", height: "100%" }}
+              priority
+              className=""
+            />
+          </div>
+        </Col>
+        <Col xs={7}>
+          <div>
+            <div className="w-100 d-flex justify-content-between align-items-center">
+              <h5 style={{ fontSize: "16px", fontWeight: "bold" }} className="">
+                Telfast 180mg
+              </h5>
+            </div>
 
-          <h5
-            className="my-0 d-flex justify-content-center align-items-center "
-            style={{
-              backgroundColor: "#EEEEEE",
-              width: "64px",
-              height: "32px",
-            }}
-          >
-            {count}
-          </h5>
-          <button
-            onClick={desincrease}
-            style={{
-              width: "36px",
-              height: "32px",
-              backgroundColor: "#0F4392",
-              borderRadius: "0px 5px 5px 0px",
-              border: "none",
-              color: "white",
-            }}
-          >
-            -
-          </button>
-        </div>
-      </div>
+            <p
+              className={styles.heddin}
+              style={{ color: "grey", fontSize: "12px" }}
+            >
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempo Lorem ipsum dolor sit amet, co....
+            </p>
+            <Quantity />
+          </div>
+        </Col>
+      </Row>
     </div>
   );
 };

@@ -14,10 +14,15 @@ const CardInfo = ({ user }) => {
       <div className="w-100 m-3">
         <div className="d-flex justify-content-between flex-row align-items-center mb-3">
           <div className="d-flex justify-content-start flex-row align-items-center ">
-            <p className="mb-0" style={{ color: "black", fontWeight: "bold" }}>
-              Name :{" "}
+            <p
+              className="mb-0"
+              style={{ color: "black", fontWeight: "bold", fontSize: "17px" }}
+            >
+              Name:{" "}
+              <span style={{ color: "#DD1717", fontSize: "17px" }}>
+                Shorouq Hossam
+              </span>
             </p>
-            <p style={{ color: "red" }}> {user?.first_name}</p>
           </div>
 
           <div>
@@ -29,25 +34,35 @@ const CardInfo = ({ user }) => {
         </div>
         <div className="d-flex justify-content-start flex-row align-items-center mb-3">
           <div className="d-flex justify-content-center flex-row align-items-center ">
-            <p className="mb-0" style={{ color: "black", fontWeight: "bold" }}>
-              Hotel:
+            <p
+              className="mb-0"
+              style={{ color: "black", fontWeight: "bold", fontSize: "17px" }}
+            >
+              Hotel:{" "}
+              <span style={{ color: "#DD1717", fontSize: "17px" }}>
+                Marriott
+              </span>
             </p>
-            <p style={{ color: "red", marginInline: 5 }}>{user?.hotel} </p>
           </div>
 
           <div className="d-flex justify-content-center flex-row align-items-center ms-5">
-            <p className="mb-0" style={{ color: "black", fontWeight: "bold" }}>
-              Room Number:
+            <p
+              className="mb-0"
+              style={{ color: "black", fontWeight: "bold", fontSize: "17px" }}
+            >
+              Room Number: <span style={{ color: "#DD1717" }}>A107</span>
             </p>
-            <p style={{ color: "red" }}>{user?.room}</p>
           </div>
         </div>
 
         <div className="d-flex justify-content-start flex-row align-items-center mb-3">
-          <p className="mb-0" style={{ color: "black", fontWeight: "bold" }}>
-            Phone Number:
+          <p
+            className="mb-0"
+            style={{ color: "black", fontWeight: "bold", fontSize: "17px" }}
+          >
+            Phone Number:{" "}
+            <span style={{ color: "#DD1717" }}>(+20)01202255222</span>
           </p>
-          <p style={{ color: "red", marginInline: 5 }}>{user?.phone} </p>
         </div>
       </div>
     </div>

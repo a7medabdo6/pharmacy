@@ -7,18 +7,21 @@ import BottomNav from "../Components/Ulits/BottomNav";
 import InputWithButton from "../Components/Requests/InputWithButton";
 import Header from "../Components/Ulits/Header";
 import NavBar from "@/Components/desk/NavBar";
-import { Breadcrumb, Col, Container, Row } from "react-bootstrap";
+import { Breadcrumb, Col, Collapse, Container, Row } from "react-bootstrap";
 import FooterDesk from "@/Components/desk/FooterDesk";
 
 import GetCart from "../Apis/Cart/GetCart";
 import PostCart from "../Apis/Cart/PostCart";
 import SerachBar from "../Components/SerachBar";
+import NavBarMobail from "@/Components/desk/NavBarMobail";
+import CardInfoDesk from "../Components/Requests/CardInfoDesk";
 
 const requests = () => {
   const circleStyle = {
     backgroundColor: "#0F4392",
     height: "32px",
     width: "32px",
+    marginRight: "10px",
     borderRadius: "50%",
     display: "flex",
     justifyContent: "center",
@@ -45,165 +48,124 @@ const requests = () => {
     }
   }, []);
   return (
-    <main style={{ backgroundColor: "#EDEDED", width: "100%", margin: "auto" }}>
+    <main style={{ backgroundColor: "#EDEDED", width: "100%" }}>
       <div className="d-block d-sm-none">
-        <Header title="Requests" />
+        <NavBarMobail titlePage="Requests" />
       </div>
 
       <NavBar />
 
       <Container>
         <Breadcrumb
-          style={{ fontSize: "12px" }}
+          style={{ fontSize: "18px" }}
           className="d-none d-lg-block mt-3"
         >
           <Breadcrumb.Item>Home</Breadcrumb.Item>
           <Breadcrumb.Item>Our products</Breadcrumb.Item>
           <Breadcrumb.Item active>Requests</Breadcrumb.Item>
         </Breadcrumb>
-
-        <SerachBar showBigScreen={true} />
       </Container>
 
-      <h1
-        className="text-center h3 my-4 d-none d-lg-block fw-bold"
-        style={{ color: "#0F4392" }}
-      >
-        Requests
-      </h1>
-      <div
-        style={{ width: "90%", margin: "auto" }}
-        className="padding-bottom-sm"
-      >
-        <div className="flex-column d-flex justify-content-start align-items-center mt-4 pb-4">
-          <Row>
-            <Col className="col-12 col-sm-8 col-md-8">
-              <Row>
-                <Col className="col-12">
-                  <div
-                    className="me-1 d-flex justify-content-start align-items-center"
-                    style={{ width: "100%" }}
-                  >
-                    <h5>Your Info</h5>
-                  </div>
-                  <div
-                    className="  mt-1  d-flex justify-content-start align-items-center"
-                    style={{ width: "100%" }}
-                  >
-                    <CardInfo user={user} />
-                  </div>
-                </Col>
-                <Col className="col-12 "></Col>
-                <div
-                  className="  mt-5 me-1  d-flex justify-content-start align-items-center"
-                  style={{ width: "100%" }}
-                >
-                  <h5>Your Order</h5>
-                </div>
-
-                <div
-                  className="  mt-1  d-flex justify-content-start flex-column align-items-center"
-                  style={{ width: "100%" }}
-                >
-                  {CartList?.map((item) => {
-                    return <CardOrder item={item} />;
-                  })}
-                </div>
-              </Row>
-            </Col>
-            <Col className="col-12 col-sm-4 col-md-4">
-              <div
-                className="w-100  pt-4 pl-3 pr-3 pb-4 d-flex justify-content-center align-items-center"
+      <div className="d-block d-md-none">
+        <div className="place-order bg-white py-3 px-2">
+          <div
+            className="w-100 d-flex flex-column justify-items-center align-items-start"
+            style={{ marginBottom: "20px" }}
+          >
+            <div className="d-flex justify-content-center align-items-center gap-2 mb-3">
+              <div style={circleStyle}>
+                <span>4</span>
+              </div>
+              <p
                 style={{
-                  backgroundColor: "white",
-                  borderRadius: 10,
-                  position: "relative",
-                  marginTop: "20px",
+                  color: "#0F4392",
+                  fontSize: "18px",
                 }}
               >
-                <div
-                  className="  d-flex justify-content-start align-items-center flex-column"
-                  style={{
-                    bottom: 0,
-                    marginLeft: "5px",
-                    width: "95%",
-                    backgroundColor: "white",
-                  }}
-                >
-                  <div
-                    style={{ width: "100%", margin: "5px" }}
-                    className="my-4"
-                  >
-                    <p>Promocodes</p>
-                    <input
-                      placeholder="Well20"
-                      style={{
-                        borderRadius: "4px",
-                        width: " 90%",
-                        padding: "6px",
-                        border: "1px solid #8080806e",
-                        backgroundColor: "white",
-                      }}
-                    />
-                  </div>
-                  <div
-                    className="w-100  d-flex justify-content-start align-items-center"
-                    style={{ marginBottom: "20px" }}
-                  >
-                    <div style={circleStyle}>
-                      <span>4</span>
-                    </div>
-                    <p
-                      style={{
-                        color: "#0F4392",
-                        fontFamily: "400",
-                        fontSize: "16px",
-                        lineHeight: "24px",
-                        marginLeft: "10px",
-                      }}
-                    >
-                      Products have been selected
-                    </p>
-                  </div>
-
-                  <div className="w-100  d-flex justify-content-start align-items-center">
-                    <ButtonRequests
-                      txtColor="white"
-                      bckColor="#0F4392"
-                      BRColor="#0F4392"
-                      text="Place Order"
-                    />
-                  </div>
-                  <div className="w-100  d-flex justify-content-start align-items-center">
-                    <p style={{ textAlign: "center", color: "#DD1717" }}>
-                      Note that: your order will not be confirmed before you
-                      receive a call from us to let you know your order price to
-                      confirm.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </Col>
-          </Row>
-
-          <div
-            className="  me-1  d-flex justify-content-start align-items-center d-block d-sm-none"
-            style={{ width: "100%" }}
-          >
-            <h5 className="mt-3">Promocodes</h5>
-          </div>
-          <div
-            style={{ width: "100%", margin: "5px" }}
-            className="my-4 d-block d-sm-none"
-          >
-            <InputWithButton />
+                Products have been selected
+              </p>
+            </div>
+            <button className="btn btn-primary w-100 fs-5">Place order</button>
+            <p
+              className="text-center mt-2"
+              style={{ fontSize: "12px", color: "#DD1717" }}
+            >
+              Note that: your order will not be confirmed before you receive a
+              call from us to let you know your order price to confirm.
+            </p>
           </div>
         </div>
 
-        <div
-          className="position-relative"
-          style={{ bottom: 0, width: "100%", borderRadius: "15px" }}
-        ></div>
+        <div>
+          <div
+            style={{ width: "90%", margin: "auto" }}
+            className="padding-bottom-sm"
+          >
+            <div className="flex-column d-flex justify-content-start align-items-center mt-4 pb-4">
+              <div
+                className="me-1 d-flex justify-content-start align-items-center"
+                style={{ width: "100%" }}
+              >
+                <h3 className="mb-2">Your Info</h3>
+              </div>
+              <div
+                className="mt-1 d-flex justify-content-start align-items-center"
+                style={{ width: "100%" }}
+              >
+                <CardInfo user={user} />
+              </div>
+              <div
+                className="mt-5 me-1 d-flex justify-content-start align-items-center"
+                style={{ width: "100%" }}
+              >
+                <h3>Your Order</h3>
+              </div>
+
+              <div
+                className="d-flex justify-content-start flex-column align-items-center"
+                style={{ width: "100%" }}
+              >
+                <CardOrder />
+              </div>
+
+              <div
+                className="me-1 d-flex justify-content-start align-items-center d-block d-sm-none"
+                style={{ width: "100%" }}
+              >
+                <h4 className="mt-3">Promocodes</h4>
+              </div>
+              <div style={{ width: "100%" }} className="my-4 d-block d-sm-none">
+                <InputWithButton />
+              </div>
+            </div>
+
+            <div
+              className="position-relative"
+              style={{ bottom: 0, width: "100%", borderRadius: "15px" }}
+            ></div>
+          </div>
+        </div>
+      </div>
+
+      <div className="d-none d-md-block">
+        <h1
+          className="text-center h3 my-4 d-none d-lg-block fw-bold"
+          style={{ color: "#0F4392" }}
+        >
+          Requests
+        </h1>
+
+        <Container>
+          <Row>
+            <Col md={6}>
+              <h2>Your info</h2>
+              <CardInfoDesk />
+              <h2>Your orders</h2>
+              <CardOrder />
+            </Col>
+            <Col md={6}></Col>
+          </Row>
+        </Container>
       </div>
       <div className="d-block d-sm-none">
         <BottomNav />

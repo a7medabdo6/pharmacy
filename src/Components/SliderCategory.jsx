@@ -3,33 +3,31 @@ import { useKeenSlider } from "keen-slider/react";
 import "keen-slider/keen-slider.min.css";
 import CategorySliderCard from "./CategorySliderCard";
 
-const SliderCategory = ({ categories }) => {
-  const [sliderCategory] = useKeenSlider({
-    mode: "free",
-    slides: {
-      perView: 3.5,
-      spacing: 15,
-    },
-  });
+import { Swiper, SwiperSlide } from "swiper/react";
 
+// Import Swiper styles
+import "swiper/css";
+import "swiper/css/free-mode";
+import "swiper/css/pagination";
+
+// import required modules
+import { FreeMode, Pagination } from "swiper";
+
+const SliderCategory = ({ categories }) => {
   return (
-    <div
-      ref={sliderCategory}
-      className="keen-slider"
-      style={{
-        height: "165px",
-        boxShadow: "none",
-      }}
+    <Swiper
+      slidesPerView={3.5}
+      spaceBetween={10}
+      freeMode={true}
+      modules={[Pagination]}
+      className="mySwiper"
     >
       {categories?.map((item, index) => (
-        <div
-          className={`keen-slider__slide number-slide${index + 1} fs-6`}
-          style={{ backgroundColor: "transparent" }}
-        >
+        <SwiperSlide style={{ backgroundColor: "transparent" }}>
           <CategorySliderCard key={index} item={item} />
-        </div>
+        </SwiperSlide>
       ))}
-    </div>
+    </Swiper>
   );
 };
 

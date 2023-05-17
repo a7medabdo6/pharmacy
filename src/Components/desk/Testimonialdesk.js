@@ -9,16 +9,20 @@ function Testimonialdesk({ item }) {
   console.log(img);
   return (
     <div
-      className="p-3 d-flex justify-content-start align-items-start m-2 shadow"
-      style={{ backgroundColor: "white" }}
+      className="p-3 d-flex justify-content-start align-items-start m-2 rounded-3"
+      style={{
+        backgroundColor: "white",
+        boxShadow: "0px 18px 40px rgba(0, 0, 0, 0.12)",
+        width: "366px",
+        height: "135px",
+      }}
     >
       <Image
-        //  className="w-20"
         src={item?.file}
         alt="Next.js Logo"
         width={30}
-        style={{ marginTop: "7px" }}
         height={30}
+        style={{ marginTop: "7px", width: "50px", height: "50px" }}
         priority
       />
       <div
@@ -31,14 +35,8 @@ function Testimonialdesk({ item }) {
         >
           User Name
         </h3>
-        <div className="d-flex mb-2 justify-content-start align-items-start ">
+        <div className="d-flex mb-2 justify-content-start align-items-start">
           <Rateing setrate={undefined} Val={item?.rate} />
-
-          {/* <i className="star icon" style={{ color: "gold" }}></i>
-          <i className="star icon" style={{ color: "gold" }}></i>
-          <i className="star icon" style={{ color: "gold" }}></i>
-          <i className="star icon" style={{ color: "gold" }}></i>
-          <i className="star icon" style={{ color: "gold" }}></i> */}
         </div>
 
         <p className="text-dark" style={{ fontSize: "10px !important" }}>

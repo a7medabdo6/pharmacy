@@ -52,6 +52,16 @@ import SliderCategory from "../Components/SliderCategory";
 import { useKeenSlider } from "keen-slider/react";
 import "keen-slider/keen-slider.min.css";
 
+import { Swiper, SwiperSlide } from "swiper/react";
+
+// Import Swiper styles
+import "swiper/css";
+import "swiper/css/free-mode";
+import "swiper/css/pagination";
+
+// import required modules
+import { FreeMode, Pagination } from "swiper";
+
 export default function Main() {
   const [open, setOpen] = useState(false);
 
@@ -341,32 +351,32 @@ export default function Main() {
             }}
             style={{
               backgroundColor: "#DD1717",
-              width: "130px",
-              height: "25px",
-              right: "-52px",
+              width: "140px",
+              height: "40px",
+              right: "-50px",
               top: "19%",
               transform: "rotate(-90deg)",
               textAlign: "center",
               cursor: "pointer",
+              padding: "20px 0",
             }}
             className="position-absolute d-flex justify-content-center align-items-center"
           >
-            <p style={{ color: "white", fontSize: "12px !important" }}>
+            <p style={{ color: "white", fontSize: "16px !important" }}>
               Write Review
             </p>
           </div>
-          <div className="d-flex justify-content-start align-items-start flex-column  w-100">
-            <div className="d-flex justify-content-center align-items-center flex-column mt-5   w-100">
-              <h5 style={{ color: "#0F4392" }}>How it works</h5>
+          <div className="d-flex justify-content-start align-items-start flex-column w-100">
+            <div className="d-flex justify-content-center align-items-center flex-column mt-5 w-100">
+              <h2 style={{ color: "#0F4392" }}>How it works</h2>
               <div
-                className="d-flex justify-content-around align-items-center  position-relative  "
+                className="d-flex justify-content-around align-items-center position-relative"
                 style={{ width: "78%" }}
               >
                 <Steps
                   imgsource={step1}
-                  title="step1"
-                  text="
-              Select your products"
+                  title="Step1"
+                  text="Select your products"
                   desc="You can contact our pharmacists for help and consultations"
                 />
                 <Steps
@@ -384,133 +394,161 @@ export default function Main() {
               </div>
             </div>
           </div>
-          <div className="d-flex justify-content-between align-items-center mt-5 getofferbox w-100">
+          <div
+            className="d-flex justify-content-between align-items-center mt-5 getofferbox w-100"
+            style={{ height: "290px" }}
+          >
             <div
-              style={{ width: "60%", marginLeft: "2%" }}
+              style={{ width: "60%", height: "280px", marginLeft: "2%" }}
               className="position-relative d-flex justify-content-center align-items-center "
             >
-              <div style={{ left: "-20px" }} className="position-absolute">
+              <div
+                style={{ left: "-20px", zIndex: "111" }}
+                className="position-absolute"
+              >
                 <Image
-                  //  className="w-20"
                   src={maik}
                   style={{ width: "100%", height: "100%" }}
                   alt="Next.js Logo"
                   height={50}
                   width={50}
                   priority
-                />{" "}
+                />
               </div>
               <div
                 style={{ width: "100%", height: "95%" }}
                 className="position-absolute"
               >
                 <Image
-                  //  className="w-20"
                   src={line}
                   style={{ width: "100%", height: "100%" }}
                   alt="Next.js Logo"
                   priority
-                />{" "}
+                />
               </div>
               <SliderOffer />
             </div>
             <div>
               <Image
-                //  className="w-20"
                 src={cart}
                 alt="Next.js Logo"
                 width={200}
                 height={180}
                 priority
-              />{" "}
+              />
             </div>
             <div style={{ marginRight: "20px" }}>
               <Image
-                //  className="w-20"
                 src={infoImage}
                 alt="Next.js Logo"
                 width={80}
                 height={80}
                 priority
-              />{" "}
+              />
             </div>
           </div>
 
-          <div className="d-flex justify-content-center align-items-center flex-column mt-5 w-100">
-            <h5 style={{ marginBottom: 0, color: "#0F4392" }}>Categories</h5>
+          <Container>
             <div
-              className=" mt-3 d-flex justify-content-center align-items-center flex-row w-100 "
+              className="d-flex flex-column justify-content-center align-items-center mt-5 w-100"
+              style={{
+                height: "310px",
+              }}
+            >
+              <h2 style={{ marginBottom: "20px", color: "#0F4392" }}>
+                Categories
+              </h2>
+              <div className="slider-category w-100 h-100 ps-3">
+                <Swiper
+                  slidesPerView={6.5}
+                  spaceBetween={40}
+                  freeMode={true}
+                  modules={[FreeMode]}
+                  className="mySwiper"
+                >
+                  {categories?.length > 0 &&
+                    categories.map((item) => (
+                      <SwiperSlide>
+                        <CategorySliderDesk item={item} text="All medicines" />
+                      </SwiperSlide>
+                    ))}
+                </Swiper>
+              </div>
+            </div>
+
+            <div
+              className="d-flex justify-content-center align-items-center flex-column mb-5 mt-5"
               style={{ width: "100%" }}
             >
-              {categories?.length > 0 &&
-                categories.map((item) => {
-                  return (
-                    <CategorySliderDesk item={item} text="All medicines" />
-                  );
-                })}
+              <h2 style={{ marginBottom: 0, color: "#0F4392" }}>
+                Our services
+              </h2>
+
+              <div
+                className="d-flex justify-content-center align-items-center mt-5"
+                style={{ boxShadow: "0px 18px 40px 0px #0000001F" }}
+              >
+                <OurServicesCard
+                  image={Service}
+                  title="Online doctors"
+                  desc="You can consult with one of our online doctors in all specialties."
+                />
+                <OurServicesCard
+                  image={Service2}
+                  title="Delivery to your room"
+                  desc="Make a request to receive what you want at your hotel room."
+                />
+                <OurServicesCard
+                  image={Service3}
+                  title="Call us"
+                  desc="You can call our pharmacists to request what you want or send a prescription"
+                />
+              </div>
             </div>
-          </div>
 
-          <div
-            className="d-flex justify-content-center align-items-center flex-column mb-5 mt-5  "
-            style={{ width: "100%" }}
-          >
-            <h5 style={{ marginBottom: 0, color: "#0F4392" }}> Our services</h5>
+            <div className="d-flex justify-content-center align-items-center flex-column mb-5 mt-5">
+              <h5 style={{ marginBottom: 0, color: "#0F4392" }}>Testimonial</h5>
 
-            <div
-              className="d-flex justify-content-center align-items-center  mt-5 boxshadow boxshadow"
-              style={{ width: "78%" }}
-            >
-              <OurServicesCard
-                image={Service}
-                title="Online doctors"
-                desc="You can consult with one of our online doctors in all specialties."
-              />
-              <OurServicesCard
-                image={Service2}
-                title="Delivery to your room"
-                desc="Make a request to receive what you want at your hotel room."
-              />
-              <OurServicesCard
-                image={Service3}
-                title="Call us"
-                desc="You can call our pharmacists to request what you want or send a prescription"
-              />
-            </div>
-          </div>
-
-          <div
-            className="d-flex justify-content-center align-items-center flex-column mb-5 mt-5  "
-            style={{ width: "100%" }}
-          >
-            <h5 style={{ marginBottom: 0, color: "#0F4392" }}>Testimonial</h5>
-
-            <div
-              className="d-flex justify-content-between align-items-center  mt-5  "
-              style={{ width: "78%" }}
-            >
-              <Row className="w-100">
-                {reviews?.map((item, i) => {
-                  if (i < 3) {
-                    return (
-                      <Col className="col-4">
-                        <div className="boxshadow ">
+              <div className="d-flex justify-content-between align-items-center mt-5 mb-4 w-100">
+                <Swiper
+                  style={{
+                    height: "230px",
+                  }}
+                  slidesPerView={3}
+                  spaceBetween={30}
+                  pagination={{
+                    clickable: true,
+                  }}
+                  modules={[Pagination]}
+                  className="mySwiper"
+                >
+                  {reviews?.map((item, i) => {
+                    if (i < 3) {
+                      return (
+                        <SwiperSlide>
                           <Testimonialdesk item={item} />
-                        </div>
-                      </Col>
-                    );
-                  }
-                })}
-              </Row>
+                        </SwiperSlide>
+                      );
+                    }
+                  })}
+                </Swiper>
+              </div>
             </div>
-          </div>
+          </Container>
 
           <div
             className=" mt-3 d-flex justify-content-center align-items-center flex-column w-100 "
             style={{ width: "100%" }}
           >
             <Link href="/testimonials">
-              <p style={{ color: "#0F4392", fontSize: "14px !important" }}>
+              <p
+                style={{
+                  color: "#0F4392",
+                  fontSize: "16px !important",
+                  marginBottom: "10px",
+                  fontWeight: "bold",
+                }}
+              >
                 Check all reviews
               </p>
             </Link>

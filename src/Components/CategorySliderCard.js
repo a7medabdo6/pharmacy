@@ -6,10 +6,10 @@ import Link from "next/link";
 function CategorySliderCard({ item }) {
   return (
     <Link href={`/products/${item?.id}`}>
-      <div className="mt-5 m-4 flex-column d-flex justify-content-center align-items-center">
+      <div className="my-5 mx-0 px-0 flex-column d-flex justify-content-center align-items-center w-100">
         <div className="CategorySliderCard">
           <Image
-            className=" product"
+            className="product"
             src={item?.icon_image}
             alt="Next.js Logo"
             width={150}

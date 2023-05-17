@@ -1,36 +1,30 @@
 import Image from "next/image";
 import React from "react";
 import Category from "../../assets/img/category.png";
+import Rectangle from "../../assets/img/Rectangle.png";
 import Link from "next/link";
 
 function CategorySliderDesk({ item }) {
   return (
-    <Link href={`/products/${item?.id}`}>
-      <div className=" position-relative" style={{ bottom: "20px" }}>
-        <div className=" mt-5 m-4  d-flex justify-content-center align-items-center flex-wrap">
-          <div className="CategorySliderCarddesk position-relative">
-            <Image
-              className=" product"
-              src={item?.icon_image}
-              alt="Next.js Logo"
-              width={150}
-              height={100}
-              priority
-            />
-          </div>
+    <Link href={`/products/${item?.id}`} className="w-100">
+      <div className="d-flex flex-column justify-content-center align-items-center gap-3 w-100 h-100">
+        <div className="CategorySliderCarddesk">
+          <Image
+            style={{
+              width: "85%",
+              height: "80%",
+            }}
+            src={item?.icon_image}
+            width={100}
+            height={100}
+          />
         </div>
-        <h6
-          style={{
-            transform: "rotate(0deg)",
-            fontSize: "13px !important",
-            bottom: "22px",
-            zIndex: 5,
-            color: "black",
-          }}
-          className=" w-100 d-flex justify-content-center align-items-center"
+        <h5
+          className="mt-4 text-black fw-normal overflow-hidden"
+          style={{ height: "55px" }}
         >
-          {item.name}
-        </h6>
+          {item?.name}
+        </h5>
       </div>
     </Link>
   );

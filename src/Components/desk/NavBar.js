@@ -22,9 +22,10 @@ const NavBar = () => {
 
   return (
     <nav
-      className="navbar navbar-expand-lg bg-white d-none d-lg-block"
+      className="navbar navbar-expand-lg bg-white d-none d-lg-flex"
       style={{
         boxShadow: "0px 18px 40px 0px rgba(0, 0, 0, 0.06)",
+        height: "80px",
       }}
     >
       <div className="container">
@@ -32,8 +33,8 @@ const NavBar = () => {
           <Image
             src={logo2}
             alt="Next.js Logo"
-            width={50}
-            height={30}
+            width={80}
+            height={50}
             priority
           />
         </Link>
@@ -85,7 +86,7 @@ const NavBar = () => {
               </Link>
             </li>
           </ul>
-          <div className="d-flex justify-content-center align-items-center gap-3">
+          <div className="d-flex justify-content-center align-items-center gap-4">
             {user ? (
               <>
                 <div
@@ -96,8 +97,8 @@ const NavBar = () => {
                   <Image
                     src={alertblue}
                     alt="Next.js Logo"
-                    width={19}
-                    height={24}
+                    width={30}
+                    height={40}
                     priority
                   />
                   <div
@@ -106,9 +107,9 @@ const NavBar = () => {
                       backgroundColor: "red",
                       top: "-5px",
                       left: "-8px",
-                      width: "15px",
-                      height: "15px",
-                      fontSize: "10px",
+                      width: "20px",
+                      height: "20px",
+                      fontSize: "12px",
                     }}
                   >
                     3
@@ -205,16 +206,16 @@ const NavBar = () => {
                 <div
                   className="d-flex justify-content-center align-items-center rounded-5"
                   style={{
-                    width: "30px",
-                    height: "30px",
+                    width: "50px",
+                    height: "50px",
                     backgroundColor: "#0F4392",
                   }}
                 >
                   <Image
                     src={profile}
                     alt="Next.js Logo"
-                    width={15}
-                    height={15}
+                    width={25}
+                    height={30}
                     priority
                   />
                 </div>

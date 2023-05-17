@@ -33,6 +33,7 @@ const SerachBar = ({ showBigScreen, setProducts }) => {
         style={{
           paddingLeft: "2.55rem",
           backgroundColor: "#f7f7f7",
+          height: "50px",
         }}
         className="form-control py-2 fs-6"
         placeholder="Search products"
