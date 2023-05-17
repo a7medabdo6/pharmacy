@@ -3,7 +3,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import alert from "../../assets/img/alert.png";
-import alertBlue from "../../assets/img/alertBlue.png";
+import alertBlue from "../../assets/img/alertblue.png";
+
 import profile from "../../assets/img/icon.png";
 import userSvg from "../../assets/img/user.svg";
 import back from "../../assets/img/Leftwhite.png";
