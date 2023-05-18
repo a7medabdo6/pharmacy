@@ -1,6 +1,5 @@
 import Image from "next/image";
 import React from "react";
-import Category from "../assets/img/category.png";
 import Link from "next/link";
 
 function CategorySliderCard({ item }) {
