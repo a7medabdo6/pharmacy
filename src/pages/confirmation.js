@@ -12,6 +12,7 @@ import FooterDesk from "../Components/desk/FooterDesk";
 import styles from "@/styles/confirmation.module.css";
 // IMGS
 import vector from "../assets/img/vector.png";
+import NavBarMobail from "../Components/desk/NavBarMobail";
 
 const style = {
   position: "absolute",
@@ -36,148 +37,210 @@ const confirmation = () => {
 
   return (
     <>
+      <NavBar />
       <main
-        style={{ backgroundColor: "#EDEDED", width: "100%", margin: "auto" }}
+        style={{ backgroundColor: "#eaeaea", width: "100%", margin: "auto" }}
         className="d-flex justify-content-center align-items-center flex-column"
       >
         <div className="d-block d-sm-none w-100">
-          <Header title="Confirmation" />
-        </div>
+          <NavBarMobail titlePage="Confirmation" />
+          <div
+            className="d-flex justify-content-center confirm-custom align-items-center flex-column mt-3 p-0"
+            style={{ backgroundColor: "#eaeaea" }}
+          >
+            <div className="d-flex justify-content-center align-items-center mb-2">
+              <h2 className="text-primary h1 fw-bold mt-1">Thank you</h2>
+            </div>
 
-        <div className="d-none d-sm-block w-100 ">
-          <NavBar />
-        </div>
-        <div className="d-flex justify-content-center confirm-custom align-items-center flex-column">
-          <div className=" d-flex justify-content-center align-items-center my-5 ">
-            <p
-              style={{ color: "#0F4392", fontWeight: "900", fontSize: "27px" }}
-            >
-              Thank you
-            </p>
-          </div>
-
-          <div>
-            <div className={styles.Bigcircle}>
-              <div
-                className={styles.circle}
-                style={{ backgroundColor: "#0f439242" }}
+            <div className="d-flex justify-content-center align-items-center mt-1">
+              <Image
+                className="w-100"
+                src={vector}
+                height={150}
+                alt="Next.js Logo"
+              />
+            </div>
+            <div className="d-flex justify-content-center align-items-center flex-column mt-3 ">
+              <h2
+                className="fw-normal mt-3 text-center"
+                style={{ fontSize: "21px" }}
               >
-                <div
-                  className=" d-flex justify-content-center align-items-center mt-3 "
-                  style={{ position: "absolute" }}
-                >
-                  <Image
-                    //  className="w-20"
-                    src={vector}
+                Your order has been placed succesfully , you will receice a call
+                to confirm.
+              </h2>
+
+              <p
+                style={{
+                  textAlign: "center",
+                  color: "black",
+                  fontSize: "1.2rem",
+                  marginTop: "20px",
+                }}
+              >
+                Get Well Soon!
+              </p>
+            </div>
+            <div className="w-100  d-flex justify-content-center align-items-center mt-3">
+              <ButtonConfirmation
+                clicking={handleOpen}
+                txtColor="#DD1717"
+                bckColor="white"
+                BRColor="#DD1717"
+                text="Cancel order"
+              />
+              <ButtonConfirmation
+                txtColor="white"
+                bckColor="#0F4392"
+                BRColor="#0F4392"
+                text="Got it"
+              />
+            </div>
+            <div className="w-100 d-flex justify-content-center align-items-center mt-3">
+              <h4 className="text-primary" style={{ color: "#2C6ECB" }}>
+                Track your order
+              </h4>
+            </div>
+            <div>
+              <Modal
+                open={open}
+                onClose={handleClose}
+                aria-labelledby="modal-modal-title"
+                aria-describedby="modal-modal-description"
+              >
+                <Box sx={style}>
+                  <Typography
+                    id="modal-modal-title"
+                    variant="h6"
+                    component="h2"
+                    className="text-center"
                     style={{
-                      position: "absolute",
-                      bottom: "-24px",
-                      left: "-66px",
+                      color: "#0F4392",
+                      fontWeight: "bold",
+                      fontSize: "20px",
                     }}
-                    alt="Next.js Logo"
-                    width={165}
-                    height={130}
-                    priority
-                  />
-                </div>
-              </div>
+                  >
+                    Order Cancellation
+                  </Typography>
+                  <Typography
+                    id="modal-modal-description"
+                    sx={{ mt: 2 }}
+                    className="text-center"
+                  >
+                    <p className="m-0">Are you sure you want to cancel</p>
+                    <p className="m-0">your order ?</p>
+
+                    <div className="w-100  d-flex justify-content-center align-items-center mt-3">
+                      <ButtonConfirmation
+                        txtColor="red"
+                        bckColor="white"
+                        BRColor="red"
+                        text="Yes Cancel "
+                      />
+                      <ButtonConfirmation
+                        txtColor="white"
+                        bckColor="#0F4392"
+                        BRColor="#0F4392"
+                        text="Keep it "
+                      />
+                    </div>
+                  </Typography>
+                </Box>
+              </Modal>
             </div>
           </div>
+        </div>
 
-          <div className=" d-flex justify-content-center align-items-center flex-column mt-3 ">
-            <p
-              className="m-0"
-              style={{
-                fontSize: "1.2rem",
-                textAlign: "center",
-                color: "black",
-              }}
-            >
-              {" "}
-              Your order has been placed succesfully , you will receice a call
-              to confirm.
-            </p>
+        <div className="d-none d-md-flex justify-content-center w-100">
+          <div className="d-flex justify-content-center confirm-custom align-items-center flex-column mt-5">
+            <div className="d-flex justify-content-center align-items-center mb-2">
+              <h2 className="text-primary h1 fw-bold">Thank you</h2>
+            </div>
 
-            <p
-              style={{
-                textAlign: "center",
-                color: "black",
-                fontSize: "1.2rem",
-                marginTop: "20px",
-              }}
-            >
-              Get Well Soon!
-            </p>
-          </div>
-          <div className="w-100  d-flex justify-content-center align-items-center mt-3">
-            <ButtonConfirmation
-              clicking={handleOpen}
-              txtColor="red"
-              bckColor="white"
-              BRColor="red"
-              text="Cancel order"
-            />
-            <ButtonConfirmation
-              txtColor="white"
-              bckColor="#0F4392"
-              BRColor="#0F4392"
-              text="Got it "
-            />
-          </div>
-          <div className="w-100  d-flex justify-content-center align-items-center mt-3">
-            <h5
-              style={{ fontSize: "15px", color: "#2C6ECB", fontWeight: "bold" }}
-            >
-              Track Your Order
-            </h5>
-          </div>
+            <div className="d-flex justify-content-center align-items-center mt-1">
+              <Image src={vector} width={368} height={360} alt="Next.js Logo" />
+            </div>
+            <div className="d-flex justify-content-center align-items-center flex-column mt-3 ">
+              <h2 className="px-5 fw-normal mt-3 text-center">
+                Your order has been placed succesfully , you will receice a call
+                to confirm.
+              </h2>
 
-          <div>
-            <Modal
-              open={open}
-              onClose={handleClose}
-              aria-labelledby="modal-modal-title"
-              aria-describedby="modal-modal-description"
-            >
-              <Box sx={style}>
-                <Typography
-                  id="modal-modal-title"
-                  variant="h6"
-                  component="h2"
-                  className="text-center"
-                  style={{
-                    color: "#0F4392",
-                    fontWeight: "bold",
-                    fontSize: "20px",
-                  }}
-                >
-                  Order Cancellation
-                </Typography>
-                <Typography
-                  id="modal-modal-description"
-                  sx={{ mt: 2 }}
-                  className="text-center"
-                >
-                  <p className="m-0">Are you sure you want to cancel</p>
-                  <p className="m-0">your order ?</p>
+              <p
+                style={{
+                  textAlign: "center",
+                  color: "black",
+                  fontSize: "1.2rem",
+                  marginTop: "20px",
+                }}
+              >
+                Get Well Soon!
+              </p>
+            </div>
+            <div className="w-100  d-flex justify-content-center align-items-center mt-3">
+              <ButtonConfirmation
+                clicking={handleOpen}
+                txtColor="red"
+                bckColor="white"
+                BRColor="red"
+                text="Cancel order"
+              />
+              <ButtonConfirmation
+                txtColor="white"
+                bckColor="#0F4392"
+                BRColor="#0F4392"
+                text="Got it"
+              />
+            </div>
+            <div className="w-100 d-flex justify-content-center align-items-center mt-3">
+              <h5 className="text-primary">Track your order</h5>
+            </div>
+            <div>
+              <Modal
+                open={open}
+                onClose={handleClose}
+                aria-labelledby="modal-modal-title"
+                aria-describedby="modal-modal-description"
+              >
+                <Box sx={style}>
+                  <Typography
+                    id="modal-modal-title"
+                    variant="h6"
+                    component="h2"
+                    className="text-center"
+                    style={{
+                      color: "#0F4392",
+                      fontWeight: "bold",
+                      fontSize: "20px",
+                    }}
+                  >
+                    Order Cancellation
+                  </Typography>
+                  <Typography
+                    id="modal-modal-description"
+                    sx={{ mt: 2 }}
+                    className="text-center"
+                  >
+                    <p className="m-0">Are you sure you want to cancel</p>
+                    <p className="m-0">your order ?</p>
 
-                  <div className="w-100  d-flex justify-content-center align-items-center mt-3">
-                    <ButtonConfirmation
-                      txtColor="red"
-                      bckColor="white"
-                      BRColor="red"
-                      text="Yes Cancel "
-                    />
-                    <ButtonConfirmation
-                      txtColor="white"
-                      bckColor="#0F4392"
-                      BRColor="#0F4392"
-                      text="Keep it "
-                    />
-                  </div>
-                </Typography>
-              </Box>
-            </Modal>
+                    <div className="w-100  d-flex justify-content-center align-items-center mt-3">
+                      <ButtonConfirmation
+                        txtColor="red"
+                        bckColor="white"
+                        BRColor="red"
+                        text="Yes Cancel "
+                      />
+                      <ButtonConfirmation
+                        txtColor="white"
+                        bckColor="#0F4392"
+                        BRColor="#0F4392"
+                        text="Keep it "
+                      />
+                    </div>
+                  </Typography>
+                </Box>
+              </Modal>
+            </div>
           </div>
         </div>
       </main>

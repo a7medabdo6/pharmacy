@@ -63,73 +63,87 @@ export default function Home() {
               />
             </div>
             <div className="d-flex justify-content-center align-items-center flex-column">
-              <h3 className="mt-3 fs-3">Welcome to Well+ pharmacy</h3>
-
+              <h3 className="mt-3 fs-3">Welcome back</h3>
+              <h5
+                style={{ color: "#DD1717", marginTop: "0", fontSize: "18px" }}
+              >
+                live healthy … live well
+              </h5>
+            </div>
+            <div
+              className="d-flex justify-content-center align-items-center flex-column mt-4"
+              style={{
+                backgroundColor: "rgba(15, 67, 146, 0.07)",
+                width: "90%",
+                height: "396px",
+                borderRadius: "15px",
+              }}
+            >
               <h2 style={{ color: "#0F4392" }} className="m-2">
                 Sign in
               </h2>
-              <div className="d-flex justify-content-center  align-items-center w-80">
-                <label htmlFor="exampleInputPassword1">
-                  {" "}
-                  Don't have an account?{" "}
-                </label>
-
+              <div className="d-flex justify-content-center align-items-center mt-2">
+                <span>Don’t have an account?</span>
                 <Link href={"/register"}>
-                  <p className="m-2">Sign up</p>
+                  <p className="ms-2">Sign up</p>
                 </Link>
               </div>
-              <form className="d-flex justify-content-center  flex-column">
-                <div className="form-group m-2">
-                  <label
-                    htmlFor="exampleInputPassword1"
-                    style={{ width: "100%", textAlign: "left" }}
-                  >
-                    Phone Number*{" "}
+              <form className="text-start d-flex justify-content-center flex-column w-100 px-3">
+                <div className="form-group mt-3">
+                  <label htmlFor="phone" style={{ fontSize: "16px" }}>
+                    Phone Number*
                   </label>
                   <ReactPhoneInput
-                    defaultCountry={"us"}
+                    country={"ng"}
+                    className="mt-2 font-sm-16"
                     value={phone}
                     onChange={handleOnChange}
+                    id="phone"
                   />
                 </div>
-
-                <div className="form-group m-2">
-                  <label
-                    htmlFor="exampleInputEmail1"
-                    style={{ width: "100%", textAlign: "left" }}
-                  >
-                    {" "}
+                <div className="form-group mt-3">
+                  <label htmlFor="name" style={{ fontSize: "16px" }}>
                     Password*
                   </label>
                   <input
                     type="password"
-                    className="form-control"
-                    value={password}
-                    onChange={(e) => setpassword(e.target.value)}
-                    id="exampleInputEmail1"
+                    className="form-control mt-2 font-sm-16 py-1"
+                    style={{ fontSize: "16px", color: "#BDBDBD" }}
+                    id="name"
                     placeholder="Write here"
                   />
                 </div>
 
-                <button
-                  type="button"
-                  onClick={submit}
-                  className="btn btn-primary mb-3 mt-3 w-100"
-                >
-                  Next
-                </button>
-                {/* </Link> */}
+                <div className="form-check d-flex justify-content-between align-items-center mt-3">
+                  <div className="remember-me">
+                    <input
+                      type="checkbox"
+                      className="form-check-input"
+                      id="remember-me"
+                    />
+                    <label
+                      htmlFor="remember-me"
+                      className="form-check-label"
+                      style={{
+                        fontSize: "18px",
+                      }}
+                    >
+                      Remember me
+                    </label>
+                  </div>
+                  <Link href="/" className="forget-password">
+                    <span
+                      className="text-primary fs-5 fw-bold"
+                      style={{ fontSize: "15px" }}
+                    >
+                      Forget password
+                    </span>
+                  </Link>
+                </div>
+
+                <button className="btn btn-primary mt-4 fs-5">Sign in</button>
               </form>
             </div>
-
-            {/* <Image
-            className={styles.logo}
-            src="/curve.svg"
-            alt="Next.js Logo"
-            width={500}
-            height={37}
-            priority
-          /> */}
           </main>
         </div>
         <div className="d-none d-md-block">

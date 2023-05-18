@@ -32,7 +32,11 @@ const UploadFile = ({ setfile }) => {
         options={options}
         onComplete={handleComplete}
       >
-        {({ onClick }) => <p onClick={onClick}>Add a file...</p>}
+        {({ onClick }) => (
+          <p className="fw-bold fs-5" onClick={onClick}>
+            Add files
+          </p>
+        )}
       </UploadButton>
     </div>
   );

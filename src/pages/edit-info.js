@@ -15,6 +15,9 @@ import { GetHotels, GetRooms, updateUser } from "../Apis/Auth";
 import FooterDesk from "../Components/desk/FooterDesk";
 import BottomNav from "../Components/Ulits/BottomNav";
 import { Breadcrumb, Button, Container } from "react-bootstrap";
+import WriteReview from "../Components/Ulits/WriteReview";
+import Support from "../Components/Ulits/Support";
+
 const EditInfo = () => {
   const [phone, setphone] = useState("us");
   const [hotel_id, sethotel_id] = useState(1);
@@ -72,10 +75,13 @@ const EditInfo = () => {
       <NavBar />
       <NavBarMobaile titlePage="Edit Info" />
 
-      <div className="overflow-hidden" style={{ background: "#eaeaea" }}>
+      <div
+        className="w-100 h-100 overflow-hidden pb-3"
+        style={{ background: "#eaeaea" }}
+      >
         <Container>
           <Breadcrumb
-            style={{ fontSize: "12px" }}
+            style={{ fontSize: "18px" }}
             className="d-none d-lg-block mt-3"
           >
             <Breadcrumb.Item>Home</Breadcrumb.Item>
@@ -83,123 +89,104 @@ const EditInfo = () => {
             <Breadcrumb.Item>Requests</Breadcrumb.Item>
             <Breadcrumb.Item active>Edit info</Breadcrumb.Item>
           </Breadcrumb>
+
+          <div className="d-flex justify-content-center align-items-center mt-3">
+            <div
+              className="d-flex w-custom justify-content-center align-items-center flex-column my-2 bg-white py-4 rounded-3"
+              style={{
+                boxShadow: "0px 18px 40px 0px rgba(0, 0, 0, 0.12)",
+              }}
+            >
+              <h2 style={{ color: "#0F4392" }} className="m-2">
+                Edit Info
+              </h2>
+              <form
+                className="d-flex justify-content-center  flex-column"
+                style={{ width: "90%" }}
+              >
+                <div className="form-group m-2">
+                  <label htmlFor="exampleInputEmail1">Your Name*</label>
+                  <input
+                    type="text"
+                    className="form-control "
+                    id="exampleInputEmail1"
+                    aria-describedby="emailHelp"
+                    placeholder="Write here"
+                    value={user?.first_name}
+                  />
+                </div>
+                <div className="form-group m-2">
+                  <label htmlFor="exampleInputPassword1">Phone Number* </label>
+                  <ReactPhoneInput
+                    defaultCountry={"us"}
+                    value={user?.phone}
+                    onChange={handleOnChange}
+                    className="w-100"
+                  />
+                </div>
+                <div className="form-group m-2">
+                  <label htmlFor="exampleInputPassword1">
+                    Select Hotel Name{" "}
+                  </label>
+                  <select
+                    type="text"
+                    className="form-control"
+                    onChange={(e) => sethotel_id(e.target.value)}
+                    id="exampleInputPassword1"
+                    placeholder="Select here"
+                  >
+                    <option> Select Hotel Name</option>
+                    {hotels.map((item) => (
+                      <option selected={hotel_id == item?.id} value={item?.id}>
+                        {item.name}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+                <div className="form-group m-2">
+                  <label htmlFor="exampleInputEmail1">Room Number*</label>
+                  <select
+                    type="text"
+                    className="form-control"
+                    onChange={(e) => setRooms(e.target.value)}
+                    id="exampleInputPassword1"
+                    placeholder="Select here"
+                  >
+                    <option>Select Room Number</option>
+                    {rooms.map((item) => (
+                      <option selected={rooms == item?.id} value={item?.id}>
+                        {item.name}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+                <div className="w-100 d-flex justify-content-center align-items-center  mt-5">
+                  <ButtonEditInfo
+                    txtColor="#0F4392"
+                    bckColor="white"
+                    BRColor="#0F4392"
+                    text="Discard"
+                  />
+                  <ButtonEditInfo
+                    txtColor="white"
+                    bckColor="#0F4392"
+                    BRColor="#0F4392"
+                    text="Save Changes"
+                  />
+                </div>
+              </form>
+            </div>
+          </div>
         </Container>
       </div>
-      <main
-        style={{
-          width: "100%",
-          height: "100%",
-          backgroundColor: "#eaeaea",
-        }}
-        className="d-flex align-items-center flex-column pt-5"
-      >
-        <div
-          className="d-flex w-custom justify-content-center align-items-center flex-column my-2 bg-white py-4 rounded-3"
-          style={{
-            boxShadow: "0px 18px 40px 0px rgba(0, 0, 0, 0.12)",
-          }}
-        >
-          <h2 style={{ color: "#0F4392" }} className="m-2">
-            Edit Info
-          </h2>
-          <form
-            className="d-flex justify-content-center  flex-column"
-            style={{ width: "90%" }}
-          >
-            <div className="form-group m-2">
-              <label htmlFor="exampleInputEmail1">Your Name*</label>
-              <input
-                type="text"
-                className="form-control "
-                id="exampleInputEmail1"
-                aria-describedby="emailHelp"
-                placeholder="Write here"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-              />
-            </div>
-            <div className="form-group m-2">
-              <label htmlFor="exampleInputPassword1">Phone Number* </label>
-              <ReactPhoneInput
-                defaultCountry={"us"}
-                value={user?.phone}
-                onChange={handleOnChange}
-                className="w-100"
-              />
-            </div>
-            <div className="form-group m-2">
-              <label htmlFor="exampleInputPassword1">Select Hotel Name </label>
-              <select
-                type="text"
-                className="form-control"
-                onChange={(e) => sethotel_id(e.target.value)}
-                id="exampleInputPassword1"
-                placeholder="Select here"
-              >
-                <option> Select Hotel Name</option>
-                {hotels.map((item) => (
-                  <option selected={hotel_id == item?.id} value={item?.id}>
-                    {item.name}
-                  </option>
-                ))}
-              </select>
-            </div>
-            <div className="form-group m-2">
-              <label htmlFor="exampleInputEmail1">Room Number*</label>
-              <select
-                type="text"
-                className="form-control"
-                onChange={(e) => setRooms(e.target.value)}
-                id="exampleInputPassword1"
-                placeholder="Select here"
-              >
-                <option> Select Room Number</option>
-                {rooms.map((item) => (
-                  <option selected={rooms == item?.id} value={item?.id}>
-                    {item.name}
-                  </option>
-                ))}
-              </select>
-            </div>
-            <div className="w-100 d-flex justify-content-center align-items-center  mt-5">
-              <Button
-                variant="outline-primary"
-                style={{
-                  minWidth: "200px",
-                  margin: "0px 10px",
-                  padding: "10px",
-                }}
-              >
-                Discard
-              </Button>
-              {/* <ButtonEditInfo
-                txtColor="white"
-                bckColor="#0F4392"
-                BRColor="#0F4392"
-                text="  "
-              /> */}
-              <Button
-                variant="primary"
-                style={{
-                  minWidth: "200px",
-                  margin: "0px 10px",
-                  padding: "10px",
-                }}
-                className=" primary"
-                onClick={callupdateUser}
-              >
-                Save Changes
-              </Button>
-            </div>
-          </form>
-        </div>
-        <div className="d-block d-sm-none w-100">
-          <BottomNav />
-        </div>
-        <div className="d-none d-sm-block w-100">
-          <FooterDesk />
-        </div>
-      </main>
+      <div className="d-block d-sm-none w-100">
+        <BottomNav />
+      </div>
+      <div className="d-none d-sm-block w-100">
+        <FooterDesk />
+      </div>
+      <WriteReview />
+      <Support />
     </>
   );
 };

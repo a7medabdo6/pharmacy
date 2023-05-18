@@ -6,7 +6,12 @@ import Link from "next/link";
 function CategorySliderCard({ item }) {
   return (
     <Link href={`/products/${item?.id}`}>
-      <div className="my-5 mx-0 px-0 flex-column d-flex justify-content-center align-items-center w-100">
+      <div
+        className="my-5 mx-0 px-0 flex-column d-flex justify-content-center align-items-center"
+        style={{
+          width: "100px",
+        }}
+      >
         <div className="CategorySliderCard">
           <Image
             className="product"

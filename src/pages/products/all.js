@@ -1,33 +1,38 @@
-import React, { useEffect } from "react";
+import { useState, useEffect } from "react";
+import Image from "next/image";
+import { useRouter } from "next/router";
+import Link from "next/link";
+
+// UI library
+import Sheet from "react-modal-sheet";
+import { ImageGroup } from "semantic-ui-react";
+import { Breadcrumb, Col, Container, Row } from "react-bootstrap";
+
+// CSS Module
 import styles from "@/styles/products.module.css";
 
-import BottomNav from "../../Components/Ulits/BottomNav";
-
-import Image from "next/image";
-
-import Sheet from "react-modal-sheet";
-import { useState } from "react";
-import icon from "../../assets/img/icon.png";
-import alert from "../../assets/img/alert.png";
-import left from "../../assets/img/Leftwhite.png";
-import exit from "../../assets/img/exit.png";
+// Components
 import NavBar from "../../Components/desk/NavBar";
+import NavBarMobail from "../../Components/desk/NavBarMobail";
+import BottomNav from "../../Components/Ulits/BottomNav";
+import exit from "../../assets/img/exit.png";
 import FooterDesk from "../../Components/desk/FooterDesk";
-
-import iconfilter from "../../assets/img/iconfilter.png";
 import SearchInput from "../../Components/products/SearchInput";
 import ButtonContact from "../../Components/products/ButtonContact";
 import CardProduct from "../../Components/products/CardProduct";
-import { useRouter } from "next/router";
-import Link from "next/link";
 import DropdownFilter from "../../Components/products/DropdownFilter";
-import { getallProductsWithNoCategory } from "../../Apis/products";
-import { Breadcrumb, Col, Container, Row } from "react-bootstrap";
 import Filter from "../../Components/desk/Filter";
 import SerachBar from "../../Components/SerachBar";
-import ButtonOfferDEsk from "../../Components/desk/ButtonOfferDEsk";
-import PostCart from "../../Apis/Cart/PostCart";
-import NavBarMobail from "../../Components/desk/NavBarMobail";
+import WriteReview from "../../Components/Ulits/WriteReview";
+import Support from "../../Components/Ulits/Support";
+
+// Images and icon
+import iconfilter from "../../assets/img/iconfilter.png";
+
+// Logic Api
+import { getallProductsWithNoCategory } from "../../Apis/products";
+import SliderFilterButton from "../../Components/products/SliderFilterButton";
+
 const products = () => {
   const [isOpen, setOpen] = useState(false);
   const [products, setproducts] = useState([]);
@@ -76,9 +81,9 @@ const products = () => {
           </div>
         </div>
       </div>
-      <Container className="padding-bottom-sm">
+      <Container className="padding-bottom-sm px-0">
         <Breadcrumb
-          style={{ fontSize: "12px" }}
+          style={{ fontSize: "18px" }}
           className="d-none d-lg-block mt-3"
         >
           <Breadcrumb.Item>Home</Breadcrumb.Item>
@@ -98,57 +103,15 @@ const products = () => {
           products={products}
         />
         <main className={styles.main}>
-          <div className="w-100 text-center d-flex justify-content-center align-items-center flex-column">
-            <div
-              className="d-flex justify-content-start align-items-center mt-3 gap-2"
-              style={{ width: "100%" }}
-            >
-              <div
-                className="d-flex justify-content-center align-items-center rounded-1 py-1 px-2"
-                style={{
-                  backgroundColor: "#DD1717",
-                }}
-              >
-                <p className={styles.label}>All</p>
-              </div>
-
-              <div
-                className="d-flex justify-content-center align-items-center rounded-1 py-1 px-2"
-                style={{
-                  backgroundColor: "rgba(221, 23, 23, 0.2)",
-                }}
-              >
-                <p className={styles.label}>Top 50 medicines</p>
-              </div>
-
-              <div
-                className="d-flex justify-content-center align-items-center rounded-1 py-1 px-2"
-                style={{
-                  backgroundColor: "rgba(221, 23, 23, 0.2)",
-                }}
-              >
-                <p className={styles.label}>Natural oils and herbs </p>
-              </div>
-
-              <div
-                className="d-flex justify-content-center align-items-center rounded-1 py-1 px-2"
-                style={{
-                  backgroundColor: "rgba(221, 23, 23, 0.2)",
-                }}
-              >
-                <p className={styles.label}>Cosmtics </p>
-              </div>
-            </div>
-          </div>
-
-          <Row className="mt-3 mt-lg-5 w-100 mr-0" style={{ margin: 0 }}>
+          <SliderFilterButton />
+          <Row className="mt-0 mt-lg-5 w-100 mr-0" style={{ margin: 0 }}>
             <Col md={3} sm={12} className="d-none d-sm-block">
               <div
                 style={{
                   borderRadius: "8px",
                   boxShadow: "0px 18px 40px rgba(0, 0, 0, 0.12)",
                 }}
-                className="d-flex justify-content-center  align-items-center flex-column  "
+                className="d-flex justify-content-center align-items-center flex-column  "
               >
                 <h5 className="my-3">Filter by</h5>
 
@@ -171,13 +134,12 @@ const products = () => {
             </Col>
             <Col md={9} sm={12} className="d-flex flex-column">
               <div
-                className="d-flex justify-content-start align-items-center gap-2 flex-wrap mb-3 order-2"
+                className="d-none d-md-flex justify-content-start align-items-center gap-2 flex-wrap mb-3 order-2"
                 style={{ width: "100%" }}
               >
                 <div className={styles.greybox}>
                   <p className={styles.txtofboxgrey}>Diclofenac Sodium</p>
                   <Image
-                    //  className="w-20"
                     src={exit}
                     className="mx-1 fs-5"
                     alt="Next.js Logo"
@@ -188,8 +150,7 @@ const products = () => {
                 </div>
                 <div className={styles.greybox} style={{ width: "134px" }}>
                   <p className={styles.txtofboxgrey}>Sodium Chloride</p>
-                  <Image
-                    //  className="w-20"
+                  <ImageGroup
                     src={exit}
                     className="mx-1"
                     alt="Next.js Logo"
@@ -201,7 +162,6 @@ const products = () => {
                 <div className={styles.greybox} style={{ width: "94px" }}>
                   <p className={styles.txtofboxgrey}>Ibuprofen</p>
                   <Image
-                    //  className="w-20"
                     src={exit}
                     className="mx-1"
                     alt="Next.js Logo"
@@ -213,7 +173,6 @@ const products = () => {
                 <div className={styles.greybox} style={{ width: "134px" }}>
                   <p className={styles.txtofboxgrey}>Sodium Chloride</p>
                   <Image
-                    //  className="w-20"
                     src={exit}
                     className="mx-1"
                     alt="Next.js Logo"
@@ -235,9 +194,9 @@ const products = () => {
                 </Link>
               </div>
               <Row
-                className="order-3"
+                className="order-3 gap-50"
                 style={{
-                  bsGutterX: "1.5rem",
+                  "--bs-gutter-x": "0.5rem",
                 }}
               >
                 {products?.map((item) => (
@@ -309,13 +268,14 @@ const products = () => {
           </div>
         </main>
       </Container>
-
       <div className="d-block d-sm-none">
         <BottomNav />
       </div>
       <div className="d-none d-sm-block ">
         <FooterDesk />
       </div>
+      <WriteReview />
+      <Support />
     </div>
   );
 };

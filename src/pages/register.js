@@ -103,7 +103,9 @@ export default function Home() {
               </div>
               <form className="text-start d-flex justify-content-center flex-column w-100 px-4">
                 <div className="form-group mt-3">
-                  <label htmlFor="name">Your Name*</label>
+                  <label htmlFor="name" style={{ fontSize: "16px" }}>
+                    Your Name*
+                  </label>
                   <input
                     type="text"
                     className="form-control mt-2 font-sm-16 py-1"
@@ -113,7 +115,9 @@ export default function Home() {
                   />
                 </div>
                 <div className="form-group mt-3">
-                  <label htmlFor="phone">Phone Number*</label>
+                  <label htmlFor="phone" style={{ fontSize: "16px" }}>
+                    Phone Number*
+                  </label>
                   <ReactPhoneInput
                     defaultCountry={"us"}
                     className="mt-2 font-sm-16"
@@ -123,7 +127,9 @@ export default function Home() {
                   />
                 </div>
                 <div className="form-group mt-3">
-                  <label htmlFor="hotel">Select Hotel Name</label>
+                  <label htmlFor="hotel" style={{ fontSize: "16px" }}>
+                    Select Hotel Name
+                  </label>
                   <select
                     type="text"
                     className="form-select mt-2 font-xs-14 py-1"
@@ -141,7 +147,9 @@ export default function Home() {
                   </select>
                 </div>
                 <div className="form-group mt-3">
-                  <label htmlFor="room">Room Number*</label>
+                  <label htmlFor="room" style={{ fontSize: "16px" }}>
+                    Room Number*
+                  </label>
                   <input
                     type="text"
                     className="form-control mt-2 font-sm-16 py-1"
@@ -272,12 +280,11 @@ export default function Home() {
                       ))}
                     </select>
                   </div>
-                  <div className="form-group m-2">
+                  {/* <div className="form-group m-2">
                     <label
                       htmlFor="exampleInputEmail1"
                       style={{ width: "100%", textAlign: "left" }}
                     >
-                      {" "}
                       Password*
                     </label>
                     <input
@@ -288,7 +295,7 @@ export default function Home() {
                       id="exampleInputEmail1"
                       placeholder="Write here"
                     />
-                  </div>
+                  </div> */}
                   <div className="form-group m-2">
                     <label
                       htmlFor="exampleInputEmail1"
@@ -305,16 +312,15 @@ export default function Home() {
                       placeholder="Write here"
                     ></select>
                   </div>
-                  {/* <Link href="/verification" className='w-100'> */}
-
-                  <button
-                    type="button"
-                    onClick={submit}
-                    className="btn btn-primary mt-3 w-100"
-                  >
-                    Next
-                  </button>
-                  {/* </Link> */}
+                  <Link href="/verification" className="w-100">
+                    <button
+                      type="button"
+                      onClick={submit}
+                      className="btn btn-primary mt-3 w-100"
+                    >
+                      Next
+                    </button>
+                  </Link>
                 </form>
               </div>
             </div>

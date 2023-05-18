@@ -57,7 +57,7 @@ const offers = () => {
       </div>
       <Container className="padding-bottom-sm">
         <Breadcrumb
-          style={{ fontSize: "12px" }}
+          style={{ fontSize: "18px" }}
           className="d-none d-lg-block mt-3"
         >
           <Breadcrumb.Item>Home</Breadcrumb.Item>

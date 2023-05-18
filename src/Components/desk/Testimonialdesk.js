@@ -1,7 +1,7 @@
 import Image from "next/image";
 import React, { useState } from "react";
-import usertesty from "../../assets/img/usertesty.png";
-import Rateing from "../../Components/Ulits/Rateing";
+import starSmGold from "../../assets/img/star_sm_gold.png";
+import starSmGray from "../../assets/img/star_sm_gray.png";
 
 function Testimonialdesk({ item }) {
   const [rate, setrate] = useState();
@@ -26,7 +26,7 @@ function Testimonialdesk({ item }) {
         priority
       />
       <div
-        className=" m-2 mt-0 d-flex justify-content-start align-items-start flex-column"
+        className="ms-4 mt-0 d-flex justify-content-start align-items-start flex-column"
         style={{ backgroundColor: "white" }}
       >
         <h3
@@ -35,8 +35,12 @@ function Testimonialdesk({ item }) {
         >
           User Name
         </h3>
-        <div className="d-flex mb-2 justify-content-start align-items-start">
-          <Rateing setrate={undefined} Val={item?.rate} />
+        <div className="d-flex mb-2 justify-content-start align-items-start gap-2 mt-3">
+          <Image src={starSmGold} alt="star" />
+          <Image src={starSmGold} alt="star" />
+          <Image src={starSmGold} alt="star" />
+          <Image src={starSmGold} alt="star" />
+          <Image src={starSmGray} alt="star" />
         </div>
 
         <p className="text-dark" style={{ fontSize: "10px !important" }}>
