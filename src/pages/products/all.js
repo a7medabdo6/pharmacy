@@ -52,7 +52,7 @@ const products = () => {
   }, []);
 
   return (
-    <div>
+    <div className="product-details">
       <NavBar />
       <div
         style={{
