@@ -17,9 +17,9 @@ const SliderCategory = ({ categories }) => {
   return (
     <Swiper
       slidesPerView={3.5}
-      spaceBetween={10}
+      spaceBetween={5}
       freeMode={true}
-      modules={[Pagination]}
+      modules={[FreeMode]}
       className="mySwiper"
     >
       {categories?.map((item, index) => (

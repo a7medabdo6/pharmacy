@@ -18,6 +18,8 @@ import NavBarMobail from "@/Components/desk/NavBarMobail";
 import CardInfoDesk from "../Components/Requests/CardInfoDesk";
 import circleCancel from "../assets/img/circle-cancel_minor.png";
 import Image from "next/image";
+import WriteReview from "@/Components/Ulits/WriteReview";
+import Support from "@/Components/Ulits/Support";
 
 const requests = () => {
   const circleStyle = {
@@ -234,6 +236,9 @@ const requests = () => {
       <div className="d-none d-sm-block">
         <FooterDesk />
       </div>
+
+      <WriteReview />
+      <Support />
     </main>
   );
 };

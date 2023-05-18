@@ -1,21 +1,10 @@
-import styles from "@/styles/verification.module.css";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
-import { Carousel } from "react-responsive-carousel";
-import user from "../assets/img/user.svg";
 import SerachBar from "../Components/SerachBar";
-import { Input } from "semantic-ui-react";
-import CardSlider from "../Components/cardSlider";
 import CardBanner from "../Components/cardBanner";
-import CategorySliderCard from "../Components/CategorySliderCard";
-import Footer from "../Components/Footer";
-import slider from "../assets/img/slider.png";
-import slider2 from "../assets/img/slider2.png";
-import slider3 from "../assets/img/slider3.png";
 import Service from "../assets/img/service.png";
 import Service2 from "../assets/img/service2.png";
 import Service3 from "../assets/img/service3.png";
 import getAllReviews from "../Apis/Testimonails";
-
 import "react-phone-input-2/lib/style.css";
 import OurServicesCard from "@/Components/OurServicesCard";
 import Testimonial from "@/Components/Testimonial";
@@ -36,18 +25,13 @@ import CategorySliderDesk from "../Components/desk/CategorySliderDesk";
 import Testimonialdesk from "../Components/desk/Testimonialdesk";
 import FooterDesk from "../Components/desk/FooterDesk";
 import SliderOffer from "../Components/desk/SliderOffer";
-import Box from "@mui/material/Box";
-import Typography from "@mui/material/Typography";
-import Modal from "@mui/material/Modal";
-import ButtomReview from "@/Components/Requests/ButtomReview";
-import ReviewDesk from "../Components/desk/ReviewDesk";
 import NavBar from "../Components/desk/NavBar";
-import { Col, Collapse, Container, Row } from "react-bootstrap";
-import alertblue from "../assets/img/alertblue.png";
+import { Col, Container, Row } from "react-bootstrap";
 import BottomNav from "@/Components/Ulits/BottomNav";
 import NavBarMobail from "@/Components/desk/NavBarMobail";
-
 import SliderCategory from "../Components/SliderCategory";
+import WriteReview from "../Components/Ulits/WriteReview";
+import Support from "../Components/Ulits/Support";
 
 import { useKeenSlider } from "keen-slider/react";
 import "keen-slider/keen-slider.min.css";
@@ -85,26 +69,13 @@ export default function Main() {
   useEffect(() => {
     getReviewsData();
   }, []);
-  const style = {
-    position: "absolute",
-    top: "50%",
-    left: "50%",
-    transform: "translate(-50%, -50%)",
-    width: 400,
-    bgcolor: "background.paper",
-    border: "2px solid white",
-    borderRadius: "10px",
-    padding: "7px",
-  };
-  const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
 
   const [sliderRef] = useKeenSlider({
     loop: true,
   });
 
   return (
-    <>
+    <div className="home">
       <NavBar />
       <div className="container text-center mt-0 mt-md-3 pb-4">
         <SerachBar showBigScreen={true} />
@@ -298,74 +269,33 @@ export default function Main() {
                     </p>
                   </Link> */}
               </div>
-              {reviews?.map((item, i) => {
-                if (i < 1) {
-                  return (
-                    <div
-                      className="boxshadow w-100"
-                      style={{ background: "white", borderRadius: "7px" }}
-                    >
-                      <Testimonial item={item} />
-                    </div>
-                  );
-                }
-              })}
+
+              <Swiper
+                spaceBetween={30}
+                pagination={{
+                  clickable: true,
+                }}
+                modules={[Pagination]}
+                className="mySwiper"
+              >
+                <div className="w-100 d-flex justify-content-center align-items-center">
+                  {reviews?.map((item, i) => {
+                    if (i < 3) {
+                      return (
+                        <SwiperSlide>
+                          <Testimonial item={item} />;
+                        </SwiperSlide>
+                      );
+                    }
+                  })}
+                </div>
+              </Swiper>
             </div>
           </main>
-          <div>
-            <Modal
-              open={open}
-              onClose={handleClose}
-              aria-labelledby="modal-modal-title"
-              aria-describedby="modal-modal-description"
-            >
-              <Box sx={style}>
-                <Typography
-                  id="modal-modal-title"
-                  variant="h6"
-                  component="h2"
-                  className="text-center"
-                  style={{
-                    color: "#0F4392",
-                    fontWeight: "bold",
-                    fontSize: "20px",
-                  }}
-                ></Typography>
-                <Typography
-                  id="modal-modal-description"
-                  sx={{ mt: 2 }}
-                  className="text-center"
-                >
-                  <ReviewDesk />
-                </Typography>
-              </Box>
-            </Modal>
-          </div>
         </div>
       </div>
       <div className="d-none d-md-block">
         <div className="d-flex justify-content-between align-items-start flex-column position-relative w-100">
-          <div
-            onClick={() => {
-              setOpen(true);
-            }}
-            style={{
-              backgroundColor: "#DD1717",
-              width: "140px",
-              height: "40px",
-              right: "-50px",
-              top: "19%",
-              transform: "rotate(-90deg)",
-              textAlign: "center",
-              cursor: "pointer",
-              padding: "20px 0",
-            }}
-            className="position-absolute d-flex justify-content-center align-items-center"
-          >
-            <p style={{ color: "white", fontSize: "16px !important" }}>
-              Write Review
-            </p>
-          </div>
           <div className="d-flex justify-content-start align-items-start flex-column w-100">
             <div className="d-flex justify-content-center align-items-center flex-column mt-5 w-100">
               <h2 style={{ color: "#0F4392" }}>How it works</h2>
@@ -400,7 +330,7 @@ export default function Main() {
           >
             <div
               style={{ width: "60%", height: "280px", marginLeft: "2%" }}
-              className="position-relative d-flex justify-content-center align-items-center "
+              className="position-relative d-flex justify-content-center align-items-center"
             >
               <div
                 style={{ left: "-20px", zIndex: "111" }}
@@ -428,21 +358,12 @@ export default function Main() {
               </div>
               <SliderOffer />
             </div>
-            <div>
+            <div style={{ marginRight: "12rem" }}>
               <Image
                 src={cart}
                 alt="Next.js Logo"
                 width={200}
                 height={180}
-                priority
-              />
-            </div>
-            <div style={{ marginRight: "20px" }}>
-              <Image
-                src={infoImage}
-                alt="Next.js Logo"
-                width={80}
-                height={80}
                 priority
               />
             </div>
@@ -461,7 +382,7 @@ export default function Main() {
               <div className="slider-category w-100 h-100 ps-3">
                 <Swiper
                   slidesPerView={6.5}
-                  spaceBetween={40}
+                  spaceBetween={30}
                   freeMode={true}
                   modules={[FreeMode]}
                   className="mySwiper"
@@ -521,15 +442,24 @@ export default function Main() {
                   modules={[Pagination]}
                   className="mySwiper"
                 >
-                  {reviews?.map((item, i) => {
-                    if (i < 3) {
-                      return (
-                        <SwiperSlide>
-                          <Testimonialdesk item={item} />
-                        </SwiperSlide>
-                      );
-                    }
-                  })}
+                  <SwiperSlide>
+                    <div className="w-100 d-flex justify-content-center align-items-center">
+                      {reviews?.map((item, i) => {
+                        if (i < 3) {
+                          return <Testimonialdesk item={item} />;
+                        }
+                      })}
+                    </div>
+                  </SwiperSlide>
+                  <SwiperSlide>
+                    <div className="w-100 d-flex justify-content-center align-items-center">
+                      {reviews?.map((item, i) => {
+                        if (i < 3) {
+                          return <Testimonialdesk item={item} />;
+                        }
+                      })}
+                    </div>
+                  </SwiperSlide>
                 </Swiper>
               </div>
             </div>
@@ -559,6 +489,9 @@ export default function Main() {
       <div className="d-block d-sm-none">
         <BottomNav />
       </div>
-    </>
+
+      <WriteReview />
+      <Support />
+    </div>
   );
 }

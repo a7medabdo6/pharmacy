@@ -72,7 +72,7 @@ export default function SliderProductDetails() {
         </div>
       </div>
 
-      <div ref={thumbnailRef} className="keen-slider thumbnail">
+      <div ref={thumbnailRef} className="keen-slider thumbnail mt-2 mt-md-5">
         <div className="keen-slider__slide number-slide1">
           <Image src={panadol} alt="" />
         </div>

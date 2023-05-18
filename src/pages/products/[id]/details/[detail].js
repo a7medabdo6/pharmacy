@@ -1,25 +1,16 @@
-import React, { useEffect } from "react";
-import styles from "@/styles/contact.module.css";
-import Header from "../../../../Components/Ulits/Header";
+import React, { useState, useEffect } from "react";
+import { useSelector } from "react-redux";
 import NavBar from "../../../../Components/desk/NavBar";
-import iconfilter from "../../../../assets/img/iconfilter.png";
-import panadol from "../../../../assets/img/pnadol.png";
-import { useSelector, useDispatch } from "react-redux";
 import FooterDesk from "../../../../Components/desk/FooterDesk";
-
-import { useState } from "react";
-import ModalContent from "../../../../Components/Ulits/ModalContent";
-import Slideshow from "../../../../Components/Slideshow";
-import ButtonProductDetails from "../../../../Components/Ulits/ButtonProductDetails";
-import Link from "next/link";
 import NavBarMobail from "../../../../Components/desk/NavBarMobail";
 import Image from "next/image";
 import { Breadcrumb, Col, Container, Row } from "react-bootstrap";
-import SearchInput from "../../../../Components/products/SearchInput";
 import SerachBar from "../../../../Components/SerachBar";
 import SliderProductDetails from "../../../../Components/products/SliderProductDetails";
 import Quantity from "../../../../Components/Ulits/Quantity";
 import accept from "../../../../assets/img/mobile-accept_major.png";
+import WriteReview from "../../../../Components/Ulits/WriteReview";
+import { Support } from "@mui/icons-material";
 
 const productdetails = () => {
   const [isOpen, setOpen] = useState(false);
@@ -33,12 +24,11 @@ const productdetails = () => {
   return (
     <div className="product-details mb-2">
       <NavBar />
-      {/* <Header title="Products details" /> */}
       <NavBarMobail titlePage="Products details" />
 
       <Container className="mt-3 pb-5">
         <Breadcrumb
-          style={{ fontSize: "12px" }}
+          style={{ fontSize: "18px" }}
           className="d-none d-lg-block mt-3"
         >
           <Breadcrumb.Item>Home</Breadcrumb.Item>
@@ -54,11 +44,10 @@ const productdetails = () => {
           Product details
         </h1>
         <div
-          className="message w-100 d-flex justify-content-start align-items-center gap-4 py-2 px-3 mb-3 rounded-3"
+          className="message w-100 d-flex justify-content-start align-items-center gap-4 py-2 px-3 mb-4 rounded-3"
           style={{
             backgroundColor: "#219653",
             color: "white",
-
             boxShadow:
               "0px 8px 20px -4px #1718181F, 0px 3px 6px -3px #17181814",
           }}
@@ -76,7 +65,7 @@ const productdetails = () => {
           <Col
             sm={12}
             md={6}
-            className="bg-white py-3 rounded-3"
+            className="bg-white py-3 rounded-4"
             style={{
               boxShadow: "0px 18px 40px 0px #0000001F",
             }}
@@ -88,12 +77,12 @@ const productdetails = () => {
               <div
                 className="top"
                 style={{
-                  border-: "0.5px solid #828282",
+                  borderBottom: "0.5px solid #828282",
                 }}
               >
-                <h6 className="fw-bold mb-1" style={{ fontSize: "1.2rem" }}>
+                <h5 className="fw-bold mb-1" style={{ fontSize: "1.2rem" }}>
                   Product category
-                </h6>
+                </h5>
                 <h2 className="mt-4 mb-2">Panadol Extra XX mg</h2>
                 <p style={{ fontSize: "1.5rem", color: "#828282" }}>
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit
@@ -139,6 +128,9 @@ const productdetails = () => {
       </Container>
 
       <FooterDesk />
+
+      <WriteReview />
+      <Support />
     </div>
   );
 };

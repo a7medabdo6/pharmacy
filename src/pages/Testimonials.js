@@ -1,188 +1,82 @@
-import React from "react";
-import styles from "@/styles/Testimonials.module.css";
-import Header from "../Components/Ulits/Header";
-import StarIcon from "@mui/icons-material/Star";
-import Image from "next/image";
-import avatar from "../assets/img/Avatar.png";
-import ButtomReview from "../Components/Requests/ButtomReview";
-import ButtonWriteReview from "../Components/Testimonials/ButtonWriteReview";
-import getAllReviews from "../Apis/Testimonails";
-import { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Testimonialdesk from "../Components/desk/Testimonialdesk";
-import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
-import Typography from "@mui/material/Typography";
-import Modal from "@mui/material/Modal";
-import ReviewDesk from "../Components/desk/ReviewDesk";
-import Rateing from "../Components/Ulits/Rateing";
-import { Col, Row } from "react-bootstrap";
+import NavBar from "../Components/desk/NavBar";
+import NavBarMobaile from "../Components/desk/NavBarMobail";
+import { Breadcrumb, Col, Container, Row } from "react-bootstrap";
+import WriteReview from "../Components/Ulits/WriteReview";
+import Support from "../Components/Ulits/Support";
 
-const Testimonials = () => {
+const allreview = () => {
   const [open, setOpen] = useState(false);
-  const [rate, setrate] = useState();
-  const [Val, setVal] = useState();
 
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
-  const style = {
-    position: "absolute",
-    top: "50%",
-    left: "50%",
-    transform: "translate(-50%, -50%)",
-    width: 400,
-    bgcolor: "background.paper",
-    border: "2px solid white",
-    boxShadow: 24,
-    p: 4,
-    borderRadius: "10px",
-    padding: "7px",
+  const myStyle = {
+    boxShadow: "2px 2px 4px rgba(0, 0, 0, 0.25)", // define the box shadow
+    padding: "10px",
+    backgroundColor: "#f0f0f0",
   };
-  const [reviews, setReviews] = useState([]);
-  const getReviewsData = async () => {
-    const res = await getAllReviews();
-    console.log(res, "ressss");
-    setReviews(res?.results);
-    return res;
-  };
-  useEffect(() => {
-    getReviewsData();
-  }, []);
   return (
-    <div classNameName="container text-center ">
-      <div className="row ">
-        <div className="d-sm-none">
-          <main className={styles.main} style={{ backgroundColor: "#EDEDED" }}>
-            <div className="w-100 text-center d-flex justify-content-center align-items-center flex-column">
-              <Header title="Testimonials" />
-            </div>
-            <cardTestimonials />
+    <>
+      <NavBar />
+      <NavBarMobaile titlePage="Testimonials" />
 
-            <div
-              className="  d-flex justify-content-center align-items-center flex-column"
-              style={{ width: "90%", overflow: "scroll" }}
-            >
-              {reviews?.length > 0 &&
-                reviews.map((item) => {
-                  return (
-                    <div className={styles.boxtest}>
-                      <div className="ms-3">
-                        <Image
-                          src={item?.file}
-                          alt="Next.js Logo"
-                          width={60}
-                          height={60}
-                          priority
-                        />
-                      </div>
-                      <div className="ms-2">
-                        <p className={styles.username}>user name</p>
-                        <div>
-                          <Rateing setrate={setrate} Val={item?.rate} />
+      <Container className="padding-bottom-sm">
+        <Breadcrumb
+          style={{ fontSize: "18px" }}
+          className="d-none d-lg-block mt-3"
+        >
+          <Breadcrumb.Item>Home</Breadcrumb.Item>
+          <Breadcrumb.Item active>All reviews</Breadcrumb.Item>
+        </Breadcrumb>
 
-                          {/* <StarIcon style={{ color: "#E67136" }} />
-                          <StarIcon style={{ color: "#E67136" }} />
-                          <StarIcon style={{ color: "#E67136" }} />
-                          <StarIcon style={{ color: "#E67136" }} />
-                          <StarIcon style={{ color: "#E67136" }} /> */}
-                        </div>
-                        <p>{item?.description}</p>
-                      </div>
-                    </div>
-                  );
-                })}
-            </div>
+        <h1
+          className="text-center h3 my-4 d-none d-lg-block fw-bold"
+          style={{ color: "#0F4392" }}
+        >
+          All reviews
+        </h1>
 
-            <div
-              className="d-flex justify-content-center align-items-center"
-              style={{ width: "50%", position: "fixed", bottom: "15px" }}
-            >
-              <ButtonWriteReview
-                txtColor="white"
-                bckColor="#0F4392"
-                BRColor="#0F4392"
-                text="Write a review"
-              />
-            </div>
-          </main>
-        </div>
-        {/* <div className="d-none d-sm-block d-md-none">deskllll</div> */}
-        <div className="d-none d-md-block w-100">
-          <div
-            className="d-flex justify-content-center w-100 align-items-center flex-column"
-            style={{ background: "white" }}
-          >
-            <h3 style={{ color: "#0F4392" }}>All reviews</h3>
-            <div>
-              <Modal
-                open={open}
-                onClose={handleClose}
-                aria-labelledby="modal-modal-title"
-                aria-describedby="modal-modal-description"
-              >
-                <Box sx={style}>
-                  <Typography
-                    id="modal-modal-title"
-                    variant="h6"
-                    component="h2"
-                    className="text-center"
-                    style={{
-                      color: "#0F4392",
-                      fontWeight: "bold",
-                      fontSize: "20px",
-                    }}
-                  ></Typography>
-                  <Typography
-                    id="modal-modal-description"
-                    sx={{ mt: 2 }}
-                    className="text-center"
-                  >
-                    <ReviewDesk />
-                  </Typography>
-                </Box>
-              </Modal>
-            </div>
-            <div
-              onClick={() => {
-                setOpen(true);
-              }}
-              style={{
-                backgroundColor: "#DD1717",
-                width: "130px",
-                height: "25px",
-                right: "-52px",
-                top: "19%",
-                transform: "rotate(-90deg)",
-                textAlign: "center",
-              }}
-              className="position-absolute d-flex justify-content-center align-items-center"
-            >
-              <p style={{ color: "white", fontSize: "12px !important" }}>
-                Write Review
-              </p>
-            </div>
-            <div
-              className="d-flex justify-content-center flex-wrap align-items-center"
-              style={{ width: "75%" }}
-            >
-              <Row>
-                {reviews?.length > 0 &&
-                  reviews.map((item) => {
-                    return (
-                      <Col className={"col-4"}>
-                        <div className="boxshadow m-3 ">
-                          <Testimonialdesk item={item} />
-                        </div>
-                      </Col>
-                    );
-                  })}
-              </Row>
-            </div>
-          </div>
-        </div>
+        <Row>
+          <Col md={4}>
+            <Testimonialdesk />
+          </Col>
+          <Col md={4}>
+            <Testimonialdesk />
+          </Col>
+          <Col md={4}>
+            <Testimonialdesk />
+          </Col>
+          <Col md={4}>
+            <Testimonialdesk />
+          </Col>
+          <Col md={4}>
+            <Testimonialdesk />
+          </Col>
+          <Col md={4}>
+            <Testimonialdesk />
+          </Col>
+          <Col md={4}>
+            <Testimonialdesk />
+          </Col>
+          <Col md={4}>
+            <Testimonialdesk />
+          </Col>
+        </Row>
+      </Container>
+
+      <div
+        className="actio p-4 bg-white position-fixed bottom-0 start-0 w-100 d-block d-md-none"
+        style={{ boxShadow: "0px -18px 40px 0px #00000033" }}
+      >
+        <button className="btn btn-primary w-100">Write a review</button>
       </div>
-    </div>
+
+      <WriteReview />
+      <Support />
+    </>
   );
 };
 
-export default Testimonials;
+export default allreview;

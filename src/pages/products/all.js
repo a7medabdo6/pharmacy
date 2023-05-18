@@ -1,45 +1,37 @@
-import React, { useEffect } from "react";
+import { useState, useEffect } from "react";
+import Image from "next/image";
+import { useRouter } from "next/router";
+import Link from "next/link";
+
+// UI library
+import Sheet from "react-modal-sheet";
+import { ImageGroup } from "semantic-ui-react";
+import { Breadcrumb, Col, Container, Row } from "react-bootstrap";
+
+// CSS Module
 import styles from "@/styles/products.module.css";
 
-import BottomNav from "../../Components/Ulits/BottomNav";
-
-import Image from "next/image";
-
-import Sheet from "react-modal-sheet";
-import { useState } from "react";
-import icon from "../../assets/img/icon.png";
-import alert from "../../assets/img/alert.png";
-import left from "../../assets/img/Leftwhite.png";
-import exit from "../../assets/img/exit.png";
+// Components
 import NavBar from "../../Components/desk/NavBar";
+import NavBarMobail from "../../Components/desk/NavBarMobail";
+import BottomNav from "../../Components/Ulits/BottomNav";
+import exit from "../../assets/img/exit.png";
 import FooterDesk from "../../Components/desk/FooterDesk";
-
-import iconfilter from "../../assets/img/iconfilter.png";
 import SearchInput from "../../Components/products/SearchInput";
 import ButtonContact from "../../Components/products/ButtonContact";
 import CardProduct from "../../Components/products/CardProduct";
-import { useRouter } from "next/router";
-import Link from "next/link";
 import DropdownFilter from "../../Components/products/DropdownFilter";
-import { getallProductsWithNoCategory } from "../../Apis/products";
-import { Breadcrumb, Col, Container, Row } from "react-bootstrap";
 import Filter from "../../Components/desk/Filter";
 import SerachBar from "../../Components/SerachBar";
-import ButtonOfferDEsk from "../../Components/desk/ButtonOfferDEsk";
-import PostCart from "../../Apis/Cart/PostCart";
-import NavBarMobail from "../../Components/desk/NavBarMobail";
-import { ImageGroup } from "semantic-ui-react";
+import WriteReview from "../../Components/Ulits/WriteReview";
+import Support from "../../Components/Ulits/Support";
 
-// Import Swiper React components
-import { Swiper, SwiperSlide } from "swiper/react";
+// Images and icon
+import iconfilter from "../../assets/img/iconfilter.png";
 
-// Import Swiper styles
-import "swiper/css";
-import "swiper/css/free-mode";
-import "swiper/css/pagination";
-
-// import required modules
-import { FreeMode, Pagination } from "swiper";
+// Logic Api
+import { getallProductsWithNoCategory } from "../../Apis/products";
+import SliderFilterButton from "../../Components/products/SliderFilterButton";
 
 const products = () => {
   const [isOpen, setOpen] = useState(false);
@@ -111,62 +103,7 @@ const products = () => {
           products={products}
         />
         <main className={styles.main}>
-          <div className="w-100 text-center d-flex justify-content-center align-items-center flex-column">
-            <Swiper
-              slidesPerView={10}
-              spaceBetween={5}
-              freeMode={true}
-              modules={[FreeMode]}
-              className="mySwiper px-2 pt-3"
-            >
-              <SwiperSlide>
-                <div
-                  className={
-                    styles.boxLabeld + " active rounded-1 pt-1 pb-0 px-2"
-                  }
-                  style={{
-                    backgroundColor: "#DD1717",
-                  }}
-                >
-                  <p className={styles.label}>All</p>
-                </div>
-              </SwiperSlide>
-              <SwiperSlide>
-                {" "}
-                <div
-                  className="d-flex justify-content-center align-items-center rounded-1 pt-1 pb-0 px-2"
-                  style={{
-                    backgroundColor: "rgba(221, 23, 23, 0.2)",
-                  }}
-                >
-                  <p className={styles.label}>Top 50 medicines</p>
-                </div>
-              </SwiperSlide>
-              <SwiperSlide>
-                <div
-                  className="d-flex justify-content-center align-items-center rounded-1 pt-1 pb-0"
-                  style={{
-                    backgroundColor: "rgba(221, 23, 23, 0.2)",
-                  }}
-                >
-                  <p className={styles.label + " w-100"}>
-                    Natural oils and herbs{" "}
-                  </p>
-                </div>
-              </SwiperSlide>
-              <SwiperSlide>
-                <div
-                  className="d-flex justify-content-center align-items-center rounded-1 pt-1 pb-0 px-2"
-                  style={{
-                    backgroundColor: "rgba(221, 23, 23, 0.2)",
-                  }}
-                >
-                  <p className={styles.label}>Cosmtics </p>
-                </div>
-              </SwiperSlide>
-            </Swiper>
-          </div>
-
+          <SliderFilterButton />
           <Row className="mt-0 mt-lg-5 w-100 mr-0" style={{ margin: 0 }}>
             <Col md={3} sm={12} className="d-none d-sm-block">
               <div
@@ -331,13 +268,14 @@ const products = () => {
           </div>
         </main>
       </Container>
-
       <div className="d-block d-sm-none">
         <BottomNav />
       </div>
       <div className="d-none d-sm-block ">
         <FooterDesk />
       </div>
+      <WriteReview />
+      <Support />
     </div>
   );
 };

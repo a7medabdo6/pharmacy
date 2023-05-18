@@ -1,7 +1,5 @@
 import React from "react";
 import styles from "@/styles/contact.module.css";
-import Header from "../Components/Ulits/Header";
-import StepProgress from "../Components/Ulits/StepProgressBar";
 import Frame from "../assets/img/Frame.png";
 import viber from "../assets/img/viber.png";
 import messenger from "../assets/img/messenger.png";
@@ -9,21 +7,16 @@ import whatsapp from "../assets/img/whatsapp.png";
 import telegram from "../assets/img/telegram.png";
 import location from "../assets/img/location.png";
 import phone from "../assets/img/phone.png";
-import BottomNav from "../Components/Ulits/BottomNav";
-import Footer from "../Components/Footer";
-
-import PhoneIcon from "@mui/icons-material/Phone";
-import ButtonTrack from "../Components/tracking/ButtonTrack";
 import Image from "next/image";
-import Button from "../Components/Ulits/Button";
 import ButtonRequestOrder from "../Components/Ulits/ButtonRequestOrder";
 import Sheet from "react-modal-sheet";
 import { useState } from "react";
 import ModalContent from "../Components/Ulits/ModalContent";
 import NavBar from "../Components/desk/NavBar";
-import { Col, Row } from "react-bootstrap";
+import { Breadcrumb, Col, Container, Row } from "react-bootstrap";
 import NavBarMobail from "../Components/desk/NavBarMobail";
 import FooterDesk from "../Components/desk/FooterDesk";
+import Support from "../Components/Ulits/Support";
 
 const contactus = () => {
   const [isOpen, setOpen] = useState(false);
@@ -36,135 +29,174 @@ const contactus = () => {
       <main
         style={{
           backgroundColor: "#EDEDED",
-          width: "100%",
-          margin: "auto",
         }}
         className="d-flex align-items-center flex-column pb-4"
       >
-        <div className="d-none d-sm-block w-100 ">
-          <Row>
-            <Col className="col-12">
-              <h3 className="text-center mt-5 ">Contact Us</h3>
-              <p className={styles.title} style={{ marginBottom: "15px" }}>
-                We are here for you
-              </p>
-            </Col>
-            <Col className="col-12 mb-5">
-              <div className="w-100 text-center d-flex justify-content-center align-items-center flex-column">
-                <Image
-                  //  className="w-20"
-                  src={Frame}
-                  alt="Next.js Logo"
-                  width="100%"
-                  height="100%"
-                  priority
-                  style={{ maxWidth: "90%" }}
-                />
-              </div>
-            </Col>
-            <Col className="col-12">
-              <Row className="d-flex justify-content-around">
-                <Col
-                  className="col-5"
-                  style={{ background: "white", borderRadius: "15px" }}
-                >
-                  <p className={styles.textsub} style={{ marginTop: 15 }}>
-                    {" "}
-                    Social media contacts
-                  </p>
-                  <p className={styles.textsub1}>
-                    {" "}
-                    If you need a help from our pharmacists or want to order a
-                    specific prescription contact us via{" "}
-                  </p>
-                  <div className="w-100 text-center d-flex justify-content-center align-items-center ">
-                    <Image
-                      //  className="w-20"
-                      src={telegram}
-                      style={{ margin: "10px" }}
-                      alt="Next.js Logo"
-                      width="32px"
-                      height="32px"
-                      priority
-                    />
-                    <Image
-                      //  className="w-20"
-                      src={whatsapp}
-                      style={{ margin: "10px" }}
-                      alt="Next.js Logo"
-                      width="32px"
-                      height="32px"
-                      priority
-                    />
-                    <Image
-                      //  className="w-20"
-                      src={messenger}
-                      style={{ margin: "10px" }}
-                      alt="Next.js Logo"
-                      width="32px"
-                      height="32px"
-                      priority
-                    />
-                    <Image
-                      //  className="w-20"
-                      src={viber}
-                      style={{ margin: "10px" }}
-                      alt="Next.js Logo"
-                      width="32px"
-                      height="32px"
-                      priority
-                    />
-                  </div>
-                </Col>
-                <Col
-                  className="col-5"
-                  style={{ background: "white", borderRadius: "15px" }}
-                >
-                  <p className={styles.textsub} style={{ marginTop: "15px" }}>
-                    {" "}
-                    Reach us via
-                  </p>
-                  <div className="w-90 d-flex text-center justify-content-around align-items-center  flex-column">
-                    <div className="w-95 d-flex text-center justify-content-center align-items-center mx-5 ">
-                      <Row className=" d-flex text-center justify-content-center align-items-center ">
-                        <Col
-                          className="col-12 col-sm-12 col-md-12"
-                          style={{ backgroundColor: "white" }}
-                        >
-                          <Row>
-                            <Col className="col-12 d-flex text-center justify-content-between align-items-cente">
-                              <div className=" d-flex text-center justify-content-center align-items-center ">
-                                <Image
-                                  //  className="w-20"
-                                  src={phone}
-                                  alt="Next.js Logo"
-                                  width="15px"
-                                  height="20px"
-                                  priority
-                                />{" "}
-                                <p className={styles.number}>(+20)1050777117</p>
-                              </div>
-                              <button
-                                className="btn btn-outline-primary"
-                                style={{
-                                  color: "#0F4392",
-                                  border: "1px solid #0F4392",
-                                }}
-                              >
-                                <Image
-                                  //  className="w-20"
-                                  src={phone}
-                                  alt="Next.js Logo"
-                                  width="15px"
-                                  height="20px"
-                                  priority
-                                  style={{ marginInline: 8 }}
-                                />{" "}
-                                Call Now
-                              </button>
-                            </Col>
-                            <Col className="col-12">
-                              <div className=" d-flex text-center justify-content-start align-items-center">
+        <div className="d-none d-sm-block w-100">
+          <Container className="mb-4">
+            <Breadcrumb
+              style={{ fontSize: "18px" }}
+              className="d-none d-lg-block mt-3"
+            >
+              <Breadcrumb.Item>Home</Breadcrumb.Item>
+              <Breadcrumb.Item>Our products</Breadcrumb.Item>
+              <Breadcrumb.Item>Requests</Breadcrumb.Item>
+              <Breadcrumb.Item>Confirmation</Breadcrumb.Item>
+              <Breadcrumb.Item active>Contact us</Breadcrumb.Item>
+            </Breadcrumb>
+            <Row>
+              <Col className="col-12">
+                <h2 className="text-center text-primary mt-5">Contact Us</h2>
+                <h5 className="mt-3 text-center" style={{ color: "#DD1717" }}>
+                  We are here for you
+                </h5>
+              </Col>
+              <Col className="col-12">
+                <div className="mt-5 mb-4 w-100 text-center d-flex justify-content-center align-items-center flex-column">
+                  <Image
+                    src={Frame}
+                    alt="Next.js Logo"
+                    priority
+                    style={{ width: "463px", height: "172px" }}
+                  />
+                </div>
+              </Col>
+              <Col className="col-12">
+                <Row className="d-flex justify-content-around">
+                  <Col
+                    className="col-5 p-4 text-center"
+                    style={{ background: "white", borderRadius: "15px" }}
+                  >
+                    <h5>Social media contacts</h5>
+                    <p className="px-3 mt-4">
+                      If you need a help from our pharmacists or want to order a
+                      specific prescription contact us via
+                    </p>
+                    <div className="w-100 text-center d-flex justify-content-center align-items-center">
+                      <Image
+                        src={telegram}
+                        style={{ margin: "10px" }}
+                        alt="Next.js Logo"
+                        width="32px"
+                        height="32px"
+                        priority
+                      />
+                      <Image
+                        src={whatsapp}
+                        style={{ margin: "10px" }}
+                        alt="Next.js Logo"
+                        width="32px"
+                        height="32px"
+                        priority
+                      />
+                      <Image
+                        src={messenger}
+                        style={{ margin: "10px" }}
+                        alt="Next.js Logo"
+                        width="32px"
+                        height="32px"
+                        priority
+                      />
+                      <Image
+                        src={viber}
+                        style={{ margin: "10px" }}
+                        alt="Next.js Logo"
+                        width="32px"
+                        height="32px"
+                        priority
+                      />
+                    </div>
+                  </Col>
+                  <Col
+                    className="col-5 text-center p-4"
+                    style={{ background: "white", borderRadius: "15px" }}
+                  >
+                    <h5>Reach us via</h5>
+                    <div className="w-90 d-flex text-center justify-content-around align-items-center flex-column">
+                      <div className="w-95 d-flex text-center justify-content-center align-items-center mx-5">
+                        <Row className="d-flex text-center justify-content-center align-items-center">
+                          <Col
+                            className="col-12 col-sm-12 col-md-12"
+                            style={{ backgroundColor: "white" }}
+                          >
+                            <Row>
+                              <Col className="col-12 d-flex text-center justify-content-between align-items-center">
+                                <div className="d-flex justify-content-center align-items-center gap-3 mb-4">
+                                  <Image
+                                    style={{ width: "24px", height: "24px" }}
+                                    src={phone}
+                                    alt="Next.js Logo"
+                                  />
+                                  <p>(+20)1050777117</p>
+                                </div>
+                                <button
+                                  className="btn btn-outline-primary d-flex justify-content-center align-items-center gap-2 fw-bold"
+                                  style={{
+                                    width: "170px",
+                                    height: "40px",
+                                    color: "#0F4392",
+                                    border: "1px solid #0F4392",
+                                  }}
+                                >
+                                  <Image
+                                    style={{ width: "14px", height: "14px" }}
+                                    src={phone}
+                                    alt="Next.js Logo"
+                                  />
+                                  Call Now
+                                </button>
+                              </Col>
+                              <Col className="col-12">
+                                <div className="d-flex text-center justify-content-start align-items-center gap-3">
+                                  <Image
+                                    style={{ width: "24px", height: "24px" }}
+                                    src={location}
+                                    alt="Next.js Logo"
+                                  />
+                                  <p className="mt-2">
+                                    Tal avenu- white hills hotel, Sharm
+                                    Elsheikh, Egypt
+                                  </p>
+                                </div>
+                              </Col>
+                            </Row>
+                          </Col>
+                        </Row>
+                        <Row className="d-flex d-none text-center justify-content-center align-items-center">
+                          <Col className="col-6">
+                            <div className=" d-flex text-center justify-content-center align-items-center">
+                              <Image
+                                src={phone}
+                                alt="Next.js Logo"
+                                width="15px"
+                                height="20px"
+                                priority
+                              />
+                              <p className={styles.number}>(+20)1050777117</p>
+                            </div>
+                          </Col>
+                          <Col className="col-6">
+                            <button
+                              className="btn btn-outline-primary"
+                              style={{
+                                color: "#0F4392",
+                                border: "1px solid #0F4392",
+                              }}
+                            >
+                              <Image
+                                src={phone}
+                                alt="Next.js Logo"
+                                width="15px"
+                                height="20px"
+                                priority
+                                style={{ marginInline: 8 }}
+                              />
+                              Call Now
+                            </button>
+                          </Col>
+                          <Col className="col-12 mt-3">
+                            <Row>
+                              <Col className="col-1">
                                 <Image
                                   //  className="w-20"
                                   src={location}
@@ -173,87 +205,37 @@ const contactus = () => {
                                   height="20px"
                                   priority
                                 />{" "}
+                              </Col>
+                              <Col>
                                 <p className={styles.number}>
                                   Tal avenu- white hills hotel, Sharm Elsheikh,
                                   Egypt
                                 </p>
-                              </div>
-                            </Col>
-                          </Row>
-                        </Col>
-                      </Row>
-                      <Row className=" d-flex d-none text-center justify-content-center align-items-center ">
-                        <Col className="col-6">
-                          <div className=" d-flex text-center justify-content-center align-items-center ">
-                            <Image
-                              //  className="w-20"
-                              src={phone}
-                              alt="Next.js Logo"
-                              width="15px"
-                              height="20px"
-                              priority
-                            />{" "}
-                            <p className={styles.number}>(+20)1050777117</p>
-                          </div>
-                        </Col>
-                        <Col className="col-6">
-                          <button
-                            className="btn btn-outline-primary"
-                            style={{
-                              color: "#0F4392",
-                              border: "1px solid #0F4392",
-                            }}
-                          >
-                            <Image
-                              //  className="w-20"
-                              src={phone}
-                              alt="Next.js Logo"
-                              width="15px"
-                              height="20px"
-                              priority
-                              style={{ marginInline: 8 }}
-                            />{" "}
-                            Call Now
-                          </button>
-                        </Col>
-                        <Col className="col-12 mt-3">
-                          <Row>
-                            <Col className="col-1">
-                              <Image
-                                //  className="w-20"
-                                src={location}
-                                alt="Next.js Logo"
-                                width="15px"
-                                height="20px"
-                                priority
-                              />{" "}
-                            </Col>
-                            <Col>
-                              <p className={styles.number}>
-                                Tal avenu- white hills hotel, Sharm Elsheikh,
-                                Egypt
-                              </p>
-                            </Col>
-                          </Row>
-                        </Col>
-                      </Row>
-                    </div>
+                              </Col>
+                            </Row>
+                          </Col>
+                        </Row>
+                      </div>
 
-                    <div style={{ width: "95%" }} onClick={() => setOpen(true)}>
-                      <ButtonRequestOrder
-                        txtColor="white"
-                        bckColor="#0F4392"
-                        BRColor="#0F4392"
-                        text="Request a call"
-                      />
+                      <div
+                        style={{ width: "95%" }}
+                        onClick={() => setOpen(true)}
+                      >
+                        <ButtonRequestOrder
+                          txtColor="white"
+                          bckColor="#0F4392"
+                          BRColor="#0F4392"
+                          text="Request a call"
+                        />
+                      </div>
                     </div>
-                  </div>
-                </Col>
-              </Row>
-            </Col>
-          </Row>
+                  </Col>
+                </Row>
+              </Col>
+            </Row>
+          </Container>
         </div>
-        <div className="d-block d-sm-none w-100 pb-4">
+        <div className="d-block d-md-none w-100 pb-4">
           <div
             style={{
               backgroundColor: "white",
@@ -262,11 +244,12 @@ const contactus = () => {
             }}
             className="mt-3 mx-auto d-flex justify-content-center align-items-center flex-column"
           >
-            <p className={styles.title}> We are here for you</p>
+            <h4 className="mt-4 text-center" style={{ color: "#DD1717" }}>
+              We are here for you
+            </h4>
 
             <div className="w-100 text-center d-flex justify-content-center align-items-center flex-column">
               <Image
-                //  className="w-20"
                 src={Frame}
                 alt="Next.js Logo"
                 width="100%"
@@ -325,57 +308,51 @@ const contactus = () => {
               style={{ height: "1px", backgroundColor: "grey", width: "90%" }}
             ></div>
 
-            <p className={styles.textsub}>Reach us via</p>
-            <div className="w-90 d-flex text-center justify-content-around align-items-center  flex-column">
+            <h4>Reach us via</h4>
+            <div className="w-90 d-flex text-center justify-content-around align-items-center flex-column w-100 px-3">
               <div className="w-95 d-flex text-center justify-content-center align-items-center mx-5 ">
-                <Row className=" d-flex text-center justify-content-center align-items-center">
+                <Row className="d-flex text-center justify-content-center align-items-center">
                   <Col
                     className="col-12 col-sm-6 col-md-6"
                     style={{ backgroundColor: "white" }}
                   >
                     <Row>
                       <Col className="col-12 d-flex text-center justify-content-between align-items-cente">
-                        <div className=" d-flex text-center justify-content-center align-items-center ">
+                        <div className=" d-flex text-center justify-content-center align-items-center gap-3">
                           <Image
-                            //  className="w-20"
                             src={phone}
                             alt="Next.js Logo"
                             width="15px"
                             height="20px"
                             priority
-                          />{" "}
-                          <p className={styles.number}>(+20)1050777117</p>
+                          />
+                          <p>(+20)1050777117</p>
                         </div>
                         <button
-                          className="btn btn-outline-primary"
+                          className="btn btn-outline-primary d-flex justify-content-center align-items-center gap-2 fw-bold"
                           style={{
+                            width: "120px",
+                            height: "40px",
                             color: "#0F4392",
                             border: "1px solid #0F4392",
                           }}
                         >
                           <Image
-                            //  className="w-20"
+                            style={{ width: "14px", height: "14px" }}
                             src={phone}
                             alt="Next.js Logo"
-                            width="15px"
-                            height="20px"
-                            priority
-                            style={{ marginInline: 8 }}
                           />
                           Call Now
                         </button>
                       </Col>
                       <Col className="col-12">
-                        <div className=" d-flex text-center justify-content-center align-items-center">
+                        <div className="d-flex text-center justify-content-center align-items-center gap-3">
                           <Image
-                            //  className="w-20"
+                            style={{ width: "24px", height: "24px" }}
                             src={location}
                             alt="Next.js Logo"
-                            width="15px"
-                            height="20px"
-                            priority
-                          />{" "}
-                          <p className={styles.number}>
+                          />
+                          <p className="mt-3 text-start">
                             Tal avenu- white hills hotel, Sharm Elsheikh, Egypt
                           </p>
                         </div>
@@ -383,17 +360,16 @@ const contactus = () => {
                     </Row>
                   </Col>
                 </Row>
-                <Row className=" d-flex d-none text-center justify-content-center align-items-center ">
+                {/* <Row className=" d-flex d-none text-center justify-content-center align-items-center">
                   <Col className="col-6">
                     <div className=" d-flex text-center justify-content-center align-items-center ">
                       <Image
-                        //  className="w-20"
                         src={phone}
                         alt="Next.js Logo"
                         width="15px"
                         height="20px"
                         priority
-                      />{" "}
+                      />
                       <p className={styles.number}>(+20)1050777117</p>
                     </div>
                   </Col>
@@ -403,14 +379,13 @@ const contactus = () => {
                       style={{ color: "#0F4392", border: "1px solid #0F4392" }}
                     >
                       <Image
-                        //  className="w-20"
                         src={phone}
                         alt="Next.js Logo"
                         width="15px"
                         height="20px"
                         priority
                         style={{ marginInline: 8 }}
-                      />{" "}
+                      />
                       Call Now
                     </button>
                   </Col>
@@ -433,10 +408,13 @@ const contactus = () => {
                       </Col>
                     </Row>
                   </Col>
-                </Row>
+                </Row> */}
               </div>
 
-              <div style={{ width: "95%" }} onClick={() => setOpen(true)}>
+              <div
+                style={{ width: "100%", marginBottom: "20px" }}
+                onClick={() => setOpen(true)}
+              >
                 <ButtonRequestOrder
                   txtColor="white"
                   bckColor="#0F4392"
@@ -472,12 +450,9 @@ const contactus = () => {
           </Sheet>
         </div>
       </main>
-      <div className="d-block d-sm-none">
-        <BottomNav />
-      </div>
-      <div className="d-none d-sm-block ">
-        <FooterDesk />
-      </div>
+
+      <FooterDesk />
+      <Support />
     </>
   );
 };

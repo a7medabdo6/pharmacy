@@ -68,7 +68,7 @@ const NavBarMobail = ({
       </div>
       <div>
         {sectionRight ? (
-          <div className="d-flex justify-content-center align-items-center gap-3">
+          <div className="d-flex justify-content-center align-items-center gap-2">
             {user ? (
               <>
                 <Link href="/Notifications" className="position-relative">
@@ -114,7 +114,7 @@ const NavBarMobail = ({
               <>
                 <Link
                   href={"/login"}
-                  className="btn btn-outline-success me-2"
+                  className="btn btn-outline-success me-2 d-none d-md-block"
                   style={{
                     backgroundColor: "white",
                     borderColor: "#0F4392",
@@ -125,8 +125,9 @@ const NavBarMobail = ({
                   sign in
                 </Link>
 
-                <button
-                  className="btn btn-outline-success"
+                <Link
+                  href={"/register"}
+                  className="btn btn-outline-success d-none d-md-block"
                   style={{
                     color: "white",
                     backgroundColor: "#0F4392",
@@ -135,7 +136,33 @@ const NavBarMobail = ({
                   type="submit"
                 >
                   sign up
-                </button>
+                </Link>
+
+                <Link
+                  href={"/login"}
+                  className="btn btn-sm btn-outline-success me-1 px-1 d-block d-md-none"
+                  style={{
+                    backgroundColor: "white",
+                    borderColor: "#0F4392",
+                    color: "#0F4392",
+                    width: "55px",
+                  }}
+                >
+                  sign in
+                </Link>
+
+                <Link
+                  href={"/register"}
+                  className="btn btn-sm btn-outline-success d-block d-md-none"
+                  style={{
+                    color: "white",
+                    backgroundColor: "#0F4392",
+                    width: "55px",
+                  }}
+                  type="submit"
+                >
+                  sign up
+                </Link>
               </>
             )}
           </div>

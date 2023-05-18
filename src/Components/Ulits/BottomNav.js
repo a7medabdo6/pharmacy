@@ -27,6 +27,7 @@ const BottomNav = () => {
         height: "80px",
         bottom: 0,
         left: 0,
+        zIndex: "11111111",
         backgroundColor: "white",
         boxShadow: "0px -18px 40px rgba(0, 0, 0, 0.12)",
         display: "flex",

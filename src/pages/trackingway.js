@@ -9,6 +9,8 @@ import vector from "../assets/img/vector.png";
 import Group from "../assets/img/Group.png";
 import NavBar from "../Components/desk/NavBar";
 import FooterDesk from "../Components/desk/FooterDesk";
+import WriteReview from "../Components/Ulits/WriteReview";
+import Support from "../Components/Ulits/Support";
 
 const trackingway = () => {
   const [value, setvalue] = useState(0);
@@ -190,6 +192,8 @@ const trackingway = () => {
         </div>
       </main>
       <FooterDesk />
+      <WriteReview />
+      <Support />
     </>
   );
 };
