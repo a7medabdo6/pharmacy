@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import NavBar from "../../../Components/desk/NavBar";
-import FooterDesk from "../../../Components/desk/FooterDesk";
 import NavBarMobail from "../../../Components/desk/NavBarMobail";
 import Image from "next/image";
 import { Breadcrumb, Col, Container, Row } from "react-bootstrap";
@@ -10,9 +9,10 @@ import SliderProductDetails from "../../../Components/products/SliderProductDeta
 import Quantity from "../../../Components/Ulits/Quantity";
 import accept from "../../../assets/img/mobile-accept_major.png";
 import WriteReview from "../../../Components/Ulits/WriteReview";
-import { Support } from "@mui/icons-material";
+import Support from "../../../Components/Ulits/Support";
 import { useRouter } from "next/router";
 import gettAllProducts from "../../../Apis/products";
+import FooterDesk from "../../../Components/desk/FooterDesk";
 
 const products = () => {
   const [isOpen, setOpen] = useState(false);

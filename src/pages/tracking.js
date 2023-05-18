@@ -7,13 +7,14 @@ import ButtonTrack from "../Components/tracking/ButtonTrack";
 import Image from "next/image";
 import Group2 from "../assets/img/Group2.png";
 import vector from "../assets/img/vector.png";
+import NavBarMobail from "../Components/desk/NavBarMobail";
 
 const tracking = () => {
   const [value, setvalue] = useState(70);
   return (
     <main className={styles.main} style={{ backgroundColor: "#EDEDED" }}>
       <div className="w-100 text-center d-flex justify-content-center align-items-center flex-column">
-        <Header title="Order tracking" />
+        <NavBarMobail titlePage="Order tracking" />
         <StepProgress value={value} />
         <div className="w-100 text-center d-flex justify-content-center align-items-center flex-column">
           {value === 35 ? (

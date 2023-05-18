@@ -11,6 +11,7 @@ import Link from "next/link";
 import { GetHotels, GetRooms, Register } from "../Apis/Auth";
 import frame from "../assets/desk/Frame.png";
 import well from "../assets/desk/well.png";
+import BottomNav from "../Components/Ulits/BottomNav";
 
 export default function Home() {
   const [password, setpassword] = useState("");

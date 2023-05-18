@@ -80,9 +80,9 @@ export default function Main() {
       <div className="container text-center mt-0 mt-md-3 pb-4">
         <SerachBar showBigScreen={true} />
         <div className="d-sm-none">
-          <main style={{ backgroundColor: "#EDEDED" }}>
+          <main style={{ backgroundColor: "#eaeaea" }}>
             <div className="d-flex justify-content-center align-items-center flex-column">
-              <NavBarMobail logo={true} sectionRight={true} bgColor="#EDEDED" />
+              <NavBarMobail logo={true} sectionRight={true} bgColor="#eaeaea" />
               <SerachBar showBigScreen={false} />
 
               <div ref={sliderRef} className="keen-slider mt-2">

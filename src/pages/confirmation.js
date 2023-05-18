@@ -42,7 +42,7 @@ const confirmation = () => {
         style={{ backgroundColor: "#eaeaea", width: "100%", margin: "auto" }}
         className="d-flex justify-content-center align-items-center flex-column"
       >
-        <div className="d-block d-sm-none w-100">
+        <div className="d-block d-sm-none w-100 padding-bottom-sm">
           <NavBarMobail titlePage="Confirmation" />
           <div
             className="d-flex justify-content-center confirm-custom align-items-center flex-column mt-3 p-0"

@@ -71,7 +71,7 @@ const EditInfo = () => {
     getRoomsData();
   }, []);
   return (
-    <>
+    <div className="padding-bottom-sm">
       <NavBar />
       <NavBarMobaile titlePage="Edit Info" />
 
@@ -101,7 +101,7 @@ const EditInfo = () => {
                 Edit Info
               </h2>
               <form
-                className="d-flex justify-content-center  flex-column"
+                className="d-flex justify-content-center flex-column"
                 style={{ width: "90%" }}
               >
                 <div className="form-group m-2">
@@ -187,7 +187,7 @@ const EditInfo = () => {
       </div>
       <WriteReview />
       <Support />
-    </>
+    </div>
   );
 };
 

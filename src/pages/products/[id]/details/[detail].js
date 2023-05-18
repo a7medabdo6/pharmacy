@@ -10,7 +10,8 @@ import SliderProductDetails from "../../../../Components/products/SliderProductD
 import Quantity from "../../../../Components/Ulits/Quantity";
 import accept from "../../../../assets/img/mobile-accept_major.png";
 import WriteReview from "../../../../Components/Ulits/WriteReview";
-import { Support } from "@mui/icons-material";
+import Support from "../../../../Components/Ulits/Support";
+import BottomNav from "../../../../Components/Ulits/BottomNav";
 
 const productdetails = () => {
   const [isOpen, setOpen] = useState(false);
@@ -126,7 +127,6 @@ const productdetails = () => {
           </Col>
         </Row>
       </Container>
-
       <FooterDesk />
 
       <WriteReview />

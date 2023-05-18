@@ -56,7 +56,7 @@ const requests = () => {
   const [promocode, setPromocode] = useState("");
   const handlePromoCode = (e) => setPromocode(e.target.value);
   return (
-    <main style={{ backgroundColor: "#EDEDED", width: "100%" }}>
+    <main style={{ backgroundColor: "#eaeaea", width: "100%" }}>
       <div className="d-block d-sm-none">
         <NavBarMobail titlePage="Requests" />
       </div>

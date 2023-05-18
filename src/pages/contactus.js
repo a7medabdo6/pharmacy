@@ -17,6 +17,7 @@ import { Breadcrumb, Col, Container, Row } from "react-bootstrap";
 import NavBarMobail from "../Components/desk/NavBarMobail";
 import FooterDesk from "../Components/desk/FooterDesk";
 import Support from "../Components/Ulits/Support";
+import BottomNav from "../Components/Ulits/BottomNav";
 
 const contactus = () => {
   const [isOpen, setOpen] = useState(false);
@@ -28,7 +29,7 @@ const contactus = () => {
       <NavBarMobail titlePage="Contact Us" />
       <main
         style={{
-          backgroundColor: "#EDEDED",
+          backgroundColor: "#eaeaea",
         }}
         className="d-flex align-items-center flex-column pb-4"
       >
@@ -450,7 +451,6 @@ const contactus = () => {
           </Sheet>
         </div>
       </main>
-
       <FooterDesk />
       <Support />
     </>

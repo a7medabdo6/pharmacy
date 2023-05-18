@@ -14,7 +14,6 @@ import styles from "@/styles/products.module.css";
 // Components
 import NavBar from "../../Components/desk/NavBar";
 import NavBarMobail from "../../Components/desk/NavBarMobail";
-import BottomNav from "../../Components/Ulits/BottomNav";
 import exit from "../../assets/img/exit.png";
 import FooterDesk from "../../Components/desk/FooterDesk";
 import SearchInput from "../../Components/products/SearchInput";
@@ -81,7 +80,7 @@ const products = () => {
           </div>
         </div>
       </div>
-      <Container className="padding-bottom-sm px-0">
+      <Container className="px-0">
         <Breadcrumb
           style={{ fontSize: "18px" }}
           className="d-none d-lg-block mt-3"
@@ -268,9 +267,6 @@ const products = () => {
           </div>
         </main>
       </Container>
-      <div className="d-block d-sm-none">
-        <BottomNav />
-      </div>
       <div className="d-none d-sm-block ">
         <FooterDesk />
       </div>

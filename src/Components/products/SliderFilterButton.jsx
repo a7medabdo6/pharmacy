@@ -16,6 +16,7 @@ const SliderFilterButton = () => {
       <Swiper
         slidesPerView={1}
         spaceBetween={10}
+        freeMode={true}
         modules={[FreeMode]}
         className="mySwiper px-2 pt-3"
       >

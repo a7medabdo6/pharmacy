@@ -12,6 +12,7 @@ import { GetHotels, GetRooms, loginUser } from "../Apis/Auth";
 import frame from "../assets/desk/Frame.png";
 import well from "../assets/desk/well.png";
 import { useRouter } from "next/router";
+import BottomNav from "@/Components/Ulits/BottomNav";
 
 export default function Home() {
   const [password, setpassword] = useState("");
@@ -31,7 +32,7 @@ export default function Home() {
     setphone(value);
   }
   return (
-    <div className=" text-center" style={{ backgroundColor: "white" }}>
+    <div className="text-center" style={{ backgroundColor: "white" }}>
       <div className="row">
         <div className="d-sm-none p-0">
           <Head>
@@ -271,6 +272,9 @@ export default function Home() {
             </div>
           </div>
         </div>
+      </div>
+      <div className="d-block d-sm-none">
+        <BottomNav />
       </div>
     </div>
   );

@@ -641,9 +641,6 @@ a {
 }
 
 @media (max-width: 576px) {
-  body {
-    padding-bottom: 80px !important;
-  }
   [class^="number-slide"],
   [class*=" number-slide"] {
     height: 200px;
