@@ -22,7 +22,7 @@ export default function Home() {
 
   const submit = async () => {
     const res = await loginUser({ password, phone });
-    if (res.token) {
+    if (res?.token) {
       router.push("/");
     }
   };
@@ -236,6 +236,8 @@ export default function Home() {
                       className="form-control mt-3 font-sm-16 py-2"
                       id="password"
                       placeholder="Write here"
+                      value={password}
+                      onChange={(e) => setpassword(e.target.value)}
                     />
                   </div>
                   <div className="form-check d-flex justify-content-between align-items-center">

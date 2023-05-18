@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -9,16 +9,72 @@ import {
 import { Col, Row } from "react-bootstrap";
 import telfast from "../../assets/img/telfast.webp";
 import Quantity from "../Ulits/Quantity";
+import PostCart from "@/Apis/Cart/PostCart";
 
-const CardOrderDesk = () => {
+const CardOrderDesk = ({item}) => {
+  const [imag, setimag] = useState(item?.product?.home_image);
+  const [count, setcount] = useState(item?.quantity);
+  const [quantity, setquantity] = useState(count);
+  const [id, setid] = useState(item?.product?.id);
+
+  const SendCartFundes = async (e) => {
+    // e.preventDefault();
+
+    const formData = {
+      product: id,
+      quantity: -1,
+    };
+
+    const res = await PostCart(formData);
+    console.log(res);
+    // if (res) setData(res);
+
+    return res;
+  };
+
+  const SendCartFunplus = async (e) => {
+    // e.preventDefault();
+
+    const formData = {
+      product: id,
+      quantity: 1,
+    };
+
+    const res = await PostCart(formData);
+    console.log(res);
+    // if (res) setData(res);
+
+    return res;
+  };
+
+  const increase = () => {
+    setid(item?.product?.id);
+
+    setcount(count + 1);
+    console.log(id);
+    console.log(item);
+    if (item) SendCartFunplus();
+  };
+  const desincrease = () => {
+    setid(item?.product?.id);
+
+    setcount(count - 1);
+    if (item) SendCartFundes();
+  };
+  const DeleteItem=()=>{
+    
+  }
   return (
     <div
-      className="w-100 d-flex justify-content-start align-items-center mt-3 pe-3"
+      className="w-100 d-block justify-content-start align-items-center mt-3 pe-3"
       style={{
         backgroundColor: "white",
         borderRadius: "10px",
         height: "164px",
         position: "relative",
+        display:"block",
+        
+
       }}
     >
       <FontAwesomeIcon
@@ -30,7 +86,9 @@ const CardOrderDesk = () => {
           top: "13px",
           right: "-5px",
           position: "absolute",
+          cursor:"pointer"
         }}
+        onClick={DeleteItem}
       />
 
       <Row className="align-items-center">
@@ -40,7 +98,7 @@ const CardOrderDesk = () => {
             style={{
               borderRadius: "5px",
               display: "flex",
-              width: "145px",
+              // width: "145px",
               height: "80%",
               justifyContent: "center",
               border: "1px solid #C9CCCF",
@@ -60,15 +118,15 @@ const CardOrderDesk = () => {
           <div>
             <div className="w-100 d-flex justify-content-between align-items-center">
               <h5 style={{ fontSize: "16px", fontWeight: "bold" }}>
-                Telfast 180mg
+                {item?.product?.name}
               </h5>
             </div>
 
             <p style={{ color: "grey", fontSize: "12px" }}>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempo Lorem ipsum dolor sit amet, co....
+            {item?.product?.description}
+
             </p>
-            <Quantity />
+            <Quantity item={item} />
           </div>
         </Col>
       </Row>

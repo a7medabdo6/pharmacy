@@ -11,16 +11,24 @@ import { useState } from "react";
 import NavBar from "../Components/desk/NavBar";
 import NavBarMobaile from "../Components/desk/NavBarMobail";
 import { useRouter } from "next/router";
-import { GetHotels, GetRooms } from "../Apis/Auth";
+import { GetHotels, GetRooms, updateUser } from "../Apis/Auth";
 import FooterDesk from "../Components/desk/FooterDesk";
 import BottomNav from "../Components/Ulits/BottomNav";
-import { Breadcrumb, Container } from "react-bootstrap";
+import { Breadcrumb, Button, Container } from "react-bootstrap";
 import WriteReview from "../Components/Ulits/WriteReview";
 import Support from "../Components/Ulits/Support";
 
 const EditInfo = () => {
   const [phone, setphone] = useState("us");
   const [hotel_id, sethotel_id] = useState(1);
+  const [name, setName] = useState(null);
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      // Perform localStorage action
+      setuser(localStorage?.getItem("user"));
+    }
+  }, []);
 
   function handleOnChange(value) {
     setphone(value);
@@ -40,6 +48,7 @@ const EditInfo = () => {
       // router.push("/");
     }
     sethotel_id(user?.hotel);
+    setName(user?.first_name);
   }, [user]);
   const [hotels, setHotels] = useState([]);
   const [rooms, setRooms] = useState([]);
@@ -54,7 +63,9 @@ const EditInfo = () => {
     setRooms(res?.results);
     return res;
   };
-
+  const callupdateUser = async () => {
+    updateUser({ id: user?.id, hotel: hotel_id, phone, name: name });
+  };
   useEffect(() => {
     getHotelsData();
     getRoomsData();

@@ -20,7 +20,7 @@ const CardInfo = ({ user }) => {
             >
               Name:{" "}
               <span style={{ color: "#DD1717", fontSize: "17px" }}>
-                Shorouq Hossam
+                {user?.first_name}
               </span>
             </p>
           </div>
@@ -40,7 +40,7 @@ const CardInfo = ({ user }) => {
             >
               Hotel:{" "}
               <span style={{ color: "#DD1717", fontSize: "17px" }}>
-                Marriott
+                {user?.hotel}
               </span>
             </p>
           </div>
@@ -50,7 +50,8 @@ const CardInfo = ({ user }) => {
               className="mb-0"
               style={{ color: "black", fontWeight: "bold", fontSize: "17px" }}
             >
-              Room Number: <span style={{ color: "#DD1717" }}>A107</span>
+              Room Number:{" "}
+              <span style={{ color: "#DD1717" }}> {user?.room}</span>
             </p>
           </div>
         </div>
@@ -61,7 +62,7 @@ const CardInfo = ({ user }) => {
             style={{ color: "black", fontWeight: "bold", fontSize: "17px" }}
           >
             Phone Number:{" "}
-            <span style={{ color: "#DD1717" }}>(+20)01202255222</span>
+            <span style={{ color: "#DD1717" }}> {user?.phone}</span>
           </p>
         </div>
       </div>

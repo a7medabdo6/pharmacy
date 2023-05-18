@@ -206,18 +206,21 @@ const NavBar = () => {
                 <div
                   className="d-flex justify-content-center align-items-center rounded-5"
                   style={{
-                    width: "50px",
-                    height: "50px",
+                    width: "40px",
+                    height: "40px",
                     backgroundColor: "#0F4392",
+                    cursor: "pointer",
                   }}
                 >
-                  <Image
-                    src={profile}
-                    alt="Next.js Logo"
-                    width={25}
-                    height={30}
-                    priority
-                  />
+                  <Link href={"/edit-info"}>
+                    <Image
+                      src={profile}
+                      alt="Next.js Logo"
+                      width={25}
+                      height={30}
+                      priority
+                    />
+                  </Link>
                 </div>
               </>
             ) : (

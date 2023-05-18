@@ -17,14 +17,16 @@ const CardInfoDesk = ({ user }) => {
             >
               Name:{" "}
               <span style={{ color: "#DD1717", fontSize: "17px" }}>
-                Shorouq Hossam
+              {user?.first_name}
+
               </span>
             </p>
             <p
               className="mb-0"
               style={{ color: "black", fontWeight: "bold", fontSize: "17px" }}
             >
-              Room Number: <span style={{ color: "#DD1717" }}>A107</span>
+              Room Number: <span style={{ color: "#DD1717" }}>                {user?.room}
+</span>
             </p>
             <div className="position-absolute top-0 end-0 d-flex justify-content-center align-items-center gap-3">
               <FontAwesomeIcon
@@ -43,7 +45,8 @@ const CardInfoDesk = ({ user }) => {
             >
               Hotel:{" "}
               <span style={{ color: "#DD1717", fontSize: "17px" }}>
-                Marriott
+              {user?.hotel}
+
               </span>
             </p>
             <p
@@ -51,7 +54,8 @@ const CardInfoDesk = ({ user }) => {
               style={{ color: "black", fontWeight: "bold", fontSize: "17px" }}
             >
               Phone Number:{" "}
-              <span style={{ color: "#DD1717" }}>(+20)01202255222</span>
+              <span style={{ color: "#DD1717" }}>                {user?.phone}
+</span>
             </p>
           </div>
         </div>
