@@ -238,7 +238,8 @@ const NavBar = () => {
                   sign in
                 </Link>
 
-                <button
+                <Link
+                  href={"/register"}
                   className="btn btn-outline-success"
                   style={{
                     color: "white",
@@ -248,7 +249,7 @@ const NavBar = () => {
                   type="submit"
                 >
                   sign up
-                </button>
+                </Link>
               </>
             )}
           </div>
