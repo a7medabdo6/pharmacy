@@ -165,11 +165,11 @@ const requests = () => {
           <h2>Your info</h2>
           <Row>
             <Col md={6}>
-              <CardInfoDesk />
+              <CardInfoDesk user={user} />
               <h2>Your orders</h2>
-              <CardOrderDesk />
-              <CardOrderDesk />
-              <CardOrderDesk />
+              {CartList?.map((item) => (
+                <CardOrderDesk item={item} />
+              ))}
             </Col>
             <Col md={6}>
               <div

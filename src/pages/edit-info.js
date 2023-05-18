@@ -11,13 +11,21 @@ import { useState } from "react";
 import NavBar from "../Components/desk/NavBar";
 import NavBarMobaile from "../Components/desk/NavBarMobail";
 import { useRouter } from "next/router";
-import { GetHotels, GetRooms } from "../Apis/Auth";
+import { GetHotels, GetRooms, updateUser } from "../Apis/Auth";
 import FooterDesk from "../Components/desk/FooterDesk";
 import BottomNav from "../Components/Ulits/BottomNav";
-import { Breadcrumb, Container } from "react-bootstrap";
+import { Breadcrumb, Button, Container } from "react-bootstrap";
 const EditInfo = () => {
   const [phone, setphone] = useState("us");
   const [hotel_id, sethotel_id] = useState(1);
+  const [name, setName] = useState(null);
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      // Perform localStorage action
+      setuser(localStorage?.getItem("user"));
+    }
+  }, []);
 
   function handleOnChange(value) {
     setphone(value);
@@ -37,6 +45,7 @@ const EditInfo = () => {
       // router.push("/");
     }
     sethotel_id(user?.hotel);
+    setName(user?.first_name);
   }, [user]);
   const [hotels, setHotels] = useState([]);
   const [rooms, setRooms] = useState([]);
@@ -51,7 +60,9 @@ const EditInfo = () => {
     setRooms(res?.results);
     return res;
   };
-
+  const callupdateUser = async () => {
+    updateUser({ id: user?.id, hotel: hotel_id, phone, name: name });
+  };
   useEffect(() => {
     getHotelsData();
     getRoomsData();
@@ -103,7 +114,8 @@ const EditInfo = () => {
                 id="exampleInputEmail1"
                 aria-describedby="emailHelp"
                 placeholder="Write here"
-                value={user?.first_name}
+                value={name}
+                onChange={(e) => setName(e.target.value)}
               />
             </div>
             <div className="form-group m-2">
@@ -150,18 +162,34 @@ const EditInfo = () => {
               </select>
             </div>
             <div className="w-100 d-flex justify-content-center align-items-center  mt-5">
-              <ButtonEditInfo
-                txtColor="#0F4392"
-                bckColor="white"
-                BRColor="#0F4392"
-                text="Discard"
-              />
-              <ButtonEditInfo
+              <Button
+                variant="outline-primary"
+                style={{
+                  minWidth: "200px",
+                  margin: "0px 10px",
+                  padding: "10px",
+                }}
+              >
+                Discard
+              </Button>
+              {/* <ButtonEditInfo
                 txtColor="white"
                 bckColor="#0F4392"
                 BRColor="#0F4392"
-                text="Save Changes  "
-              />
+                text="  "
+              /> */}
+              <Button
+                variant="primary"
+                style={{
+                  minWidth: "200px",
+                  margin: "0px 10px",
+                  padding: "10px",
+                }}
+                className=" primary"
+                onClick={callupdateUser}
+              >
+                Save Changes
+              </Button>
             </div>
           </form>
         </div>

@@ -66,3 +66,27 @@ export const GetRooms = async (credentials) => {
     console.log(error.response);
   }
 };
+export const updateUser = async (credentials) => {
+  const { showNotification } = useNotifications();
+
+  try {
+    const response = await axios.patch(
+      "http://18.130.40.220/accounts/update_profile/" + credentials?.id,
+      credentials
+    );
+    console.log(response.data);
+    localStorage.setItem("user", JSON.stringify(response.data));
+    localStorage.setItem("token", JSON.stringify(response.data.token));
+    showNotification(`User updated Successfuly`, "success");
+    return response.data;
+  } catch (error) {
+    console.log(error.response);
+    for (const key in error.response.data) {
+      showNotification(
+        `${(key.toUpperCase(), error.response.data[key])}`,
+        "error"
+      );
+    }
+    // throw new Error(error.response.data.message);
+  }
+};
