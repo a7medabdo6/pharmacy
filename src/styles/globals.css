@@ -342,10 +342,11 @@ a {
   width: 100%;
   margin: auto;
   border: unset;
-  margin: 20px;
-  padding: 20px;
+  margin-top: 40px;
+  padding: 0;
   border-radius: 10px;
   background-color: #ededed;
+  font-size: 16px;
 }
 @media only screen and (min-width: 900px) {
   .confirm-custom {
@@ -365,6 +366,7 @@ a {
     padding: 20px;
     border-radius: 10px;
     background-color: white;
+    font-size: 18px;
   }
 }
 .slide-home-image {
