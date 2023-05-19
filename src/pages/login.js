@@ -15,7 +15,7 @@ import { useRouter } from "next/router";
 import BottomNav from "@/Components/Ulits/BottomNav";
 
 export default function Home() {
-  const [password, setpassword] = useState("");
+  const [password, setpassword] = useState("eg");
   const router = useRouter();
 
   const [hotels, setHotels] = useState([]);
@@ -27,7 +27,7 @@ export default function Home() {
       router.push("/");
     }
   };
-  const [phone, setphone] = useState("us");
+  const [phone, setphone] = useState("");
   function handleOnChange(value) {
     setphone(value);
   }
@@ -258,15 +258,15 @@ export default function Home() {
                       </span>
                     </Link>
                   </div>
-                  <Link href="/verification" className="w-100">
-                    <button
-                      type="button"
-                      onClick={submit}
-                      className="btn btn-primary mt-3 w-100"
-                    >
-                      Next
-                    </button>
-                  </Link>
+                  {/* <Link href="/verification" className="w-100"> */}
+                  <button
+                    type="button"
+                    onClick={submit}
+                    className="btn btn-primary mt-3 w-100"
+                  >
+                    Next
+                  </button>
+                  {/* </Link> */}
                 </form>
               </div>
             </div>

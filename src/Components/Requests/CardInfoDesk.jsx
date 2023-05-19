@@ -48,7 +48,7 @@ const CardInfoDesk = ({ user }) => {
               {user?.hotel}
 
               </span>
-            </p>
+            </p> 
             <p
               className="mb-0"
               style={{ color: "black", fontWeight: "bold", fontSize: "17px" }}

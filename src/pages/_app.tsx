@@ -7,8 +7,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { config } from "@fortawesome/fontawesome-svg-core";
 // Tell Font Awesome to skip adding the CSS automatically 
 // since it's already imported above
-// import { NotificationContainer } from '././../Components/react-notifications/index';
-// import 'react-notifications/lib/notifications.css';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 // @ts-ignore
 // import { NotificationContainer } from 'react-notifications';
 
@@ -18,7 +18,7 @@ config.autoAddCss = false;
 export default function App({ Component, pageProps }: AppProps) {
   return   <Provider store={store}>
   <Component {...pageProps} />
-  {/* <NotificationContainer /> */}
+  <ToastContainer />
 
   </Provider>
 
