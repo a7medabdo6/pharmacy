@@ -133,7 +133,9 @@ const requests = () => {
                 className="d-flex justify-content-start flex-column align-items-center"
                 style={{ width: "100%" }}
               >
-                <CardOrder />
+                {CartList?.map((item) => (
+                  <CardOrder item={item} />
+                ))}
               </div>
 
               <div

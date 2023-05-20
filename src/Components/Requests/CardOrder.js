@@ -9,12 +9,12 @@ import {
   faCircleXmark,
   faPen,
 } from "@fortawesome/free-solid-svg-icons";
-import PostCart from "@/Apis/Cart/PostCart";
+import PostCart, { DeleteCart } from "@/Apis/Cart/PostCart";
 import Quantity from "../Ulits/Quantity";
 import { Col, Row } from "react-bootstrap";
 
 const CardOrder = ({ item }) => {
-  const [imag, setimag] = useState(item?.product?.home_image);
+  const [image, setimage] = useState(item?.product?.home_image);
   const [count, setcount] = useState(item?.quantity);
   const [quantity, setquantity] = useState(count);
   const [id, setid] = useState(item?.product?.id);
@@ -49,19 +49,9 @@ const CardOrder = ({ item }) => {
     return res;
   };
 
-  const increase = () => {
-    setid(item?.product?.id);
-
-    setcount(count + 1);
-    console.log(id);
-    console.log(item);
-    if (item) SendCartFunplus();
-  };
-  const desincrease = () => {
-    setid(item?.product?.id);
-
-    setcount(count - 1);
-    if (item) SendCartFundes();
+  const DeleteItem = () => {
+    console.log(item, "itemm");
+    DeleteCart({ id: item?.id });
   };
   return (
     <div
@@ -73,17 +63,19 @@ const CardOrder = ({ item }) => {
         position: "relative",
       }}
     >
-      <FontAwesomeIcon
-        icon={faCircleXmark}
-        style={{
-          fontSize: 15,
-          color: "red",
-          marginRight: "20px",
-          top: "13px",
-          right: "-5px",
-          position: "absolute",
-        }}
-      />
+      <div onClick={DeleteItem}>
+        <FontAwesomeIcon
+          icon={faCircleXmark}
+          style={{
+            fontSize: 15,
+            color: "red",
+            marginRight: "20px",
+            top: "13px",
+            right: "-5px",
+            position: "absolute",
+          }}
+        />
+      </div>
 
       <Row>
         <Col xs={5}>
@@ -98,7 +90,7 @@ const CardOrder = ({ item }) => {
             }}
           >
             <Image
-              src={telfast}
+              src={item?.product?.home_image}
               alt="Next.js Logo"
               width={100}
               height={116}
@@ -112,7 +104,7 @@ const CardOrder = ({ item }) => {
           <div>
             <div className="w-100 d-flex justify-content-between align-items-center">
               <h5 style={{ fontSize: "16px", fontWeight: "bold" }} className="">
-                Telfast 180mg
+                {item?.product?.name}
               </h5>
             </div>
 
@@ -120,10 +112,9 @@ const CardOrder = ({ item }) => {
               className={styles.heddin}
               style={{ color: "grey", fontSize: "12px" }}
             >
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempo Lorem ipsum dolor sit amet, co....
+              {item?.product?.description}
             </p>
-            <Quantity />
+            <Quantity item={item} />
           </div>
         </Col>
       </Row>

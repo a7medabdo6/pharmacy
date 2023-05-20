@@ -9,7 +9,7 @@ import {
 import { Col, Row } from "react-bootstrap";
 import telfast from "../../assets/img/telfast.webp";
 import Quantity from "../Ulits/Quantity";
-import PostCart from "@/Apis/Cart/PostCart";
+import PostCart, { DeleteCart } from "@/Apis/Cart/PostCart";
 
 const CardOrderDesk = ({item}) => {
   const [imag, setimag] = useState(item?.product?.home_image);
@@ -62,7 +62,8 @@ const CardOrderDesk = ({item}) => {
     if (item) SendCartFundes();
   };
   const DeleteItem=()=>{
-    
+    console.log(item,"itemm")
+    DeleteCart({id:item?.id})
   }
   return (
     <div
@@ -105,7 +106,7 @@ const CardOrderDesk = ({item}) => {
             }}
           >
             <Image
-              src={telfast}
+              src={item?.product?.home_image}
               alt="Next.js Logo"
               width={100}
               height={116}

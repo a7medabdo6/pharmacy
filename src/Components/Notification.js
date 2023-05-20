@@ -1,20 +1,21 @@
-import { useContext } from 'react';
-import { NotificationManager } from 'react-notifications';
+import { useContext } from "react";
+import { NotificationManager } from "react-notifications";
+import { ToastContainer, toast } from "react-toastify";
 
 const useNotifications = () => {
   const showNotification = (message, type) => {
     switch (type) {
-      case 'success':
-        NotificationManager.success(message);
+      case "success":
+        toast.success(message);
         break;
-      case 'warning':
-        NotificationManager.warning(message);
+      case "warning":
+        toast.warning(message);
         break;
-      case 'error':
-        NotificationManager.error(message);
+      case "error":
+        toast.error(message);
         break;
       default:
-        NotificationManager.info(message);
+        toast.info(message);
         break;
     }
   };

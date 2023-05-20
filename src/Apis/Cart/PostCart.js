@@ -33,7 +33,7 @@ async function PostCart(formdata) {
     // throw new Error(error.response.data.message);
   }
 }
-async function DeleteCart(formdata) {
+export async function DeleteCart(formdata) {
   const token = JSON.parse(localStorage.getItem("token"));
   const { showNotification } = useNotifications();
 
@@ -47,8 +47,7 @@ async function DeleteCart(formdata) {
       },
     };
     const response = await axios.delete(
-      "http://18.130.40.220/cart/cart_items/",
-      formdata,
+      `http://18.130.40.220/cart/cart_items/${formdata?.id}`,
       config
     );
     showNotification(`Item Deleted Successfuly`, "success");

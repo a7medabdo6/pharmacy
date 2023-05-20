@@ -164,21 +164,21 @@ export default function Home() {
               </form>
             </div>
           </main>
-          <Link
+          {/* <Link
             href="/verification"
             className="w-100 position-fixed bottom-0 start-0 bg-white pt-2 pb-3 px-4"
             style={{
               boxShadow: "0px -18px 40px 0px #0000001F",
             }}
+          > */}
+          <button
+            type="button"
+            onClick={submit}
+            className="btn btn-primary mt-3 w-100"
           >
-            <button
-              type="button"
-              onClick={submit}
-              className="btn btn-primary mt-3 w-100"
-            >
-              Next
-            </button>
-          </Link>
+            Next
+          </button>
+          {/* </Link> */}
         </div>
         <div className="d-none d-md-block">
           <div
@@ -313,15 +313,15 @@ export default function Home() {
                       placeholder="Write here"
                     ></select>
                   </div>
-                  <Link href="/verification" className="w-100">
-                    <button
-                      type="button"
-                      onClick={submit}
-                      className="btn btn-primary mt-3 w-100"
-                    >
-                      Next
-                    </button>
-                  </Link>
+                  {/* <Link href="/verification" className="w-100"> */}
+                  <button
+                    type="button"
+                    onClick={submit}
+                    className="btn btn-primary mt-3 w-100"
+                  >
+                    Next
+                  </button>
+                  {/* </Link> */}
                 </form>
               </div>
             </div>
