@@ -13,6 +13,7 @@ import frame from "../assets/desk/Frame.png";
 import well from "../assets/desk/well.png";
 import { useRouter } from "next/router";
 import BottomNav from "@/Components/Ulits/BottomNav";
+import { Col, Row } from "react-bootstrap";
 
 export default function Home() {
   const [password, setpassword] = useState("eg");
@@ -152,124 +153,132 @@ export default function Home() {
             className="d-flex justify-content-center align-items-center"
             style={{ minHeight: "100vh" }}
           >
-            <div className="divlogosignup">
-              <Image
-                style={{
-                  width: "381px",
-                  height: "122px",
-                }}
-                src={well}
-                alt="Next.js Logo"
-                priority
-              />
+            <Row style={{ height: "100vh" }}>
+              <Col className="col-6">
+                <div className="divlogosignup">
+                  <Image
+                    style={{
+                      width: "381px",
+                      height: "122px",
+                    }}
+                    src={well}
+                    alt="Next.js Logo"
+                    priority
+                  />
 
-              <Image
-                style={{
-                  width: "594px",
-                  height: "444px",
-                }}
-                src={frame}
-                alt="Next Logo"
-                priority
-              />
-            </div>
-
-            <div className="divsignup d-flex justify-content-end align-items-center flex-column">
-              <div className="d-flex justify-content-center align-items-center flex-column">
-                <h4 className="m-3 font-xs-16 fw-bold">
-                  Welcome to Well+ pharmacy
-                </h4>
-                <h5
-                  style={{
-                    color: "#DD1717",
-                    fontWeight: "400",
-                    marginBottom: "10px",
-                  }}
-                >
-                  live healthy … live well
-                </h5>
-              </div>
-              <div
-                className="d-flex justify-content-center align-items-center flex-column mt-4"
-                style={{
-                  backgroundColor: "rgba(15, 67, 146, 0.07)",
-                  width: "487px",
-                  borderRadius: "15px",
-                  height: "380px",
-                }}
-              >
-                <h2 style={{ color: "#0F4392" }}>Sign in</h2>
-                <div className="d-flex justify-content-center align-items-center w-100">
-                  <span>Don't have an account?</span>
-
-                  <Link href={"/register"}>
-                    <p className="m-2 fw-bold">Sign up</p>
-                  </Link>
+                  <Image
+                    style={{
+                      width: "594px",
+                      height: "444px",
+                    }}
+                    src={frame}
+                    alt="Next Logo"
+                    priority
+                  />
                 </div>
-
-                <form className="d-flex justify-content-center  flex-column w-80">
-                  <div className="form-group m-2">
-                    <label
-                      htmlFor="exampleInputPassword1"
-                      style={{ width: "100%", textAlign: "left" }}
+              </Col>
+              <Col className="col-6">
+                <div className="divsignup d-flex justify-content-end align-items-center flex-column">
+                  <div className="d-flex justify-content-center align-items-center flex-column">
+                    <h4 className="m-3 font-xs-16 fw-bold">
+                      Welcome to Well+ pharmacy
+                    </h4>
+                    <h5
+                      style={{
+                        color: "#DD1717",
+                        fontWeight: "400",
+                        marginBottom: "10px",
+                      }}
                     >
-                      Phone Number*{" "}
-                    </label>
-                    <ReactPhoneInput
-                      country={"ng"}
-                      className="mt-3 font-sm-16"
-                      value={phone}
-                      onChange={handleOnChange}
-                      id="phone"
-                    />
+                      live healthy … live well
+                    </h5>
                   </div>
-
-                  <div className="form-group m-2">
-                    <label
-                      htmlFor="exampleInputEmail1"
-                      style={{ width: "100%", textAlign: "left" }}
-                    >
-                      {" "}
-                      Password*
-                    </label>
-                    <input
-                      type="password"
-                      className="form-control mt-3 font-sm-16 py-2"
-                      id="password"
-                      placeholder="Write here"
-                      value={password}
-                      onChange={(e) => setpassword(e.target.value)}
-                    />
-                  </div>
-                  <div className="form-check d-flex justify-content-between align-items-center">
-                    <div className="remember-me">
-                      <input
-                        type="checkbox"
-                        className="form-check-input"
-                        id="remember-me"
-                      />
-                      <label htmlFor="remember-me" className="form-check-label">
-                        Remember me
-                      </label>
-                    </div>
-                    <Link href="/" className="forget-password">
-                      <span className="text-primary fs-5 fw-bold">
-                        Forget password
-                      </span>
-                    </Link>
-                  </div>
-                  {/* <Link href="/verification" className="w-100"> */}
-                  <button
-                    type="button"
-                    onClick={submit}
-                    className="btn btn-primary mt-3 w-100"
+                  <div
+                    className="d-flex justify-content-center align-items-center flex-column mt-4"
+                    style={{
+                      backgroundColor: "rgba(15, 67, 146, 0.07)",
+                      width: "487px",
+                      borderRadius: "15px",
+                      height: "380px",
+                    }}
                   >
-                    Next
-                  </button>
-                  {/* </Link> */}
-                </form>
-              </div>
-            </div>
+                    <h2 style={{ color: "#0F4392" }}>Sign in</h2>
+                    <div className="d-flex justify-content-center align-items-center w-100">
+                      <span>Don't have an account?</span>
+
+                      <Link href={"/register"}>
+                        <p className="m-2 fw-bold">Sign up</p>
+                      </Link>
+                    </div>
+
+                    <form className="d-flex justify-content-center  flex-column w-80">
+                      <div className="form-group m-2">
+                        <label
+                          htmlFor="exampleInputPassword1"
+                          style={{ width: "100%", textAlign: "left" }}
+                        >
+                          Phone Number*{" "}
+                        </label>
+                        <ReactPhoneInput
+                          country={"ng"}
+                          className="mt-3 font-sm-16"
+                          value={phone}
+                          onChange={handleOnChange}
+                          id="phone"
+                        />
+                      </div>
+
+                      <div className="form-group m-2">
+                        <label
+                          htmlFor="exampleInputEmail1"
+                          style={{ width: "100%", textAlign: "left" }}
+                        >
+                          {" "}
+                          Password*
+                        </label>
+                        <input
+                          type="password"
+                          className="form-control mt-3 font-sm-16 py-2"
+                          id="password"
+                          placeholder="Write here"
+                          value={password}
+                          onChange={(e) => setpassword(e.target.value)}
+                        />
+                      </div>
+                      <div className="form-check d-flex justify-content-between align-items-center">
+                        <div className="remember-me">
+                          <input
+                            type="checkbox"
+                            className="form-check-input"
+                            id="remember-me"
+                          />
+                          <label
+                            htmlFor="remember-me"
+                            className="form-check-label"
+                          >
+                            Remember me
+                          </label>
+                        </div>
+                        <Link href="/" className="forget-password">
+                          <span className="text-primary fs-5 fw-bold">
+                            Forget password
+                          </span>
+                        </Link>
+                      </div>
+                      {/* <Link href="/verification" className="w-100"> */}
+                      <button
+                        type="button"
+                        onClick={submit}
+                        className="btn btn-primary mt-3 w-100"
+                      >
+                        Next
+                      </button>
+                      {/* </Link> */}
+                    </form>
+                  </div>
+                </div>
+              </Col>
+            </Row>
           </div>
         </div>
       </div>

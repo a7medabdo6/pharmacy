@@ -52,8 +52,8 @@ const CardProduct = ({ item, id }) => {
           style={{
             boxShadow: "0px 18px 40px 0px rgba(0, 0, 0, 0.1)",
             borderRadius: "3px",
-            width: "237px",
-            height: "167px",
+            // width: "237px",
+            // height: "167px",
           }}
         >
           <Image
@@ -63,6 +63,7 @@ const CardProduct = ({ item, id }) => {
             alt="Next.js Logo"
             width={100}
             height={150}
+            style={{ width: "100%", height: "100%", margin: 0 }}
             priority
           />
         </div>

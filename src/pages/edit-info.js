@@ -11,7 +11,12 @@ import { useState } from "react";
 import NavBar from "../Components/desk/NavBar";
 import NavBarMobaile from "../Components/desk/NavBarMobail";
 import { useRouter } from "next/router";
-import { GetHotels, GetRooms, updateUser } from "../Apis/Auth";
+import {
+  GetHotels,
+  GetHotelsDetails,
+  GetRooms,
+  updateUser,
+} from "../Apis/Auth";
 import FooterDesk from "../Components/desk/FooterDesk";
 import BottomNav from "../Components/Ulits/BottomNav";
 import { Breadcrumb, Button, Container } from "react-bootstrap";
@@ -21,6 +26,8 @@ import Support from "../Components/Ulits/Support";
 const EditInfo = () => {
   const [phone, setphone] = useState("us");
   const [hotel_id, sethotel_id] = useState(1);
+  const [room_number, setroom_number] = useState(null);
+
   const [name, setName] = useState(null);
 
   useEffect(() => {
@@ -49,7 +56,9 @@ const EditInfo = () => {
     }
     sethotel_id(user?.hotel);
     setName(user?.first_name);
+    setroom_number(user?.room);
   }, [user]);
+
   const [hotels, setHotels] = useState([]);
   const [rooms, setRooms] = useState([]);
 
@@ -64,12 +73,23 @@ const EditInfo = () => {
     return res;
   };
   const callupdateUser = async () => {
-    updateUser({ id: user?.id, hotel: hotel_id, phone, name: name });
+    updateUser({ id: user?.id, hotel: hotel_id, phone, first_name: name });
   };
   useEffect(() => {
     getHotelsData();
     getRoomsData();
   }, []);
+  const getHotelsDataApi = async () => {
+    const res = await GetHotelsDetails({ hotel_id });
+    console.log(res);
+    setRooms(res?.rooms);
+    return res;
+  };
+  useEffect(() => {
+    if (hotel_id) {
+      getHotelsDataApi();
+    }
+  }, [hotel_id]);
   return (
     <div className="padding-bottom-sm">
       <NavBar />
@@ -113,6 +133,7 @@ const EditInfo = () => {
                     aria-describedby="emailHelp"
                     placeholder="Write here"
                     value={user?.first_name}
+                    onChange={(e) => setName(e.target.value)}
                   />
                 </div>
                 <div className="form-group m-2">
@@ -148,14 +169,17 @@ const EditInfo = () => {
                   <select
                     type="text"
                     className="form-control"
-                    onChange={(e) => setRooms(e.target.value)}
+                    onChange={(e) => setroom_number(e.target.value)}
                     id="exampleInputPassword1"
                     placeholder="Select here"
                   >
                     <option>Select Room Number</option>
                     {rooms.map((item) => (
-                      <option selected={rooms == item?.id} value={item?.id}>
-                        {item.name}
+                      <option
+                        selected={room_number == item?.id}
+                        value={item?.id}
+                      >
+                        {item.room_number}
                       </option>
                     ))}
                   </select>
@@ -167,12 +191,14 @@ const EditInfo = () => {
                     BRColor="#0F4392"
                     text="Discard"
                   />
-                  <ButtonEditInfo
-                    txtColor="white"
-                    bckColor="#0F4392"
-                    BRColor="#0F4392"
-                    text="Save Changes"
-                  />
+
+                  <button
+                    className="btn btn-primary bubbly-button p-2 m-0 w-100 fs-5"
+                    type="button"
+                    onClick={callupdateUser}
+                  >
+                    Save Changes
+                  </button>
                 </div>
               </form>
             </div>

@@ -4,7 +4,6 @@ import { useRouter } from "next/router";
 
 export const Register = async (credentials) => {
   const { showNotification } = useNotifications();
-
   try {
     const response = await axios.post(
       "http://18.130.40.220/accounts/register/",
@@ -13,11 +12,19 @@ export const Register = async (credentials) => {
     console.log(response.data);
     localStorage.setItem("user", JSON.stringify(response.data));
     localStorage.setItem("token", JSON.stringify(response.data.token));
-
+    showNotification(`User Registered Successfuly`, "success");
+    setTimeout(() => {
+      window.location.replace("/login");
+    }, 2000);
     return response.data;
   } catch (error) {
     console.log(error.response);
-    showNotification(error.response.data.message, "error");
+    for (const key in error.response.data) {
+      showNotification(
+        `${(key.toUpperCase(), error.response.data[key])}`,
+        "error"
+      );
+    }
   }
 };
 
@@ -48,6 +55,19 @@ export const loginUser = async (credentials) => {
 export const GetHotels = async (credentials) => {
   try {
     const response = await axios.get("http://18.130.40.220/hotels/");
+
+    return response.data;
+  } catch (error) {
+    console.log(error.response);
+
+    // throw new Error(error.response.data.message);
+  }
+};
+export const GetHotelsDetails = async (credentials) => {
+  try {
+    const response = await axios.get(
+      "http://18.130.40.220/hotels/" + credentials?.hotel_id
+    );
 
     return response.data;
   } catch (error) {

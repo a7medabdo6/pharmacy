@@ -22,6 +22,7 @@ const Steps = ({ imgsource, title, text, desc }) => {
         src={imgsource}
         // style={{ width: "75%", height: "50%" }}
         alt="Next.js Logo"
+        style={{ minHeight: "238px" }}
         // width={300}
         priority
       />

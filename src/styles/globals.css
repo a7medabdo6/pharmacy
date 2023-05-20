@@ -381,12 +381,12 @@ a {
   justify-content: space-evenly;
   align-items: center;
   flex-direction: column;
-  width: 50%;
-  min-height: 100vh;
+  /* width: 50%; */
+  min-height: 100%;
 }
 .divsignup {
   background: white;
-  width: 50%;
+  /* width: 50%; */
 }
 .logowell {
   width: 47%;
