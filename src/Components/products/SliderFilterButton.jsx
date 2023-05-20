@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 // Import Swiper for slider
 import { Swiper, SwiperSlide } from "swiper/react";
 // Import Swiper styles
@@ -10,7 +10,12 @@ import { FreeMode } from "swiper";
 // CSS Module
 import styles from "@/styles/products.module.css";
 
-const SliderFilterButton = () => {
+const SliderFilterButton = ({categories,setactiveCateFilter,activeCateFilter}) => {
+  useEffect(() => {
+    console.log(activeCateFilter,"activeCateFilter")
+
+  }, [activeCateFilter])
+  
   return (
     <div className="w-100 text-center d-flex justify-content-center align-items-center flex-column">
       <Swiper
@@ -21,55 +26,20 @@ const SliderFilterButton = () => {
         className="mySwiper px-2 pt-3"
       >
         <SwiperSlide className="w-100">
-          <div className={`${styles.boxLabeld} ${styles.active}`}>
+          <div onClick={()=>setactiveCateFilter("all")} className={`${styles.boxLabeld} ${activeCateFilter =="all"?styles.active :null}`}>
             <p className={styles.label}>All</p>
           </div>
         </SwiperSlide>
-        <SwiperSlide className="w-100">
-          <div className={`${styles.boxLabeld}`}>
-            <p className={styles.label}>Top 50 medicines</p>
+        {categories?.length>0 && categories?.map((item)=>{
+          return  <SwiperSlide className="w-100">
+          <div className={`${styles.boxLabeld} ${activeCateFilter ==item?.id?styles.active :null}`} onClick={()=>setactiveCateFilter(item?.id)}>
+            <p className={styles.label}> {item?.name}</p>
           </div>
         </SwiperSlide>
-        <SwiperSlide className="w-100">
-          <div className={`${styles.boxLabeld}`}>
-            <p className={styles.label}>Natural oils and herbs</p>
-          </div>
-        </SwiperSlide>
-        <SwiperSlide className="w-100">
-          <div className={`${styles.boxLabeld}`}>
-            <p className={styles.label}>Cosmtics</p>
-          </div>
-        </SwiperSlide>
-        <SwiperSlide className="w-100">
-          <div className={`${styles.boxLabeld}`}>
-            <p className={styles.label}>Vitamins</p>
-          </div>
-        </SwiperSlide>
-        <SwiperSlide className="w-100">
-          <div className={`${styles.boxLabeld}`}>
-            <p className={styles.label}>Skin care</p>
-          </div>
-        </SwiperSlide>
-        <SwiperSlide className="w-100">
-          <div className={`${styles.boxLabeld}`}>
-            <p className={styles.label}>Kids</p>
-          </div>
-        </SwiperSlide>
-        <SwiperSlide className="w-100">
-          <div className={`${styles.boxLabeld}`}>
-            <p className={styles.label}>Sun and sea</p>
-          </div>
-        </SwiperSlide>
-        <SwiperSlide className="w-100">
-          <div className={`${styles.boxLabeld}`}>
-            <p className={styles.label}>Expensive drugs</p>
-          </div>
-        </SwiperSlide>
-        <SwiperSlide className="w-100">
-          <div className={`${styles.boxLabeld}`}>
-            <p className={styles.label}>Daily essentials</p>
-          </div>
-        </SwiperSlide>
+        })}
+       
+       
+       
       </Swiper>
     </div>
   );

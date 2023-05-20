@@ -29,26 +29,46 @@ import Support from "../../Components/Ulits/Support";
 import iconfilter from "../../assets/img/iconfilter.png";
 
 // Logic Api
+import getallProducts from "../../Apis/products";
+
 import { getallProductsWithNoCategory } from "../../Apis/products";
 import SliderFilterButton from "../../Components/products/SliderFilterButton";
-
+import getAllCategories from "../../Apis/Category";
 const products = () => {
   const [isOpen, setOpen] = useState(false);
   const [products, setproducts] = useState([]);
   const router = useRouter();
   const { id } = router.query;
+  const [categories, setcateogies] = useState([]);
+  const [activeCateFilter, setactiveCateFilter] = useState("all");
 
   const snapPoints = [400, 600]; // Define the height values that the modal can snap to
 
   const getHomeData = async () => {
-    const res = await getallProductsWithNoCategory();
-    setproducts(res?.results);
+    if (activeCateFilter == "all") {
+      const res = await getallProductsWithNoCategory();
+      setproducts(res?.results);
+      return res;
+    } else {
+      const res = await getallProducts({ id: activeCateFilter });
+      setproducts(res?.results);
+      return res;
+    }
+  };
+  const getAllCategoriess = async () => {
+    const res = await getAllCategories();
+    console.log(res, "ressss");
+    setcateogies(res?.results);
     return res;
   };
 
   useEffect(() => {
     getHomeData();
+    getAllCategoriess();
   }, []);
+  useEffect(() => {
+    getHomeData();
+  }, [activeCateFilter]);
 
   return (
     <div className="product-details">
@@ -102,7 +122,11 @@ const products = () => {
           products={products}
         />
         <main className={styles.main}>
-          <SliderFilterButton />
+          <SliderFilterButton
+            categories={categories}
+            setactiveCateFilter={setactiveCateFilter}
+            activeCateFilter={activeCateFilter}
+          />
           <Row className="mt-0 mt-lg-5 w-100 mr-0" style={{ margin: 0 }}>
             <Col md={3} sm={12} className="d-none d-sm-block">
               <div

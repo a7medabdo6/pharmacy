@@ -33,12 +33,15 @@ import getallProducts, {
   getallProductsWithNoCategory,
 } from "../../../Apis/products";
 import SliderFilterButton from "../../../Components/products/SliderFilterButton";
+import getallCategories from "../../../Apis/Category";
 
 const products = () => {
   const [isOpen, setOpen] = useState(false);
   const [products, setproducts] = useState([]);
   const router = useRouter();
   const { id } = router.query;
+  const [activeCateFilter, setactiveCateFilter] = useState(id);
+  const [categories, setcateogies] = useState([]);
 
   const snapPoints = [400, 600]; // Define the height values that the modal can snap to
   console.log(id, "iddd");
@@ -47,12 +50,38 @@ const products = () => {
     setproducts(res?.results);
     return res;
   };
-
+  const getHomeDatafilter = async () => {
+    if (activeCateFilter == "all") {
+      const res = await getallProductsWithNoCategory();
+      setproducts(res?.results);
+      return res;
+    } else {
+      const res = await getallProducts({ id: activeCateFilter });
+      setproducts(res?.results);
+      return res;
+    }
+  };
   useEffect(() => {
     if (id) {
       getHomeData(id);
+      setactiveCateFilter(id);
     }
   }, [id]);
+  const getAllCategoriess = async () => {
+    const res = await getallCategories();
+    console.log(res, "ressss");
+    setcateogies(res?.results);
+    return res;
+  };
+
+  useEffect(() => {
+    getAllCategoriess();
+  }, []);
+  useEffect(() => {
+    if (activeCateFilter) {
+      getHomeDatafilter();
+    }
+  }, [activeCateFilter]);
 
   return (
     <div className="product-details">
@@ -106,7 +135,11 @@ const products = () => {
           products={products}
         />
         <main className={styles.main}>
-          <SliderFilterButton />
+          <SliderFilterButton
+            categories={categories}
+            setactiveCateFilter={setactiveCateFilter}
+            activeCateFilter={activeCateFilter}
+          />
           <Row className="mt-0 mt-lg-5 w-100 mr-0" style={{ margin: 0 }}>
             <Col md={3} sm={12} className="d-none d-sm-block">
               <div
