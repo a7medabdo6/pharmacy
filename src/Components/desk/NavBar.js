@@ -12,6 +12,7 @@ import profile from "../../assets/img/icon.png";
 const NavBar = () => {
   const [user, setuser] = useState(null);
   const [showNotify, setShowNotify] = useState(false);
+  const [showProfile, setShowProfile] = useState(false);
   const router = useRouter();
 
   useEffect(() => {
@@ -89,12 +90,10 @@ const NavBar = () => {
           <div className="d-flex justify-content-center align-items-center gap-4">
             {user ? (
               <>
-                <div
-                  className="position-relative"
-                  style={{ cursor: "pointer" }}
-                  onClick={() => setShowNotify((old) => !old)}
-                >
+                <div className="position-relative">
                   <Image
+                    style={{ cursor: "pointer" }}
+                    onClick={() => setShowNotify((old) => !old)}
                     src={alertblue}
                     alt="Next.js Logo"
                     width={30}
@@ -212,15 +211,44 @@ const NavBar = () => {
                     cursor: "pointer",
                   }}
                 >
-                  <Link href={"/edit-info"}>
+                  <div className="position-relative">
                     <Image
+                      style={{ cursor: "pointer" }}
+                      onClick={() => setShowProfile((old) => !old)}
                       src={profile}
                       alt="Next.js Logo"
                       width={25}
                       height={30}
                       priority
                     />
-                  </Link>
+                    {showProfile && (
+                      <div
+                        className="position-absolute py-3 bg-white rounded-3"
+                        style={{
+                          top: "40px",
+                          boxShadow: "0px 18px 40px 0px #00000029",
+                          right: "10px",
+                          width: "130px",
+                          fontSize: "16px",
+                          textAlign: "center",
+                          zIndex: "11111",
+                        }}
+                      >
+                        <Link href="/edit-info" className="text-black">
+                          Profile
+                        </Link>
+                        <div
+                          className="text-primary mt-2"
+                          onClick={() => {
+                            localStorage.removeItem("user");
+                            setShowProfile(null);
+                          }}
+                        >
+                          Log Out
+                        </div>
+                      </div>
+                    )}
+                  </div>
                 </div>
               </>
             ) : (
