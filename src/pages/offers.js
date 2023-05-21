@@ -1,19 +1,15 @@
 import React, { useEffect, useState } from "react";
 import styles from "@/styles/products.module.css";
-import Header from "../Components/Ulits/Header";
 import CardOffers from "../Components/Offers/CardOffers";
-import GetCart from "../Apis/Cart/GetCart";
 import NavBar from "../Components/desk/NavBar";
 import NavBarMobail from "../Components/desk/NavBarMobail";
 import SearchInput from "../Components/products/SearchInput";
 import { Breadcrumb, Col, Container, Row } from "react-bootstrap";
 import Image from "next/image";
 import iconfilter from "../assets/img/iconfilter.png";
-import exit from "../assets/img/exit.png";
 import SerachBar from "../Components/SerachBar";
 import Filter from "../Components/desk/Filter";
 import Link from "next/link";
-import CardProduct from "../Components/products/CardProduct";
 import ButtonContact from "../Components/products/ButtonContact";
 import Sheet from "react-modal-sheet";
 import DropdownFilter from "../Components/products/DropdownFilter";
@@ -22,7 +18,14 @@ import FooterDesk from "../Components/desk/FooterDesk";
 
 const offers = () => {
   const [isOpen, setOpen] = useState(false);
+  const [inLogin, setInLogin] = useState(false);
   const snapPoints = [400, 600]; // Define the height values that the modal can snap to
+
+  useEffect(() => {
+    if (localStorage.getItem("user")) {
+      setInLogin(true);
+    }
+  });
   return (
     <div>
       <NavBar />
@@ -39,7 +42,11 @@ const offers = () => {
             style={{ width: "95%" }}
             className="d-flex justify-content-between mx-3 align-items-center flex-row-reverse mt-2"
           >
-            <div onClick={() => setOpen(true)} className={styles.boxfilter}>
+            <button
+              onClick={() => setOpen(true)}
+              disabled={!inLogin}
+              className={styles.boxfilter}
+            >
               <Image
                 src={iconfilter}
                 className={styles.iconfilter}
@@ -50,7 +57,7 @@ const offers = () => {
               />
 
               <p className={styles.txtfilter}>Filter</p>
-            </div>
+            </button>
             <SearchInput />
           </div>
         </div>
@@ -244,9 +251,6 @@ const offers = () => {
         </main>
       </Container>
 
-      <div className="d-block d-sm-none">
-        <BottomNav />
-      </div>
       <div className="d-none d-sm-block ">
         <FooterDesk />
       </div>

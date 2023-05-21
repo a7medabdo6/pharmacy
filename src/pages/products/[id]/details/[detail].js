@@ -51,7 +51,13 @@ const products = () => {
       GetOneProductApi();
     }
   }, [id]);
-  const handleClick = () => setLoading(true);
+  const handleClick = () => {
+    if (user) {
+      setLoading(true);
+    } else {
+      router.push("/login");
+    }
+  };
   useEffect(() => {
     if (isLoading) {
       SendCartFun().then(() => {
@@ -144,7 +150,6 @@ const products = () => {
                 <Button
                   variant="primary"
                   className="w-95"
-                  disabled={isLoading || !user}
                   onClick={!isLoading ? handleClick : null}
                 >
                   {isLoading ? "Loading…" : "Make A Request"}

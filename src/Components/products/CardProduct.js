@@ -39,7 +39,13 @@ const CardProduct = ({ item, id }) => {
     }
   }, [isLoading]);
 
-  const handleClick = () => setLoading(true);
+  const handleClick = () => {
+    if (user) {
+      setLoading(true);
+    } else {
+      router.push("/login");
+    }
+  };
   const onCardClick = () => {
     router.push(`/products/${id}/details/${item?.id}`);
     dispatch(setProductDetails(item));
@@ -81,7 +87,6 @@ const CardProduct = ({ item, id }) => {
       <Button
         variant="primary"
         className="w-95"
-        disabled={isLoading || !user}
         onClick={!isLoading ? handleClick : null}
       >
         {isLoading ? "Loading…" : "Make A Request"}

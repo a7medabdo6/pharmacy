@@ -38,6 +38,7 @@ const products = () => {
   const [isOpen, setOpen] = useState(false);
   const [products, setproducts] = useState([]);
   const router = useRouter();
+  const [inLogin, setInLogin] = useState(false);
   const { id } = router.query;
   const [categories, setcateogies] = useState([]);
   const [activeCateFilter, setactiveCateFilter] = useState("all");
@@ -65,6 +66,10 @@ const products = () => {
   useEffect(() => {
     getHomeData();
     getAllCategoriess();
+
+    if (localStorage.getItem("user")) {
+      setInLogin(true);
+    }
   }, []);
   useEffect(() => {
     getHomeData();
@@ -79,12 +84,16 @@ const products = () => {
         }}
       >
         <NavBarMobail titlePage="Our products" />
-        <div className="w-100 py-4 d-flex justify-content-center d-block d-sm-none align-items-center flex-column">
+        <div className="w-100 py-4 d-flex justify-content-center d-flex d-sm-none align-items-center flex-column">
           <div
             style={{ width: "95%" }}
             className="d-flex justify-content-between mx-3 align-items-center flex-row-reverse mt-2"
           >
-            <div onClick={() => setOpen(true)} className={styles.boxfilter}>
+            <button
+              onClick={() => setOpen(true)}
+              disabled={!inLogin}
+              className={styles.boxfilter}
+            >
               <Image
                 src={iconfilter}
                 className={styles.iconfilter}
@@ -95,7 +104,7 @@ const products = () => {
               />
 
               <p className={styles.txtfilter}>Filter</p>
-            </div>
+            </button>
             <SearchInput setProducts={setproducts} />
           </div>
         </div>
