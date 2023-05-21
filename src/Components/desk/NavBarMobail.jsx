@@ -17,6 +17,7 @@ const NavBarMobail = ({
   bgColor = "#0F4392",
 }) => {
   const [user, setuser] = useState(null);
+  const [showProfile, setShowProfile] = useState(false);
   const router = useRouter();
 
   const handleGoBack = () => {
@@ -101,13 +102,47 @@ const NavBarMobail = ({
                     height: "40px",
                   }}
                 >
-                  <Image
-                    src={logo ? userSvg : profile}
-                    alt="Next.js Logo"
-                    width={30}
-                    height={30}
-                    priority
-                  />
+                  <div className="position-relative">
+                    <Image
+                      style={{ cursor: "pointer" }}
+                      onClick={() => setShowProfile((old) => !old)}
+                      src={logo ? userSvg : profile}
+                      alt="Next.js Logo"
+                      width={30}
+                      height={30}
+                      priority
+                    />
+
+                    {showProfile && (
+                      <div
+                        className="position-absolute py-3 bg-white rounded-3"
+                        style={{
+                          top: "40px",
+                          boxShadow: "0px 18px 40px 0px #00000029",
+                          right: "10px",
+                          width: "130px",
+                          fontSize: "16px",
+                          textAlign: "center",
+                          zIndex: "11111",
+                        }}
+                      >
+                        <Link href="/edit-info" className="text-black">
+                          Profile
+                        </Link>
+                        <div
+                          className="text-primary mt-2"
+                          onClick={() => {
+                            localStorage.removeItem("user");
+                            setShowProfile(null);
+                            setuser(null);
+                            router.push("/");
+                          }}
+                        >
+                          Log Out
+                        </div>
+                      </div>
+                    )}
+                  </div>
                 </div>
               </>
             ) : (

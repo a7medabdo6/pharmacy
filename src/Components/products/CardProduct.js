@@ -11,6 +11,7 @@ import PostCart from "../../Apis/Cart/PostCart";
 import { Button } from "react-bootstrap";
 
 const CardProduct = ({ item, id }) => {
+  const [user, setUser] = useState(false);
   const dispatch = useDispatch();
   const router = useRouter();
   const [isLoading, setLoading] = useState(false);
@@ -31,6 +32,10 @@ const CardProduct = ({ item, id }) => {
       SendCartFun().then(() => {
         setLoading(false);
       });
+    }
+
+    if (localStorage.getItem("user")) {
+      setUser(true);
     }
   }, [isLoading]);
 
@@ -76,7 +81,7 @@ const CardProduct = ({ item, id }) => {
       <Button
         variant="primary"
         className="w-95"
-        disabled={isLoading}
+        disabled={isLoading || !user}
         onClick={!isLoading ? handleClick : null}
       >
         {isLoading ? "Loading…" : "Make A Request"}

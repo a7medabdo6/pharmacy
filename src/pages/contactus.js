@@ -18,11 +18,19 @@ import NavBarMobail from "../Components/desk/NavBarMobail";
 import FooterDesk from "../Components/desk/FooterDesk";
 import Support from "../Components/Ulits/Support";
 import BottomNav from "../Components/Ulits/BottomNav";
+import { useEffect } from "react";
 
 const contactus = () => {
   const [isOpen, setOpen] = useState(false);
   const snapPoints = [400, 600]; // Define the height values that the modal can snap to
 
+  const [isLogin, setIsLogin] = useState(false);
+
+  useEffect(() => {
+    if (localStorage.getItem("user")) {
+      setIsLogin(true);
+    }
+  }, []);
   return (
     <>
       <NavBar />
@@ -138,6 +146,7 @@ const contactus = () => {
                                     color: "#0F4392",
                                     border: "1px solid #0F4392",
                                   }}
+                                  disabled={!isLogin}
                                 >
                                   <Image
                                     style={{ width: "14px", height: "14px" }}
@@ -191,6 +200,7 @@ const contactus = () => {
                                 height="20px"
                                 priority
                                 style={{ marginInline: 8 }}
+                                disabled={!isLogin}
                               />
                               Call Now
                             </button>
@@ -199,7 +209,6 @@ const contactus = () => {
                             <Row>
                               <Col className="col-1">
                                 <Image
-                                  //  className="w-20"
                                   src={location}
                                   alt="Next.js Logo"
                                   width="15px"
@@ -220,13 +229,18 @@ const contactus = () => {
 
                       <div
                         style={{ width: "95%" }}
-                        onClick={() => setOpen(true)}
+                        onClick={() => {
+                          if (isLogin) {
+                            setOpen(true);
+                          }
+                        }}
                       >
                         <ButtonRequestOrder
                           txtColor="white"
                           bckColor="#0F4392"
                           BRColor="#0F4392"
                           text="Request a call"
+                          isLogin={isLogin}
                         />
                       </div>
                     </div>
@@ -268,7 +282,6 @@ const contactus = () => {
             </p>
             <div className="w-100 text-center d-flex justify-content-center align-items-center">
               <Image
-                //  className="w-20"
                 src={telegram}
                 style={{ margin: "10px" }}
                 alt="Next.js Logo"
@@ -277,7 +290,6 @@ const contactus = () => {
                 priority
               />
               <Image
-                //  className="w-20"
                 src={whatsapp}
                 style={{ margin: "10px" }}
                 alt="Next.js Logo"
@@ -286,7 +298,6 @@ const contactus = () => {
                 priority
               />
               <Image
-                //  className="w-20"
                 src={messenger}
                 style={{ margin: "10px" }}
                 alt="Next.js Logo"
@@ -295,7 +306,6 @@ const contactus = () => {
                 priority
               />
               <Image
-                //  className="w-20"
                 src={viber}
                 style={{ margin: "10px" }}
                 alt="Next.js Logo"
@@ -337,6 +347,7 @@ const contactus = () => {
                             color: "#0F4392",
                             border: "1px solid #0F4392",
                           }}
+                          disabled={!isLogin}
                         >
                           <Image
                             style={{ width: "14px", height: "14px" }}
@@ -414,13 +425,18 @@ const contactus = () => {
 
               <div
                 style={{ width: "100%", marginBottom: "20px" }}
-                onClick={() => setOpen(true)}
+                onClick={() => {
+                  if (isLogin) {
+                    setOpen(true);
+                  }
+                }}
               >
                 <ButtonRequestOrder
                   txtColor="white"
                   bckColor="#0F4392"
                   BRColor="#0F4392"
                   text="Request a call"
+                  isLogin={isLogin}
                 />
               </div>
             </div>
@@ -439,7 +455,9 @@ const contactus = () => {
             <Sheet.Container className={styles.bottomsheet}>
               <Sheet.Header />
               <div className="w-100 d-flex  justify-content-center align-items-center">
-                <h4 style={{ color: "#0F4392" }}>Request a call</h4>
+                <h4 style={{ color: "#0F4392" }} isLogin={isLogin}>
+                  Request a call
+                </h4>
               </div>
 
               <Sheet.Content>

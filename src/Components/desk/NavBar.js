@@ -242,6 +242,8 @@ const NavBar = () => {
                           onClick={() => {
                             localStorage.removeItem("user");
                             setShowProfile(null);
+                            setuser(null);
+                            router.push("/");
                           }}
                         >
                           Log Out

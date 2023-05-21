@@ -110,9 +110,11 @@ export default function Home() {
                   <input
                     type="password"
                     className="form-control mt-2 font-sm-16 py-1"
-                    style={{ fontSize: "16px", color: "#BDBDBD" }}
+                    style={{ fontSize: "16px" }}
                     id="name"
                     placeholder="Write here"
+                    value={password}
+                    onChange={(e) => setpassword(e.target.value)}
                   />
                 </div>
 
@@ -143,7 +145,13 @@ export default function Home() {
                   </Link>
                 </div>
 
-                <button className="btn btn-primary mt-4 fs-5">Sign in</button>
+                <button
+                  type="button"
+                  className="btn btn-primary mt-4 fs-5"
+                  onClick={submit}
+                >
+                  Sign in
+                </button>
               </form>
             </div>
           </main>
@@ -211,7 +219,7 @@ export default function Home() {
                       </Link>
                     </div>
 
-                    <form className="d-flex justify-content-center  flex-column w-80">
+                    <form className="d-flex justify-content-center flex-column w-80">
                       <div className="form-group m-2">
                         <label
                           htmlFor="exampleInputPassword1"
@@ -233,7 +241,6 @@ export default function Home() {
                           htmlFor="exampleInputEmail1"
                           style={{ width: "100%", textAlign: "left" }}
                         >
-                          {" "}
                           Password*
                         </label>
                         <input
@@ -271,7 +278,7 @@ export default function Home() {
                         onClick={submit}
                         className="btn btn-primary mt-3 w-100"
                       >
-                        Next
+                        Sign in
                       </button>
                       {/* </Link> */}
                     </form>

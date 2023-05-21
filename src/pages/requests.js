@@ -21,7 +21,10 @@ import Image from "next/image";
 import WriteReview from "@/Components/Ulits/WriteReview";
 import Support from "@/Components/Ulits/Support";
 
+import { useRouter } from "next/router";
+
 const requests = () => {
+  const router = useRouter();
   const circleStyle = {
     backgroundColor: "#0F4392",
     height: "32px",
@@ -50,6 +53,10 @@ const requests = () => {
     if (typeof window !== "undefined") {
       setuser(JSON.parse(localStorage?.getItem("user")));
     }
+
+    if (!localStorage.getItem("user")) {
+      router.push("/login");
+    }
   }, []);
 
   const [promocode, setPromocode] = useState("");
@@ -75,7 +82,7 @@ const requests = () => {
           <Breadcrumb.Item active>Requests</Breadcrumb.Item>
         </Breadcrumb>
       </Container>
-      {CartList.length > 0 && (
+      {CartList?.length > 0 && (
         <div className="d-block d-md-none">
           <div className="place-order bg-white py-3 px-2">
             <div
