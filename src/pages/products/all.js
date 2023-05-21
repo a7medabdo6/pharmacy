@@ -105,7 +105,9 @@ const products = () => {
           style={{ fontSize: "18px" }}
           className="d-none d-lg-block mt-3"
         >
-          <Breadcrumb.Item>Home</Breadcrumb.Item>
+          <Breadcrumb.Item linkAs={Link} href="/">
+            Home
+          </Breadcrumb.Item>
           <Breadcrumb.Item active>Our products</Breadcrumb.Item>
         </Breadcrumb>
 

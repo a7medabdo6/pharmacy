@@ -48,7 +48,7 @@ const CardOffers = ({ item }) => {
                 borderRadius: "3px",
               }}
             >
-              <div className={styles.discount}>- 10 %</div>
+              <div className={styles.discount + " fs-6"}>- 10 %</div>
               <Image
                 src={panadol}
                 className={`${styles.cardproductImage}`}

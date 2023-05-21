@@ -19,6 +19,7 @@ import FooterDesk from "../Components/desk/FooterDesk";
 import Support from "../Components/Ulits/Support";
 import BottomNav from "../Components/Ulits/BottomNav";
 import { useEffect } from "react";
+import Link from "next/link";
 
 const contactus = () => {
   const [isOpen, setOpen] = useState(false);
@@ -47,10 +48,18 @@ const contactus = () => {
               style={{ fontSize: "18px" }}
               className="d-none d-lg-block mt-3"
             >
-              <Breadcrumb.Item>Home</Breadcrumb.Item>
-              <Breadcrumb.Item>Our products</Breadcrumb.Item>
-              <Breadcrumb.Item>Requests</Breadcrumb.Item>
-              <Breadcrumb.Item>Confirmation</Breadcrumb.Item>
+              <Breadcrumb.Item linkAs={Link} href="/">
+                Home
+              </Breadcrumb.Item>
+              <Breadcrumb.Item linkAs={Link} href="/products/all">
+                Our products
+              </Breadcrumb.Item>
+              <Breadcrumb.Item linkAs={Link} href="/requests">
+                Requests
+              </Breadcrumb.Item>
+              <Breadcrumb.Item linkAs={Link} href="/confirmation">
+                Confirmation
+              </Breadcrumb.Item>
               <Breadcrumb.Item active>Contact us</Breadcrumb.Item>
             </Breadcrumb>
             <Row>

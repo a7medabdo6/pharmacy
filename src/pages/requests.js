@@ -22,6 +22,7 @@ import WriteReview from "@/Components/Ulits/WriteReview";
 import Support from "@/Components/Ulits/Support";
 
 import { useRouter } from "next/router";
+import Link from "next/link";
 
 const requests = () => {
   const router = useRouter();
@@ -66,9 +67,7 @@ const requests = () => {
   };
   return (
     <main style={{ backgroundColor: "#eaeaea", width: "100%" }}>
-      <div className="d-block d-sm-none">
-        <NavBarMobail titlePage="Requests" />
-      </div>
+      <NavBarMobail titlePage="Requests" />
 
       <NavBar />
 
@@ -77,8 +76,12 @@ const requests = () => {
           style={{ fontSize: "18px" }}
           className="d-none d-lg-block mt-3"
         >
-          <Breadcrumb.Item>Home</Breadcrumb.Item>
-          <Breadcrumb.Item>Our products</Breadcrumb.Item>
+          <Breadcrumb.Item linkAs={Link} href="/">
+            Home
+          </Breadcrumb.Item>
+          <Breadcrumb.Item linkAs={Link} href="/products/all">
+            Our products
+          </Breadcrumb.Item>
           <Breadcrumb.Item active>Requests</Breadcrumb.Item>
         </Breadcrumb>
       </Container>
@@ -210,6 +213,7 @@ const requests = () => {
                     />
                     <Image
                       src={circleCancel}
+                      alt=""
                       width={20}
                       height={20}
                       className="position-absolute"

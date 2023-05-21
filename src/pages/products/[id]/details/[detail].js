@@ -14,12 +14,14 @@ import { useRouter } from "next/router";
 import gettAllProducts, { GetOneProduct } from "../../../../Apis/products";
 import FooterDesk from "../../../../Components/desk/FooterDesk";
 import PostCart from "../../../../Apis/Cart/PostCart";
+import Link from "next/link";
 
 const products = () => {
   const [products, setproducts] = useState([]);
   const [isLoading, setLoading] = useState(false);
   const [response, setresponse] = useState(null);
   const [details, setDetails] = useState(null);
+  const [user, setUser] = useState(false);
   const router = useRouter();
   const { id } = router.query;
   console.log(id, "idd");
@@ -56,6 +58,9 @@ const products = () => {
         setLoading(false);
       });
     }
+    if (localStorage.getItem("user")) {
+      setUser(true);
+    }
   }, [isLoading]);
 
   console.log(products);
@@ -70,8 +75,12 @@ const products = () => {
           style={{ fontSize: "18px" }}
           className="d-none d-lg-block mt-3"
         >
-          <Breadcrumb.Item>Home</Breadcrumb.Item>
-          <Breadcrumb.Item>Our products</Breadcrumb.Item>
+          <Breadcrumb.Item linkAs={Link} href="/">
+            Home
+          </Breadcrumb.Item>
+          <Breadcrumb.Item linkAs={Link} href="/products/all">
+            Our products
+          </Breadcrumb.Item>
           <Breadcrumb.Item active>Products details</Breadcrumb.Item>
         </Breadcrumb>
         <SerachBar showBigScreen={true} />
@@ -135,7 +144,7 @@ const products = () => {
                 <Button
                   variant="primary"
                   className="w-95"
-                  disabled={isLoading}
+                  disabled={isLoading || !user}
                   onClick={!isLoading ? handleClick : null}
                 >
                   {isLoading ? "Loading…" : "Make A Request"}

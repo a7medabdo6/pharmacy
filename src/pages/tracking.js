@@ -11,6 +11,7 @@ import FooterDesk from "../Components/desk/FooterDesk";
 import WriteReview from "../Components/Ulits/WriteReview";
 import Support from "../Components/Ulits/Support";
 import { Breadcrumb, Container } from "react-bootstrap";
+import Link from "next/link";
 
 const tracking = () => {
   const [value, setvalue] = useState(0);
@@ -24,10 +25,18 @@ const tracking = () => {
           style={{ fontSize: "18px" }}
           className="d-none d-lg-block mt-3"
         >
-          <Breadcrumb.Item>Home</Breadcrumb.Item>
-          <Breadcrumb.Item>Our products</Breadcrumb.Item>
-          <Breadcrumb.Item>Requests</Breadcrumb.Item>
-          <Breadcrumb.Item>Confirmation</Breadcrumb.Item>
+          <Breadcrumb.Item linkAs={Link} href="/">
+            Home
+          </Breadcrumb.Item>
+          <Breadcrumb.Item linkAs={Link} href="/products/all">
+            Our products
+          </Breadcrumb.Item>
+          <Breadcrumb.Item linkAs={Link} href="/requests">
+            Requests
+          </Breadcrumb.Item>
+          <Breadcrumb.Item linkAs={Link} href="/confirmation">
+            Confirmation
+          </Breadcrumb.Item>
           <Breadcrumb.Item active>Order tracking</Breadcrumb.Item>
         </Breadcrumb>
         <main className="w-100 d-flex justify-content-center">
@@ -52,7 +61,7 @@ const tracking = () => {
                   <div className="w-95 text-center d-flex justify-content-center align-items-center flex-column">
                     <p>
                       Your order has een delivered successfully. We wish you
-                      speedy recovery.{" "}
+                      speedy recovery.
                     </p>
                   </div>
 
@@ -62,7 +71,6 @@ const tracking = () => {
                         className="btn  btn-primary mt-5  pr-5 pl-5"
                         style={{ fontSize: "20px", width: "90%" }}
                       >
-                        {" "}
                         Back to our products
                       </button>
                     </div>

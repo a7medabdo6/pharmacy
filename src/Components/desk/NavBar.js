@@ -96,7 +96,7 @@ const NavBar = () => {
                     onClick={() => setShowNotify((old) => !old)}
                     src={alertblue}
                     alt="Next.js Logo"
-                    width={30}
+                    width={40}
                     height={40}
                     priority
                   />
@@ -210,15 +210,15 @@ const NavBar = () => {
                     backgroundColor: "#0F4392",
                     cursor: "pointer",
                   }}
+                  onClick={() => setShowProfile((old) => !old)}
                 >
                   <div className="position-relative">
                     <Image
                       style={{ cursor: "pointer" }}
-                      onClick={() => setShowProfile((old) => !old)}
                       src={profile}
                       alt="Next.js Logo"
                       width={25}
-                      height={30}
+                      height={25}
                       priority
                     />
                     {showProfile && (

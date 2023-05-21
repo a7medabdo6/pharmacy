@@ -10,12 +10,15 @@ import { FreeMode } from "swiper";
 // CSS Module
 import styles from "@/styles/products.module.css";
 
-const SliderFilterButton = ({categories,setactiveCateFilter,activeCateFilter}) => {
+const SliderFilterButton = ({
+  categories,
+  setactiveCateFilter,
+  activeCateFilter,
+}) => {
   useEffect(() => {
-    console.log(activeCateFilter,"activeCateFilter")
+    console.log(activeCateFilter, "activeCateFilter");
+  }, [activeCateFilter]);
 
-  }, [activeCateFilter])
-  
   return (
     <div className="w-100 text-center d-flex justify-content-center align-items-center flex-column">
       <Swiper
@@ -26,20 +29,30 @@ const SliderFilterButton = ({categories,setactiveCateFilter,activeCateFilter}) =
         className="mySwiper px-2 pt-3"
       >
         <SwiperSlide className="w-100">
-          <div onClick={()=>setactiveCateFilter("all")} className={`${styles.boxLabeld} ${activeCateFilter =="all"?styles.active :null}`}>
+          <div
+            onClick={() => setactiveCateFilter("all")}
+            className={`${styles.boxLabeld} ${
+              activeCateFilter == "all" ? styles.active : null
+            }`}
+          >
             <p className={styles.label}>All</p>
           </div>
         </SwiperSlide>
-        {categories?.length>0 && categories?.map((item)=>{
-          return  <SwiperSlide className="w-100">
-          <div className={`${styles.boxLabeld} ${activeCateFilter ==item?.id?styles.active :null}`} onClick={()=>setactiveCateFilter(item?.id)}>
-            <p className={styles.label}> {item?.name}</p>
-          </div>
-        </SwiperSlide>
-        })}
-       
-       
-       
+        {categories?.length > 0 &&
+          categories?.map((item) => {
+            return (
+              <SwiperSlide className="w-100">
+                <div
+                  className={`${styles.boxLabeld} ${
+                    activeCateFilter == item?.id ? styles.active : null
+                  }`}
+                  onClick={() => setactiveCateFilter(item?.id)}
+                >
+                  <p className={styles.label}> {item?.name}</p>
+                </div>
+              </SwiperSlide>
+            );
+          })}
       </Swiper>
     </div>
   );

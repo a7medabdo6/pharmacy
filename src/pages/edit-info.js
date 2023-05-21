@@ -22,6 +22,7 @@ import BottomNav from "../Components/Ulits/BottomNav";
 import { Breadcrumb, Button, Container } from "react-bootstrap";
 import WriteReview from "../Components/Ulits/WriteReview";
 import Support from "../Components/Ulits/Support";
+import Link from "next/link";
 
 const EditInfo = () => {
   const [phone, setphone] = useState("us");
@@ -104,9 +105,15 @@ const EditInfo = () => {
             style={{ fontSize: "18px" }}
             className="d-none d-lg-block mt-3"
           >
-            <Breadcrumb.Item>Home</Breadcrumb.Item>
-            <Breadcrumb.Item>Our products</Breadcrumb.Item>
-            <Breadcrumb.Item>Requests</Breadcrumb.Item>
+            <Breadcrumb.Item linkAs={Link} href="/">
+              Home
+            </Breadcrumb.Item>
+            <Breadcrumb.Item linkAs={Link} href="/products/all">
+              Our products
+            </Breadcrumb.Item>
+            <Breadcrumb.Item linkAs={Link} href="/requests">
+              Requests
+            </Breadcrumb.Item>
             <Breadcrumb.Item active>Edit info</Breadcrumb.Item>
           </Breadcrumb>
 

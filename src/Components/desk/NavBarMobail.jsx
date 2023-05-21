@@ -34,7 +34,7 @@ const NavBarMobail = ({
 
   return (
     <div
-      className="d-flex justify-content-between align-items-center pt-4 pb-4 px-3 d-block d-md-none rounded-bottom w-100"
+      className="d-flex justify-content-between align-items-center pt-4 pb-4 px-3 d-flex d-md-none rounded-bottom w-100"
       style={{
         backgroundColor: `${bgColor}`,
       }}

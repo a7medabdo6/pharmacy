@@ -34,7 +34,7 @@ const offers = () => {
         }}
       >
         <NavBarMobail titlePage="Big deals" />
-        <div className="w-100 py-4 d-flex justify-content-center d-block d-sm-none align-items-center flex-column">
+        <div className="w-100 pt-1 pb-3 d-flex justify-content-center d-block d-sm-none align-items-center flex-column">
           <div
             style={{ width: "95%" }}
             className="d-flex justify-content-between mx-3 align-items-center flex-row-reverse mt-2"
@@ -60,7 +60,9 @@ const offers = () => {
           style={{ fontSize: "18px" }}
           className="d-none d-lg-block mt-3"
         >
-          <Breadcrumb.Item>Home</Breadcrumb.Item>
+          <Breadcrumb.Item linkAs={Link} href="/">
+            Home
+          </Breadcrumb.Item>
           <Breadcrumb.Item active>Check offers</Breadcrumb.Item>
         </Breadcrumb>
 

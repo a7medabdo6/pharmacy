@@ -5,6 +5,7 @@ import NavBarMobaile from "../Components/desk/NavBarMobail";
 import { Breadcrumb, Col, Container, Row } from "react-bootstrap";
 import WriteReview from "../Components/Ulits/WriteReview";
 import Support from "../Components/Ulits/Support";
+import Link from "next/link";
 
 const allreview = () => {
   const [open, setOpen] = useState(false);
@@ -27,7 +28,9 @@ const allreview = () => {
           style={{ fontSize: "18px" }}
           className="d-none d-lg-block mt-3"
         >
-          <Breadcrumb.Item>Home</Breadcrumb.Item>
+          <Breadcrumb.Item linkAs={Link} href="/">
+            Home
+          </Breadcrumb.Item>
           <Breadcrumb.Item active>All reviews</Breadcrumb.Item>
         </Breadcrumb>
 

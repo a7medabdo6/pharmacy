@@ -718,7 +718,6 @@ width: 100%;
   &:after {
     display: none;
     bottom: -75%;
- 
     background-size: 15% 15%, 20% 20%, 18% 18%, 20% 20%, 15% 15%, 10% 10%,
       20% 20%;
   }
