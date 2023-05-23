@@ -23,11 +23,13 @@ import { Breadcrumb, Button, Container } from "react-bootstrap";
 import WriteReview from "../Components/Ulits/WriteReview";
 import Support from "../Components/Ulits/Support";
 import Link from "next/link";
+import SizesExample from "../Components/Spinner";
 
 const EditInfo = () => {
   const [phone, setphone] = useState("us");
   const [hotel_id, sethotel_id] = useState(1);
   const [room_number, setroom_number] = useState(null);
+  const [isLoadingPage, setisLoadingPage] = useState(true);
 
   const [name, setName] = useState(null);
 
@@ -48,6 +50,7 @@ const EditInfo = () => {
       // Perform localStorage action
       setuser(JSON.parse(localStorage?.getItem("user")));
     }
+    setisLoadingPage(false);
   }, []);
   useEffect(() => {
     console.log(user, "ussser");
@@ -100,117 +103,126 @@ const EditInfo = () => {
         className="w-100 h-100 overflow-hidden pb-3"
         style={{ background: "#eaeaea" }}
       >
-        <Container>
-          <Breadcrumb
-            style={{ fontSize: "18px" }}
-            className="d-none d-lg-block mt-3"
-          >
-            <Breadcrumb.Item linkAs={Link} href="/">
-              Home
-            </Breadcrumb.Item>
-            <Breadcrumb.Item linkAs={Link} href="/products/all">
-              Our products
-            </Breadcrumb.Item>
-            <Breadcrumb.Item linkAs={Link} href="/requests">
-              Requests
-            </Breadcrumb.Item>
-            <Breadcrumb.Item active>Edit info</Breadcrumb.Item>
-          </Breadcrumb>
-
-          <div className="d-flex justify-content-center align-items-center mt-3">
-            <div
-              className="d-flex w-custom justify-content-center align-items-center flex-column my-2 bg-white py-4 rounded-3"
-              style={{
-                boxShadow: "0px 18px 40px 0px rgba(0, 0, 0, 0.12)",
-              }}
+        {isLoadingPage ? (
+          <SizesExample />
+        ) : (
+          <Container>
+            <Breadcrumb
+              style={{ fontSize: "18px" }}
+              className="d-none d-lg-block mt-3"
             >
-              <h2 style={{ color: "#0F4392" }} className="m-2">
-                Edit Info
-              </h2>
-              <form
-                className="d-flex justify-content-center flex-column"
-                style={{ width: "90%" }}
-              >
-                <div className="form-group m-2">
-                  <label htmlFor="exampleInputEmail1">Your Name*</label>
-                  <input
-                    type="text"
-                    className="form-control "
-                    id="exampleInputEmail1"
-                    aria-describedby="emailHelp"
-                    placeholder="Write here"
-                    value={user?.first_name}
-                    onChange={(e) => setName(e.target.value)}
-                  />
-                </div>
-                <div className="form-group m-2">
-                  <label htmlFor="exampleInputPassword1">Phone Number* </label>
-                  <ReactPhoneInput
-                    defaultCountry={"us"}
-                    value={user?.phone}
-                    onChange={handleOnChange}
-                    className="w-100"
-                  />
-                </div>
-                <div className="form-group m-2">
-                  <label htmlFor="exampleInputPassword1">
-                    Select Hotel Name{" "}
-                  </label>
-                  <select
-                    type="text"
-                    className="form-control"
-                    onChange={(e) => sethotel_id(e.target.value)}
-                    id="exampleInputPassword1"
-                    placeholder="Select here"
-                  >
-                    <option> Select Hotel Name</option>
-                    {hotels.map((item) => (
-                      <option selected={hotel_id == item?.id} value={item?.id}>
-                        {item.name}
-                      </option>
-                    ))}
-                  </select>
-                </div>
-                <div className="form-group m-2">
-                  <label htmlFor="exampleInputEmail1">Room Number*</label>
-                  <select
-                    type="text"
-                    className="form-control"
-                    onChange={(e) => setroom_number(e.target.value)}
-                    id="exampleInputPassword1"
-                    placeholder="Select here"
-                  >
-                    <option>Select Room Number</option>
-                    {rooms.map((item) => (
-                      <option
-                        selected={room_number == item?.id}
-                        value={item?.id}
-                      >
-                        {item.room_number}
-                      </option>
-                    ))}
-                  </select>
-                </div>
-                <div className="w-100 d-flex justify-content-center align-items-center  mt-5">
-                  <ButtonEditInfo
-                    txtColor="#0F4392"
-                    bckColor="white"
-                    BRColor="#0F4392"
-                    text="Discard"
-                  />
+              <Breadcrumb.Item linkAs={Link} href="/">
+                Home
+              </Breadcrumb.Item>
+              <Breadcrumb.Item linkAs={Link} href="/products/all">
+                Our products
+              </Breadcrumb.Item>
+              <Breadcrumb.Item linkAs={Link} href="/requests">
+                Requests
+              </Breadcrumb.Item>
+              <Breadcrumb.Item active>Edit info</Breadcrumb.Item>
+            </Breadcrumb>
 
-                  <button
-                    className="btn btn-primary bubbly-button p-2 m-0 w-100 fs-5"
-                    type="button"
-                    onClick={callupdateUser}
-                  >
-                    Save Changes
-                  </button>
-                </div>
-              </form>
+            <div className="d-flex justify-content-center align-items-center mt-3">
+              <div
+                className="d-flex w-custom justify-content-center align-items-center flex-column my-2 bg-white py-4 rounded-3"
+                style={{
+                  boxShadow: "0px 18px 40px 0px rgba(0, 0, 0, 0.12)",
+                }}
+              >
+                <h2 style={{ color: "#0F4392" }} className="m-2">
+                  Edit Info
+                </h2>
+                <form
+                  className="d-flex justify-content-center flex-column"
+                  style={{ width: "90%" }}
+                >
+                  <div className="form-group m-2">
+                    <label htmlFor="exampleInputEmail1">Your Name*</label>
+                    <input
+                      type="text"
+                      className="form-control "
+                      id="exampleInputEmail1"
+                      aria-describedby="emailHelp"
+                      placeholder="Write here"
+                      value={user?.first_name}
+                      onChange={(e) => setName(e.target.value)}
+                    />
+                  </div>
+                  <div className="form-group m-2">
+                    <label htmlFor="exampleInputPassword1">
+                      Phone Number*{" "}
+                    </label>
+                    <ReactPhoneInput
+                      defaultCountry={"us"}
+                      value={user?.phone}
+                      onChange={handleOnChange}
+                      className="w-100"
+                    />
+                  </div>
+                  <div className="form-group m-2">
+                    <label htmlFor="exampleInputPassword1">
+                      Select Hotel Name{" "}
+                    </label>
+                    <select
+                      type="text"
+                      className="form-control"
+                      onChange={(e) => sethotel_id(e.target.value)}
+                      id="exampleInputPassword1"
+                      placeholder="Select here"
+                    >
+                      <option> Select Hotel Name</option>
+                      {hotels.map((item) => (
+                        <option
+                          selected={hotel_id == item?.id}
+                          value={item?.id}
+                        >
+                          {item.name}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
+                  <div className="form-group m-2">
+                    <label htmlFor="exampleInputEmail1">Room Number*</label>
+                    <select
+                      type="text"
+                      className="form-control"
+                      onChange={(e) => setroom_number(e.target.value)}
+                      id="exampleInputPassword1"
+                      placeholder="Select here"
+                    >
+                      <option>Select Room Number</option>
+                      {rooms.map((item) => (
+                        <option
+                          selected={room_number == item?.id}
+                          value={item?.id}
+                        >
+                          {item.room_number}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
+                  <div className="w-100 d-flex justify-content-center align-items-center  mt-5">
+                    <ButtonEditInfo
+                      txtColor="#0F4392"
+                      bckColor="white"
+                      BRColor="#0F4392"
+                      text="Discard"
+                    />
+
+                    <button
+                      className="btn btn-primary bubbly-button p-2 m-0 w-100 fs-5"
+                      type="button"
+                      onClick={callupdateUser}
+                    >
+                      Save Changes
+                    </button>
+                  </div>
+                </form>
+              </div>
             </div>
-          </div>
-        </Container>
+          </Container>
+        )}
       </div>
       <div className="d-block d-sm-none w-100">
         <BottomNav />

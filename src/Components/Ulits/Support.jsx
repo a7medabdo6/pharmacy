@@ -8,7 +8,7 @@ const Support = () => {
     <Link
       href="/contactus"
       style={{
-        position: "absolute",
+        position: "fixed",
         right: "0",
         top: "85%",
         cursor: "pointer",

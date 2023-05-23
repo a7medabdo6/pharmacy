@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import starSmGold from "../../assets/img/star_sm_gold.png";
 import starSmGray from "../../assets/img/star_sm_gray.png";
 
-function Testimonialdesk({ item }) {
+function Testimonialdesk({ item, atHome = false }) {
   const [rate, setrate] = useState();
   const [img, setimg] = useState(item?.file.toString());
   console.log(img);
@@ -13,8 +13,7 @@ function Testimonialdesk({ item }) {
       style={{
         backgroundColor: "white",
         boxShadow: "0px 18px 40px rgba(0, 0, 0, 0.12)",
-        width: "366px",
-        height: "135px",
+        width: atHome ? "350px" : "unset",
       }}
     >
       <Image
@@ -36,11 +35,16 @@ function Testimonialdesk({ item }) {
           User Name
         </h3>
         <div className="d-flex mb-2 justify-content-start align-items-start gap-2 mt-3">
-          <Image src={starSmGold} alt="star" />
-          <Image src={starSmGold} alt="star" />
-          <Image src={starSmGold} alt="star" />
-          <Image src={starSmGold} alt="star" />
-          <Image src={starSmGray} alt="star" />
+          {Array(item?.rate)
+            .fill(0)
+            .map((item, i) => (
+              <Image src={starSmGold} alt="star" />
+            ))}
+          {Array(5 - item?.rate)
+            .fill(0)
+            .map((item, i) => (
+              <Image src={starSmGray} alt="star" />
+            ))}
         </div>
 
         <p className="text-dark" style={{ fontSize: "10px !important" }}>

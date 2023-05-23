@@ -16,7 +16,7 @@ import BottomNav from "@/Components/Ulits/BottomNav";
 import { Col, Row } from "react-bootstrap";
 
 export default function Home() {
-  const [password, setpassword] = useState("eg");
+  const [password, setpassword] = useState("");
   const router = useRouter();
 
   const [hotels, setHotels] = useState([]);
@@ -96,7 +96,7 @@ export default function Home() {
                     Phone Number*
                   </label>
                   <ReactPhoneInput
-                    country={"ng"}
+                    // country={"ng"}
                     className="mt-2 font-sm-16"
                     value={phone}
                     onChange={handleOnChange}
@@ -228,7 +228,7 @@ export default function Home() {
                           Phone Number*{" "}
                         </label>
                         <ReactPhoneInput
-                          country={"ng"}
+                          country={"eg"}
                           className="mt-3 font-sm-16"
                           value={phone}
                           onChange={handleOnChange}

@@ -56,7 +56,7 @@ const SliderOffer = () => {
                 description (lorem ipsum)
               </p>
               <button
-                className="btn btn-primary w-25"
+                className="btn btn-primary w-25 bubbly-button2 "
                 style={{ fontSize: "18px" }}
               >
                 Get this offer
@@ -103,7 +103,7 @@ const SliderOffer = () => {
                 description (lorem ipsum)
               </p>
               <button
-                className="btn btn-primary w-25"
+                className="btn btn-primary w-25 bubbly-button2"
                 style={{ fontSize: "18px" }}
               >
                 Get this offer
@@ -150,7 +150,7 @@ const SliderOffer = () => {
                 description (lorem ipsum)
               </p>
               <button
-                className="btn btn-primary w-25"
+                className="btn btn-primary w-25 bubbly-button2"
                 style={{ fontSize: "18px" }}
               >
                 Get this offer

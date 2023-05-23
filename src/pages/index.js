@@ -44,15 +44,18 @@ import "swiper/css/pagination";
 // import required modules
 import { FreeMode, Pagination } from "swiper";
 import Head from "next/head";
+import SizesExample from "@/Components/Spinner";
 
 export default function Main() {
   const [open, setOpen] = useState(false);
+  const [isLoading, setisLoading] = useState(true);
 
   const [phone, setphone] = useState("us");
   const [categories, setcateogies] = useState([]);
   const getHomeData = async () => {
     const res = await getallCategories();
     setcateogies(res?.results);
+    setisLoading(false);
     return res;
   };
   useEffect(() => {
@@ -78,7 +81,7 @@ export default function Main() {
   return (
     <div className="home">
       <Head>
-        <link
+        {/* <link
           rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
         />
@@ -87,205 +90,214 @@ export default function Main() {
           rel="stylesheet"
         />
         <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-        <script>AOS.init();</script>
+        <script>AOS?.init();</script> */}
       </Head>
       <NavBar />
-      <div className="container text-center mt-0 mt-md-3 pb-4">
-        <SerachBar showBigScreen={true} />
-        <div className="d-sm-none">
-          <main style={{ backgroundColor: "#eaeaea" }}>
-            <div className="d-flex justify-content-center align-items-center flex-column">
-              <NavBarMobail
-                logo={true}
-                sectionRight={true}
-                bgColor="#eaeaea"
-                className="animate__animated animate__fadeInDown"
-              />
-              <SerachBar showBigScreen={false} />
+      {isLoading ? (
+        <SizesExample />
+      ) : (
+        <>
+          <div className="container text-center mt-0 mt-md-3 pb-4">
+            <SerachBar showBigScreen={true} />
+            <div className="d-sm-none">
+              <main style={{ backgroundColor: "#eaeaea" }}>
+                <div className="d-flex justify-content-center align-items-center flex-column">
+                  <NavBarMobail
+                    logo={true}
+                    sectionRight={true}
+                    bgColor="#eaeaea"
+                    className="animate__animated animate__fadeInDown"
+                  />
+                  <SerachBar showBigScreen={false} />
 
-              <div
-                ref={sliderRef}
-                className="keen-slider mt-2 animate__animated animate__zoomIn"
-              >
-                <div
-                  className="keen-slider__slide number-slide1 fs-6 rounded-3"
-                  style={{ backgroundColor: "#0F4392", height: "165px" }}
-                >
-                  <Row>
-                    <Col xs={5}>
-                      <Image src={step1} className="w-100" />
-                    </Col>
-                    <Col xs={7}>
-                      <h4 className="text-start ms-4">How it Works</h4>
-                      <div className="d-flex flex-column align-items-start">
-                        <span style={{ fontSize: "12px" }}>Step 1</span>
-                        <h5 className="my-1 fw-normal">Select your products</h5>
-                        <span
-                          className="text-start"
-                          style={{ fontSize: "12px", lineHeight: "1.2rem" }}
-                        >
-                          You can contact our pharmacists for help and
-                          consultations
-                        </span>
-                      </div>
-                    </Col>
-                  </Row>
-                </div>
-                <div
-                  className="keen-slider__slide number-slide1 fs-6 rounded-3"
-                  style={{
-                    backgroundColor: "#0F4392",
-                    height: "165px",
-                  }}
-                >
-                  <Row>
-                    <Col xs={5}>
-                      <Image src={step1} className="w-100" />
-                    </Col>
-                    <Col xs={7}>
-                      <h4 className="text-start ms-4">How it Works</h4>
-                      <div className="d-flex flex-column align-items-start">
-                        <span style={{ fontSize: "12px" }}>Step 2</span>
-                        <h5 className="my-1 fw-normal"> confirm your order</h5>
-                        <span
-                          className="text-start"
-                          style={{ fontSize: "12px", lineHeight: "1.2rem" }}
-                        >
-                          We will contact you with prices before we ship the
-                          order to you
-                        </span>
-                      </div>
-                    </Col>
-                  </Row>
-                </div>
-                <div
-                  className="keen-slider__slide number-slide1 fs-6 rounded-3"
-                  style={{ backgroundColor: "#0F4392", height: "165px" }}
-                >
-                  <Row>
-                    <Col xs={5}>
-                      <Image src={step1} className="w-100" />
-                    </Col>
-                    <Col xs={7}>
-                      <h4 className="text-start ms-4">How it Works</h4>
-                      <div className="d-flex flex-column align-items-start">
-                        <span style={{ fontSize: "12px" }}>Step 3</span>
-                        <h5 className="my-1 fw-normal">
-                          shipment and delivery
-                        </h5>
-                        <span
-                          className="text-start"
-                          style={{ fontSize: "12px", lineHeight: "1.2rem" }}
-                        >
-                          After confirming your order price, we will deliver the
-                          order to your address
-                        </span>
-                      </div>
-                    </Col>
-                  </Row>
-                </div>
-              </div>
-
-              <div className="d-flex justify-content-between align-itmes-center w-100 pt-3 px-2">
-                <h4 className="align-start m-0 pt-2 pb-2">Big deals</h4>
-                <Link href="/">
-                  <span className="text-primary fs-6 fw-bold">
-                    Check offers
-                  </span>
-                </Link>
-              </div>
-
-              <div
-                ref={sliderRef}
-                className="keen-slider  animate__animated animate__zoomInUp"
-                style={{
-                  height: "165px",
-                }}
-              >
-                <div className="keen-slider__slide number-slide1 fs-5 bg-white rounded-3">
-                  <CardBanner />
-                </div>
-                <div className="keen-slider__slide number-slide2 fs-5 bg-white rounded-3">
-                  <CardBanner />
-                </div>
-                <div className="keen-slider__slide number-slide3 fs-5 bg-white rounded-3">
-                  <CardBanner />
-                </div>
-              </div>
-
-              <div className="d-flex justify-content-between align-items-center w-100">
-                <h4 className="align-start mt-2 mb-2 m-0 pt-3 pb-2">
-                  Categories.
-                </h4>
-                <Link
-                  href="/CategoriesViewall"
-                  className="d-flex justify-content-between align-items-center "
-                >
-                  <p
-                    className=" align-start mt-2 mb-2 m-0 pt-3 pb-2 font-weight-bold"
-                    style={{ fontWeight: "bold" }}
+                  <div
+                    ref={sliderRef}
+                    className="keen-slider mt-2 animate__animated animate__zoomIn"
                   >
-                    view all
-                  </p>
-                </Link>
-              </div>
+                    <div
+                      className="keen-slider__slide number-slide1 fs-6 rounded-3"
+                      style={{ backgroundColor: "#0F4392", height: "165px" }}
+                    >
+                      <Row>
+                        <Col xs={5}>
+                          <Image src={step1} className="w-100" />
+                        </Col>
+                        <Col xs={7}>
+                          <h4 className="text-start ms-4">How it Works</h4>
+                          <div className="d-flex flex-column align-items-start">
+                            <span style={{ fontSize: "12px" }}>Step 1</span>
+                            <h5 className="my-1 fw-normal">
+                              Select your products
+                            </h5>
+                            <span
+                              className="text-start"
+                              style={{ fontSize: "12px", lineHeight: "1.2rem" }}
+                            >
+                              You can contact our pharmacists for help and
+                              consultations
+                            </span>
+                          </div>
+                        </Col>
+                      </Row>
+                    </div>
+                    <div
+                      className="keen-slider__slide number-slide1 fs-6 rounded-3"
+                      style={{
+                        backgroundColor: "#0F4392",
+                        height: "165px",
+                      }}
+                    >
+                      <Row>
+                        <Col xs={5}>
+                          <Image src={step1} className="w-100" />
+                        </Col>
+                        <Col xs={7}>
+                          <h4 className="text-start ms-4">How it Works</h4>
+                          <div className="d-flex flex-column align-items-start">
+                            <span style={{ fontSize: "12px" }}>Step 2</span>
+                            <h5 className="my-1 fw-normal">
+                              {" "}
+                              confirm your order
+                            </h5>
+                            <span
+                              className="text-start"
+                              style={{ fontSize: "12px", lineHeight: "1.2rem" }}
+                            >
+                              We will contact you with prices before we ship the
+                              order to you
+                            </span>
+                          </div>
+                        </Col>
+                      </Row>
+                    </div>
+                    <div
+                      className="keen-slider__slide number-slide1 fs-6 rounded-3"
+                      style={{ backgroundColor: "#0F4392", height: "165px" }}
+                    >
+                      <Row>
+                        <Col xs={5}>
+                          <Image src={step1} className="w-100" />
+                        </Col>
+                        <Col xs={7}>
+                          <h4 className="text-start ms-4">How it Works</h4>
+                          <div className="d-flex flex-column align-items-start">
+                            <span style={{ fontSize: "12px" }}>Step 3</span>
+                            <h5 className="my-1 fw-normal">
+                              shipment and delivery
+                            </h5>
+                            <span
+                              className="text-start"
+                              style={{ fontSize: "12px", lineHeight: "1.2rem" }}
+                            >
+                              After confirming your order price, we will deliver
+                              the order to your address
+                            </span>
+                          </div>
+                        </Col>
+                      </Row>
+                    </div>
+                  </div>
 
-              <SliderCategory categories={categories} />
+                  <div className="d-flex justify-content-between align-itmes-center w-100 pt-3 px-2">
+                    <h4 className="align-start m-0 pt-2 pb-2">Big deals</h4>
+                    <Link href="/">
+                      <span className="text-primary fs-6 fw-bold">
+                        Check offers
+                      </span>
+                    </Link>
+                  </div>
 
-              <div className="mt-3 d-flex justify-content-start align-items-center flex-row"></div>
-              <div
-                style={{ width: "95%" }}
-                className="d-flex justify-content-between align-items-center postion-relative"
-              >
-                <h4 className=" align-start mt-2 mb-2 m-0 pt-3 pb-2">
-                  Our services.
-                </h4>
-                <Link
-                  href="/CategoriesViewall"
-                  className="d-flex justify-content-between align-items-center "
-                >
-                  <p
-                    className=" align-start mt-2 mb-2 m-0 pt-3 pb-2 font-weight-bold"
-                    style={{ fontWeight: "bold" }}
+                  <div
+                    ref={sliderRef}
+                    className="keen-slider  animate__animated animate__zoomInUp"
+                    style={{
+                      height: "165px",
+                    }}
                   >
-                    view all
-                  </p>
-                </Link>
-              </div>
+                    <div className="keen-slider__slide number-slide1 fs-5 bg-white rounded-3">
+                      <CardBanner />
+                    </div>
+                    <div className="keen-slider__slide number-slide2 fs-5 bg-white rounded-3">
+                      <CardBanner />
+                    </div>
+                    <div className="keen-slider__slide number-slide3 fs-5 bg-white rounded-3">
+                      <CardBanner />
+                    </div>
+                  </div>
 
-              <div
-                className="w-100 mt-3 d-flex justify-content-between align-items-center flex-column"
-                data-aos="fade-left"
-                data-aos-offset="500"
-                style={{ backgroundColor: "white", borderRadius: "8px" }}
-              >
-                <OurServicesCard
-                  image={Service}
-                  title="Online doctors"
-                  desc="You can consult with one of our online doctors in all specialties."
-                />
+                  <div className="d-flex justify-content-between align-items-center w-100">
+                    <h4 className="align-start mt-2 mb-2 m-0 pt-3 pb-2">
+                      Categories.
+                    </h4>
+                    <Link
+                      href="/CategoriesViewall"
+                      className="d-flex justify-content-between align-items-center "
+                    >
+                      <p
+                        className=" align-start mt-2 mb-2 m-0 pt-3 pb-2 font-weight-bold"
+                        style={{ fontWeight: "bold" }}
+                      >
+                        view all
+                      </p>
+                    </Link>
+                  </div>
 
-                <OurServicesCard
-                  image={Service2}
-                  title="Delivery to your room"
-                  desc="Make a request to receive what you want at your hotel room."
-                />
-                <OurServicesCard
-                  image={Service3}
-                  title="Call us"
-                  desc="You can call our pharmacists to request what you want or send a prescription"
-                />
-              </div>
-              <div
-                style={{ width: "95%" }}
-                className="d-flex justify-content-between align-items-center"
-                data-aos="fade-right"
-                data-aos-offset="500"
-              >
-                <h4 className=" align-start mt-2 mb-2 m-0 pt-3 pb-2">
-                  Testimonial
-                </h4>
-                {/* <Link
+                  <SliderCategory categories={categories} />
+
+                  <div className="mt-3 d-flex justify-content-start align-items-center flex-row"></div>
+                  <div
+                    style={{ width: "95%" }}
+                    className="d-flex justify-content-between align-items-center postion-relative"
+                  >
+                    <h4 className=" align-start mt-2 mb-2 m-0 pt-3 pb-2">
+                      Our services.
+                    </h4>
+                    <Link
+                      href="/CategoriesViewall"
+                      className="d-flex justify-content-between align-items-center "
+                    >
+                      <p
+                        className=" align-start mt-2 mb-2 m-0 pt-3 pb-2 font-weight-bold"
+                        style={{ fontWeight: "bold" }}
+                      >
+                        view all
+                      </p>
+                    </Link>
+                  </div>
+
+                  <div
+                    className="w-100 mt-3 d-flex justify-content-between align-items-center flex-column"
+                    // data-aos="fade-left"
+                    // data-aos-offset="500"
+                    style={{ backgroundColor: "white", borderRadius: "8px" }}
+                  >
+                    <OurServicesCard
+                      image={Service}
+                      title="Online doctors"
+                      desc="You can consult with one of our online doctors in all specialties."
+                    />
+
+                    <OurServicesCard
+                      image={Service2}
+                      title="Delivery to your room"
+                      desc="Make a request to receive what you want at your hotel room."
+                    />
+                    <OurServicesCard
+                      image={Service3}
+                      title="Call us"
+                      desc="You can call our pharmacists to request what you want or send a prescription"
+                    />
+                  </div>
+                  <div
+                    style={{ width: "95%" }}
+                    className="d-flex justify-content-between align-items-center"
+                    // data-aos="fade-right"
+                    // data-aos-offset="500"
+                  >
+                    <h4 className=" align-start mt-2 mb-2 m-0 pt-3 pb-2">
+                      Testimonial
+                    </h4>
+                    {/* <Link
                     href="/testimonials"
                     className="d-flex justify-content-between align-items-center "
                   >
@@ -293,237 +305,250 @@ export default function Main() {
                       view all
                     </p>
                   </Link> */}
-              </div>
+                  </div>
 
-              <Swiper
-                spaceBetween={30}
-                pagination={{
-                  clickable: true,
-                }}
-                modules={[Pagination]}
-                className="mySwiper"
-              >
-                <div className="w-100 d-flex justify-content-center align-items-center">
-                  {reviews?.map((item, i) => {
-                    if (i < 3) {
-                      return (
-                        <SwiperSlide>
-                          <Testimonial item={item} />;
-                        </SwiperSlide>
-                      );
-                    }
-                  })}
+                  <Swiper
+                    spaceBetween={30}
+                    pagination={{
+                      clickable: true,
+                    }}
+                    modules={[Pagination]}
+                    className="mySwiper"
+                  >
+                    <div className="w-100 d-flex justify-content-center align-items-center">
+                      {reviews?.map((item, i) => {
+                        if (i < 3) {
+                          return (
+                            <SwiperSlide>
+                              <Testimonial item={item} />;
+                            </SwiperSlide>
+                          );
+                        }
+                      })}
+                    </div>
+                  </Swiper>
                 </div>
-              </Swiper>
-            </div>
-          </main>
-        </div>
-      </div>
-      <div className="d-none d-md-block">
-        <div className="d-flex justify-content-between align-items-start flex-column position-relative w-100">
-          <div className="d-flex justify-content-start align-items-start flex-column w-100">
-            <div className="d-flex justify-content-center align-items-center flex-column mt-5 w-100">
-              <h2 style={{ color: "#0F4392" }}>How it works</h2>
-              <div className="d-flex justify-content-around align-items-center position-relative">
-                <Container>
-                  <Row>
-                    <Col>
-                      <Steps
-                        imgsource={step1}
-                        title="Step1"
-                        text="Select your products"
-                        desc="You can contact our pharmacists for help and consultations"
-                        className="animate__animated animate__fadeInLeftBig"
-                      />
-                    </Col>
-                    <Col>
-                      <Steps
-                        imgsource={step2}
-                        title="Step2"
-                        text="confirm your order"
-                        desc="We will contact you with prices before we ship the order to you"
-                        className="animate__animated animate__fadeInDownBig"
-                      />
-                    </Col>
-                    <Col>
-                      <Steps
-                        imgsource={step3}
-                        title="Step3"
-                        text="shipment and delivery"
-                        desc="After confirming your order price, we will deliver the order to your address"
-                        className="animate__animated animate__fadeInRightBig"
-                      />
-                    </Col>
-                  </Row>
-                </Container>
-              </div>
+              </main>
             </div>
           </div>
-          <div
-            className="d-flex justify-content-between align-items-center mt-5 getofferbox w-100 animate__animated animate__fadeIn"
-            style={{ height: "290px" }}
-          >
-            <div
-              style={{ width: "60%", height: "280px", marginLeft: "2%" }}
-              className="position-relative d-flex justify-content-center align-items-center"
-            >
-              <div
-                style={{ left: "-20px", zIndex: "111" }}
-                className="position-absolute"
-              >
-                <Image
-                  src={maik}
-                  style={{ width: "100%", height: "100%" }}
-                  alt="Next.js Logo"
-                  height={50}
-                  width={50}
-                  priority
-                />
+          <div className="d-none d-md-block">
+            <div className="d-flex justify-content-between align-items-start flex-column position-relative w-100">
+              <div className="d-flex justify-content-start align-items-start flex-column w-100">
+                <div className="d-flex justify-content-center align-items-center flex-column mt-5 w-100">
+                  <h2 style={{ color: "#0F4392" }}>How it works</h2>
+                  <div className="d-flex justify-content-around align-items-center position-relative">
+                    <Container>
+                      <Row>
+                        <Col>
+                          <Steps
+                            imgsource={step1}
+                            title="Step1"
+                            text="Select your products"
+                            desc="You can contact our pharmacists for help and consultations"
+                            className="animate__animated animate__fadeInLeftBig"
+                          />
+                        </Col>
+                        <Col>
+                          <Steps
+                            imgsource={step2}
+                            title="Step2"
+                            text="confirm your order"
+                            desc="We will contact you with prices before we ship the order to you"
+                            className="animate__animated animate__fadeInDownBig"
+                          />
+                        </Col>
+                        <Col>
+                          <Steps
+                            imgsource={step3}
+                            title="Step3"
+                            text="shipment and delivery"
+                            desc="After confirming your order price, we will deliver the order to your address"
+                            className="animate__animated animate__fadeInRightBig"
+                          />
+                        </Col>
+                      </Row>
+                    </Container>
+                  </div>
+                </div>
               </div>
               <div
-                style={{ width: "100%", height: "95%" }}
-                className="position-absolute"
+                className="d-flex justify-content-between align-items-center mt-5 getofferbox w-100 animate__animated animate__fadeIn"
+                style={{ height: "290px" }}
               >
-                <Image
-                  src={line}
-                  style={{ width: "100%", height: "100%" }}
-                  alt="Next.js Logo"
-                  priority
-                />
-              </div>
-              <SliderOffer />
-            </div>
-            <div style={{ marginRight: "12rem" }}>
-              <Image
-                src={cart}
-                alt="Next.js Logo"
-                width={200}
-                height={180}
-                priority
-              />
-            </div>
-          </div>
-
-          <Container>
-            <div
-              className="d-flex flex-column justify-content-center align-items-center mt-5 w-100"
-              data-aos="fade-up"
-              style={{
-                height: "310px",
-              }}
-            >
-              <h2 style={{ marginBottom: "20px", color: "#0F4392" }}>
-                Categories
-              </h2>
-              <div className="slider-category w-100 h-100 ps-3">
-                <Swiper
-                  slidesPerView={6.5}
-                  spaceBetween={30}
-                  freeMode={true}
-                  modules={[FreeMode]}
-                  className="mySwiper"
+                <div
+                  style={{ width: "60%", height: "280px", marginLeft: "2%" }}
+                  className="position-relative d-flex justify-content-center align-items-center"
                 >
-                  {categories?.length > 0 &&
-                    categories.map((item) => (
-                      <SwiperSlide>
-                        <CategorySliderDesk item={item} text="All medicines" />
-                      </SwiperSlide>
-                    ))}
-                </Swiper>
+                  <div
+                    style={{ left: "-20px", zIndex: "111" }}
+                    className="position-absolute"
+                  >
+                    <Image
+                      src={maik}
+                      style={{ width: "100%", height: "100%" }}
+                      alt="Next.js Logo"
+                      height={50}
+                      width={50}
+                      priority
+                    />
+                  </div>
+                  <div
+                    style={{ width: "100%", height: "95%" }}
+                    className="position-absolute"
+                  >
+                    <Image
+                      src={line}
+                      style={{ width: "100%", height: "100%" }}
+                      alt="Next.js Logo"
+                      priority
+                    />
+                  </div>
+                  <SliderOffer />
+                </div>
+                <div style={{ marginRight: "12rem" }}>
+                  <Image
+                    src={cart}
+                    alt="Next.js Logo"
+                    width={200}
+                    height={180}
+                    priority
+                  />
+                </div>
               </div>
-            </div>
 
-            <div
-              className="d-flex justify-content-center align-items-center flex-column mb-5 mt-5"
-              data-aos="flip-left"
-              style={{ width: "100%" }}
-            >
-              <h2 style={{ marginBottom: 0, color: "#0F4392" }}>
-                Our services
-              </h2>
-
-              <div
-                className="d-flex justify-content-center align-items-center mt-5"
-                style={{ boxShadow: "0px 18px 40px 0px #0000001F" }}
-              >
-                <OurServicesCard
-                  image={Service}
-                  title="Online doctors"
-                  desc="You can consult with one of our online doctors in all specialties."
-                />
-                <OurServicesCard
-                  image={Service2}
-                  title="Delivery to your room"
-                  desc="Make a request to receive what you want at your hotel room."
-                />
-                <OurServicesCard
-                  image={Service3}
-                  title="Call us"
-                  desc="You can call our pharmacists to request what you want or send a prescription"
-                />
-              </div>
-            </div>
-
-            <div
-              className="d-flex justify-content-center align-items-center flex-column mb-5 mt-5"
-              data-aos="flip-down"
-            >
-              <h5 style={{ marginBottom: 0, color: "#0F4392" }}>Testimonial</h5>
-
-              <div className="d-flex justify-content-between align-items-center mt-5 mb-4 w-100">
-                <Swiper
+              <Container>
+                <div
+                  className="d-flex flex-column justify-content-center align-items-center mt-5 w-100"
+                  // data-aos="fade-up"
                   style={{
-                    height: "230px",
+                    height: "310px",
                   }}
-                  spaceBetween={30}
-                  pagination={{
-                    clickable: true,
-                  }}
-                  modules={[Pagination]}
-                  className="mySwiper"
                 >
-                  <SwiperSlide>
-                    <div className="w-100 d-flex justify-content-center align-items-center">
-                      {reviews?.map((item, i) => {
-                        if (i < 3) {
-                          return <Testimonialdesk item={item} />;
-                        }
-                      })}
-                    </div>
-                  </SwiperSlide>
-                  <SwiperSlide>
-                    <div className="w-100 d-flex justify-content-center align-items-center">
-                      {reviews?.map((item, i) => {
-                        if (i < 3) {
-                          return <Testimonialdesk item={item} />;
-                        }
-                      })}
-                    </div>
-                  </SwiperSlide>
-                </Swiper>
+                  <h2 style={{ marginBottom: "20px", color: "#0F4392" }}>
+                    Categories
+                  </h2>
+                  <div className="slider-category w-100 h-100 ps-3">
+                    <Swiper
+                      slidesPerView={6.5}
+                      spaceBetween={30}
+                      freeMode={true}
+                      modules={[FreeMode]}
+                      className="mySwiper"
+                    >
+                      {categories?.length > 0 &&
+                        categories.map((item) => (
+                          <SwiperSlide>
+                            <CategorySliderDesk
+                              item={item}
+                              text="All medicines"
+                            />
+                          </SwiperSlide>
+                        ))}
+                    </Swiper>
+                  </div>
+                </div>
+
+                <div
+                  className="d-flex justify-content-center align-items-center flex-column mb-5 mt-5"
+                  // data-aos="flip-left"
+                  style={{ width: "100%" }}
+                >
+                  <h2 style={{ marginBottom: 0, color: "#0F4392" }}>
+                    Our services
+                  </h2>
+
+                  <div
+                    className="d-flex justify-content-center align-items-center mt-5"
+                    style={{ boxShadow: "0px 18px 40px 0px #0000001F" }}
+                  >
+                    <OurServicesCard
+                      image={Service}
+                      title="Online doctors"
+                      desc="You can consult with one of our online doctors in all specialties."
+                    />
+                    <OurServicesCard
+                      image={Service2}
+                      title="Delivery to your room"
+                      desc="Make a request to receive what you want at your hotel room."
+                    />
+                    <OurServicesCard
+                      image={Service3}
+                      title="Call us"
+                      desc="You can call our pharmacists to request what you want or send a prescription"
+                    />
+                  </div>
+                </div>
+
+                <div
+                  className="d-flex justify-content-center align-items-center flex-column mb-5 mt-5"
+                  // data-aos="flip-down"
+                >
+                  <h5 style={{ marginBottom: 0, color: "#0F4392" }}>
+                    Testimonial
+                  </h5>
+
+                  <div className="d-flex justify-content-between align-items-center mt-5 mb-4 w-100">
+                    <Swiper
+                      style={{
+                        height: "230px",
+                      }}
+                      spaceBetween={30}
+                      pagination={{
+                        clickable: true,
+                      }}
+                      modules={[Pagination]}
+                      className="mySwiper"
+                    >
+                      <SwiperSlide>
+                        <div
+                          className="w-100 d-flex justify-content-center align-items-center"
+                          style={{ width: "300px" }}
+                        >
+                          {reviews?.map((item, i) => {
+                            if (i < 3) {
+                              return (
+                                <Testimonialdesk item={item} atHome={true} />
+                              );
+                            }
+                          })}
+                        </div>
+                      </SwiperSlide>
+                      <SwiperSlide>
+                        <div className="w-100 d-flex justify-content-center align-items-center">
+                          {reviews?.map((item, i) => {
+                            if (i < 3) {
+                              return <Testimonialdesk item={item} />;
+                            }
+                          })}
+                        </div>
+                      </SwiperSlide>
+                    </Swiper>
+                  </div>
+                </div>
+              </Container>
+
+              <div
+                className="mt-3 d-flex justify-content-center align-items-center flex-column w-100"
+                style={{ width: "100%" }}
+              >
+                <Link href="/testimonials">
+                  <p
+                    style={{
+                      color: "#0F4392",
+                      fontSize: "16px !important",
+                      marginBottom: "10px",
+                      fontWeight: "bold",
+                    }}
+                  >
+                    Check all reviews
+                  </p>
+                </Link>
               </div>
             </div>
-          </Container>
-
-          <div
-            className="mt-3 d-flex justify-content-center align-items-center flex-column w-100"
-            style={{ width: "100%" }}
-          >
-            <Link href="/testimonials">
-              <p
-                style={{
-                  color: "#0F4392",
-                  fontSize: "16px !important",
-                  marginBottom: "10px",
-                  fontWeight: "bold",
-                }}
-              >
-                Check all reviews
-              </p>
-            </Link>
           </div>
-        </div>
-      </div>
+        </>
+      )}
+
       <FooterDesk />
 
       <div className="d-block d-sm-none">
