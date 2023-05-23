@@ -54,12 +54,8 @@ const contactus = () => {
               <Breadcrumb.Item linkAs={Link} href="/products/all">
                 Our products
               </Breadcrumb.Item>
-              <Breadcrumb.Item linkAs={Link} href="/requests">
-                Requests
-              </Breadcrumb.Item>
-              <Breadcrumb.Item linkAs={Link} href="/confirmation">
-                Confirmation
-              </Breadcrumb.Item>
+              
+
               <Breadcrumb.Item active>Contact us</Breadcrumb.Item>
             </Breadcrumb>
             <Row>
