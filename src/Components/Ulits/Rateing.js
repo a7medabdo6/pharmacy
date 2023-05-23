@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import Image from "next/image";
 import terrible from "../../assets/img/star_terrible.png";
 import bad from "../../assets/img/star_bad.png";
@@ -11,12 +11,9 @@ import okGold from "../../assets/img/okGold.png";
 import goodGold from "../../assets/img/goodGold.png";
 import greetGold from "../../assets/img/greetGold.png";
 
-const Rateing = () => {
-  const [rating, setRating] = useState(0);
-
+const Rateing = ({ rate, setRate }) => {
   const handleStarClick = (selectedRating) => {
-    setRating(selectedRating);
-    console.log(selectedRating);
+    setRate(selectedRating);
   };
 
   const renderStars = () => {
@@ -35,7 +32,7 @@ const Rateing = () => {
         >
           <Image
             key={index}
-            src={index + 1 === rating ? item.targetImg : item.imgSrc}
+            src={index + 1 === rate ? item.targetImg : item.imgSrc}
             alt={item.nameImg}
           />
           <span className="fs-6 fw-bolder mt-1">{item.nameImg}</span>

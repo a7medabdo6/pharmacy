@@ -1,8 +1,4 @@
-import Head from "next/head";
 import Image from "next/image";
-
-import styles from "@/styles/verification.module.css";
-
 import thanksrate from "../../assets/img/thanksrate.png";
 import Rateing from "../../Components/Ulits/Rateing";
 import UploadFile from "../../Components/Ulits/UploadFile";
@@ -16,23 +12,15 @@ import ButtomReview from "../../Components/Requests/ButtomReview";
 import PostReview from "../../Apis/PostReview";
 
 const ReviewDesk = () => {
-  const [phone, setphone] = useState("us");
   const [open, setOpen] = useState(false);
-  const [selectedFile, setSelectedFile] = useState(null);
-  const handleFileChange = (event) => {
-    setSelectedFile(event.target.files[0]);
-  };
-
-  const [modalShow, setModalShow] = useState(false);
-  const [description, setdescription] = useState();
+  const [description, setdescription] = useState("");
   const [file, setfile] = useState();
-  const [rate, setrate] = useState();
-  const [Data, setData] = useState();
+  const [rate, setRate] = useState(0);
   const Onchangemessage = (e) => {
     setdescription(e.target.value);
   };
 
-  const handleOpen = () => setOpen(true);
+  // const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
   const style = {
@@ -50,19 +38,16 @@ const ReviewDesk = () => {
     padding: "7px",
   };
 
-  const SendReview = async (e) => {
-    e.preventDefault();
-
+  const SendReview = async () => {
     const formData = new FormData();
     formData.append("description", description);
     formData.append("file", file);
     formData.append("rate", rate);
     formData.append("user", 1);
-
     const res = await PostReview(formData);
-    if (res) setData(res);
-    if (res) handleOpen();
-
+    if (res) {
+      handleClose();
+    }
     return res;
   };
 
@@ -70,7 +55,7 @@ const ReviewDesk = () => {
     <>
       <main style={{ maxWidth: "100%" }}>
         <div
-          className="d-flex justify-content-center  align-items-center "
+          className="d-flex justify-content-center align-items-center"
           style={{ width: "83%" }}
         ></div>
         <h5>Rate your experience</h5>
@@ -79,7 +64,7 @@ const ReviewDesk = () => {
             "d-flex justify-content-around align-items-around flex-row"
           }
         >
-          <Rateing />
+          <Rateing rate={rate} setRate={setRate} />
         </div>
         <div className="d-flex justify-content-center align-items-center flex-column w-80 m-auto ">
           <div className="form-group w-100">
@@ -106,7 +91,6 @@ const ReviewDesk = () => {
           </div>
           <button
             onClick={SendReview}
-            type="submit"
             className="btn btn-primary mb-3 mt-3 w-100"
           >
             Submit
@@ -148,7 +132,7 @@ const ReviewDesk = () => {
                   <h3>Your review has been submitted successfully</h3>
                 </div>
 
-                <div className="w-100  d-flex justify-content-center align-items-center mt-3">
+                <div className="w-100 d-flex justify-content-center align-items-center mt-3">
                   <ButtomReview
                     txtColor="white"
                     bckColor="#0F4392"

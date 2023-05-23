@@ -130,7 +130,6 @@ export default function Home() {
             </div>
             <button
               onClick={SendReview}
-              type="submit"
               className="btn btn-primary mb-3 mt-3 w-100"
             >
               Submit
@@ -209,13 +208,7 @@ export default function Home() {
               </div>
               <p className="w-100 m-0 mt-2">Upload a file</p>
               <div className="d-flex justify-content-center align-items-center flex-column box-grey">
-                <Image
-                  src={upload}
-                  alt="Next.js Logo"
-                  // width={80}
-                  // height={37}
-                  priority
-                />
+                <Image src={upload} alt="Next.js Logo" priority />
                 <div
                   style={{ cursor: "pointer" }}
                   className="d-flex justify-content-center align-items-center flex-column box-grey-20 "
@@ -226,7 +219,6 @@ export default function Home() {
               </div>
               <button
                 onClick={SendReview}
-                type="submit"
                 className="btn btn-primary mb-3 mt-3 w-100"
               >
                 Submit
@@ -268,7 +260,7 @@ export default function Home() {
                       <h3>Your review has been submitted successfully</h3>
                     </div>
 
-                    <div className="w-100  d-flex justify-content-center align-items-center mt-3">
+                    <div className="w-100 d-flex justify-content-center align-items-center mt-3">
                       <ButtomReview
                         txtColor="white"
                         bckColor="#0F4392"
