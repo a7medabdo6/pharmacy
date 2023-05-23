@@ -27,6 +27,7 @@ const Rateing = ({ rate, setRate }) => {
     const starElements = starImgs.map((item, index) => {
       return (
         <div
+          key={index}
           className="d-flex flex-column justify-content-center align-items-center"
           onClick={() => handleStarClick(index + 1)}
         >

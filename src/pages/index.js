@@ -113,7 +113,7 @@ export default function Main() {
                 >
                   <Row>
                     <Col xs={5}>
-                      <Image src={step1} className="w-100" />
+                      <Image src={step1} className="w-100" alt="" />
                     </Col>
                     <Col xs={7}>
                       <h4 className="text-start ms-4">How it Works</h4>
@@ -140,7 +140,7 @@ export default function Main() {
                 >
                   <Row>
                     <Col xs={5}>
-                      <Image src={step1} className="w-100" />
+                      <Image src={step1} alt="" className="w-100" />
                     </Col>
                     <Col xs={7}>
                       <h4 className="text-start ms-4">How it Works</h4>
@@ -164,7 +164,7 @@ export default function Main() {
                 >
                   <Row>
                     <Col xs={5}>
-                      <Image src={step1} className="w-100" />
+                      <Image src={step1} alt="" className="w-100" />
                     </Col>
                     <Col xs={7}>
                       <h4 className="text-start ms-4">How it Works</h4>

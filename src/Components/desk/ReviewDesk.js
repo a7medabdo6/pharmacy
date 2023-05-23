@@ -100,7 +100,7 @@ const ReviewDesk = () => {
         <div>
           <Modal
             open={open}
-            onClose={handleClose}
+            onHide={handleClose}
             aria-labelledby="modal-modal-title"
             aria-describedby="modal-modal-description"
           >

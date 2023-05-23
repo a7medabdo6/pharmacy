@@ -1,10 +1,13 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
 import ReviewDesk from "../desk/ReviewDesk";
+import { useRouter } from "next/router";
 
 const WriteReview = () => {
+  const router = useRouter();
+  const [widthScreen, setWidthScreen] = useState(0);
   const [open, setOpen] = useState(false);
   const style = {
     position: "absolute",
@@ -17,11 +20,20 @@ const WriteReview = () => {
     borderRadius: "10px",
     padding: "7px",
   };
+
+  useEffect(() => {
+    setWidthScreen(window.innerWidth);
+    console.log(widthScreen);
+  }, []);
   return (
     <>
       <div
         onClick={() => {
-          setOpen(true);
+          if (widthScreen < 700) {
+            router.push("/review");
+          } else {
+            setOpen(true);
+          }
         }}
         style={{
           backgroundColor: "#DD1717",
