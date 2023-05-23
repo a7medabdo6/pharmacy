@@ -96,8 +96,8 @@ const NavBar = () => {
                     onClick={() => setShowNotify((old) => !old)}
                     src={alertblue}
                     alt="Next.js Logo"
-                    width={40}
-                    height={40}
+                    width={30}
+                    height={30}
                     priority
                   />
                   <div
@@ -123,6 +123,7 @@ const NavBar = () => {
                         right: "10px",
                         width: "430px",
                         fontSize: "16px",
+                        transition: "all 0.5s ease-in-out",
                         zIndex: "11111",
                       }}
                     >
@@ -205,8 +206,8 @@ const NavBar = () => {
                 <div
                   className="d-flex justify-content-center align-items-center rounded-5"
                   style={{
-                    width: "40px",
-                    height: "40px",
+                    width: "35px",
+                    height: "35px",
                     backgroundColor: "#0F4392",
                     cursor: "pointer",
                   }}
@@ -217,8 +218,8 @@ const NavBar = () => {
                       style={{ cursor: "pointer" }}
                       src={profile}
                       alt="Next.js Logo"
-                      width={25}
-                      height={25}
+                      width={20}
+                      height={20}
                       priority
                     />
                     {showProfile && (

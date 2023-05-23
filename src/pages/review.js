@@ -69,7 +69,7 @@ export default function Home() {
     const res = await PostReview(formData);
     if (res) setData(res);
 
-    return res;
+    console.log(`${Data} => data`);
   };
 
   useEffect(() => {

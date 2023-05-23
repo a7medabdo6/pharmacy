@@ -1,12 +1,13 @@
 import React from "react";
 import Header from "../Components/Ulits/Header";
 import styles from "@/styles/Notifications.module.css";
+import NavBarMobail from "../Components/desk/NavBarMobail";
 
 const Notifications = () => {
   return (
-    <main className={styles.main} style={{ backgroundColor: "#EDEDED" }}>
+    <main className={styles.main} style={{ backgroundColor: "#eaeaea" }}>
       <div className="w-100 text-center d-flex justify-content-center align-items-center flex-column">
-        <Header title="Notifications" />
+        <NavBarMobail titlePage="Notifications" />
       </div>
       <div
         className="w-100 d-flex mt-3 justify-content-center align-items-center flex-column"
@@ -18,12 +19,12 @@ const Notifications = () => {
 
         <div
           style={{ width: "95%" }}
-          className=" d-flex justify-content-start ms-3 mt-3 align-items-center "
+          className="d-flex justify-content-start ms-3 mt-3 align-items-center"
         >
           <p style={{ fontWeight: "bold" }}>new</p>
         </div>
 
-        <div className=" d-flex justify-content-center my-2 align-items-start boxnotify flex-column ">
+        <div className="d-flex justify-content-center my-2 py-5 align-items-start boxnotify flex-column">
           <p className="titlenotify ms-3 mb-0">
             Order Placed Successfully. Thank you for{" "}
           </p>
@@ -34,40 +35,6 @@ const Notifications = () => {
           </div>
         </div>
 
-        <div className=" d-flex justify-content-center my-2 align-items-start boxnotify flex-column ">
-          <p className="titlenotify ms-3 mb-0">
-            Order Placed Successfully. Thank you for{" "}
-          </p>
-          <p className="titlenotify ms-3 mt-0"> shopping with us.</p>
-        </div>
-
-        <div className=" d-flex justify-content-center my-2 align-items-start boxnotify flex-column ">
-          <p className="titlenotify ms-3 mb-0">
-            Order Placed Successfully. Thank you for{" "}
-          </p>
-          <p className="titlenotify ms-3 mt-0"> shopping with us.</p>
-        </div>
-
-        <div className=" d-flex justify-content-center my-2 align-items-start boxnotify flex-column ">
-          <p className="titlenotify ms-3 mb-0">
-            Order Placed Successfully. Thank you for{" "}
-          </p>
-          <p className="titlenotify ms-3 mt-0"> shopping with us.</p>
-        </div>
-
-        <div className=" d-flex justify-content-center my-2 align-items-start boxnotify flex-column ">
-          <p className="titlenotify ms-3 mb-0">
-            Order Placed Successfully. Thank you for{" "}
-          </p>
-          <p className="titlenotify ms-3 mt-0"> shopping with us.</p>
-        </div>
-
-        <div className=" d-flex justify-content-center my-2 align-items-start boxnotify flex-column ">
-          <p className="titlenotify ms-3 mb-0">
-            Order Placed Successfully. Thank you for{" "}
-          </p>
-          <p className="titlenotify ms-3 mt-0"> shopping with us.</p>
-        </div>
         <div
           style={{ backgroundColor: "grey", width: "95%", height: "1px" }}
         ></div>

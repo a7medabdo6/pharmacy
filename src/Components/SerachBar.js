@@ -15,7 +15,8 @@ const SerachBar = ({ showBigScreen, setProducts }) => {
     <div
       className={`position-relative w-100 mb-2 ${
         showBigScreen ? "d-none d-md-block" : "d-block d-md-none"
-      }`}
+      }  animate__animated animate__fadeInDown`}
+      data-aos="fade-up"
     >
       <Icon
         name="search"

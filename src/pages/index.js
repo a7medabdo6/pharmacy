@@ -9,12 +9,10 @@ import "react-phone-input-2/lib/style.css";
 import OurServicesCard from "@/Components/OurServicesCard";
 import Testimonial from "@/Components/Testimonial";
 import getallCategories from "../Apis/Category";
-
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import Steps from "../Components/desk/Steps";
-import infoImage from "../assets/desk/info.png";
 import step1 from "../assets/desk/step1.png";
 import step2 from "../assets/desk/step2.png";
 import step3 from "../assets/desk/step3.png";
@@ -45,6 +43,7 @@ import "swiper/css/pagination";
 
 // import required modules
 import { FreeMode, Pagination } from "swiper";
+import Head from "next/head";
 
 export default function Main() {
   const [open, setOpen] = useState(false);
@@ -68,6 +67,8 @@ export default function Main() {
   };
   useEffect(() => {
     getReviewsData();
+
+    console.log(reviews, "=> review");
   }, []);
 
   const [sliderRef] = useKeenSlider({
@@ -76,16 +77,36 @@ export default function Main() {
 
   return (
     <div className="home">
+      <Head>
+        <link
+          rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+        />
+        <link
+          href="https://unpkg.com/aos@2.3.1/dist/aos.css"
+          rel="stylesheet"
+        />
+        <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+        <script>AOS.init();</script>
+      </Head>
       <NavBar />
       <div className="container text-center mt-0 mt-md-3 pb-4">
         <SerachBar showBigScreen={true} />
         <div className="d-sm-none">
           <main style={{ backgroundColor: "#eaeaea" }}>
             <div className="d-flex justify-content-center align-items-center flex-column">
-              <NavBarMobail logo={true} sectionRight={true} bgColor="#eaeaea" />
+              <NavBarMobail
+                logo={true}
+                sectionRight={true}
+                bgColor="#eaeaea"
+                className="animate__animated animate__fadeInDown"
+              />
               <SerachBar showBigScreen={false} />
 
-              <div ref={sliderRef} className="keen-slider mt-2">
+              <div
+                ref={sliderRef}
+                className="keen-slider mt-2 animate__animated animate__zoomIn"
+              >
                 <div
                   className="keen-slider__slide number-slide1 fs-6 rounded-3"
                   style={{ backgroundColor: "#0F4392", height: "165px" }}
@@ -176,7 +197,7 @@ export default function Main() {
 
               <div
                 ref={sliderRef}
-                className="keen-slider"
+                className="keen-slider  animate__animated animate__zoomInUp"
                 style={{
                   height: "165px",
                 }}
@@ -211,10 +232,10 @@ export default function Main() {
 
               <SliderCategory categories={categories} />
 
-              <div className="mt-3 d-flex justify-content-start align-items-center flex-row "></div>
+              <div className="mt-3 d-flex justify-content-start align-items-center flex-row"></div>
               <div
                 style={{ width: "95%" }}
-                className="d-flex justify-content-between align-items-center postion-relative "
+                className="d-flex justify-content-between align-items-center postion-relative"
               >
                 <h4 className=" align-start mt-2 mb-2 m-0 pt-3 pb-2">
                   Our services.
@@ -233,7 +254,9 @@ export default function Main() {
               </div>
 
               <div
-                className="w-100 mt-3 d-flex justify-content-between align-items-center flex-column "
+                className="w-100 mt-3 d-flex justify-content-between align-items-center flex-column"
+                data-aos="fade-left"
+                data-aos-offset="500"
                 style={{ backgroundColor: "white", borderRadius: "8px" }}
               >
                 <OurServicesCard
@@ -255,7 +278,9 @@ export default function Main() {
               </div>
               <div
                 style={{ width: "95%" }}
-                className="d-flex justify-content-between align-items-center "
+                className="d-flex justify-content-between align-items-center"
+                data-aos="fade-right"
+                data-aos-offset="500"
               >
                 <h4 className=" align-start mt-2 mb-2 m-0 pt-3 pb-2">
                   Testimonial
@@ -299,33 +324,43 @@ export default function Main() {
           <div className="d-flex justify-content-start align-items-start flex-column w-100">
             <div className="d-flex justify-content-center align-items-center flex-column mt-5 w-100">
               <h2 style={{ color: "#0F4392" }}>How it works</h2>
-              <div
-                className="d-flex justify-content-around align-items-center position-relative"
-                style={{ width: "78%" }}
-              >
-                <Steps
-                  imgsource={step1}
-                  title="Step1"
-                  text="Select your products"
-                  desc="You can contact our pharmacists for help and consultations"
-                />
-                <Steps
-                  imgsource={step2}
-                  title="Step2"
-                  text="confirm your order"
-                  desc="We will contact you with prices before we ship the order to you "
-                />
-                <Steps
-                  imgsource={step3}
-                  title="Step3"
-                  text="shipment and delivery"
-                  desc="After confirming your order price, we will deliver the order to your address"
-                />
+              <div className="d-flex justify-content-around align-items-center position-relative">
+                <Container>
+                  <Row>
+                    <Col>
+                      <Steps
+                        imgsource={step1}
+                        title="Step1"
+                        text="Select your products"
+                        desc="You can contact our pharmacists for help and consultations"
+                        className="animate__animated animate__fadeInLeftBig"
+                      />
+                    </Col>
+                    <Col>
+                      <Steps
+                        imgsource={step2}
+                        title="Step2"
+                        text="confirm your order"
+                        desc="We will contact you with prices before we ship the order to you"
+                        className="animate__animated animate__fadeInDownBig"
+                      />
+                    </Col>
+                    <Col>
+                      <Steps
+                        imgsource={step3}
+                        title="Step3"
+                        text="shipment and delivery"
+                        desc="After confirming your order price, we will deliver the order to your address"
+                        className="animate__animated animate__fadeInRightBig"
+                      />
+                    </Col>
+                  </Row>
+                </Container>
               </div>
             </div>
           </div>
           <div
-            className="d-flex justify-content-between align-items-center mt-5 getofferbox w-100"
+            className="d-flex justify-content-between align-items-center mt-5 getofferbox w-100 animate__animated animate__fadeIn"
             style={{ height: "290px" }}
           >
             <div
@@ -372,6 +407,7 @@ export default function Main() {
           <Container>
             <div
               className="d-flex flex-column justify-content-center align-items-center mt-5 w-100"
+              data-aos="fade-up"
               style={{
                 height: "310px",
               }}
@@ -399,6 +435,7 @@ export default function Main() {
 
             <div
               className="d-flex justify-content-center align-items-center flex-column mb-5 mt-5"
+              data-aos="flip-left"
               style={{ width: "100%" }}
             >
               <h2 style={{ marginBottom: 0, color: "#0F4392" }}>
@@ -427,7 +464,10 @@ export default function Main() {
               </div>
             </div>
 
-            <div className="d-flex justify-content-center align-items-center flex-column mb-5 mt-5">
+            <div
+              className="d-flex justify-content-center align-items-center flex-column mb-5 mt-5"
+              data-aos="flip-down"
+            >
               <h5 style={{ marginBottom: 0, color: "#0F4392" }}>Testimonial</h5>
 
               <div className="d-flex justify-content-between align-items-center mt-5 mb-4 w-100">
@@ -466,7 +506,7 @@ export default function Main() {
           </Container>
 
           <div
-            className=" mt-3 d-flex justify-content-center align-items-center flex-column w-100 "
+            className="mt-3 d-flex justify-content-center align-items-center flex-column w-100"
             style={{ width: "100%" }}
           >
             <Link href="/testimonials">

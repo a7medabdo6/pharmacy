@@ -1,10 +1,10 @@
 import React from "react";
 import Image from "next/image";
 
-const Steps = ({ imgsource, title, text, desc }) => {
+const Steps = ({ imgsource, title, text, desc, className }) => {
   return (
     <div
-      className="d-flex boxsteps justify-content-center align-items-center flex-column mx-2"
+      className={`d-flex boxsteps justify-content-center align-items-center flex-column mx-2 ${className}`}
       style={{ minHeight: "383px" }}
     >
       <p

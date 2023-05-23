@@ -16,6 +16,7 @@ import { FreeMode, Pagination } from "swiper";
 const SliderCategory = ({ categories }) => {
   return (
     <Swiper
+      data-aos="zoom-in-left"
       slidesPerView={3.5}
       spaceBetween={5}
       freeMode={true}

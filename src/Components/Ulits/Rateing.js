@@ -42,21 +42,6 @@ const Rateing = () => {
         </div>
       );
     });
-
-    // for (let i = 1; i <= 5; i++) {
-    //   const starClass = i <= rating ? rate : starBad;
-    //   console.log(rating);
-    //   starElements.push(
-    // <Image
-    //   key={i}
-    //   src={starClass}
-    //   alt="star"
-    //   className={`${starClass} fa-star`}
-    //   onClick={() => handleStarClick(i)}
-    // />
-    //   );
-    // }
-
     return starElements;
   };
 

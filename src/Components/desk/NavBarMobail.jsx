@@ -15,6 +15,7 @@ const NavBarMobail = ({
   titlePage = "",
   sectionRight = true,
   bgColor = "#0F4392",
+  className,
 }) => {
   const [user, setuser] = useState(null);
   const [showProfile, setShowProfile] = useState(false);
@@ -34,7 +35,7 @@ const NavBarMobail = ({
 
   return (
     <div
-      className="d-flex justify-content-between align-items-center pt-4 pb-4 px-3 d-flex d-md-none rounded-bottom w-100"
+      className={`d-flex justify-content-between align-items-center pt-4 pb-4 px-3 d-flex d-md-none rounded-bottom w-100 ${className}`}
       style={{
         backgroundColor: `${bgColor}`,
       }}
@@ -72,7 +73,7 @@ const NavBarMobail = ({
           <div className="d-flex justify-content-center align-items-center gap-2">
             {user ? (
               <>
-                <Link href="/Notifications" className="position-relative">
+                <Link href="/notifications" className="position-relative">
                   <Image
                     src={logo ? alertBlue : alert}
                     alt="Next.js Logo"

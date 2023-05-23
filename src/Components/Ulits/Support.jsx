@@ -1,10 +1,12 @@
 import React from "react";
 import Image from "next/image";
 import support from "../../assets/img/contact_support.png";
+import Link from "next/link";
 
 const Support = () => {
   return (
-    <div
+    <Link
+      href="/contactus"
       style={{
         position: "absolute",
         right: "0",
@@ -14,7 +16,7 @@ const Support = () => {
       className="support-btn"
     >
       <Image src={support} />
-    </div>
+    </Link>
   );
 };
 
