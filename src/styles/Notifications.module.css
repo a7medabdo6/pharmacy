@@ -15,6 +15,11 @@
   color: #2F3032;
   margin-bottom: 10px;
   position: relative;
+  cursor: pointer;
+}
+
+.notifyItem:hover {
+  background-color: #eaeaea;
 }
 
 .new {

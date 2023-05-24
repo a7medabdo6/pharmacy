@@ -79,7 +79,7 @@ export default function Main() {
   });
 
   return (
-    <div className="home">
+    <div className="home padding-bottom-sm">
       <Head>
         {/* <link
           rel="stylesheet"
@@ -385,14 +385,17 @@ export default function Main() {
                     <h4 className=" align-start mt-2 mb-2 m-0 pt-3 pb-2">
                       Testimonial
                     </h4>
-                    {/* <Link
-                    href="/testimonials"
-                    className="d-flex justify-content-between align-items-center "
-                  >
-                    <p className=" align-start mt-2 mb-2 m-0 pt-3 pb-2 font-weight-bold" style={{fontWeight:"bold"}}>
-                      view all
-                    </p>
-                  </Link> */}
+                    <Link
+                      href="/testimonials"
+                      className="d-flex justify-content-between align-items-center "
+                    >
+                      <p
+                        className=" align-start mt-2 mb-2 m-0 pt-3 pb-2 font-weight-bold"
+                        style={{ fontWeight: "bold" }}
+                      >
+                        view all
+                      </p>
+                    </Link>
                   </div>
 
                   <Swiper
@@ -580,36 +583,27 @@ export default function Main() {
                       style={{
                         height: "230px",
                       }}
-                      spaceBetween={30}
+                      slidesPerView={3}
+                      spaceBetween={0}
+                      freeMode={true}
                       pagination={{
                         clickable: true,
                       }}
-                      modules={[Pagination]}
+                      modules={[Pagination, FreeMode]}
                       className="mySwiper"
                     >
-                      <SwiperSlide>
-                        <div
-                          className="w-100 d-flex justify-content-center align-items-center"
-                          style={{ width: "300px" }}
-                        >
-                          {reviews?.map((item, i) => {
-                            if (i < 3) {
-                              return (
-                                <Testimonialdesk item={item} atHome={true} />
-                              );
-                            }
-                          })}
-                        </div>
-                      </SwiperSlide>
-                      <SwiperSlide>
-                        <div className="w-100 d-flex justify-content-center align-items-center">
-                          {reviews?.map((item, i) => {
-                            if (i < 3) {
-                              return <Testimonialdesk item={item} />;
-                            }
-                          })}
-                        </div>
-                      </SwiperSlide>
+                      <div
+                        className="w-100 d-flex justify-content-center align-items-center"
+                        style={{ width: "300px" }}
+                      >
+                        {reviews?.map((item, i) => {
+                          return (
+                            <SwiperSlide key={i}>
+                              <Testimonialdesk item={item} atHome={true} />
+                            </SwiperSlide>
+                          );
+                        })}
+                      </div>
                     </Swiper>
                   </div>
                 </div>

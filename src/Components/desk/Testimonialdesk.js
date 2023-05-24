@@ -13,7 +13,8 @@ function Testimonialdesk({ item, atHome = false }) {
       style={{
         backgroundColor: "white",
         boxShadow: "0px 18px 40px rgba(0, 0, 0, 0.12)",
-        width: atHome ? "350px" : "unset",
+        width: atHome ? "366px" : "unset",
+        height: "135px",
       }}
     >
       <Image

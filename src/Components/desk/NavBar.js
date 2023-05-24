@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
@@ -15,10 +15,30 @@ const NavBar = () => {
   const [showProfile, setShowProfile] = useState(false);
   const router = useRouter();
 
+  const notifyMenuRef = useRef();
+  const notifyImgRef = useRef();
+  const allReadRef = useRef();
+
+  const profileMenuRef = useRef();
+  const profileImgRef = useRef();
+
   useEffect(() => {
     if (typeof window !== "undefined") {
       setuser(localStorage?.getItem("user"));
     }
+
+    window.addEventListener("click", (e) => {
+      if (
+        e.target !== notifyMenuRef &&
+        e.target !== notifyImgRef.current &&
+        e.target !== allReadRef.current
+      ) {
+        setShowNotify(false);
+      }
+      if (e.target !== profileMenuRef && e.target !== profileImgRef.current) {
+        setShowProfile(false);
+      }
+    });
   }, []);
 
   return (
@@ -92,8 +112,11 @@ const NavBar = () => {
               <>
                 <div className="position-relative">
                   <Image
+                    ref={notifyImgRef}
+                    onClick={() => {
+                      setShowNotify((old) => !old);
+                    }}
                     style={{ cursor: "pointer" }}
-                    onClick={() => setShowNotify((old) => !old)}
                     src={alertblue}
                     alt="Next.js Logo"
                     width={30}
@@ -116,6 +139,7 @@ const NavBar = () => {
 
                   {showNotify && (
                     <div
+                      ref={notifyMenuRef}
                       className="position-absolute bg-white p-3 rounded-3"
                       style={{
                         top: "35px",
@@ -127,7 +151,11 @@ const NavBar = () => {
                         zIndex: "11111",
                       }}
                     >
-                      <h6 className="text-primary text-end fw-bold">
+                      <h6
+                        ref={allReadRef}
+                        className="text-primary text-end fw-bold"
+                        style={{ cursor: "pointer" }}
+                      >
                         Make all as read
                       </h6>
                       <div
@@ -159,14 +187,6 @@ const NavBar = () => {
                           Order Placed Successfully. Thank you for shopping with
                           us.
                         </div>
-                        <div className={`${styles.notifyItem} ${styles.new}`}>
-                          Order Placed Successfully. Thank you for shopping with
-                          us.
-                        </div>
-                        <div className={`${styles.notifyItem} ${styles.new}`}>
-                          Order Placed Successfully. Thank you for shopping with
-                          us.
-                        </div>
                       </div>
                       <div className="box-notify mt-2">
                         <div className={styles.notifyItem}>
@@ -191,39 +211,27 @@ const NavBar = () => {
                           Order Placed Successfully. Thank you for shopping with
                           us.
                         </div>
-                        <div className={styles.notifyItem}>
-                          Order Placed Successfully. Thank you for shopping with
-                          us.
-                        </div>
-                        <div className={styles.notifyItem}>
-                          Order Placed Successfully. Thank you for shopping with
-                          us.
-                        </div>
                       </div>
                     </div>
                   )}
                 </div>
-                <div
-                  className="d-flex justify-content-center align-items-center rounded-5"
-                  style={{
-                    width: "35px",
-                    height: "35px",
-                    backgroundColor: "#0F4392",
-                    cursor: "pointer",
-                  }}
-                  onClick={() => setShowProfile((old) => !old)}
-                >
+                <div>
                   <div className="position-relative">
                     <Image
+                      ref={profileImgRef}
+                      onClick={() => {
+                        setShowProfile((old) => !old);
+                      }}
                       style={{ cursor: "pointer" }}
                       src={profile}
                       alt="Next.js Logo"
-                      width={20}
-                      height={20}
+                      width={35}
+                      height={35}
                       priority
                     />
                     {showProfile && (
                       <div
+                        ref={profileMenuRef}
                         className="position-absolute py-3 bg-white rounded-3"
                         style={{
                           top: "40px",

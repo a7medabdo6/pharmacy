@@ -9,6 +9,7 @@ const WriteReview = () => {
   const router = useRouter();
   const [widthScreen, setWidthScreen] = useState(0);
   const [open, setOpen] = useState(false);
+  const [show, setShow] = useState(true);
   const style = {
     position: "absolute",
     top: "50%",
@@ -23,36 +24,40 @@ const WriteReview = () => {
 
   useEffect(() => {
     setWidthScreen(window.innerWidth);
-    console.log(widthScreen);
+    if (widthScreen < 700 && router.pathname !== "/") {
+      setShow(false);
+    }
   }, []);
   return (
     <>
-      <div
-        onClick={() => {
-          if (widthScreen < 700) {
-            router.push("/review");
-          } else {
-            setOpen(true);
-          }
-        }}
-        style={{
-          backgroundColor: "#DD1717",
-          width: "140px",
-          height: "40px",
-          right: "-50px",
-          top: "40%",
-          transform: "rotate(-90deg)",
-          textAlign: "center",
-          cursor: "pointer",
-          padding: "20px 0",
-          zIndex: "111",
-        }}
-        className="write-review-btn position-absolute d-flex justify-content-center align-items-center"
-      >
-        <p style={{ color: "white", fontSize: "18px !important" }}>
-          Write Review
-        </p>
-      </div>
+      {show && (
+        <div
+          onClick={() => {
+            if (widthScreen < 700) {
+              router.push("/review");
+            } else {
+              setOpen(true);
+            }
+          }}
+          style={{
+            backgroundColor: "#DD1717",
+            width: "140px",
+            height: "40px",
+            right: "-50px",
+            top: "40%",
+            transform: "rotate(-90deg)",
+            textAlign: "center",
+            cursor: "pointer",
+            padding: "20px 0",
+            zIndex: "111",
+          }}
+          className="write-review-btn position-absolute d-flex justify-content-center align-items-center"
+        >
+          <p style={{ color: "white", fontSize: "18px !important" }}>
+            Write Review
+          </p>
+        </div>
+      )}
 
       <Modal
         open={open}

@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import alert from "../../assets/img/alert.png";
 import alertBlue from "../../assets/img/alertblue.png";
 
-import profile from "../../assets/img/icon.png";
+import profile from "../../assets/img/Avatar.png";
 import userSvg from "../../assets/img/user.svg";
 import back from "../../assets/img/Leftwhite.png";
 import logoImg from "../../assets/img/logo2.png";
@@ -21,6 +21,9 @@ const NavBarMobail = ({
   const [showProfile, setShowProfile] = useState(false);
   const router = useRouter();
 
+  const profileMenuRef = useRef();
+  const profileImgRef = useRef();
+
   const handleGoBack = () => {
     console.log("Go Back");
     router.back();
@@ -31,6 +34,12 @@ const NavBarMobail = ({
       // Perform localStorage action
       setuser(localStorage?.getItem("user"));
     }
+
+    window.addEventListener("click", (e) => {
+      if (e.target !== profileMenuRef && e.target !== profileImgRef.current) {
+        setShowProfile(false);
+      }
+    });
   }, []);
 
   return (
@@ -95,16 +104,10 @@ const NavBarMobail = ({
                     3
                   </div>
                 </Link>
-                <div
-                  className="d-flex justify-content-center align-items-center rounded-5"
-                  style={{
-                    backgroundColor: "#C5CAD4",
-                    width: "40px",
-                    height: "40px",
-                  }}
-                >
+                <div className="d-flex justify-content-center align-items-center">
                   <div className="position-relative">
                     <Image
+                      ref={profileImgRef}
                       style={{ cursor: "pointer" }}
                       onClick={() => setShowProfile((old) => !old)}
                       src={logo ? userSvg : profile}
@@ -116,6 +119,7 @@ const NavBarMobail = ({
 
                     {showProfile && (
                       <div
+                        ref={profileMenuRef}
                         className="position-absolute py-3 bg-white rounded-3"
                         style={{
                           top: "40px",

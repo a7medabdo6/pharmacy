@@ -76,7 +76,9 @@ const allreview = () => {
             className="actio p-4 bg-white position-fixed bottom-0 start-0 w-100 d-block d-md-none"
             style={{ boxShadow: "0px -18px 40px 0px #00000033" }}
           >
-            <button className="btn btn-primary w-100">Write a review</button>
+            <Link href="/review" className="btn btn-primary w-100">
+              Write a review
+            </Link>
           </div>
 
           <WriteReview />
