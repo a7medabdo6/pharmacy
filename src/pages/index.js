@@ -230,7 +230,7 @@ export default function Main() {
                       Categories.
                     </h4>
                     <Link
-                      href="/CategoriesViewall"
+                      href="/categoriesViewall"
                       className="d-flex justify-content-between align-items-center"
                     >
                       <p
