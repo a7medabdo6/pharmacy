@@ -45,6 +45,8 @@ const ReviewDesk = () => {
     formData.append("rate", rate);
     formData.append("user", 1);
     const res = await PostReview(formData);
+    console.log(res, "ressss");
+    setOpen(false);
     if (res) {
       handleClose();
     }

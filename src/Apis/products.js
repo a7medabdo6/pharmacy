@@ -3,8 +3,10 @@ import axios from "axios";
 async function getallProducts(data) {
   try {
     const response = await axios.get(
-      `http://18.130.40.220/product/?category=${data.id}`,
+      `http://18.130.40.220/product/`,
+
       {
+        params: data,
         headers: {
           Authorization: "",
         },

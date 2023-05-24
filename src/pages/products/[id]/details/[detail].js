@@ -136,7 +136,7 @@ const products = () => {
                 boxShadow: "0px 18px 40px 0px #0000001F",
               }}
             >
-              <SliderProductDetails />
+              <SliderProductDetails list={details?.images} />
             </Col>
             <Col sm={12} md={6}>
               <div className="details mt-4 mt-lg-0">
