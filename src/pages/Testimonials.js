@@ -27,8 +27,6 @@ const allreview = () => {
   };
   useEffect(() => {
     getReviewsData();
-
-    console.log(reviews, "=> review");
   }, []);
   const myStyle = {
     boxShadow: "2px 2px 4px rgba(0, 0, 0, 0.25)", // define the box shadow

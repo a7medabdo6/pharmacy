@@ -24,7 +24,10 @@ const WriteReview = () => {
 
   useEffect(() => {
     setWidthScreen(window.innerWidth);
-    if (widthScreen < 700 && router.pathname !== "/") {
+    if (
+      (widthScreen < 700 && router.pathname !== "/") ||
+      !localStorage.getItem("user")
+    ) {
       setShow(false);
     }
   }, []);
