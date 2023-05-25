@@ -9,6 +9,7 @@ import profile from "../../assets/img/Avatar.png";
 import userSvg from "../../assets/img/user.svg";
 import back from "../../assets/img/Leftwhite.png";
 import logoImg from "../../assets/img/logo2.png";
+import { GetNotification } from "@/Apis/Notification";
 
 const NavBarMobail = ({
   logo = false,
@@ -20,7 +21,17 @@ const NavBarMobail = ({
   const [user, setuser] = useState(null);
   const [showProfile, setShowProfile] = useState(false);
   const router = useRouter();
+  const [notificationsCount, setNotificationsCount] = useState(null);
 
+  const getAllNoty = async () => {
+    const res = await GetNotification();
+    console.log(res, "notificationsCount");
+    setNotificationsCount(res?.count);
+  };
+ 
+  useEffect(() => {
+    getAllNoty();
+  }, []);
   const profileMenuRef = useRef();
   const profileImgRef = useRef();
 
@@ -101,7 +112,7 @@ const NavBarMobail = ({
                       fontSize: "10px",
                     }}
                   >
-                    3
+                    {notificationsCount}
                   </div>
                 </Link>
                 <div className="d-flex justify-content-center align-items-center">
