@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "@/styles/ulits.module.css";
 
-const ButtonRequestOrder = ({ txtColor, bckColor, BRColor, text, isLogin }) => {
+const ButtonRequestOrder = ({ txtColor, bckColor, BRColor, text }) => {
   return (
     <button
       className="bubbly-button mt-4 py-2"
@@ -11,7 +11,6 @@ const ButtonRequestOrder = ({ txtColor, bckColor, BRColor, text, isLogin }) => {
         borderRadius: "5px",
         border: `1px solid ${BRColor}`,
       }}
-      disabled={!isLogin}
     >
       <h5 className={styles.textBtnTrack} style={{ color: txtColor }}>
         {text}

@@ -27,12 +27,7 @@ const contactus = () => {
   const snapPoints = [400, 600]; // Define the height values that the modal can snap to
   const [isLoadingPage, setisLoadingPage] = useState(true);
 
-  const [isLogin, setIsLogin] = useState(false);
-
   useEffect(() => {
-    if (localStorage.getItem("user")) {
-      setIsLogin(true);
-    }
     setisLoadingPage(false);
   }, []);
   return (
@@ -165,7 +160,6 @@ const contactus = () => {
                                         color: "#0F4392",
                                         border: "1px solid #0F4392",
                                       }}
-                                      disabled={!isLogin}
                                     >
                                       <Image
                                         style={{
@@ -227,7 +221,6 @@ const contactus = () => {
                                     height="20px"
                                     priority
                                     style={{ marginInline: 8 }}
-                                    disabled={!isLogin}
                                   />
                                   Call Now
                                 </button>
@@ -257,9 +250,7 @@ const contactus = () => {
                           <div
                             style={{ width: "95%" }}
                             onClick={() => {
-                              if (isLogin) {
-                                setOpen(true);
-                              }
+                              setOpen(true);
                             }}
                           >
                             <ButtonRequestOrder
@@ -267,7 +258,6 @@ const contactus = () => {
                               bckColor="#0F4392"
                               BRColor="#0F4392"
                               text="Request a call"
-                              isLogin={isLogin}
                             />
                           </div>
                         </div>
@@ -378,7 +368,6 @@ const contactus = () => {
                                 color: "#0F4392",
                                 border: "1px solid #0F4392",
                               }}
-                              disabled={!isLogin}
                             >
                               <Image
                                 style={{ width: "14px", height: "14px" }}
@@ -458,9 +447,7 @@ const contactus = () => {
                   <div
                     style={{ width: "100%", marginBottom: "20px" }}
                     onClick={() => {
-                      if (isLogin) {
-                        setOpen(true);
-                      }
+                      setOpen(true);
                     }}
                   >
                     <ButtonRequestOrder
@@ -468,7 +455,6 @@ const contactus = () => {
                       bckColor="#0F4392"
                       BRColor="#0F4392"
                       text="Request a call"
-                      isLogin={isLogin}
                     />
                   </div>
                 </div>
@@ -487,9 +473,7 @@ const contactus = () => {
                 <Sheet.Container className={styles.bottomsheet}>
                   <Sheet.Header />
                   <div className="w-100 d-flex  justify-content-center align-items-center">
-                    <h4 style={{ color: "#0F4392" }} isLogin={isLogin}>
-                      Request a call
-                    </h4>
+                    <h4 style={{ color: "#0F4392" }}>Request a call</h4>
                   </div>
 
                   <Sheet.Content>

@@ -53,7 +53,9 @@ const ModalContent = ({ setOpen, setModalShow }) => {
     }
   }, [isLoading]);
 
-  const handleClick = () => setLoading(true);
+  const handleClick = () => {
+    setLoading(true);
+  };
   return (
     <form className="d-flex justify-content-center m-5 flex-column">
       <div className="form-group m-2">
