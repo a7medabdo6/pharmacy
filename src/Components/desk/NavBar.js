@@ -8,12 +8,14 @@ import styles from "@/styles/Notifications.module.css";
 import logo2 from "../../assets/img/logo2.png";
 import alertblue from "../../assets/img/alertblue.png";
 import profile from "../../assets/img/icon.png";
-
+import { GetNotification, MakeNotificationRead } from "../../Apis/Notification";
 const NavBar = () => {
   const [user, setuser] = useState(null);
   const [showNotify, setShowNotify] = useState(false);
   const [showProfile, setShowProfile] = useState(false);
   const router = useRouter();
+  const [notifications, setNotifications] = useState([]);
+  const [notificationsCount, setNotificationsCount] = useState(null);
 
   const notifyMenuRef = useRef();
   const notifyImgRef = useRef();
@@ -21,8 +23,21 @@ const NavBar = () => {
 
   const profileMenuRef = useRef();
   const profileImgRef = useRef();
-
+  const getAllNoty = async () => {
+    const res = await GetNotification();
+    console.log(res, "notificationsCount");
+    setNotifications(res?.results);
+    setNotificationsCount(res?.count);
+  };
+  const MarkAsRead = async () => {
+    const res = await MakeNotificationRead();
+    if (res) {
+      getAllNoty();
+      setShowNotify(false);
+    }
+  };
   useEffect(() => {
+    getAllNoty();
     if (typeof window !== "undefined") {
       setuser(localStorage?.getItem("user"));
     }
@@ -40,7 +55,6 @@ const NavBar = () => {
       }
     });
   }, []);
-
   return (
     <nav
       className="navbar navbar-expand-lg bg-white d-none d-lg-flex"
@@ -134,7 +148,7 @@ const NavBar = () => {
                       fontSize: "12px",
                     }}
                   >
-                    3
+                    {notificationsCount}
                   </div>
 
                   {showNotify && (
@@ -155,63 +169,46 @@ const NavBar = () => {
                         ref={allReadRef}
                         className="text-primary text-end fw-bold"
                         style={{ cursor: "pointer" }}
+                        onClick={MarkAsRead}
                       >
                         Make all as read
                       </h6>
-                      <div
-                        className="box-new-notify pb-3"
-                        style={{
-                          borderBottom: "0.5px solid #828282",
-                        }}
-                      >
-                        <h6 className="fw-bold mb-4">New</h6>
-                        <div className={`${styles.notifyItem} ${styles.new}`}>
-                          Order Placed Successfully. Thank you for shopping with
-                          us.
+                      {!notifications[0]?.read && (
+                        <h6 className="fw-bold ">New</h6>
+                      )}
+
+                      {notifications?.map((item) => (
+                        <div
+                          className="box-new-notify "
+                          style={
+                            {
+                              // borderBottom: "0.5px solid #828282",
+                            }
+                          }
+                        >
                           <div
-                            className="offer position-absolute"
-                            style={{
-                              top: "5px",
-                              right: "5px",
-                              background: "#C3EFB9",
-                              color: "#219653",
-                              padding: "0 12px",
-                              fontSize: "12px",
-                              borderRadius: "12px",
-                            }}
+                            className={`${styles.notifyItem} ${
+                              !item?.read && styles.new
+                            }`}
                           >
-                            Offer
+                            {item?.message}
+                            {/* <div
+                              className="offer position-absolute"
+                              style={{
+                                top: "5px",
+                                right: "5px",
+                                background: "#C3EFB9",
+                                color: "#219653",
+                                padding: "0 12px",
+                                fontSize: "12px",
+                                borderRadius: "12px",
+                              }}
+                            >
+                              Offer
+                            </div> */}
                           </div>
                         </div>
-                        <div className={`${styles.notifyItem} ${styles.new}`}>
-                          Order Placed Successfully. Thank you for shopping with
-                          us.
-                        </div>
-                      </div>
-                      <div className="box-notify mt-2">
-                        <div className={styles.notifyItem}>
-                          Order Placed Successfully. Thank you for shopping with
-                          us.
-                          <div
-                            className="offer position-absolute"
-                            style={{
-                              top: "5px",
-                              right: "5px",
-                              background: "#C3EFB9",
-                              color: "#219653",
-                              padding: "0 12px",
-                              fontSize: "12px",
-                              borderRadius: "12px",
-                            }}
-                          >
-                            Offer
-                          </div>
-                        </div>
-                        <div className={styles.notifyItem}>
-                          Order Placed Successfully. Thank you for shopping with
-                          us.
-                        </div>
-                      </div>
+                      ))}
                     </div>
                   )}
                 </div>
