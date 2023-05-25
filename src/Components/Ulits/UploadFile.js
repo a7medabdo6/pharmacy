@@ -1,43 +1,46 @@
 import React, { useState } from "react";
-import { Uploader } from "uploader"; // Installed by "react-uploader".
-import { UploadButton } from "react-uploader";
+import Image from "next/image";
+import upload from "../../assets/img/arrow_up.png";
+
 const UploadFile = ({ setfile }) => {
-  const handleComplete = (files) => {
-    const file = files[0];
-    setfile(file?.originalFile?.file);
-    console.log(file);
-
-    files.forEach((file) => {
-      console.log(
-        `Uploaded file: ${file.name} (${file.type}, ${file.size} bytes)`
-      );
-    });
+  const [img, setImg] = useState(upload);
+  const handleChangeFile = (e) => {
+    const imgUpload = URL.createObjectURL(e.target.files[0]);
+    setImg(imgUpload);
+    setfile(e.target.files[0]);
   };
-  const handleUpload = (file, response) => {
-    setfile((prevState) => [...prevState, file]);
-  };
-  const uploader = Uploader({
-    apiKey: "free",
-    on: {
-      upload: handleUpload,
-    }, // Get production API keys from Upload.io
-  });
 
-  // Configuration options: https://upload.io/uploader#customize
-  const options = { multi: true };
   return (
     <div>
-      <UploadButton
-        uploader={uploader}
-        options={options}
-        onComplete={handleComplete}
-      >
-        {({ onClick }) => (
-          <p className="fw-bold fs-5" onClick={onClick}>
-            Add files
-          </p>
-        )}
-      </UploadButton>
+      <label htmlFor="upload-img" className="text-center">
+        <Image src={img} alt="Next.js Logo" width={50} height={50} priority />
+        <div
+          className="add-files mt-3 mb-2 fs-5 btn d-block fw-bold"
+          style={{
+            width: "128px",
+            height: "40px",
+            border: "1px solid #858383",
+          }}
+        >
+          Add Files
+        </div>
+      </label>
+      <input
+        type="file"
+        accept="image/*"
+        id="upload-img"
+        onChange={handleChangeFile}
+        style={{
+          width: "100%",
+          height: "100%",
+          top: "0",
+          left: "0",
+          background: "transparent",
+          position: "absolute",
+          opacity: "0",
+          cursor: "pointer",
+        }}
+      />
     </div>
   );
 };

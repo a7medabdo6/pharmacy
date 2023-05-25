@@ -25,6 +25,7 @@ export default function Home() {
     setdescription(e.target.value);
   };
 
+  const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
   const style = {
@@ -50,7 +51,7 @@ export default function Home() {
 
     const res = await PostReview(formData);
     if (res) {
-      router.push("/");
+      handleOpen();
     }
     return res;
   };
@@ -79,14 +80,8 @@ export default function Home() {
                 ></textarea>
               </div>
               <p className="w-100 m-0 mt-2">Upload a file</p>
-              <div className="d-flex justify-content-center align-items-center flex-column box-grey">
-                <Image src={upload} alt="Next.js Logo" priority />
-                <div
-                  style={{ cursor: "pointer" }}
-                  className="d-flex justify-content-center align-items-center flex-column box-grey-20 "
-                >
-                  <UploadFile setfile={setfile} />
-                </div>
+              <div className="d-flex justify-content-center align-items-center flex-column box-grey position-relative">
+                <UploadFile setfile={setfile} />
                 <p className="text-muted m-2">Or drop files to upload</p>
               </div>
               <button
@@ -132,12 +127,21 @@ export default function Home() {
                       <h3>Your review has been submitted successfully</h3>
                     </div>
 
-                    <div className="w-100 d-flex justify-content-center align-items-center mt-3">
+                    <div
+                      className="w-100 d-flex justify-content-center align-items-center mt-3"
+                      onClick={() => {
+                        if (router.pathname === "/") {
+                          router.reload();
+                        } else {
+                          router.push("/");
+                        }
+                      }}
+                    >
                       <ButtomReview
                         txtColor="white"
                         bckColor="#0F4392"
                         BRColor="#0F4392"
-                        text="Go To Home Page "
+                        text="Go To Home Page"
                       />
                     </div>
                   </Typography>
