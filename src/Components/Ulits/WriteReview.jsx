@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
@@ -7,6 +7,7 @@ import { useRouter } from "next/router";
 
 const WriteReview = () => {
   const router = useRouter();
+  const modalAddReview = useRef();
   const [widthScreen, setWidthScreen] = useState(0);
   const [open, setOpen] = useState(false);
   const [show, setShow] = useState(true);
@@ -15,7 +16,7 @@ const WriteReview = () => {
     top: "50%",
     left: "50%",
     transform: "translate(-50%, -50%)",
-    width: 400,
+    width: 450,
     bgcolor: "background.paper",
     border: "2px solid white",
     borderRadius: "10px",
@@ -63,6 +64,7 @@ const WriteReview = () => {
       )}
 
       <Modal
+        ref={modalAddReview}
         open={open}
         onClose={() => setOpen(false)}
         aria-labelledby="modal-modal-title"
@@ -85,7 +87,7 @@ const WriteReview = () => {
             sx={{ mt: 2 }}
             className="text-center"
           >
-            <ReviewDesk />
+            <ReviewDesk modalAddReview={modalAddReview} />
           </Typography>
         </Box>
       </Modal>

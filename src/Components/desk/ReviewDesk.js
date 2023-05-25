@@ -10,26 +10,28 @@ import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
 import ButtomReview from "../../Components/Requests/ButtomReview";
 import PostReview from "../../Apis/PostReview";
+import { useRouter } from "next/router";
 
-const ReviewDesk = () => {
+const ReviewDesk = ({ modalAddReview }) => {
   const [open, setOpen] = useState(false);
   const [description, setdescription] = useState("");
   const [file, setfile] = useState();
   const [rate, setRate] = useState(0);
+  const router = useRouter();
   const Onchangemessage = (e) => {
     setdescription(e.target.value);
   };
 
-  // const handleOpen = () => setOpen(true);
+  const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
   const style = {
     position: "absolute",
     top: "50%",
     left: "50%",
-    height: "90%",
     transform: "translate(-50%, -50%)",
-    width: 6100,
+    width: 450,
+    height: 420,
     bgcolor: "background.paper",
     border: "2px solid white",
     boxShadow: 24,
@@ -48,7 +50,8 @@ const ReviewDesk = () => {
     console.log(res, "ressss");
     setOpen(false);
     if (res) {
-      handleClose();
+      modalAddReview.current.style.opacity = "0";
+      handleOpen();
     }
     return res;
   };
@@ -56,10 +59,7 @@ const ReviewDesk = () => {
   return (
     <>
       <main style={{ maxWidth: "100%" }}>
-        <div
-          className="d-flex justify-content-center align-items-center"
-          style={{ width: "83%" }}
-        ></div>
+        <div className="d-flex justify-content-center align-items-center"></div>
         <h5>Rate your experience</h5>
         <div
           className={
@@ -68,7 +68,7 @@ const ReviewDesk = () => {
         >
           <Rateing rate={rate} setRate={setRate} />
         </div>
-        <div className="d-flex justify-content-center align-items-center flex-column w-80 m-auto ">
+        <div className="d-flex justify-content-center align-items-center flex-column w-80 m-auto">
           <div className="form-group w-100">
             <label className="mb-2 fs-5" htmlFor="exampleFormControlTextarea1">
               Leave your message*
@@ -81,14 +81,8 @@ const ReviewDesk = () => {
             ></textarea>
           </div>
           <p className="text-start fs-5 w-100 mb-2 mt-2">Upload a file</p>
-          <div className="d-flex justify-content-center align-items-center flex-column box-grey">
-            <Image src={upload} alt="Next.js Logo" priority />
-            <div
-              style={{ cursor: "pointer" }}
-              className="d-flex justify-content-center align-items-center flex-column box-grey-20"
-            >
-              <UploadFile setfile={setfile} />
-            </div>
+          <div className="d-flex justify-content-center align-items-center flex-column box-grey position-relative">
+            <UploadFile setfile={setfile} />
             <p className="text-muted m-2 fs-6">Or drop files to upload</p>
           </div>
           <button
@@ -102,7 +96,7 @@ const ReviewDesk = () => {
         <div>
           <Modal
             open={open}
-            onHide={handleClose}
+            onClose={handleClose}
             aria-labelledby="modal-modal-title"
             aria-describedby="modal-modal-description"
           >
@@ -128,13 +122,22 @@ const ReviewDesk = () => {
                     src={thanksrate}
                     alt="Next.js Logo"
                     width={366}
-                    height={315}
+                    height={270}
                     priority
                   />
                   <h3>Your review has been submitted successfully</h3>
                 </div>
 
-                <div className="w-100 d-flex justify-content-center align-items-center mt-3">
+                <div
+                  className="w-100 d-flex justify-content-center align-items-center mt-3"
+                  onClick={() => {
+                    if (router.pathname === "/") {
+                      router.reload();
+                    } else {
+                      router.push("/");
+                    }
+                  }}
+                >
                   <ButtomReview
                     txtColor="white"
                     bckColor="#0F4392"
