@@ -3,11 +3,9 @@ import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select, { SelectChangeEvent } from "@mui/material/Select";
-const Filter = ({ label }) => {
-  const [age, setAge] = useState("");
-
+const Filter = ({ label, list, setvalue, value }) => {
   const handleChange = (event) => {
-    setAge(event.target.value);
+    setvalue(event.target.value);
   };
 
   return (
@@ -20,18 +18,18 @@ const Filter = ({ label }) => {
         <Select
           labelId="demo-select-small-label"
           id="demo-select-small"
-          value={age}
+          value={value}
           label="Age"
           className="ms-0"
           style={{ width: "100%", margin: 0 }}
           onChange={handleChange}
         >
-          <MenuItem value="">
+          {/* <MenuItem value="">
             <em>None</em>
-          </MenuItem>
-          <MenuItem value={10}>Ten</MenuItem>
-          <MenuItem value={20}>Twenty</MenuItem>
-          <MenuItem value={30}>Thirty</MenuItem>
+          </MenuItem> */}
+          {list?.map((item) => (
+            <MenuItem value={item?.id}>{item?.name}</MenuItem>
+          ))}
         </Select>
       </FormControl>
     </div>

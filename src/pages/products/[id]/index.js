@@ -33,7 +33,12 @@ import getallProducts, {
   getallProductsWithNoCategory,
 } from "../../../Apis/products";
 import SliderFilterButton from "../../../Components/products/SliderFilterButton";
-import getallCategories from "../../../Apis/Category";
+import getallCategories, {
+  getallBrandsApi,
+  getallDiseaseApi,
+  getallIngredientApi,
+  getallUsesApi,
+} from "../../../Apis/Category";
 import SizesExample from "../../../Components/Spinner";
 
 const products = () => {
@@ -45,10 +50,26 @@ const products = () => {
   const [categories, setcateogies] = useState([]);
   const [isLoading, setisLoading] = useState(true);
 
-  const snapPoints = [400, 600]; // Define the height values that the modal can snap to
+  const [diseases, setDiseases] = useState([]);
+  const [selectedDisease, setselectedDisease] = useState("");
+  const [ingredients, setIngredients] = useState([]);
+  const [selectedingredient, setselectedingredient] = useState("");
+
+  const [brand, setbrand] = useState([]);
+  const [selectedBrand, setselectedBrand] = useState("");
+
+  const [uses, setuses] = useState([]);
+  const [selectedUse, setselectedUse] = useState("");
+
+  const snapPoints = [450, 600]; // Define the height values that the modal can snap to
   console.log(id, "iddd");
   const getHomeData = async (id) => {
-    const res = await getallProducts({ id });
+    const res = await getallProducts({
+      category: id,
+      ingredients: selectedingredient,
+      diseases: selectedDisease,
+      uses: selectedUse,
+    });
     setproducts(res?.results);
     if (res?.results) {
       setisLoading(false);
@@ -64,13 +85,41 @@ const products = () => {
       }
       return res;
     } else {
-      const res = await getallProducts({ id: activeCateFilter });
+      const res = await getallProducts({
+        category: activeCateFilter,
+        ingredients: selectedingredient,
+        diseases: selectedDisease,
+        uses: selectedUse,
+      });
       setproducts(res?.results);
       if (res?.results) {
         setisLoading(false);
       }
       return res;
     }
+  };
+  const ApplyFilter = async () => {
+    setisLoading(true);
+
+    const res = await getallProducts({
+      // id: activeCateFilter,
+      ingredients: selectedingredient,
+      diseases: selectedDisease,
+      uses,
+      selectedUse,
+    });
+    setOpen(false);
+    setproducts(res?.results);
+    if (res?.results) {
+      setisLoading(false);
+    }
+    return res;
+  };
+  const ClearFilter = () => {
+    setselectedBrand("");
+    setselectedDisease("");
+    setselectedUse("");
+    setselectedingredient("");
   };
   useEffect(() => {
     if (id) {
@@ -84,9 +133,36 @@ const products = () => {
     setcateogies(res?.results);
     return res;
   };
-
+  const getallDisease = async () => {
+    const res = await getallDiseaseApi();
+    console.log(res, "ressss");
+    setDiseases(res?.results);
+    return res;
+  };
+  const getallBrands = async () => {
+    const res = await getallBrandsApi();
+    console.log(res, "ressss");
+    setbrand(res?.results);
+    return res;
+  };
+  const getallUses = async () => {
+    const res = await getallUsesApi();
+    console.log(res, "ressss");
+    setuses(res?.results);
+    return res;
+  };
+  const getallingredients = async () => {
+    const res = await getallIngredientApi();
+    console.log(res, "ressss");
+    setIngredients(res?.results);
+    return res;
+  };
   useEffect(() => {
     getAllCategoriess();
+    getallDisease();
+    getallBrands();
+    getallingredients();
+    getallUses();
   }, []);
   useEffect(() => {
     if (activeCateFilter) {
@@ -165,17 +241,35 @@ const products = () => {
                 >
                   <h5 className="my-3">Filter by</h5>
 
-                  <Filter label="By diseases" />
-                  <Filter label="By users" />
-                  <Filter label="By ingredients" />
+                  <Filter
+                    label="By diseases"
+                    setvalue={setselectedDisease}
+                    value={selectedDisease}
+                    list={diseases}
+                  />
+                  <Filter
+                    setvalue={setselectedUse}
+                    value={selectedUse}
+                    label="By uses"
+                    list={uses}
+                  />
+                  <Filter
+                    setvalue={setselectedingredient}
+                    value={selectedingredient}
+                    label="By ingredients"
+                    list={ingredients}
+                  />
                   <div
                     style={{ width: "80%" }}
                     className="d-flex justify-content-around my-3 w-100 align-items-end flex-row-reverse "
                   >
-                    <button className="btn btn-primary">Apply</button>
+                    <button onClick={ApplyFilter} className="btn btn-primary">
+                      Apply
+                    </button>
                     <button
                       className="btn btn-outline-primary"
                       style={{ color: "#0F4392" }}
+                      onClick={ClearFilter}
                     >
                       Clear All
                     </button>
@@ -276,36 +370,36 @@ const products = () => {
                     style={{ width: "90%", flexDirection: "column" }}
                   >
                     <DropdownFilter
+                      setvalue={setselectedDisease}
+                      value={selectedDisease}
                       title={"By Disease"}
-                      options={[
-                        { name: "A ", id: 1 },
-                        { name: "B ", id: 2 },
-                      ]}
+                      options={diseases}
                     />
                     <DropdownFilter
-                      title={"By Users"}
-                      options={[
-                        { name: "B ", id: 1 },
-                        { name: "A", id: 2 },
-                      ]}
+                      setvalue={setselectedUse}
+                      value={selectedUse}
+                      title={"By Uses"}
+                      options={uses}
                     />
                     <DropdownFilter
                       title={"By ingredients"}
-                      options={[
-                        { name: "All ", id: 1 },
-                        { name: "C", id: 2 },
-                      ]}
+                      setvalue={setselectedingredient}
+                      value={selectedingredient}
+                      options={ingredients}
                     />
+
                     <div className="d-flex justify-content-between mt-5">
                       <div
                         className="btn btn-primary pb-2 pt-2 pr-5 pl-5"
                         style={{ paddingInline: "25px", width: "45%" }}
+                        onClick={ApplyFilter}
                       >
                         apply
                       </div>
                       <div
                         className="btn btn-outline-primary pb-2 pt-2 pr-5 pl-5"
                         style={{ paddingInline: "25px", width: "45%" }}
+                        onClick={ClearFilter}
                       >
                         Clear all
                       </div>

@@ -37,7 +37,7 @@ function ThumbnailPlugin(mainRef) {
   };
 }
 
-export default function SliderProductDetails() {
+export default function SliderProductDetails({list}) {
   const [sliderRef, instanceRef] = useKeenSlider({
     initial: 0,
   });
@@ -55,39 +55,19 @@ export default function SliderProductDetails() {
   return (
     <>
       <div ref={sliderRef} className="keen-slider">
-        <div className="keen-slider__slide number-slide1">
-          <Image src={panadol} alt="" />
-        </div>
-        <div className="keen-slider__slide number-slide1">
-          <Image src={panadol} alt="" />
-        </div>
-        <div className="keen-slider__slide number-slide1">
-          <Image src={panadol} alt="" />
-        </div>
-        <div className="keen-slider__slide number-slide1">
-          <Image src={panadol} alt="" />
-        </div>
-        <div className="keen-slider__slide number-slide1">
-          <Image src={panadol} alt="" />
-        </div>
+        {list?.map((item)=>   <div className="keen-slider__slide number-slide1">
+          <Image src={item} alt="" width={200} height={100} />
+        </div>)}
+      
+       
       </div>
 
       <div ref={thumbnailRef} className="keen-slider thumbnail mt-2 mt-md-5">
-        <div className="keen-slider__slide number-slide1">
-          <Image src={panadol} alt="" />
-        </div>
-        <div className="keen-slider__slide number-slide1">
-          <Image src={panadol} alt="" />
-        </div>
-        <div className="keen-slider__slide number-slide1">
-          <Image src={panadol} alt="" />
-        </div>
-        <div className="keen-slider__slide number-slide1">
-          <Image src={panadol} alt="" />
-        </div>
-        <div className="keen-slider__slide number-slide1">
-          <Image src={panadol} alt="" />
-        </div>
+      {list?.map((item)=>   <div className="keen-slider__slide number-slide1">
+          <Image src={item} alt="" width={200} height={100} />
+        </div>)}
+       
+       
       </div>
     </>
   );

@@ -1,8 +1,10 @@
+import useNotifications from "@/Components/Notification";
 import axios from "axios";
 import { useEffect, useState } from "react";
 
 async function PostReview(formdata) {
   const token = JSON.parse(localStorage.getItem("token"));
+  const { showNotification } = useNotifications();
 
   console.log(token);
   try {
@@ -19,6 +21,8 @@ async function PostReview(formdata) {
       config
     );
     console.log(response.data);
+    showNotification(`Review Sent Successfuly`, "success");
+
     return response.data;
   } catch (error) {
     console.log(error.response);
