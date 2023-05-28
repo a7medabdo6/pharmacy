@@ -5,7 +5,9 @@ import { useEffect, useState } from "react";
 export async function GetNotification(formdata) {
   const token = JSON.parse(localStorage.getItem("token"));
   const { showNotification } = useNotifications();
-
+  if (!token) {
+    return null;
+  }
   try {
     const config = {
       headers: {
