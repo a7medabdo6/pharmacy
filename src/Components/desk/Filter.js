@@ -27,8 +27,10 @@ const Filter = ({ label, list, setvalue, value }) => {
           {/* <MenuItem value="">
             <em>None</em>
           </MenuItem> */}
-          {list?.map((item) => (
-            <MenuItem value={item?.id}>{item?.name}</MenuItem>
+          {list?.map((item, i) => (
+            <MenuItem key={i} value={item?.id}>
+              {item?.name}
+            </MenuItem>
           ))}
         </Select>
       </FormControl>

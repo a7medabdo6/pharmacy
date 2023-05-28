@@ -25,10 +25,9 @@ const NavBarMobail = ({
 
   const getAllNoty = async () => {
     const res = await GetNotification();
-    console.log(res, "notificationsCount");
     setNotificationsCount(res?.count);
   };
- 
+
   useEffect(() => {
     getAllNoty();
   }, []);
@@ -36,7 +35,6 @@ const NavBarMobail = ({
   const profileImgRef = useRef();
 
   const handleGoBack = () => {
-    console.log("Go Back");
     router.back();
   };
 

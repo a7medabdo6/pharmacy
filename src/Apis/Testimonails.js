@@ -7,11 +7,10 @@ async function getAllReviews(credentials) {
         Authorization: "",
       },
     });
-    console.log(response.data);
+    // console.log(response.data);
     return response.data;
   } catch (error) {
-    console.log(error.response);
-
+    // console.log(error.response);
     // throw new Error(error.response.data.message);
   }
 }

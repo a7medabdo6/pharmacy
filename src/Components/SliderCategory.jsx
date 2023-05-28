@@ -24,7 +24,7 @@ const SliderCategory = ({ categories }) => {
       className="mySwiper"
     >
       {categories?.map((item, index) => (
-        <SwiperSlide style={{ backgroundColor: "transparent" }}>
+        <SwiperSlide key={index} style={{ backgroundColor: "transparent" }}>
           <CategorySliderCard key={index} item={item} />
         </SwiperSlide>
       ))}

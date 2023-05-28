@@ -27,7 +27,7 @@ const products = () => {
   const [isLoadingPage, setisLoadingPage] = useState(true);
 
   const { id } = router.query;
-  console.log(id, "idd");
+  // console.log(id, "idd");/
   // const details = useSelector((state) => state.ProductDetails.details);
   const SendCartFun = async (e) => {
     const formData = {
@@ -36,7 +36,7 @@ const products = () => {
     };
 
     const res = await PostCart(formData);
-    console.log(res, "ress");
+    // console.log(res, "ress");
     setresponse(res);
     setTimeout(() => {
       setresponse(null);
@@ -75,7 +75,7 @@ const products = () => {
     }
   }, [isLoading]);
 
-  console.log(products);
+  // console.log(products);
 
   return (
     <div className="product-details mb-2">
@@ -115,7 +115,7 @@ const products = () => {
                   "0px 8px 20px -4px #1718181F, 0px 3px 6px -3px #17181814",
               }}
             >
-              <Image src={accept} />
+              <Image src={accept} alt="" />
               <p
                 style={{
                   fontSize: "15px",

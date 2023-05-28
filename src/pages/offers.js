@@ -19,7 +19,7 @@ import FooterDesk from "../Components/desk/FooterDesk";
 const offers = () => {
   const [isOpen, setOpen] = useState(false);
   const [inLogin, setInLogin] = useState(false);
-  const snapPoints = [400, 600]; // Define the height values that the modal can snap to
+  const snapPoints = [600, 400]; // Define the height values that the modal can snap to
 
   useEffect(() => {
     if (localStorage.getItem("user")) {

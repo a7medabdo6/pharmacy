@@ -25,9 +25,9 @@ const NavBar = () => {
   const profileImgRef = useRef();
   const getAllNoty = async () => {
     const res = await GetNotification();
-    console.log(res, "notificationsCount");
     setNotifications(res?.results);
     setNotificationsCount(res?.count);
+    console.log(res);
   };
   const MarkAsRead = async () => {
     const res = await MakeNotificationRead();
@@ -108,7 +108,7 @@ const NavBar = () => {
               } nav-item`}
             >
               <Link className="nav-link" href="/requests">
-                Requests
+                My orders
               </Link>
             </li>
             <li
@@ -174,12 +174,13 @@ const NavBar = () => {
                         Make all as read
                       </h6>
                       {!notifications[0]?.read && (
-                        <h6 className="fw-bold ">New</h6>
+                        <h6 className="fw-bold">New</h6>
                       )}
 
-                      {notifications?.map((item) => (
+                      {notifications?.map((item, i) => (
                         <div
-                          className="box-new-notify "
+                          key={i}
+                          className="box-new-notify"
                           style={
                             {
                               // borderBottom: "0.5px solid #828282",

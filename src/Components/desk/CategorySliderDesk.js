@@ -17,6 +17,7 @@ function CategorySliderDesk({ item }) {
             src={item?.icon_image}
             width={100}
             height={100}
+            alt=""
           />
         </div>
         <h5

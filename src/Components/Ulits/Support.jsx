@@ -12,10 +12,11 @@ const Support = () => {
         right: "0",
         top: "85%",
         cursor: "pointer",
+        zIndex: "2222",
       }}
       className="support-btn"
     >
-      <Image src={support} />
+      <Image src={support} alt="" />
     </Link>
   );
 };

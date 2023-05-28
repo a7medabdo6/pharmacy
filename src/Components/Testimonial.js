@@ -32,6 +32,7 @@ function Testimonial({ item }) {
             ?.fill(0)
             ?.map((item, i) => (
               <Image
+                key={i}
                 src={starSmGold}
                 alt="star"
                 style={{ width: "25px", height: "25px" }}
@@ -41,6 +42,7 @@ function Testimonial({ item }) {
             ?.fill(0)
             ?.map((item, i) => (
               <Image
+                key={i}
                 src={starSmGray}
                 alt="star"
                 style={{ width: "25px", height: "25px" }}

@@ -39,9 +39,9 @@ const SliderFilterButton = ({
           </div>
         </SwiperSlide>
         {categories?.length > 0 &&
-          categories?.map((item) => {
+          categories?.map((item, i) => {
             return (
-              <SwiperSlide className="w-100">
+              <SwiperSlide className="w-100" key={i}>
                 <div
                   className={`${styles.boxLabeld} ${
                     activeCateFilter == item?.id ? styles.active : null

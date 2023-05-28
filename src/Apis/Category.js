@@ -7,11 +7,10 @@ async function getallCategories(credentials) {
         Authorization: "",
       },
     });
-    console.log(response.data);
+    // console.log(response.data);
     return response.data;
   } catch (error) {
-    console.log(error.response);
-
+    // console.log(error.response);
     // throw new Error(error.response.data.message);
   }
 }
@@ -22,11 +21,10 @@ export async function getallBrandsApi(credentials) {
         Authorization: "",
       },
     });
-    console.log(response.data);
+    // console.log(response.data);
     return response.data;
   } catch (error) {
-    console.log(error.response);
-
+    // console.log(error.response);
     // throw new Error(error.response.data.message);
   }
 }
@@ -37,11 +35,10 @@ export async function getallDiseaseApi(credentials) {
         Authorization: "",
       },
     });
-    console.log(response.data);
+    // console.log(response.data);
     return response.data;
   } catch (error) {
-    console.log(error.response);
-
+    // console.log(error.response);
     // throw new Error(error.response.data.message);
   }
 }
@@ -55,10 +52,10 @@ export async function getallIngredientApi(credentials) {
         },
       }
     );
-    console.log(response.data);
+    // console.log(response.data);
     return response.data;
   } catch (error) {
-    console.log(error.response);
+    // console.log(error.response);
   }
 }
 export async function getallUsesApi(credentials) {
@@ -68,10 +65,10 @@ export async function getallUsesApi(credentials) {
         Authorization: "",
       },
     });
-    console.log(response.data);
+    // console.log(response.data);
     return response.data;
   } catch (error) {
-    console.log(error.response);
+    // console.log(error.response);
   }
 }
 export default getallCategories;

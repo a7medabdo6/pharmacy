@@ -1,19 +1,15 @@
 import React, { useState, useEffect } from "react";
-import styles from "@/styles/requests.module.css";
-import ButtonRequests from "../Components/Requests/ButtonRequests";
 import CardInfo from "../Components/Requests/CardInfo";
 import CardOrder from "../Components/Requests/CardOrder";
 import CardOrderDesk from "../Components/Requests/CardOrderDesk";
 import BottomNav from "../Components/Ulits/BottomNav";
 import InputWithButton from "../Components/Requests/InputWithButton";
-import Header from "../Components/Ulits/Header";
 import NavBar from "@/Components/desk/NavBar";
 import { Breadcrumb, Col, Collapse, Container, Row } from "react-bootstrap";
 import FooterDesk from "@/Components/desk/FooterDesk";
 
 import GetCart from "../Apis/Cart/GetCart";
 import PostCart, { CreateOrder } from "../Apis/Cart/PostCart";
-import SerachBar from "../Components/SerachBar";
 import NavBarMobail from "@/Components/desk/NavBarMobail";
 import CardInfoDesk from "../Components/Requests/CardInfoDesk";
 import circleCancel from "../assets/img/circle-cancel_minor.png";
@@ -51,7 +47,7 @@ const requests = () => {
   useEffect(() => {
     GetCartFun();
   }, []);
-  console.log(CartList);
+  // console.log(CartList);
   const [user, setuser] = useState(null);
   useEffect(() => {
     if (typeof window !== "undefined") {
@@ -70,7 +66,7 @@ const requests = () => {
   };
   return (
     <main style={{ backgroundColor: "#eaeaea", width: "100%" }}>
-      <NavBarMobail titlePage="Requests" />
+      <NavBarMobail titlePage="My orders" />
 
       <NavBar />
       {isLoadingPage ? (
@@ -88,7 +84,7 @@ const requests = () => {
               <Breadcrumb.Item linkAs={Link} href="/products/all">
                 Our products
               </Breadcrumb.Item>
-              <Breadcrumb.Item active>Requests</Breadcrumb.Item>
+              <Breadcrumb.Item active>My orders</Breadcrumb.Item>
             </Breadcrumb>
           </Container>
           {CartList?.length > 0 && (
@@ -157,8 +153,8 @@ const requests = () => {
                       className="d-flex justify-content-start flex-column align-items-center"
                       style={{ width: "100%" }}
                     >
-                      {CartList?.map((item) => (
-                        <CardOrder item={item} />
+                      {CartList?.map((item, i) => (
+                        <CardOrder key={i} item={item} />
                       ))}
                     </div>
 
@@ -190,7 +186,7 @@ const requests = () => {
               className="text-center h3 my-4 d-none d-lg-block fw-bold"
               style={{ color: "#0F4392" }}
             >
-              Requests
+              My orders
             </h1>
 
             <Container className="pb-4">
@@ -199,8 +195,8 @@ const requests = () => {
                 <Col md={6}>
                   <CardInfoDesk user={user} />
                   <h2>Your orders</h2>
-                  {CartList?.map((item) => (
-                    <CardOrderDesk item={item} />
+                  {CartList?.map((item, i) => (
+                    <CardOrderDesk key={i} item={item} />
                   ))}
                 </Col>
                 {CartList.length > 0 && (

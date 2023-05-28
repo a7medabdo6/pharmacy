@@ -1,7 +1,6 @@
 import React from "react";
 import { useKeenSlider } from "keen-slider/react";
 import "keen-slider/keen-slider.min.css";
-import panadol from "../../assets/img/pnadol.png";
 import Image from "next/image";
 
 function ThumbnailPlugin(mainRef) {
@@ -37,7 +36,7 @@ function ThumbnailPlugin(mainRef) {
   };
 }
 
-export default function SliderProductDetails({list}) {
+export default function SliderProductDetails({ list }) {
   const [sliderRef, instanceRef] = useKeenSlider({
     initial: 0,
   });
@@ -55,19 +54,19 @@ export default function SliderProductDetails({list}) {
   return (
     <>
       <div ref={sliderRef} className="keen-slider">
-        {list?.map((item)=>   <div className="keen-slider__slide number-slide1">
-          <Image src={item} alt="" width={200} height={100} />
-        </div>)}
-      
-       
+        {list?.map((item, i) => (
+          <div className="keen-slider__slide number-slide1" key={i}>
+            <Image src={item} alt="" width={200} height={100} />
+          </div>
+        ))}
       </div>
 
       <div ref={thumbnailRef} className="keen-slider thumbnail mt-2 mt-md-5">
-      {list?.map((item)=>   <div className="keen-slider__slide number-slide1">
-          <Image src={item} alt="" width={200} height={100} />
-        </div>)}
-       
-       
+        {list?.map((item, i) => (
+          <div className="keen-slider__slide number-slide1" key={i}>
+            <Image src={item} alt="" width={200} height={100} />
+          </div>
+        ))}
       </div>
     </>
   );

@@ -24,7 +24,7 @@ import SizesExample from "../Components/Spinner";
 
 const contactus = () => {
   const [isOpen, setOpen] = useState(false);
-  const snapPoints = [400, 600]; // Define the height values that the modal can snap to
+  const snapPoints = [600, 400]; // Define the height values that the modal can snap to
   const [isLoadingPage, setisLoadingPage] = useState(true);
 
   useEffect(() => {

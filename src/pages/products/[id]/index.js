@@ -61,8 +61,8 @@ const products = () => {
   const [uses, setuses] = useState([]);
   const [selectedUse, setselectedUse] = useState("");
 
-  const snapPoints = [450, 600]; // Define the height values that the modal can snap to
-  console.log(id, "iddd");
+  const snapPoints = [600, 450]; // Define the height values that the modal can snap to
+  // console.log(id, "iddd");
   const getHomeData = async (id) => {
     const res = await getallProducts({
       category: id,
@@ -129,31 +129,31 @@ const products = () => {
   }, [id]);
   const getAllCategoriess = async () => {
     const res = await getallCategories();
-    console.log(res, "ressss");
+    // console.log(res, "ressss");
     setcateogies(res?.results);
     return res;
   };
   const getallDisease = async () => {
     const res = await getallDiseaseApi();
-    console.log(res, "ressss");
+    // console.log(res, "ressss");
     setDiseases(res?.results);
     return res;
   };
   const getallBrands = async () => {
     const res = await getallBrandsApi();
-    console.log(res, "ressss");
+    // console.log(res, "ressss");
     setbrand(res?.results);
     return res;
   };
   const getallUses = async () => {
     const res = await getallUsesApi();
-    console.log(res, "ressss");
+    // console.log(res, "ressss");
     setuses(res?.results);
     return res;
   };
   const getallingredients = async () => {
     const res = await getallIngredientApi();
-    console.log(res, "ressss");
+    // console.log(res, "ressss");
     setIngredients(res?.results);
     return res;
   };

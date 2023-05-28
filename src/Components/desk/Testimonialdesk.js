@@ -6,7 +6,6 @@ import starSmGray from "../../assets/img/star_sm_gray.png";
 function Testimonialdesk({ item, atHome = false }) {
   const [rate, setrate] = useState();
   const [img, setimg] = useState(item?.file.toString());
-  console.log(img);
   return (
     <div
       className="p-3 d-flex justify-content-start align-items-start m-2 rounded-3"
@@ -39,12 +38,12 @@ function Testimonialdesk({ item, atHome = false }) {
           {Array(item?.rate)
             ?.fill(0)
             ?.map((item, i) => (
-              <Image src={starSmGold} alt="star" />
+              <Image key={i} src={starSmGold} alt="star" />
             ))}
           {Array(5 - item?.rate)
             ?.fill(0)
             ?.map((item, i) => (
-              <Image src={starSmGray} alt="star" />
+              <Image key={i} src={starSmGray} alt="star" />
             ))}
         </div>
 

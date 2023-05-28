@@ -12,11 +12,10 @@ async function getallProducts(data) {
         },
       }
     );
-    console.log(response.data);
+    // console.log(response.data);
     return response.data;
   } catch (error) {
-    console.log(error.response);
-
+    // console.log(error.response);
     // throw new Error(error.response.data.message);
   }
 }
@@ -30,11 +29,10 @@ export async function GetOneProduct(data) {
         },
       }
     );
-    console.log(response.data);
+    // console.log(response.data);
     return response.data;
   } catch (error) {
-    console.log(error.response);
-
+    // console.log(error.response);
     // throw new Error(error.response.data.message);
   }
 }
@@ -45,11 +43,10 @@ export async function getallProductsWithNoCategory(data) {
         Authorization: "",
       },
     });
-    console.log(response.data);
+    // console.log(response.data);
     return response.data;
   } catch (error) {
-    console.log(error.response);
-
+    // console.log(error.response);
     // throw new Error(error.response.data.message);
   }
 }
@@ -63,11 +60,10 @@ export async function searchAllProducts(txt) {
         },
       }
     );
-    console.log(response.data);
+    // console.log(response.data);
     return response.data;
   } catch (error) {
-    console.log(error.response);
-
+    // console.log(error.response);
     // throw new Error(error.response.data.message);
   }
 }

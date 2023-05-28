@@ -98,7 +98,7 @@ const ModalContent = ({ setOpen, setModalShow }) => {
         disabled={isLoading}
         onClick={!isLoading ? handleClick : null}
       >
-        {isLoading ? "Loading…" : "send the request"}
+        {isLoading ? "Loading…" : "Send the request"}
       </Button>
     </form>
   );

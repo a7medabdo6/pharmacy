@@ -44,7 +44,7 @@ const BottomNav = () => {
           className="box d-flex flex-column justify-content-center align-items-center"
           style={{ fontSize: "14px" }}
         >
-          <Image src={homeIcon} width={20} height={20} />
+          <Image src={homeIcon} width={20} height={20} alt="" />
           <div>
             <span>Home</span>
           </div>
@@ -60,7 +60,7 @@ const BottomNav = () => {
           className="box d-flex flex-column justify-content-center align-items-center"
           style={{ fontSize: "14px" }}
         >
-          <Image src={productsIcon} width={20} height={20} />
+          <Image src={productsIcon} width={20} height={20} alt="" />
           <div>
             <span>Products</span>
           </div>
@@ -76,9 +76,9 @@ const BottomNav = () => {
           className="box d-flex flex-column justify-content-center align-items-center"
           style={{ fontSize: "14px" }}
         >
-          <Image src={requestsIcon} width={20} height={20} />
+          <Image src={requestsIcon} width={20} height={20} alt="" />
           <div>
-            <span>Requests</span>
+            <span>My orders</span>
           </div>
         </div>
       </Link>
@@ -92,7 +92,7 @@ const BottomNav = () => {
           className="box d-flex flex-column justify-content-center align-items-center"
           style={{ fontSize: "14px" }}
         >
-          <Image src={contactIcon} width={20} height={20} />
+          <Image src={contactIcon} width={20} height={20} alt="" />
           <div>
             <span>Contact us</span>
           </div>

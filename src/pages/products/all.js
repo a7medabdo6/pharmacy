@@ -60,7 +60,7 @@ const products = () => {
 
   const [uses, setuses] = useState([]);
   const [selectedUse, setselectedUse] = useState("");
-  const snapPoints = [450, 600]; // Define the height values that the modal can snap to
+  const snapPoints = [600, 450]; // Define the height values that the modal can snap to
 
   const getHomeData = async () => {
     if (activeCateFilter == "all") {
@@ -332,8 +332,11 @@ const products = () => {
                     "--bs-gutter-x": "0.5rem",
                   }}
                 >
-                  {products?.map((item) => (
-                    <Col className="col-md-6 col-lg-4 col-sm-6 col-6 mb-3">
+                  {products?.map((item, i) => (
+                    <Col
+                      key={i}
+                      className="col-md-6 col-lg-4 col-sm-6 col-6 mb-3"
+                    >
                       <CardProduct item={item} id={item?.id} />
                     </Col>
                   ))}

@@ -30,6 +30,7 @@ import NavBarMobail from "@/Components/desk/NavBarMobail";
 import SliderCategory from "../Components/SliderCategory";
 import WriteReview from "../Components/Ulits/WriteReview";
 import Support from "../Components/Ulits/Support";
+import CardBestProduct from "../Components/products/CardBestProduct";
 
 import { useKeenSlider } from "keen-slider/react";
 import "keen-slider/keen-slider.min.css";
@@ -64,14 +65,11 @@ export default function Main() {
   const [reviews, setReviews] = useState([]);
   const getReviewsData = async () => {
     const res = await getAllReviews();
-    console.log(res, "ressss");
     setReviews(res?.results);
     return res;
   };
   useEffect(() => {
     getReviewsData();
-
-    console.log(reviews, "=> review");
   }, []);
 
   const [sliderRef] = useKeenSlider({
@@ -244,6 +242,52 @@ export default function Main() {
 
                   <SliderCategory categories={categories} />
 
+                  <div className="d-flex justify-content-between align-items-center w-100">
+                    <h4 className="align-start mt-2 mb-2 m-0 pt-3 pb-2">
+                      Best seller.
+                    </h4>
+                    <Link
+                      href="/categoriesViewall"
+                      className="d-flex justify-content-between align-items-center"
+                    >
+                      <p
+                        className="align-start mt-2 mb-2 m-0 pt-3 pb-2 fs-6"
+                        style={{ fontWeight: "bold" }}
+                      >
+                        View all
+                      </p>
+                    </Link>
+                  </div>
+
+                  <div className="slider-products w-100 h-100">
+                    <Swiper
+                      slidesPerView={2}
+                      spaceBetween={5}
+                      freeMode={true}
+                      modules={[FreeMode]}
+                      className="mySwiper"
+                    >
+                      <SwiperSlide>
+                        <CardBestProduct />
+                      </SwiperSlide>
+                      <SwiperSlide>
+                        <CardBestProduct />
+                      </SwiperSlide>
+                      <SwiperSlide>
+                        <CardBestProduct />
+                      </SwiperSlide>
+                      <SwiperSlide>
+                        <CardBestProduct />
+                      </SwiperSlide>
+                      <SwiperSlide>
+                        <CardBestProduct />
+                      </SwiperSlide>
+                      <SwiperSlide>
+                        <CardBestProduct />
+                      </SwiperSlide>
+                    </Swiper>
+                  </div>
+
                   <div className="mt-3 d-flex justify-content-start align-items-center flex-row"></div>
                   <div
                     style={{ width: "95%" }}
@@ -322,7 +366,7 @@ export default function Main() {
                       {reviews?.map((item, i) => {
                         if (i < 3) {
                           return (
-                            <SwiperSlide>
+                            <SwiperSlide key={i}>
                               <Testimonial item={item} />;
                             </SwiperSlide>
                           );
@@ -439,14 +483,54 @@ export default function Main() {
                       className="mySwiper"
                     >
                       {categories?.length > 0 &&
-                        categories.map((item) => (
-                          <SwiperSlide>
+                        categories.map((item, i) => (
+                          <SwiperSlide key={i}>
                             <CategorySliderDesk
                               item={item}
                               text="All medicines"
                             />
                           </SwiperSlide>
                         ))}
+                    </Swiper>
+                  </div>
+                </div>
+
+                <div
+                  className="d-flex flex-column justify-content-center align-items-center mt-5 w-100"
+                  // data-aos="fade-up"
+                  style={{
+                    height: "480px",
+                  }}
+                >
+                  <h2 style={{ marginBottom: "20px", color: "#0F4392" }}>
+                    Best seller
+                  </h2>
+                  <div className="slider-products w-100 h-100 ps-3">
+                    <Swiper
+                      slidesPerView={4}
+                      spaceBetween={20}
+                      freeMode={true}
+                      modules={[FreeMode]}
+                      className="mySwiper"
+                    >
+                      <SwiperSlide>
+                        <CardBestProduct />
+                      </SwiperSlide>
+                      <SwiperSlide>
+                        <CardBestProduct />
+                      </SwiperSlide>
+                      <SwiperSlide>
+                        <CardBestProduct />
+                      </SwiperSlide>
+                      <SwiperSlide>
+                        <CardBestProduct />
+                      </SwiperSlide>
+                      <SwiperSlide>
+                        <CardBestProduct />
+                      </SwiperSlide>
+                      <SwiperSlide>
+                        <CardBestProduct />
+                      </SwiperSlide>
                     </Swiper>
                   </div>
                 </div>

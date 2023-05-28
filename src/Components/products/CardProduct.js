@@ -63,8 +63,6 @@ const CardProduct = ({ item, id }) => {
           style={{
             boxShadow: "0px 18px 40px 0px rgba(0, 0, 0, 0.1)",
             borderRadius: "3px",
-            // width: "237px",
-            // height: "167px",
           }}
         >
           <Image
