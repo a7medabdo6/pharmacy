@@ -99,7 +99,7 @@ const NavBar = () => {
               } nav-item`}
             >
               <Link className="nav-link" href="/products/all">
-                Our Products
+                Our products
               </Link>
             </li>
             <li
@@ -245,6 +245,9 @@ const NavBar = () => {
                           Profile
                         </Link>
                         <div
+                          style={{
+                            cursor: "pointer",
+                          }}
                           className="text-primary mt-2"
                           onClick={() => {
                             localStorage.removeItem("user");

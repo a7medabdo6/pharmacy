@@ -16,8 +16,8 @@ import NavBar from "../Components/desk/NavBar";
 import { Breadcrumb, Col, Container, Row } from "react-bootstrap";
 import NavBarMobail from "../Components/desk/NavBarMobail";
 import FooterDesk from "../Components/desk/FooterDesk";
+import WriteReview from "../Components/Ulits/WriteReview";
 import Support from "../Components/Ulits/Support";
-import BottomNav from "../Components/Ulits/BottomNav";
 import { useEffect } from "react";
 import Link from "next/link";
 import SizesExample from "../Components/Spinner";
@@ -488,6 +488,7 @@ const contactus = () => {
         )}
       </main>
       <FooterDesk />
+      <WriteReview />
       <Support />
     </>
   );
