@@ -152,7 +152,7 @@ const contactus = () => {
                                       />
                                       <p>(+20)1050777117</p>
                                     </div>
-                                    <button
+                                    <Link
                                       className="btn btn-outline-primary d-flex justify-content-center align-items-center gap-2 fw-bold"
                                       style={{
                                         width: "170px",
@@ -160,6 +160,7 @@ const contactus = () => {
                                         color: "#0F4392",
                                         border: "1px solid #0F4392",
                                       }}
+                                      href={"tel:+201050777117"}
                                     >
                                       <Image
                                         style={{
@@ -170,7 +171,7 @@ const contactus = () => {
                                         alt="Next.js Logo"
                                       />
                                       Call Now
-                                    </button>
+                                    </Link>
                                   </Col>
                                   <Col className="col-12">
                                     <div className="d-flex text-center justify-content-start align-items-center gap-3">
@@ -207,12 +208,13 @@ const contactus = () => {
                                 </div>
                               </Col>
                               <Col className="col-6">
-                                <button
+                                <Link
                                   className="btn btn-outline-primary"
                                   style={{
                                     color: "#0F4392",
                                     border: "1px solid #0F4392",
                                   }}
+                                  href={"tel:+201050777117"}
                                 >
                                   <Image
                                     src={phone}
@@ -223,7 +225,7 @@ const contactus = () => {
                                     style={{ marginInline: 8 }}
                                   />
                                   Call Now
-                                </button>
+                                </Link>
                               </Col>
                               <Col className="col-12 mt-3">
                                 <Row>
@@ -360,7 +362,7 @@ const contactus = () => {
                               />
                               <p>(+20)1050777117</p>
                             </div>
-                            <button
+                            <Link
                               className="btn btn-outline-primary d-flex justify-content-center align-items-center gap-2 fw-bold"
                               style={{
                                 width: "120px",
@@ -368,6 +370,7 @@ const contactus = () => {
                                 color: "#0F4392",
                                 border: "1px solid #0F4392",
                               }}
+                              href={"tel:+201050777117"}
                             >
                               <Image
                                 style={{ width: "14px", height: "14px" }}
@@ -375,7 +378,7 @@ const contactus = () => {
                                 alt="Next.js Logo"
                               />
                               Call Now
-                            </button>
+                            </Link>
                           </Col>
                           <Col className="col-12">
                             <div className="d-flex text-center justify-content-center align-items-center gap-3">
