@@ -46,6 +46,7 @@ import "swiper/css/pagination";
 import { FreeMode, Pagination } from "swiper";
 import Head from "next/head";
 import SizesExample from "@/Components/Spinner";
+import { AllBestSellersProducts } from "@/Apis/products";
 
 export default function Main() {
   const [open, setOpen] = useState(false);
@@ -53,8 +54,12 @@ export default function Main() {
 
   const [phone, setphone] = useState("us");
   const [categories, setcateogies] = useState([]);
+  const [products, setbestProducts] = useState([]);
+
   const getHomeData = async () => {
     const res = await getallCategories();
+    const BestSellers = await AllBestSellersProducts();
+    setbestProducts(BestSellers?.results);
     setcateogies(res?.results);
     setisLoading(false);
     return res;
@@ -246,8 +251,8 @@ export default function Main() {
                     <h4 className="align-start mt-2 mb-2 m-0 pt-3 pb-2">
                       Best seller.
                     </h4>
-                    <Link
-                      href="/categoriesViewall"
+                    {/* <Link
+                      href="#"
                       className="d-flex justify-content-between align-items-center"
                     >
                       <p
@@ -256,7 +261,7 @@ export default function Main() {
                       >
                         View all
                       </p>
-                    </Link>
+                    </Link> */}
                   </div>
 
                   <div className="slider-products w-100 h-100">
@@ -266,25 +271,13 @@ export default function Main() {
                       freeMode={true}
                       modules={[FreeMode]}
                       className="mySwiper"
+                      autoplay={true}
                     >
-                      <SwiperSlide>
-                        <CardBestProduct />
-                      </SwiperSlide>
-                      <SwiperSlide>
-                        <CardBestProduct />
-                      </SwiperSlide>
-                      <SwiperSlide>
-                        <CardBestProduct />
-                      </SwiperSlide>
-                      <SwiperSlide>
-                        <CardBestProduct />
-                      </SwiperSlide>
-                      <SwiperSlide>
-                        <CardBestProduct />
-                      </SwiperSlide>
-                      <SwiperSlide>
-                        <CardBestProduct />
-                      </SwiperSlide>
+                      {products?.map((item) => (
+                        <SwiperSlide>
+                          <CardBestProduct item={item} />
+                        </SwiperSlide>
+                      ))}
                     </Swiper>
                   </div>
 
@@ -511,26 +504,14 @@ export default function Main() {
                       spaceBetween={20}
                       freeMode={true}
                       modules={[FreeMode]}
+                      autoplay={true}
                       className="mySwiper"
                     >
-                      <SwiperSlide>
-                        <CardBestProduct />
-                      </SwiperSlide>
-                      <SwiperSlide>
-                        <CardBestProduct />
-                      </SwiperSlide>
-                      <SwiperSlide>
-                        <CardBestProduct />
-                      </SwiperSlide>
-                      <SwiperSlide>
-                        <CardBestProduct />
-                      </SwiperSlide>
-                      <SwiperSlide>
-                        <CardBestProduct />
-                      </SwiperSlide>
-                      <SwiperSlide>
-                        <CardBestProduct />
-                      </SwiperSlide>
+                      {products?.map((item) => (
+                        <SwiperSlide>
+                          <CardBestProduct item={item} />
+                        </SwiperSlide>
+                      ))}
                     </Swiper>
                   </div>
                 </div>

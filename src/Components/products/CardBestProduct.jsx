@@ -1,10 +1,52 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styles from "@/styles/products.module.css";
 import panadolImg from "../../assets/img/product123.jpg";
 import { Button } from "react-bootstrap";
 import Image from "next/image";
+import { useRouter } from "next/router";
+import { useDispatch } from "react-redux";
+import PostCart from "@/Apis/Cart/PostCart";
 
-const CardBestProduct = () => {
+const CardBestProduct = ({item}) => {
+  const [user, setUser] = useState(false);
+  const dispatch = useDispatch();
+  const router = useRouter();
+  const [isLoading, setLoading] = useState(false);
+  const SendCartFun = async (e) => {
+    const formData = {
+      product: item?.id,
+      quantity: 1,
+    };
+
+    const res = await PostCart(formData);
+    console.log(res);
+    // if (res) setData(res);
+
+    return res;
+  };
+  useEffect(() => {
+    if (isLoading) {
+      SendCartFun().then(() => {
+        setLoading(false);
+      });
+    }
+
+    if (localStorage.getItem("user")) {
+      setUser(true);
+    }
+  }, [isLoading]);
+
+  const handleClick = () => {
+    if (user) {
+      setLoading(true);
+    } else {
+      router.push("/login");
+    }
+  };
+  const onCardClick = () => {
+    router.push(`/products/${id}/details/${item?.id}`);
+    dispatch(setProductDetails(item));
+  };
   return (
     <div className={`${styles.boxcardprdoduct} px-0 px-md-2 py-0 pb-2 py-md-3`}>
       <div
@@ -19,7 +61,8 @@ const CardBestProduct = () => {
           }}
         >
           <Image
-            src={panadolImg}
+             loader={() => item?.home_image}
+             src={item?.home_image}
             className={styles.cardproductImage}
             alt="Next.js Logo"
             width={100}
@@ -30,16 +73,24 @@ const CardBestProduct = () => {
         </div>
 
         <div className={styles.boxinfo}>
-          <p className={styles.titlecard}>Panadol Extra</p>
+          <p className={styles.titlecard}> {item?.name}</p>
           <p className={styles.txtcard}>
-            Lorem ipsum is the most well known filler text and comes from
-            various passages of a book from Cicero, written in 45 BC.
+          {item?.description}
           </p>
         </div>
       </div>
-      <Button variant="primary" className="w-95">
-        Make A Request
+      <Button
+        variant="primary"
+        className="w-95"
+        onClick={!isLoading ? handleClick : null}
+      >
+        {isLoading ? "Loading…" : "Make A Request"}
       </Button>
+      {item?.description === true ? (
+        <div className={styles.discount}>
+          <p style={{ color: "#0F4392", fontSize: "10px" }}>-10 %</p>
+        </div>
+      ) : null}
       {/* {item?.description === true ? (
         <div className={styles.discount}>
           <p style={{ color: "#0F4392", fontSize: "10px" }}>-10 %</p>
