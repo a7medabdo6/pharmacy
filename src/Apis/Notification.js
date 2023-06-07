@@ -15,7 +15,7 @@ export async function GetNotification(formdata) {
       },
     };
     const response = await axios.get(
-      "http://18.130.40.220/notification/",
+      "http://167.71.53.196/notification/",
 
       config
     );
@@ -42,7 +42,7 @@ export async function MakeNotificationRead(formdata) {
       },
     };
     const response = await axios.post(
-      `http://18.130.40.220/notification/`,
+      `http://167.71.53.196/notification/`,
       {},
       config
     );

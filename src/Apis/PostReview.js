@@ -16,7 +16,7 @@ async function PostReview(formdata) {
       },
     };
     const response = await axios.post(
-      "http://18.130.40.220/reviews/",
+      "http://167.71.53.196/reviews/",
       formdata,
       config
     );

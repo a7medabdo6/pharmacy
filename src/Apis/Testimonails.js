@@ -2,7 +2,7 @@ import axios from "axios";
 
 async function getAllReviews(credentials) {
   try {
-    const response = await axios.get("http://18.130.40.220/reviews/", {
+    const response = await axios.get("http://167.71.53.196/reviews/", {
       headers: {
         Authorization: "",
       },

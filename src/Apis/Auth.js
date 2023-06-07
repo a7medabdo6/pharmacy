@@ -6,7 +6,7 @@ export const Register = async (credentials) => {
   const { showNotification } = useNotifications();
   try {
     const response = await axios.post(
-      "http://18.130.40.220/accounts/register/",
+      "http://167.71.53.196/accounts/register/",
       credentials
     );
     console.log(response.data);
@@ -33,7 +33,7 @@ export const loginUser = async (credentials) => {
 
   try {
     const response = await axios.post(
-      "http://18.130.40.220/accounts/login/",
+      "http://167.71.53.196/accounts/login/",
       credentials
     );
     console.log(response.data);
@@ -54,7 +54,7 @@ export const loginUser = async (credentials) => {
 };
 export const GetHotels = async (credentials) => {
   try {
-    const response = await axios.get("http://18.130.40.220/hotels/");
+    const response = await axios.get("http://167.71.53.196/hotels/");
 
     return response.data;
   } catch (error) {
@@ -66,7 +66,7 @@ export const GetHotels = async (credentials) => {
 export const GetHotelsDetails = async (credentials) => {
   try {
     const response = await axios.get(
-      "http://18.130.40.220/hotels/" + credentials?.hotel_id
+      "http://167.71.53.196/hotels/" + credentials?.hotel_id
     );
 
     return response.data;
@@ -79,7 +79,7 @@ export const GetHotelsDetails = async (credentials) => {
 
 export const GetRooms = async (credentials) => {
   try {
-    const response = await axios.get("http://18.130.40.220/hotels/rooms/");
+    const response = await axios.get("http://167.71.53.196/hotels/rooms/");
 
     return response.data;
   } catch (error) {
@@ -91,7 +91,7 @@ export const updateUser = async (credentials) => {
 
   try {
     const response = await axios.patch(
-      "http://18.130.40.220/accounts/update_profile/" + credentials?.id,
+      "http://167.71.53.196/accounts/update_profile/" + credentials?.id,
       credentials
     );
     console.log(response.data);

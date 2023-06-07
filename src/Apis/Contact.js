@@ -2,7 +2,7 @@ import axios from "axios";
 
 async function Postcontactus(Data) {
   try {
-    const response = await axios.post("http://18.130.40.220/contactus/", Data);
+    const response = await axios.post("http://167.71.53.196/contactus/", Data);
     console.log(response.data);
     return response.data;
   } catch (error) {

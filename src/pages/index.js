@@ -59,6 +59,7 @@ export default function Main() {
   const getHomeData = async () => {
     const res = await getallCategories();
     const BestSellers = await AllBestSellersProducts();
+    console.log(BestSellers, "BestSellers");
     setbestProducts(BestSellers?.results);
     setcateogies(res?.results);
     setisLoading(false);
@@ -227,31 +228,36 @@ export default function Main() {
                       <CardBanner />
                     </div>
                   </div>
+                  {categories?.length > 0 && (
+                    <>
+                      <div className="d-flex justify-content-between align-items-center w-100">
+                        <h4 className="align-start mt-2 mb-2 m-0 pt-3 pb-2">
+                          Categories.
+                        </h4>
+                        <Link
+                          href="/categoriesViewall"
+                          className="d-flex justify-content-between align-items-center"
+                        >
+                          <p
+                            className="align-start mt-2 mb-2 m-0 pt-3 pb-2 fs-6"
+                            style={{ fontWeight: "bold" }}
+                          >
+                            View all
+                          </p>
+                        </Link>
+                      </div>
 
-                  <div className="d-flex justify-content-between align-items-center w-100">
-                    <h4 className="align-start mt-2 mb-2 m-0 pt-3 pb-2">
-                      Categories.
-                    </h4>
-                    <Link
-                      href="/categoriesViewall"
-                      className="d-flex justify-content-between align-items-center"
-                    >
-                      <p
-                        className="align-start mt-2 mb-2 m-0 pt-3 pb-2 fs-6"
-                        style={{ fontWeight: "bold" }}
-                      >
-                        View all
-                      </p>
-                    </Link>
-                  </div>
+                      <SliderCategory categories={categories} />
+                    </>
+                  )}
 
-                  <SliderCategory categories={categories} />
-
-                  <div className="d-flex justify-content-between align-items-center w-100">
-                    <h4 className="align-start mt-2 mb-2 m-0 pt-3 pb-2">
-                      Best seller.
-                    </h4>
-                    {/* <Link
+                  {products?.length > 0 && (
+                    <>
+                      <div className="d-flex justify-content-between align-items-center w-100">
+                        <h4 className="align-start mt-2 mb-2 m-0 pt-3 pb-2">
+                          Best seller.
+                        </h4>
+                        {/* <Link
                       href="#"
                       className="d-flex justify-content-between align-items-center"
                     >
@@ -262,24 +268,26 @@ export default function Main() {
                         View all
                       </p>
                     </Link> */}
-                  </div>
+                      </div>
 
-                  <div className="slider-products w-100 h-100">
-                    <Swiper
-                      slidesPerView={2}
-                      spaceBetween={5}
-                      freeMode={true}
-                      modules={[FreeMode]}
-                      className="mySwiper"
-                      autoplay={true}
-                    >
-                      {products?.map((item) => (
-                        <SwiperSlide>
-                          <CardBestProduct item={item} />
-                        </SwiperSlide>
-                      ))}
-                    </Swiper>
-                  </div>
+                      <div className="slider-products w-100 h-100">
+                        <Swiper
+                          slidesPerView={2}
+                          spaceBetween={5}
+                          freeMode={true}
+                          modules={[FreeMode]}
+                          className="mySwiper"
+                          autoplay={true}
+                        >
+                          {products?.map((item) => (
+                            <SwiperSlide>
+                              <CardBestProduct item={item} />
+                            </SwiperSlide>
+                          ))}
+                        </Swiper>
+                      </div>
+                    </>
+                  )}
 
                   <div className="mt-3 d-flex justify-content-start align-items-center flex-row"></div>
                   <div
@@ -325,48 +333,52 @@ export default function Main() {
                       desc="You can call our pharmacists to request what you want or send a prescription"
                     />
                   </div>
-                  <div
-                    style={{ width: "95%" }}
-                    className="d-flex justify-content-between align-items-center"
-                    // data-aos="fade-right"
-                    // data-aos-offset="500"
-                  >
-                    <h4 className=" align-start mt-2 mb-2 m-0 pt-3 pb-2">
-                      Testimonial
-                    </h4>
-                    <Link
-                      href="/testimonials"
-                      className="d-flex justify-content-between align-items-center"
-                    >
-                      <p
-                        className="align-start mt-2 mb-2 m-0 pt-3 pb-2 fs-6"
-                        style={{ fontWeight: "bold" }}
+                  {reviews?.length > 0 && (
+                    <>
+                      <div
+                        style={{ width: "95%" }}
+                        className="d-flex justify-content-between align-items-center"
+                        // data-aos="fade-right"
+                        // data-aos-offset="500"
                       >
-                        View all
-                      </p>
-                    </Link>
-                  </div>
+                        <h4 className=" align-start mt-2 mb-2 m-0 pt-3 pb-2">
+                          Testimonial
+                        </h4>
+                        <Link
+                          href="/testimonials"
+                          className="d-flex justify-content-between align-items-center"
+                        >
+                          <p
+                            className="align-start mt-2 mb-2 m-0 pt-3 pb-2 fs-6"
+                            style={{ fontWeight: "bold" }}
+                          >
+                            View all
+                          </p>
+                        </Link>
+                      </div>
 
-                  <Swiper
-                    spaceBetween={30}
-                    pagination={{
-                      clickable: true,
-                    }}
-                    modules={[Pagination]}
-                    className="mySwiper"
-                  >
-                    <div className="w-100 d-flex justify-content-center align-items-center">
-                      {reviews?.map((item, i) => {
-                        if (i < 3) {
-                          return (
-                            <SwiperSlide key={i}>
-                              <Testimonial item={item} />;
-                            </SwiperSlide>
-                          );
-                        }
-                      })}
-                    </div>
-                  </Swiper>
+                      <Swiper
+                        spaceBetween={30}
+                        pagination={{
+                          clickable: true,
+                        }}
+                        modules={[Pagination]}
+                        className="mySwiper"
+                      >
+                        <div className="w-100 d-flex justify-content-center align-items-center">
+                          {reviews?.map((item, i) => {
+                            if (i < 3) {
+                              return (
+                                <SwiperSlide key={i}>
+                                  <Testimonial item={item} />;
+                                </SwiperSlide>
+                              );
+                            }
+                          })}
+                        </div>
+                      </Swiper>
+                    </>
+                  )}
                 </div>
               </main>
             </div>
@@ -457,64 +469,70 @@ export default function Main() {
               </div>
 
               <Container>
-                <div
-                  className="d-flex flex-column justify-content-center align-items-center mt-5 w-100"
-                  // data-aos="fade-up"
-                  style={{
-                    height: "310px",
-                  }}
-                >
-                  <h2 style={{ marginBottom: "20px", color: "#0F4392" }}>
-                    Categories
-                  </h2>
-                  <div className="slider-category w-100 h-100 ps-3">
-                    <Swiper
-                      slidesPerView={6.5}
-                      spaceBetween={30}
-                      freeMode={true}
-                      modules={[FreeMode]}
-                      className="mySwiper"
-                    >
-                      {categories?.length > 0 &&
-                        categories.map((item, i) => (
-                          <SwiperSlide key={i}>
-                            <CategorySliderDesk
-                              item={item}
-                              text="All medicines"
-                            />
-                          </SwiperSlide>
-                        ))}
-                    </Swiper>
+                {categories?.length > 0 && (
+                  <div
+                    className="d-flex flex-column justify-content-center align-items-center mt-5 w-100"
+                    // data-aos="fade-up"
+                    style={{
+                      height: "310px",
+                    }}
+                  >
+                    <h2 style={{ marginBottom: "20px", color: "#0F4392" }}>
+                      Categories
+                    </h2>
+                    <div className="slider-category w-100 h-100 ps-3">
+                      <Swiper
+                        slidesPerView={6.5}
+                        spaceBetween={30}
+                        freeMode={true}
+                        modules={[FreeMode]}
+                        className="mySwiper"
+                      >
+                        {categories?.length > 0 &&
+                          categories.map((item, i) => (
+                            <SwiperSlide key={i}>
+                              <CategorySliderDesk
+                                item={item}
+                                text="All medicines"
+                              />
+                            </SwiperSlide>
+                          ))}
+                      </Swiper>
+                    </div>
                   </div>
-                </div>
+                )}
 
-                <div
-                  className="d-flex flex-column justify-content-center align-items-center mt-5 w-100"
-                  // data-aos="fade-up"
-                  style={{
-                    height: "480px",
-                  }}
-                >
-                  <h2 style={{ marginBottom: "20px", color: "#0F4392" }}>
-                    Best seller
-                  </h2>
-                  <div className="slider-products w-100 h-100 ps-3">
-                    <Swiper
-                      slidesPerView={4}
-                      spaceBetween={20}
-                      freeMode={true}
-                      modules={[FreeMode]}
-                      autoplay={true}
-                      className="mySwiper"
+                {products?.length > 0 && (
+                  <>
+                    <div
+                      className="d-flex flex-column justify-content-center align-items-center mt-5 w-100"
+                      // data-aos="fade-up"
+                      style={{
+                        height: "480px",
+                      }}
                     >
-                      {products?.map((item) => (
-                        <SwiperSlide>
-                          <CardBestProduct item={item} />
-                        </SwiperSlide>
-                      ))}
-                    </Swiper>
-                  </div>
-                </div>
+                      <h2 style={{ marginBottom: "20px", color: "#0F4392" }}>
+                        Best seller
+                      </h2>
+                      <div className="slider-products w-100 h-100 ps-3">
+                        <Swiper
+                          slidesPerView={4}
+                          spaceBetween={20}
+                          freeMode={true}
+                          modules={[FreeMode]}
+                          autoplay={true}
+                          className="mySwiper"
+                        >
+                          {products?.map((item) => (
+                            <SwiperSlide>
+                              <CardBestProduct item={item} />
+                            </SwiperSlide>
+                          ))}
+                        </Swiper>
+                      </div>
+                    </div>
+                  </>
+                )}
 
                 <div
                   className="d-flex justify-content-center align-items-center flex-column mb-5 mt-5"
@@ -546,63 +564,65 @@ export default function Main() {
                     />
                   </div>
                 </div>
-
-                <div
-                  className="d-flex justify-content-center align-items-center flex-column mb-5 mt-5"
-                  // data-aos="flip-down"
-                >
-                  <h5 style={{ marginBottom: 0, color: "#0F4392" }}>
-                    Testimonial
-                  </h5>
-
-                  <div className="d-flex justify-content-between align-items-center mt-5 mb-4 w-100">
-                    <Swiper
-                      style={{
-                        height: "230px",
-                      }}
-                      slidesPerView={3}
-                      spaceBetween={0}
-                      freeMode={true}
-                      pagination={{
-                        clickable: true,
-                      }}
-                      modules={[Pagination, FreeMode]}
-                      className="mySwiper"
+                {reviews?.length > 0 && (
+                  <>
+                    <div
+                      className="d-flex justify-content-center align-items-center flex-column mb-5 mt-5"
+                      // data-aos="flip-down"
                     >
-                      <div
-                        className="w-100 d-flex justify-content-center align-items-center"
-                        style={{ width: "300px" }}
-                      >
-                        {reviews?.map((item, i) => {
-                          return (
-                            <SwiperSlide key={i}>
-                              <Testimonialdesk item={item} atHome={true} />
-                            </SwiperSlide>
-                          );
-                        })}
-                      </div>
-                    </Swiper>
-                  </div>
-                </div>
-              </Container>
+                      <h5 style={{ marginBottom: 0, color: "#0F4392" }}>
+                        Testimonial
+                      </h5>
 
-              <div
-                className="mt-3 d-flex justify-content-center align-items-center flex-column w-100"
-                style={{ width: "100%" }}
-              >
-                <Link href="/testimonials">
-                  <p
-                    style={{
-                      color: "#0F4392",
-                      fontSize: "16px !important",
-                      marginBottom: "10px",
-                      fontWeight: "bold",
-                    }}
-                  >
-                    Check all reviews
-                  </p>
-                </Link>
-              </div>
+                      <div className="d-flex justify-content-between align-items-center mt-5 mb-4 w-100">
+                        <Swiper
+                          style={{
+                            height: "230px",
+                          }}
+                          slidesPerView={3}
+                          spaceBetween={0}
+                          freeMode={true}
+                          pagination={{
+                            clickable: true,
+                          }}
+                          modules={[Pagination, FreeMode]}
+                          className="mySwiper"
+                        >
+                          <div
+                            className="w-100 d-flex justify-content-center align-items-center"
+                            style={{ width: "300px" }}
+                          >
+                            {reviews?.map((item, i) => {
+                              return (
+                                <SwiperSlide key={i}>
+                                  <Testimonialdesk item={item} atHome={true} />
+                                </SwiperSlide>
+                              );
+                            })}
+                          </div>
+                        </Swiper>
+                      </div>
+                    </div>
+                    <div
+                      className="mt-3 d-flex justify-content-center align-items-center flex-column w-100"
+                      style={{ width: "100%" }}
+                    >
+                      <Link href="/testimonials">
+                        <p
+                          style={{
+                            color: "#0F4392",
+                            fontSize: "16px !important",
+                            marginBottom: "10px",
+                            fontWeight: "bold",
+                          }}
+                        >
+                          Check all reviews
+                        </p>
+                      </Link>
+                    </div>
+                  </>
+                )}
+              </Container>
             </div>
           </div>
         </>
