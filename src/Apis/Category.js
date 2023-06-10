@@ -2,7 +2,7 @@ import axios from "axios";
 
 async function getallCategories(credentials) {
   try {
-    const response = await axios.get("http://167.71.53.196/category/", {
+    const response = await axios.get("http://46.101.241.139/category/", {
       headers: {
         Authorization: "",
       },
@@ -16,7 +16,7 @@ async function getallCategories(credentials) {
 }
 export async function getallBrandsApi(credentials) {
   try {
-    const response = await axios.get("http://167.71.53.196/category/brands", {
+    const response = await axios.get("http://46.101.241.139/category/brands", {
       headers: {
         Authorization: "",
       },
@@ -30,7 +30,7 @@ export async function getallBrandsApi(credentials) {
 }
 export async function getallDiseaseApi(credentials) {
   try {
-    const response = await axios.get("http://167.71.53.196/category/disease", {
+    const response = await axios.get("http://46.101.241.139/category/disease", {
       headers: {
         Authorization: "",
       },
@@ -45,7 +45,7 @@ export async function getallDiseaseApi(credentials) {
 export async function getallIngredientApi(credentials) {
   try {
     const response = await axios.get(
-      "http://167.71.53.196/category/ingredient",
+      "http://46.101.241.139/category/ingredient",
       {
         headers: {
           Authorization: "",
@@ -60,7 +60,7 @@ export async function getallIngredientApi(credentials) {
 }
 export async function getallUsesApi(credentials) {
   try {
-    const response = await axios.get("http://167.71.53.196/category/uses", {
+    const response = await axios.get("http://46.101.241.139/category/uses", {
       headers: {
         Authorization: "",
       },
