@@ -16,7 +16,7 @@ async function PostCart(formdata) {
       },
     };
     const response = await axios.post(
-      "http://18.130.40.220/cart/cart_items/",
+      "http://46.101.241.139/cart/cart_items/",
       formdata,
       config
     );
@@ -47,7 +47,7 @@ export async function CreateOrder(formdata) {
       },
     };
     const response = await axios.post(
-      "http://18.130.40.220/order/",
+      "http://46.101.241.139/order/",
       formdata,
       config
     );
@@ -78,7 +78,7 @@ export async function DeleteCart(formdata) {
       },
     };
     const response = await axios.delete(
-      `http://18.130.40.220/cart/cart_items/${formdata?.id}`,
+      `http://46.101.241.139/cart/cart_items/${formdata?.id}`,
       config
     );
     showNotification(`Item Deleted Successfuly`, "success");
