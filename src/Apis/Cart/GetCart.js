@@ -9,7 +9,7 @@ async function GetCart(credentials) {
         Authorization: `Bearer ${token}`,
       },
     };
-    const response = await axios.get("http://18.130.40.220/cart/", config);
+    const response = await axios.get("http://46.101.241.139/cart/", config);
     // console.log(response.data)
     return response.data;
   } catch (error) {
