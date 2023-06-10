@@ -3,7 +3,7 @@ import axios from "axios";
 async function getallProducts(data) {
   try {
     const response = await axios.get(
-      `http://167.71.53.196/product/`,
+      `http://46.101.241.139/product/`,
 
       {
         params: data,
@@ -22,7 +22,7 @@ async function getallProducts(data) {
 export async function GetOneProduct(data) {
   try {
     const response = await axios.get(
-      `http://167.71.53.196/product/${data.id}`,
+      `http://46.101.241.139/product/${data.id}`,
       {
         headers: {
           Authorization: "",
@@ -38,7 +38,7 @@ export async function GetOneProduct(data) {
 }
 export async function getallProductsWithNoCategory(data) {
   try {
-    const response = await axios.get(`http://167.71.53.196/product/`, {
+    const response = await axios.get(`http://46.101.241.139/product/`, {
       headers: {
         Authorization: "",
       },
@@ -53,7 +53,7 @@ export async function getallProductsWithNoCategory(data) {
 export async function searchAllProducts(txt) {
   try {
     const response = await axios.get(
-      `http://167.71.53.196/product/?name=${txt}`,
+      `http://46.101.241.139/product/?name=${txt}`,
       {
         headers: {
           Authorization: "",
@@ -70,7 +70,7 @@ export async function searchAllProducts(txt) {
 export async function AllBestSellersProducts(txt) {
   try {
     const response = await axios.get(
-      `http://167.71.53.196/product/?best_seller=true`,
+      `http://46.101.241.139/product/?best_seller=true`,
       {
         headers: {
           Authorization: "",
