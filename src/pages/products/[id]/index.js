@@ -71,6 +71,7 @@ const products = () => {
       uses: selectedUse,
     });
     setproducts(res?.results);
+    console.log(res?.results, "res?.results");
     if (res?.results) {
       setisLoading(false);
     }

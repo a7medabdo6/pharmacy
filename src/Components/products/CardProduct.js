@@ -65,16 +65,29 @@ const CardProduct = ({ item, id }) => {
             borderRadius: "3px",
           }}
         >
-          <Image
-            loader={() => item?.home_image}
-            src={item?.home_image}
-            className={styles.cardproductImage}
-            alt="Next.js Logo"
-            width={100}
-            height={150}
-            style={{ width: "100%", height: "100%", margin: 0 }}
-            priority
-          />
+          {" "}
+          {item?.home_image ? (
+            <Image
+              loader={() => item?.home_image}
+              src={item?.home_image}
+              className={styles.cardproductImage}
+              alt="Next.js Logo"
+              width={100}
+              height={150}
+              style={{ width: "100%", height: "100%", margin: 0 }}
+              priority
+            />
+          ) : (
+            <Image
+              src={require("../../assets/img/noimage.jpeg")}
+              className={styles.cardproductImage}
+              alt="Next.js Logo"
+              width={100}
+              height={150}
+              style={{ width: "100%", height: "100%", margin: 0 }}
+              priority
+            />
+          )}
         </div>
 
         <div className={styles.boxinfo}>
