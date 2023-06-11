@@ -89,15 +89,27 @@ const CardOrder = ({ item }) => {
               border: "1px solid #C9CCCF",
             }}
           >
-            <Image
-              src={item?.product?.home_image}
-              alt="Next.js Logo"
-              width={100}
-              height={116}
-              style={{ width: "100%", height: "100%" }}
-              priority
-              className=""
-            />
+            {item?.product?.home_image ? (
+              <Image
+                src={item?.product?.home_image}
+                alt="Next.js Logo"
+                width={100}
+                height={116}
+                style={{ width: "100%", height: "100%" }}
+                priority
+                className=""
+              />
+            ) : (
+              <Image
+                src={require("../../assets/img/noimage.jpeg")}
+                alt="Next.js Logo"
+                width={100}
+                height={116}
+                style={{ width: "100%", height: "100%" }}
+                priority
+                className=""
+              />
+            )}
           </div>
         </Col>
         <Col xs={7}>

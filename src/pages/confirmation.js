@@ -13,6 +13,7 @@ import styles from "@/styles/confirmation.module.css";
 // IMGS
 import vector from "../assets/img/vector.png";
 import NavBarMobail from "../Components/desk/NavBarMobail";
+import { useRouter } from "next/router";
 
 const style = {
   position: "absolute",
@@ -31,9 +32,12 @@ const style = {
 const confirmation = () => {
   const [modalShow, setModalShow] = useState(false);
   const [open, setOpen] = useState(false);
-
+  const router = useRouter();
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
+  const GotItFun = () => {
+    router.push("/");
+  };
 
   return (
     <>
@@ -93,6 +97,7 @@ const confirmation = () => {
                 bckColor="#0F4392"
                 BRColor="#0F4392"
                 text="Got it"
+                clicking={GotItFun}
               />
             </div>
             <div className="w-100 d-flex justify-content-center align-items-center mt-3">
@@ -189,6 +194,7 @@ const confirmation = () => {
                 bckColor="#0F4392"
                 BRColor="#0F4392"
                 text="Got it"
+                clicking={GotItFun}
               />
             </div>
             <div className="w-100 d-flex justify-content-center align-items-center mt-3">

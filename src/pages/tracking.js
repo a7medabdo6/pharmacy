@@ -12,10 +12,29 @@ import WriteReview from "../Components/Ulits/WriteReview";
 import Support from "../Components/Ulits/Support";
 import { Breadcrumb, Container } from "react-bootstrap";
 import Link from "next/link";
+import { useEffect } from "react";
+import { getOrderHistory } from "../Apis/Cart/PostCart";
+import { useRouter } from "next/router";
 
 const tracking = () => {
-  const [value, setvalue] = useState(0);
-
+  const router = useRouter();
+  const { orderId } = router.query;
+  const [value, setvalue] = useState(50);
+  const getOrderHistoryCall = async () => {
+    const res = await getOrderHistory({ id: orderId });
+    console.log(res, "resres");
+    if (res?.active) {
+      setvalue(30);
+    }
+  };
+  useEffect(() => {
+    if (orderId) {
+      getOrderHistoryCall();
+    }
+  }, [orderId]);
+  const BackCall = () => {
+    router.push(`/products/all`);
+  };
   return (
     <div style={{ backgroundColor: "#eaeaea" }}>
       <NavBar />
@@ -70,6 +89,7 @@ const tracking = () => {
                       <button
                         className="btn  btn-primary mt-5  pr-5 pl-5"
                         style={{ fontSize: "20px", width: "90%" }}
+                        onClick={BackCall}
                       >
                         Back to our products
                       </button>
@@ -104,6 +124,7 @@ const tracking = () => {
                     <div className="w-100">
                       <button
                         className="btn  btn-primary mt-5  pr-5 pl-5"
+                        onClick={BackCall}
                         style={{ fontSize: "20px", width: "90%" }}
                       >
                         {" "}
@@ -141,6 +162,7 @@ const tracking = () => {
                       <button
                         className="btn w-100 btn-primary mt-5  pr-5 pl-5"
                         style={{ fontSize: "20px" }}
+                        onClick={BackCall}
                       >
                         {" "}
                         Back to our products

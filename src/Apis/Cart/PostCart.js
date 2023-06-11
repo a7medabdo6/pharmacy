@@ -1,5 +1,6 @@
 import useNotifications from "../../Components//Notification";
 import axios from "axios";
+import { Router, useRouter } from "next/router";
 import { useEffect, useState } from "react";
 
 async function PostCart(formdata) {
@@ -21,12 +22,11 @@ async function PostCart(formdata) {
       config
     );
     showNotification(`Item Added Successfuly`, "success");
-    return response.data;
+    return response?.data;
   } catch (error) {
-    console.log(error.response);
-    for (const key in error.response.data) {
+    for (const key in error?.response?.data) {
       showNotification(
-        `${(key.toUpperCase(), error.response.data[key])}`,
+        `${(key.toUpperCase(), error?.response?.data[key])}`,
         "error"
       );
     }
@@ -52,15 +52,57 @@ export async function CreateOrder(formdata) {
       config
     );
     showNotification(` Success!`, "success");
-    return response.data;
+    return response?.data;
   } catch (error) {
-    console.log(error.response);
-    for (const key in error.response.data) {
+    for (const key in error?.response?.data) {
       showNotification(
-        `${(key.toUpperCase(), error.response.data[key])}`,
+        `${(key.toUpperCase(), error?.response?.data[key])}`,
         "error"
       );
     }
+    // throw new Error(error.response.data.message);
+  }
+}
+export async function getOrders(formdata) {
+  const token = JSON.parse(localStorage.getItem("token"));
+  const { showNotification } = useNotifications();
+
+  console.log(token);
+  try {
+    const config = {
+      headers: {
+        Authorization: `Bearer ${token}`,
+
+        "Content-Type": "multipart/form-data",
+      },
+    };
+    const response = await axios.get("http://46.101.241.139/order/", config);
+    // showNotification(` Success!`, "success");
+    return response?.data;
+  } catch (error) {
+    // throw new Error(error.response.data.message);
+  }
+}
+export async function getOrderHistory(formdata) {
+  const token = JSON.parse(localStorage.getItem("token"));
+  const { showNotification } = useNotifications();
+
+  console.log(token);
+  try {
+    const config = {
+      headers: {
+        Authorization: `Bearer ${token}`,
+
+        "Content-Type": "multipart/form-data",
+      },
+    };
+    const response = await axios.get(
+      `http://46.101.241.139/order/history/${formdata?.id}`,
+      config
+    );
+    // showNotification(` Success!`, "success");
+    return response?.data;
+  } catch (error) {
     // throw new Error(error.response.data.message);
   }
 }
@@ -82,12 +124,11 @@ export async function DeleteCart(formdata) {
       config
     );
     showNotification(`Item Deleted Successfuly`, "success");
-    return response.data;
+    return response?.data;
   } catch (error) {
-    console.log(error.response);
-    for (const key in error.response.data) {
+    for (const key in error?.response?.data) {
       showNotification(
-        `${(key.toUpperCase(), error.response.data[key])}`,
+        `${(key.toUpperCase(), error?.response?.data[key])}`,
         "error"
       );
     }

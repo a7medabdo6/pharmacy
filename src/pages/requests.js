@@ -9,7 +9,7 @@ import { Breadcrumb, Col, Collapse, Container, Row } from "react-bootstrap";
 import FooterDesk from "@/Components/desk/FooterDesk";
 
 import GetCart from "../Apis/Cart/GetCart";
-import PostCart, { CreateOrder } from "../Apis/Cart/PostCart";
+import PostCart, { CreateOrder, getOrders } from "../Apis/Cart/PostCart";
 import NavBarMobail from "@/Components/desk/NavBarMobail";
 import CardInfoDesk from "../Components/Requests/CardInfoDesk";
 import circleCancel from "../assets/img/circle-cancel_minor.png";
@@ -38,14 +38,24 @@ const requests = () => {
   const [isLoadingPage, setisLoadingPage] = useState(true);
 
   const [CartList, setCartList] = useState([]);
+
+  const [order, setOrder] = useState(null);
+
   const GetCartFun = async () => {
     const res = await GetCart();
     setCartList(res?.cart_items);
     setisLoadingPage(false);
     return res;
   };
+  const GetOrderFun = async () => {
+    const res = await getOrders();
+    setOrder(res);
+    console.log(res, "ressss");
+    return res;
+  };
   useEffect(() => {
     GetCartFun();
+    GetOrderFun();
   }, []);
   // console.log(CartList);
   const [user, setuser] = useState(null);
@@ -63,7 +73,15 @@ const requests = () => {
   const handlePromoCode = (e) => setPromocode(e.target.value);
   const CreateOrderApi = async () => {
     const res = await CreateOrder();
+    setTimeout(() => {
+      router.push("/confirmation");
+    }, 500);
   };
+  useEffect(() => {
+    CartList?.length <= 0 && order
+      ? router.push(`/tracking?orderId=${order?.id}`)
+      : null;
+  }, [CartList, order]);
   return (
     <main style={{ backgroundColor: "#eaeaea", width: "100%" }}>
       <NavBarMobail titlePage="My orders" />

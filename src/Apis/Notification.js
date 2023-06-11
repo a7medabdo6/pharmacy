@@ -19,9 +19,9 @@ export async function GetNotification(formdata) {
 
       config
     );
-    return response.data;
+    return response?.data;
   } catch (error) {
-    for (const key in error.response.data) {
+    for (const key in error?.response?.data) {
       showNotification(
         `${(key.toUpperCase(), error.response.data[key])}`,
         "error"
@@ -49,7 +49,7 @@ export async function MakeNotificationRead(formdata) {
     // showNotification(`Item Deleted Successfuly`, "success");
     return response.data;
   } catch (error) {
-    console.log(error.response);
+    // console.log(error.response);
     // for (const key in error.response.data) {
     //   showNotification(
     //     `${(key.toUpperCase(), error.response.data[key])}`,

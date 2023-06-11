@@ -18,10 +18,9 @@ export const Register = async (credentials) => {
     }, 2000);
     return response.data;
   } catch (error) {
-    console.log(error.response);
-    for (const key in error.response.data) {
+    for (const key in error?.response?.data) {
       showNotification(
-        `${(key.toUpperCase(), error.response.data[key])}`,
+        `${(key.toUpperCase(), error?.response?.data[key])}`,
         "error"
       );
     }
@@ -42,10 +41,9 @@ export const loginUser = async (credentials) => {
     showNotification(`User Login Successfuly`, "success");
     return response.data;
   } catch (error) {
-    console.log(error.response);
-    for (const key in error.response.data) {
+    for (const key in error?.response?.data) {
       showNotification(
-        `${(key.toUpperCase(), error.response.data[key])}`,
+        `${(key.toUpperCase(), error?.response?.data[key])}`,
         "error"
       );
     }
@@ -58,8 +56,6 @@ export const GetHotels = async (credentials) => {
 
     return response.data;
   } catch (error) {
-    console.log(error.response);
-
     // throw new Error(error.response.data.message);
   }
 };
@@ -71,8 +67,6 @@ export const GetHotelsDetails = async (credentials) => {
 
     return response.data;
   } catch (error) {
-    console.log(error.response);
-
     // throw new Error(error.response.data.message);
   }
 };
@@ -82,9 +76,7 @@ export const GetRooms = async (credentials) => {
     const response = await axios.get("http://46.101.241.139/hotels/rooms/");
 
     return response.data;
-  } catch (error) {
-    console.log(error.response);
-  }
+  } catch (error) {}
 };
 export const updateUser = async (credentials) => {
   const { showNotification } = useNotifications();
@@ -100,8 +92,7 @@ export const updateUser = async (credentials) => {
     showNotification(`User updated Successfuly`, "success");
     return response.data;
   } catch (error) {
-    console.log(error.response);
-    for (const key in error.response.data) {
+    for (const key in error?.response?.data) {
       showNotification(
         `${(key.toUpperCase(), error.response.data[key])}`,
         "error"
