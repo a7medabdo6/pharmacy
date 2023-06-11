@@ -23,8 +23,14 @@ const tracking = () => {
   const getOrderHistoryCall = async () => {
     const res = await getOrderHistory({ id: orderId });
     console.log(res, "resres");
-    if (res?.active) {
-      setvalue(30);
+    if (res?.status == "Received") {
+      setvalue(0);
+    } else if (res?.status == "Prepared") {
+      setvalue(35);
+    } else if (res?.status == "On Its Way") {
+      setvalue(70);
+    } else {
+      setvalue(100);
     }
   };
   useEffect(() => {
@@ -176,19 +182,19 @@ const tracking = () => {
                   <div className={styles.Bigcircle}>
                     <div
                       className={styles.circle}
-                      style={{ backgroundColor: "#0f439242" }}
+                      // style={{ backgroundColor: "#0f439242" }}
                     >
                       <div
                         className=" d-flex justify-content-center align-items-center mt-3 "
-                        style={{ position: "absolute" }}
+                        // style={{ position: "absolute" }}
                       >
                         <Image
                           //  className="w-20"
                           src={vector}
                           style={{
                             position: "absolute",
-                            bottom: "-24px",
-                            left: "-66px",
+                            // bottom: "-24px",
+                            // left: "-66px",
                           }}
                           alt="Next.js Logo"
                           width={165}
@@ -218,7 +224,9 @@ const tracking = () => {
           </div>
         </main>
       </Container>
-      <FooterDesk />
+      <div className="d-none d-sm-block ">
+        <FooterDesk />
+      </div>
       <WriteReview />
       <Support />
     </div>

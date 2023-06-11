@@ -29,7 +29,8 @@
       align-items: center;
       background-color: "#EDEDED";
       margin-top: 20px;
-      border: 2px solid #0f439242;
+      /* display: none; */
+      /* border: 2px solid #0f439242; */
   
   }
   .textBtnTrack{
@@ -91,9 +92,9 @@ color: "blue";
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: "#EDEDED";
+    /* background-color: "#EDEDED"; */
     
-    border: 2px solid #0f439242;
+    /* border: 2px solid #0f439242; */
 
 }
 @media only screen and (min-width: 600px) {
