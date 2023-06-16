@@ -21,6 +21,7 @@ import Support from "../Components/Ulits/Support";
 import { useEffect } from "react";
 import Link from "next/link";
 import SizesExample from "../Components/Spinner";
+import BottomNav from "../Components/Ulits/BottomNav";
 
 const contactus = () => {
   const [isOpen, setOpen] = useState(false);
@@ -490,7 +491,13 @@ const contactus = () => {
           </>
         )}
       </main>
-      <FooterDesk />
+      <div className="d-block d-sm-none">
+        <BottomNav />
+      </div>
+      <div className="d-none d-sm-block">
+        <FooterDesk />
+      </div>
+
       <WriteReview />
       <Support />
     </>

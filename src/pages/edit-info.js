@@ -26,8 +26,8 @@ import Link from "next/link";
 import SizesExample from "../Components/Spinner";
 
 const EditInfo = () => {
-  const [phone, setphone] = useState("us");
-  const [hotel_id, sethotel_id] = useState(1);
+  const [phone, setphone] = useState(null);
+  const [hotel_id, sethotel_id] = useState(null);
   const [room_number, setroom_number] = useState(null);
   const [isLoadingPage, setisLoadingPage] = useState(true);
 
@@ -192,7 +192,7 @@ const EditInfo = () => {
                       placeholder="Select here"
                     >
                       <option>Select Room Number</option>
-                      {rooms.map((item) => (
+                      {rooms?.map((item) => (
                         <option
                           selected={room_number == item?.id}
                           value={item?.id}

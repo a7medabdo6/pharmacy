@@ -24,6 +24,7 @@ import Filter from "../../Components/desk/Filter";
 import SerachBar from "../../Components/SerachBar";
 import WriteReview from "../../Components/Ulits/WriteReview";
 import Support from "../../Components/Ulits/Support";
+import BottomNav from "../../Components/Ulits/BottomNav";
 
 // Images and icon
 import iconfilter from "../../assets/img/iconfilter.png";
@@ -405,9 +406,13 @@ const products = () => {
         </Container>
       )}
 
-      <div className="d-none d-sm-block ">
+      <div className="d-block d-sm-none">
+        <BottomNav />
+      </div>
+      <div className="d-none d-sm-block">
         <FooterDesk />
       </div>
+
       <WriteReview />
       <Support />
     </div>

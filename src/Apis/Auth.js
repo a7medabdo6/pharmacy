@@ -80,15 +80,24 @@ export const GetRooms = async (credentials) => {
 };
 export const updateUser = async (credentials) => {
   const { showNotification } = useNotifications();
+  const token = JSON.parse(localStorage.getItem("token"));
 
   try {
+    const config = {
+      headers: {
+        Authorization: `Bearer ${token}`,
+
+        "Content-Type": "multipart/form-data",
+      },
+    };
     const response = await axios.patch(
-      "http://46.101.241.139/accounts/update_profile/" + credentials?.id,
-      credentials
+      "http://46.101.241.139/accounts/update_profile/" + credentials?.id + "/",
+      credentials,
+      config
     );
     console.log(response.data);
-    localStorage.setItem("user", JSON.stringify(response.data));
-    localStorage.setItem("token", JSON.stringify(response.data.token));
+    //localStorage.setItem("user", JSON.stringify(response.data));
+    // localStorage.setItem("token", JSON.stringify(response.data.token));
     showNotification(`User updated Successfuly`, "success");
     return response.data;
   } catch (error) {

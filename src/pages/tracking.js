@@ -15,6 +15,7 @@ import Link from "next/link";
 import { useEffect } from "react";
 import { getOrderHistory } from "../Apis/Cart/PostCart";
 import { useRouter } from "next/router";
+import BottomNav from "../Components/Ulits/BottomNav";
 
 const tracking = () => {
   const router = useRouter();
@@ -224,9 +225,14 @@ const tracking = () => {
           </div>
         </main>
       </Container>
-      <div className="d-none d-sm-block ">
+
+      <div className="d-block d-sm-none">
+        <BottomNav />
+      </div>
+      <div className="d-none d-sm-block">
         <FooterDesk />
       </div>
+
       <WriteReview />
       <Support />
     </div>

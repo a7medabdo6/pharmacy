@@ -3,7 +3,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 
 export async function GetNotification(formdata) {
-  const token = JSON.parse(localStorage.getItem("token"));
+  const token = JSON?.parse(localStorage?.getItem("token"));
   const { showNotification } = useNotifications();
   if (!token) {
     return null;
@@ -31,7 +31,7 @@ export async function GetNotification(formdata) {
   }
 }
 export async function MakeNotificationRead(formdata) {
-  const token = JSON.parse(localStorage.getItem("token"));
+  const token = JSON?.parse(localStorage?.getItem("token"));
   const { showNotification } = useNotifications();
 
   console.log(token);
