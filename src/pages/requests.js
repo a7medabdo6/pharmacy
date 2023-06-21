@@ -36,6 +36,7 @@ const requests = () => {
     fontSize: "16px",
   };
   const [isLoadingPage, setisLoadingPage] = useState(true);
+  const [openReview, setOpenReview] = useState(false);
 
   const [CartList, setCartList] = useState([]);
 
@@ -291,7 +292,7 @@ const requests = () => {
         <FooterDesk />
       </div>
 
-      <WriteReview />
+      <WriteReview setOpen={setOpenReview} open={openReview} />
       <Support />
     </main>
   );

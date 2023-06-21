@@ -5,11 +5,10 @@ import Modal from "@mui/material/Modal";
 import ReviewDesk from "../desk/ReviewDesk";
 import { useRouter } from "next/router";
 
-const WriteReview = () => {
+const WriteReview = ({setOpen,open}) => {
   const router = useRouter();
   const modalAddReview = useRef();
   const [widthScreen, setWidthScreen] = useState(0);
-  const [open, setOpen] = useState(false);
   const style = {
     position: "absolute",
     top: "50%",
@@ -33,7 +32,11 @@ const WriteReview = () => {
             if (widthScreen < 700) {
               router.push("/review");
             } else {
-              setOpen(true);
+              router.push("/testimonials");
+               setTimeout(() => {
+                setOpen(true);
+               }, 500);
+              // 
             }
           } else {
             router.push("/testimonials");

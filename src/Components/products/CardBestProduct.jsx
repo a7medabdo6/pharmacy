@@ -6,6 +6,7 @@ import Image from "next/image";
 import { useRouter } from "next/router";
 import { useDispatch } from "react-redux";
 import PostCart from "@/Apis/Cart/PostCart";
+import { setProductDetails } from "../../Slices/productSlice";
 
 const CardBestProduct = ({item}) => {
   const [user, setUser] = useState(false);
@@ -44,7 +45,7 @@ const CardBestProduct = ({item}) => {
     }
   };
   const onCardClick = () => {
-    router.push(`/products/${id}/details/${item?.id}`);
+    router.push(`/products/${item?.category}/details/${item?.id}`);
     dispatch(setProductDetails(item));
   };
   return (
@@ -52,6 +53,7 @@ const CardBestProduct = ({item}) => {
       <div
         style={{ width: "100%", padding: "5px 8px" }}
         className={styles.boxImg1}
+        onClick={onCardClick}
       >
         <div
           className="d-flex justify-content-center align-items-center w-100 mb-3"

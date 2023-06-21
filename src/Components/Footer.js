@@ -36,7 +36,10 @@ const Footer = () => {
         style={{ height: "2px", backgroundColor: "grey", width: "85%" }}
       ></div>
       <div className="w-100   my-2 d-flex justify-content-center align-items-center ">
-        <p className="text-footer" style={{ fontWeight: "bold" }}>
+        <p
+          className="text-footer"
+          style={{ fontWeight: "bold", fontSize: "20px" }}
+        >
           contact us
         </p>
       </div>
@@ -46,8 +49,8 @@ const Footer = () => {
           src={telegram}
           style={{ margin: "10px" }}
           alt="Next.js Logo"
-          width="32px"
-          height="32px"
+          width="52px"
+          height="52px"
           priority
         />
         <Image
@@ -55,8 +58,8 @@ const Footer = () => {
           src={whatsapp}
           style={{ margin: "10px" }}
           alt="Next.js Logo"
-          width="32px"
-          height="32px"
+          width="52px"
+          height="52px"
           priority
         />
         <Image
@@ -64,8 +67,8 @@ const Footer = () => {
           src={messenger}
           style={{ margin: "10px" }}
           alt="Next.js Logo"
-          width="32px"
-          height="32px"
+          width="52px"
+          height="52px"
           priority
         />
         <Image
@@ -73,8 +76,8 @@ const Footer = () => {
           src={viber}
           style={{ margin: "10px" }}
           alt="Next.js Logo"
-          width="32px"
-          height="32px"
+          width="52px"
+          height="52px"
           priority
         />
       </div>

@@ -18,6 +18,8 @@ import { useRouter } from "next/router";
 import BottomNav from "../Components/Ulits/BottomNav";
 
 const tracking = () => {
+  const [openReview, setOpenReview] = useState(false);
+
   const router = useRouter();
   const { orderId } = router.query;
   const [value, setvalue] = useState(50);
@@ -233,7 +235,7 @@ const tracking = () => {
         <FooterDesk />
       </div>
 
-      <WriteReview />
+      <WriteReview setOpen={setOpenReview} open={openReview} />
       <Support />
     </div>
   );

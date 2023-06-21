@@ -30,6 +30,7 @@ const EditInfo = () => {
   const [hotel_id, sethotel_id] = useState(null);
   const [room_number, setroom_number] = useState(null);
   const [isLoadingPage, setisLoadingPage] = useState(true);
+  const [openReview, setOpenReview] = useState(false);
 
   const [name, setName] = useState(null);
 
@@ -230,7 +231,7 @@ const EditInfo = () => {
       <div className="d-none d-sm-block w-100">
         <FooterDesk />
       </div>
-      <WriteReview />
+      <WriteReview setOpen={setOpenReview} open={openReview} />
       <Support />
     </div>
   );

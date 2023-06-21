@@ -14,7 +14,7 @@ import well from "../assets/desk/well.png";
 import { useRouter } from "next/router";
 import BottomNav from "@/Components/Ulits/BottomNav";
 import { Col, Row } from "react-bootstrap";
-
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 export default function Home() {
   const [password, setpassword] = useState("");
   const router = useRouter();
@@ -32,8 +32,30 @@ export default function Home() {
   function handleOnChange(value) {
     setphone(value);
   }
+  const onBackClick = () => {
+    router.push(`/`);
+  };
   return (
     <div className="text-center" style={{ backgroundColor: "white" }}>
+      <div
+        onClick={onBackClick}
+        style={{
+          position: "fixed",
+          top: "20px",
+          left: "20px",
+          backgroundColor: "white",
+          borderRadius: "100px",
+          padding: 10,
+          border: "1px solid #0f4392",
+          cursor: "pointer",
+        }}
+      >
+        <ArrowBackIcon
+          color="#0f4392"
+          size={54}
+          style={{ fontSize: 40, color: "#0f4392" }}
+        />
+      </div>
       <div className="row">
         <div className="d-sm-none p-0">
           <Head>

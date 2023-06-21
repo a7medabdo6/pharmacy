@@ -115,8 +115,6 @@ const ProductDetailsMakeOrder = () => {
           </h2>
           <p style={{ fontSize: "12px", lineHeight: "16px", color: "#828282" }}>
             {" "}
-            lorem loremm sdg sgdgsdfg gdfgdfg gsflorem loremm sdg sgdgsdfg
-            gdfgdfg gsfgg
           </p>
         </div>
 

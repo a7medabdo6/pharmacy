@@ -12,6 +12,7 @@ import getAllReviews from "../Apis/Testimonails";
 const allreview = () => {
   const [open, setOpen] = useState(false);
   const [isLoadingPage, setisLoadingPage] = useState(true);
+  const [openReview, setOpenReview] = useState(true);
 
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
@@ -79,7 +80,7 @@ const allreview = () => {
             </Link>
           </div>
 
-          <WriteReview />
+          <WriteReview setOpen={setOpenReview} open={openReview} />
         </>
       )}
 

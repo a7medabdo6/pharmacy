@@ -27,6 +27,7 @@ const contactus = () => {
   const [isOpen, setOpen] = useState(false);
   const snapPoints = [600, 400]; // Define the height values that the modal can snap to
   const [isLoadingPage, setisLoadingPage] = useState(true);
+  const [openReview, setOpenReview] = useState(false);
 
   useEffect(() => {
     setisLoadingPage(false);
@@ -498,7 +499,7 @@ const contactus = () => {
         <FooterDesk />
       </div>
 
-      <WriteReview />
+      <WriteReview setOpen={setOpenReview} open={openReview} />
       <Support />
     </>
   );

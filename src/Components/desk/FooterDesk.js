@@ -45,43 +45,48 @@ const FooterDesk = () => {
         style={{ height: "2px", backgroundColor: "grey", width: "85%" }}
       ></div>
       <div className="w-100 my-2 d-flex justify-content-center align-items-center ">
-        <h5 className="fs-5 fw-normal text-white">Contact us</h5>
+        <h5
+          className="fs-5 fw-normal text-footer text-white"
+          style={{ fontSize: "20px" }}
+        >
+          Contact us
+        </h5>
       </div>
       <div className="w-100 text-center d-flex justify-content-center align-items-center ">
         <Image
           //  className="w-20"
           src={telegram}
-          style={{ margin: "10px" }}
+          style={{ margin: "10px", width: "50px", height: "50px" }}
           alt="Next.js Logo"
-          width="32px"
-          height="32px"
+          width="52px"
+          height="52px"
           priority
         />
         <Image
           //  className="w-20"
           src={whatsapp}
-          style={{ margin: "10px" }}
+          style={{ margin: "10px", width: "50px", height: "50px" }}
           alt="Next.js Logo"
-          width="32px"
-          height="32px"
+          width="52px"
+          height="52px"
           priority
         />
         <Image
           //  className="w-20"
           src={messenger}
-          style={{ margin: "10px" }}
+          style={{ margin: "10px", width: "50px", height: "50px" }}
           alt="Next.js Logo"
-          width="32px"
-          height="32px"
+          width="52px"
+          height="52px"
           priority
         />
         <Image
           //  className="w-20"
           src={viber}
-          style={{ margin: "10px" }}
+          style={{ margin: "10px", width: "50px", height: "50px" }}
           alt="Next.js Logo"
-          width="32px"
-          height="32px"
+          width="52px"
+          height="52px"
           priority
         />
       </div>

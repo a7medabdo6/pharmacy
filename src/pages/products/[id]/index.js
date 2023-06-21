@@ -49,6 +49,7 @@ const products = () => {
   const [activeCateFilter, setactiveCateFilter] = useState(id);
   const [categories, setcateogies] = useState([]);
   const [isLoading, setisLoading] = useState(true);
+  const [openReview, setOpenReview] = useState(false);
 
   const [diseases, setDiseases] = useState([]);
   const [selectedDisease, setselectedDisease] = useState("");
@@ -418,7 +419,7 @@ const products = () => {
       <div className="d-none d-sm-block ">
         <FooterDesk />
       </div>
-      <WriteReview />
+      <WriteReview setOpen={setOpenReview} open={openReview} />
       <Support />
     </div>
   );

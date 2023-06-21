@@ -25,8 +25,9 @@ const products = () => {
   const [user, setUser] = useState(false);
   const router = useRouter();
   const [isLoadingPage, setisLoadingPage] = useState(true);
+  const [openReview, setOpenReview] = useState(false);
 
-  const { id } = router.query;
+  const { id, detail } = router.query;
   // console.log(id, "idd");/
   // const details = useSelector((state) => state.ProductDetails.details);
   const SendCartFun = async (e) => {
@@ -44,7 +45,7 @@ const products = () => {
     return res;
   };
   const GetOneProductApi = async () => {
-    const res = await GetOneProduct({ id });
+    const res = await GetOneProduct({ id: detail });
     setDetails(res);
     if (res) {
       setisLoadingPage(false);
@@ -194,7 +195,7 @@ const products = () => {
 
       <FooterDesk />
 
-      <WriteReview />
+      <WriteReview setOpen={setOpenReview} open={openReview} />
       <Support />
     </div>
   );

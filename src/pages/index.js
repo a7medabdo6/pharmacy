@@ -39,6 +39,8 @@ import { Swiper, SwiperSlide } from "swiper/react";
 
 // Import Swiper styles
 import "swiper/css";
+import "swiper/css/autoplay";
+
 import "swiper/css/free-mode";
 import "swiper/css/pagination";
 
@@ -51,6 +53,7 @@ import { AllBestSellersProducts } from "@/Apis/products";
 export default function Main() {
   const [open, setOpen] = useState(false);
   const [isLoading, setisLoading] = useState(true);
+  const [openReview, setOpenReview] = useState(false);
 
   const [phone, setphone] = useState("us");
   const [categories, setcateogies] = useState([]);
@@ -280,9 +283,14 @@ export default function Main() {
                           autoplay={true}
                         >
                           {products?.map((item) => (
-                            <SwiperSlide>
-                              <CardBestProduct item={item} />
-                            </SwiperSlide>
+                            <>
+                              <SwiperSlide>
+                                <CardBestProduct item={item} />
+                              </SwiperSlide>
+                              <SwiperSlide>
+                                <CardBestProduct item={item} />
+                              </SwiperSlide>
+                            </>
                           ))}
                         </Swiper>
                       </div>
@@ -634,7 +642,7 @@ export default function Main() {
         <BottomNav />
       </div>
 
-      <WriteReview />
+      <WriteReview setOpen={setOpenReview} open={openReview} />
       <Support />
     </div>
   );
