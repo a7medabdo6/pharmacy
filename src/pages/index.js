@@ -45,7 +45,7 @@ import "swiper/css/free-mode";
 import "swiper/css/pagination";
 
 // import required modules
-import { FreeMode, Pagination } from "swiper";
+import { Autoplay, FreeMode, Pagination } from "swiper";
 import Head from "next/head";
 import SizesExample from "@/Components/Spinner";
 import { AllBestSellersProducts } from "@/Apis/products";
@@ -278,16 +278,16 @@ export default function Main() {
                           slidesPerView={2}
                           spaceBetween={5}
                           freeMode={true}
-                          modules={[FreeMode]}
+                          modules={[Autoplay, FreeMode]}
+                          autoplay={{
+                            delay: 2500,
+                            disableOnInteraction: false,
+                          }}
                           className="mySwiper"
-                          autoplay={true}
                         >
-                          {products?.map((item) => (
+                          {products?.map((item, index) => (
                             <>
-                              <SwiperSlide>
-                                <CardBestProduct item={item} />
-                              </SwiperSlide>
-                              <SwiperSlide>
+                              <SwiperSlide key={index}>
                                 <CardBestProduct item={item} />
                               </SwiperSlide>
                             </>
@@ -493,7 +493,11 @@ export default function Main() {
                         slidesPerView={6.5}
                         spaceBetween={30}
                         freeMode={true}
-                        modules={[FreeMode]}
+                        modules={[Autoplay, FreeMode]}
+                        autoplay={{
+                          delay: 2500,
+                          disableOnInteraction: false,
+                        }}
                         className="mySwiper"
                       >
                         {categories?.length > 0 &&
@@ -527,14 +531,19 @@ export default function Main() {
                           slidesPerView={4}
                           spaceBetween={20}
                           freeMode={true}
-                          modules={[FreeMode]}
-                          autoplay={true}
+                          modules={[Autoplay, FreeMode]}
+                          autoplay={{
+                            delay: 2500,
+                            disableOnInteraction: false,
+                          }}
                           className="mySwiper"
                         >
-                          {products?.map((item) => (
-                            <SwiperSlide>
-                              <CardBestProduct item={item} />
-                            </SwiperSlide>
+                          {products?.map((item, index) => (
+                            <>
+                              <SwiperSlide key={index}>
+                                <CardBestProduct item={item} />
+                              </SwiperSlide>
+                            </>
                           ))}
                         </Swiper>
                       </div>

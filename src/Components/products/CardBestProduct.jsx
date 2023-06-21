@@ -8,7 +8,7 @@ import { useDispatch } from "react-redux";
 import PostCart from "@/Apis/Cart/PostCart";
 import { setProductDetails } from "../../Slices/productSlice";
 
-const CardBestProduct = ({item}) => {
+const CardBestProduct = ({ item }) => {
   const [user, setUser] = useState(false);
   const dispatch = useDispatch();
   const router = useRouter();
@@ -63,16 +63,16 @@ const CardBestProduct = ({item}) => {
           }}
         >
           {item?.home_image ? (
-           <Image
-           loader={() => item?.home_image}
-           src={item?.home_image}
-          className={styles.cardproductImage}
-          alt="Next.js Logo"
-          width={100}
-          height={150}
-          style={{ width: "100%", height: "100%", margin: 0 }}
-          priority
-        />
+            <Image
+              loader={() => item?.home_image}
+              src={item?.home_image}
+              className={styles.cardproductImage}
+              alt="Next.js Logo"
+              width={100}
+              height={150}
+              style={{ width: "100%", height: "100%", margin: 0 }}
+              priority
+            />
           ) : (
             <Image
               src={require("../../assets/img/noimage.jpeg")}
@@ -84,14 +84,11 @@ const CardBestProduct = ({item}) => {
               priority
             />
           )}
-          
         </div>
 
         <div className={styles.boxinfo}>
           <p className={styles.titlecard}> {item?.name}</p>
-          <p className={styles.txtcard}>
-          {item?.description}
-          </p>
+          <p className={styles.txtcard}>{item?.description}</p>
         </div>
       </div>
       <Button

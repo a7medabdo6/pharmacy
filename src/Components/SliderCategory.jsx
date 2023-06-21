@@ -11,7 +11,7 @@ import "swiper/css/free-mode";
 import "swiper/css/pagination";
 
 // import required modules
-import { FreeMode, Pagination } from "swiper";
+import { Autoplay, FreeMode, Pagination } from "swiper";
 
 const SliderCategory = ({ categories }) => {
   return (
@@ -20,7 +20,11 @@ const SliderCategory = ({ categories }) => {
       slidesPerView={3.5}
       spaceBetween={5}
       freeMode={true}
-      modules={[FreeMode]}
+      modules={[Autoplay, FreeMode]}
+      autoplay={{
+        delay: 2500,
+        disableOnInteraction: false,
+      }}
       className="mySwiper"
     >
       {categories?.map((item, index) => (
