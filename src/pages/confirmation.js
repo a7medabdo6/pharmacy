@@ -162,7 +162,7 @@ const confirmation = () => {
             </div>
 
             <div className="d-flex justify-content-center align-items-center mt-1">
-              <Image src={vector} width={368} height={360} alt="Next.js Logo" />
+              <Image src={vector} width={200} height={200} alt="Next.js Logo" />
             </div>
             <div className="d-flex justify-content-center align-items-center flex-column mt-3 ">
               <h2 className="px-5 fw-normal mt-3 text-center">

@@ -80,6 +80,7 @@ const tracking = () => {
                     style={{
                       marginBottom: "20px",
                       width: "100%",
+                      margin: "auto",
                     }}
                     alt="Next.js Logo"
                     width="100%"
@@ -116,6 +117,7 @@ const tracking = () => {
                       marginBottom: "30px",
                       marginLeft: "25px",
                       width: "100%",
+                      margin: "auto",
                     }}
                     alt="Next.js Logo"
                     width="100%"
@@ -153,6 +155,7 @@ const tracking = () => {
                       marginBottom: "30px",
                       marginLeft: "25px",
                       width: "100%",
+                      margin: "auto",
                     }}
                     alt="Next.js Logo"
                     width="100%"
