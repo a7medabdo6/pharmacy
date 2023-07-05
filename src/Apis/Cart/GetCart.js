@@ -9,7 +9,10 @@ async function GetCart(credentials) {
         Authorization: `Bearer ${token}`,
       },
     };
-    const response = await axios.get("http://46.101.241.139/cart/", config);
+    const response = await axios.get(
+      "https://backend.well-medic.com/cart/",
+      config
+    );
     // console.log(response.data)
     return response.data;
   } catch (error) {

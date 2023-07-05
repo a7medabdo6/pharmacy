@@ -244,6 +244,12 @@ const NavBar = () => {
                         <Link href="/edit-info" className="text-black">
                           Profile
                         </Link>
+                        <div>
+                          <Link href="/orders" className="text-black">
+                            Orders History
+                          </Link>
+                        </div>
+
                         <div
                           style={{
                             cursor: "pointer",

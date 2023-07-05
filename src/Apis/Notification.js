@@ -15,7 +15,7 @@ export async function GetNotification(formdata) {
       },
     };
     const response = await axios.get(
-      "http://46.101.241.139/notification/",
+      "https://backend.well-medic.com/notification/",
 
       config
     );
@@ -42,7 +42,7 @@ export async function MakeNotificationRead(formdata) {
       },
     };
     const response = await axios.post(
-      `http://46.101.241.139/notification/`,
+      `https://backend.well-medic.com/notification/`,
       {},
       config
     );

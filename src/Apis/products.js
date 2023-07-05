@@ -3,7 +3,7 @@ import axios from "axios";
 async function getallProducts(data) {
   try {
     const response = await axios.get(
-      `http://46.101.241.139/product/`,
+      `https://backend.well-medic.com/product/`,
 
       {
         params: data,
@@ -22,7 +22,7 @@ async function getallProducts(data) {
 export async function GetOneProduct(data) {
   try {
     const response = await axios.get(
-      `http://46.101.241.139/product/${data.id}`,
+      `https://backend.well-medic.com/product/${data.id}`,
       {
         headers: {
           Authorization: "",
@@ -38,11 +38,14 @@ export async function GetOneProduct(data) {
 }
 export async function getallProductsWithNoCategory(data) {
   try {
-    const response = await axios.get(`http://46.101.241.139/product/`, {
-      headers: {
-        Authorization: "",
-      },
-    });
+    const response = await axios.get(
+      `https://backend.well-medic.com/product/`,
+      {
+        headers: {
+          Authorization: "",
+        },
+      }
+    );
     // console.log(response.data);
     return response.data;
   } catch (error) {
@@ -53,7 +56,7 @@ export async function getallProductsWithNoCategory(data) {
 export async function searchAllProducts(txt) {
   try {
     const response = await axios.get(
-      `http://46.101.241.139/product/?name=${txt}`,
+      `https://backend.well-medic.com/product/?name=${txt}`,
       {
         headers: {
           Authorization: "",
@@ -70,7 +73,7 @@ export async function searchAllProducts(txt) {
 export async function AllBestSellersProducts(txt) {
   try {
     const response = await axios.get(
-      `http://46.101.241.139/product/?best_seller=true`,
+      `https://backend.well-medic.com/product/?best_seller=true`,
       {
         headers: {
           Authorization: "",

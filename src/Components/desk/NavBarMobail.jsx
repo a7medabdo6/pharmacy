@@ -143,6 +143,11 @@ const NavBarMobail = ({
                         <Link href="/edit-info" className="text-black">
                           Profile
                         </Link>
+                        <div>
+                          <Link href="/orders" className="text-black">
+                            Orders History
+                          </Link>
+                        </div>
                         <div
                           className="text-primary mt-2"
                           onClick={() => {

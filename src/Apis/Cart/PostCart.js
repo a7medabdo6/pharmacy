@@ -17,7 +17,7 @@ async function PostCart(formdata) {
       },
     };
     const response = await axios.post(
-      "http://46.101.241.139/cart/cart_items/",
+      "https://backend.well-medic.com/cart/cart_items/",
       formdata,
       config
     );
@@ -47,7 +47,7 @@ export async function CreateOrder(formdata) {
       },
     };
     const response = await axios.post(
-      "http://46.101.241.139/order/",
+      "https://backend.well-medic.com/order/",
       formdata,
       config
     );
@@ -76,7 +76,10 @@ export async function getOrders(formdata) {
         "Content-Type": "multipart/form-data",
       },
     };
-    const response = await axios.get("http://46.101.241.139/order/", config);
+    const response = await axios.get(
+      "https://backend.well-medic.com/order/",
+      config
+    );
     // showNotification(` Success!`, "success");
     return response?.data;
   } catch (error) {
@@ -97,7 +100,30 @@ export async function getOrderHistory(formdata) {
       },
     };
     const response = await axios.get(
-      `http://46.101.241.139/order/history/${formdata?.id}`,
+      `https://backend.well-medic.com/order/history/${formdata?.id}`,
+      config
+    );
+    // showNotification(` Success!`, "success");
+    return response?.data;
+  } catch (error) {
+    // throw new Error(error.response.data.message);
+  }
+}
+export async function getAllOrdersHistory(formdata) {
+  const token = JSON.parse(localStorage.getItem("token"));
+  const { showNotification } = useNotifications();
+
+  console.log(token);
+  try {
+    const config = {
+      headers: {
+        Authorization: `Bearer ${token}`,
+
+        "Content-Type": "multipart/form-data",
+      },
+    };
+    const response = await axios.get(
+      `https://backend.well-medic.com/order/history/`,
       config
     );
     // showNotification(` Success!`, "success");
@@ -120,7 +146,7 @@ export async function DeleteCart(formdata) {
       },
     };
     const response = await axios.delete(
-      `http://46.101.241.139/cart/cart_items/${formdata?.id}`,
+      `https://backend.well-medic.com/cart/cart_items/${formdata?.id}`,
       config
     );
     showNotification(`Item Deleted Successfuly`, "success");

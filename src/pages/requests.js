@@ -7,7 +7,6 @@ import InputWithButton from "../Components/Requests/InputWithButton";
 import NavBar from "@/Components/desk/NavBar";
 import { Breadcrumb, Col, Collapse, Container, Row } from "react-bootstrap";
 import FooterDesk from "@/Components/desk/FooterDesk";
-import Spinner from "react-bootstrap/Spinner";
 
 import GetCart from "../Apis/Cart/GetCart";
 import PostCart, { CreateOrder, getOrders } from "../Apis/Cart/PostCart";
@@ -21,7 +20,6 @@ import Support from "@/Components/Ulits/Support";
 import { useRouter } from "next/router";
 import Link from "next/link";
 import SizesExample from "../Components/Spinner";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const requests = () => {
   const router = useRouter();
@@ -52,10 +50,7 @@ const requests = () => {
   };
   const GetOrderFun = async () => {
     const res = await getOrders();
-    if (res.message == "well_medic_you_did_not_have_cart_to_make_order") {
-    } else {
-      setOrder(res);
-    }
+    setOrder(res);
     console.log(res, "ressss");
     return res;
   };
@@ -63,7 +58,7 @@ const requests = () => {
     GetCartFun();
     GetOrderFun();
   }, []);
-  console.log(CartList, "CartList");
+  // console.log(CartList);
   const [user, setuser] = useState(null);
   useEffect(() => {
     if (typeof window !== "undefined") {
@@ -85,7 +80,7 @@ const requests = () => {
   };
   useEffect(() => {
     CartList?.length <= 0 && order
-      ? null //router.push(`/tracking?orderId=${order?.id}`)
+      ? router.push(`/tracking?orderId=${order?.id}`)
       : null;
   }, [CartList, order]);
   return (
@@ -212,107 +207,80 @@ const requests = () => {
             >
               My orders
             </h1>
-            {CartList.length > 0 ? (
-              <Container className="pb-4">
-                <h2>Your info</h2>
-                <Row>
-                  <Col md={6}>
-                    <CardInfoDesk user={user} />
-                    <h2>Your orders</h2>
-                    {CartList?.map((item, i) => (
-                      <CardOrderDesk key={i} item={item} />
-                    ))}
-                  </Col>
-                  {CartList.length > 0 && (
-                    <Col md={6}>
-                      <div
-                        className="promocode bg-white py-4 px-3 rounded-2"
-                        style={{ height: "319px" }}
-                      >
-                        <h5>Promocodes</h5>
-                        <div className="position-relative">
-                          <input
-                            type="text"
-                            placeholder="well20"
-                            value={promocode}
-                            onChange={handlePromoCode}
-                            className="form-control text-primary"
-                          />
-                          <Image
-                            src={circleCancel}
-                            alt=""
-                            width={20}
-                            height={20}
-                            className="position-absolute"
-                            style={{
-                              top: "50%",
-                              right: "10px",
-                              cursor: "pointer",
-                              transform: "translateY(-50%)",
-                            }}
-                            onClick={() => setPromocode("")}
-                          />
-                        </div>
 
-                        <div className="d-flex justify-content-start align-items-center gap-2 my-3">
-                          <div style={circleStyle}>
-                            <span>4</span>
-                          </div>
-                          <p
-                            style={{
-                              color: "#0F4392",
-                              fontSize: "18px",
-                            }}
-                          >
-                            Products have been selected
-                          </p>
+            <Container className="pb-4">
+              <h2>Your info</h2>
+              <Row>
+                <Col md={6}>
+                  <CardInfoDesk user={user} />
+                  <h2>Your orders</h2>
+                  {CartList?.map((item, i) => (
+                    <CardOrderDesk key={i} item={item} />
+                  ))}
+                </Col>
+                {CartList.length > 0 && (
+                  <Col md={6}>
+                    <div
+                      className="promocode bg-white py-4 px-3 rounded-2"
+                      style={{ height: "319px" }}
+                    >
+                      <h5>Promocodes</h5>
+                      <div className="position-relative">
+                        <input
+                          type="text"
+                          placeholder="well20"
+                          value={promocode}
+                          onChange={handlePromoCode}
+                          className="form-control text-primary"
+                        />
+                        <Image
+                          src={circleCancel}
+                          alt=""
+                          width={20}
+                          height={20}
+                          className="position-absolute"
+                          style={{
+                            top: "50%",
+                            right: "10px",
+                            cursor: "pointer",
+                            transform: "translateY(-50%)",
+                          }}
+                          onClick={() => setPromocode("")}
+                        />
+                      </div>
+
+                      <div className="d-flex justify-content-start align-items-center gap-2 my-3">
+                        <div style={circleStyle}>
+                          <span>4</span>
                         </div>
-                        <button
-                          className="btn btn-primary bubbly-button p-2 m-0 w-100 fs-5"
-                          onClick={CreateOrderApi}
-                        >
-                          Place order
-                        </button>
                         <p
-                          className="text-center mt-3"
-                          style={{ fontSize: "16px", color: "#DD1717" }}
+                          style={{
+                            color: "#0F4392",
+                            fontSize: "18px",
+                          }}
                         >
-                          Note that: your order will not be confirmed before you
-                          receive a call from us to let you know your order
-                          price to confirm.
+                          Products have been selected
                         </p>
                       </div>
-                    </Col>
-                  )}
-                </Row>
-              </Container>
-            ) : order ? (
-              <Row className="justify-content-around align-items-around d-flex">
-                {[{ ...order }, { ...order }]?.map((item, i) => (
-                  <Col md={5}>
-                    <Row className="align-items-center">
-                      <Link href={`/tracking?orderId=${item?.id}`}>
-                        <div className="card">
-                          <span className="card1" href="#">
-                            <p>Status : {item?.status}</p>
-                            <p className="small">Order Id : {item?.order_id}</p>
-                            <div className="go-corner" href="#">
-                              <div className="go-arrow">→</div>
-                            </div>
-                          </span>
-                        </div>
-                      </Link>
-                    </Row>
+                      <button
+                        className="btn btn-primary bubbly-button p-2 m-0 w-100 fs-5"
+                        onClick={CreateOrderApi}
+                      >
+                        Place order
+                      </button>
+                      <p
+                        className="text-center mt-3"
+                        style={{ fontSize: "16px", color: "#DD1717" }}
+                      >
+                        Note that: your order will not be confirmed before you
+                        receive a call from us to let you know your order price
+                        to confirm.
+                      </p>
+                    </div>
                   </Col>
-                ))}
+                )}
               </Row>
-            ) : (
-              <div className="d-flex justify-content-center">
-                <Spinner animation="border" role="status">
-                  <span className="visually-hidden">Loading...</span>
-                </Spinner>
-              </div>
-            )}
+            </Container>
           </div>
         </>
       )}
