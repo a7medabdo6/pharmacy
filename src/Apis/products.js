@@ -3,7 +3,9 @@ import axios from "axios";
 async function getallProducts(data) {
   try {
     const response = await axios.get(
-      `https://backend.well-medic.com/product/`,
+      `https://backend.well-medic.com/product/?limit=${10}&offset=${
+        (data.active - 1) * 10
+      }`,
 
       {
         params: data,
@@ -39,7 +41,9 @@ export async function GetOneProduct(data) {
 export async function getallProductsWithNoCategory(data) {
   try {
     const response = await axios.get(
-      `https://backend.well-medic.com/product/`,
+      `https://backend.well-medic.com/product/?limit=${10}&offset=${
+        (data.active - 1) * 10
+      }`,
       {
         headers: {
           Authorization: "",

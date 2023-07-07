@@ -7,6 +7,7 @@ import Link from "next/link";
 import Sheet from "react-modal-sheet";
 import { ImageGroup } from "semantic-ui-react";
 import { Breadcrumb, Col, Container, Row } from "react-bootstrap";
+import Pagination from "react-bootstrap/Pagination";
 
 // CSS Module
 import styles from "@/styles/products.module.css";
@@ -64,6 +65,33 @@ const products = () => {
 
   const snapPoints = [600, 450]; // Define the height values that the modal can snap to
   // console.log(id, "iddd");
+  const [active, setActive] = useState(1);
+  const [items, setitems] = useState([]);
+  const RenderPaginagtionItems = () => {
+    let render = [];
+
+    for (let number = 1; number <= 6; number++) {
+      render?.push(
+        <Pagination.Item
+          onClick={() => setActive(number)}
+          key={number}
+          active={number === active}
+        >
+          {number}
+        </Pagination.Item>
+      );
+    }
+    render?.push(
+      <Pagination.Item
+        onClick={() => setActive((old) => 1 + old)}
+        key={active + 1}
+      >
+        Next
+      </Pagination.Item>
+    );
+    return render;
+  };
+
   const getHomeData = async (id) => {
     const res = await getallProducts({
       category: id,
@@ -80,7 +108,7 @@ const products = () => {
   };
   const getHomeDatafilter = async () => {
     if (activeCateFilter == "all") {
-      const res = await getallProductsWithNoCategory();
+      const res = await getallProductsWithNoCategory({ active });
       setproducts(res?.results);
       if (res?.results) {
         setisLoading(false);
@@ -92,6 +120,7 @@ const products = () => {
         ingredients: selectedingredient,
         diseases: selectedDisease,
         uses: selectedUse,
+        active,
       });
       setproducts(res?.results);
       if (res?.results) {
@@ -170,7 +199,7 @@ const products = () => {
     if (activeCateFilter) {
       getHomeDatafilter();
     }
-  }, [activeCateFilter]);
+  }, [activeCateFilter, active]);
 
   return (
     <div className="product-details">
@@ -353,6 +382,7 @@ const products = () => {
                 </Row>
               </Col>
             </Row>
+            <Pagination size="lg">{RenderPaginagtionItems()}</Pagination>
 
             <div className="w-80 d-flex justify-content-start align-items-center">
               <Sheet
