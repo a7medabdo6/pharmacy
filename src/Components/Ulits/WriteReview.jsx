@@ -5,7 +5,7 @@ import Modal from "@mui/material/Modal";
 import ReviewDesk from "../desk/ReviewDesk";
 import { useRouter } from "next/router";
 
-const WriteReview = ({setOpen,open}) => {
+const WriteReview = ({ setOpen, open }) => {
   const router = useRouter();
   const modalAddReview = useRef();
   const [widthScreen, setWidthScreen] = useState(0);
@@ -33,10 +33,10 @@ const WriteReview = ({setOpen,open}) => {
               router.push("/review");
             } else {
               router.push("/testimonials");
-               setTimeout(() => {
+              setTimeout(() => {
                 setOpen(true);
-               }, 500);
-              // 
+              }, 500);
+              //
             }
           } else {
             router.push("/testimonials");
