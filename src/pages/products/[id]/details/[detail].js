@@ -137,7 +137,11 @@ const products = () => {
                 boxShadow: "0px 18px 40px 0px #0000001F",
               }}
             >
-              <SliderProductDetails list={details?.images} />
+              {details?.images.length > 0 ? (
+                <SliderProductDetails list={details?.images} />
+              ) : (
+                <img style={{ width: "100%" }} src={details?.home_image} />
+              )}
             </Col>
             <Col sm={12} md={6}>
               <div className="details mt-4 mt-lg-0">

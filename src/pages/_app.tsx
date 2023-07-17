@@ -14,12 +14,20 @@ import 'react-toastify/dist/ReactToastify.css';
 
 import { store } from '../store'
 import { Provider } from 'react-redux'
+
 config.autoAddCss = false; 
-export default function App({ Component, pageProps }: AppProps) {
-  return   <Provider store={store}>
+const App=({ Component, pageProps }: AppProps) =>{
+
+
+ 
+
+  return <Provider store={store}>
   <Component {...pageProps} />
   <ToastContainer />
 
   </Provider>
 
 }
+
+export default App
+
