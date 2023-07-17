@@ -80,15 +80,29 @@ const CardBestProduct = ({ item }) => {
               alt="Next.js Logo"
               width={100}
               height={150}
-              style={{ width: "100%", height: "100%", margin: 0 }}
+              style={{ width: "100%", height: "150px", margin: 0 }}
               priority
             />
           )}
         </div>
 
         <div className={styles.boxinfo}>
-          <p className={styles.titlecard}> {item?.name}</p>
-          <p className={styles.txtcard}>{item?.description}</p>
+          <p
+            className={styles.titlecard}
+            style={{
+              height: "50px",
+            }}
+          >
+            {item?.name}
+          </p>
+          <p
+            className={styles.txtcard}
+            style={{
+              height: "35px",
+            }}
+          >
+            {item?.description.slice(0, 50)} ...
+          </p>
         </div>
       </div>
       <Button

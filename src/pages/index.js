@@ -279,10 +279,10 @@ export default function Main() {
                           spaceBetween={5}
                           freeMode={true}
                           modules={[Autoplay, FreeMode]}
-                          autoplay={{
-                            delay: 2500,
-                            disableOnInteraction: false,
-                          }}
+                          // autoplay={{
+                          //   delay: 2500,
+                          //   disableOnInteraction: false,
+                          // }}
                           className="mySwiper"
                         >
                           {products?.map((item, index) => (
