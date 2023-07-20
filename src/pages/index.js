@@ -50,8 +50,8 @@ import Head from "next/head";
 import SizesExample from "@/Components/Spinner";
 import { AllBestSellersProducts } from "@/Apis/products";
 import { useRouter } from "next/router";
-import en from "../../locales/en"
-import rs from "../../locales/rs"
+import en from "../../locales/en";
+import rs from "../../locales/rs";
 
 export default function Main() {
   const [open, setOpen] = useState(false);
@@ -88,23 +88,22 @@ export default function Main() {
     loop: true,
   });
 
-
-  const {locale, locales, push} = useRouter()
-  const lang = locale === "en" ? en : rs
+  const { locale, locales, push } = useRouter();
+  const lang = locale === "en" ? en : rs;
 
   const handleChangeLang = (l) => {
-    push("/", "/", {locale: l })
+    push("/", "/", { locale: l });
     // if(l === "en") {
     //   push("/")
     //   console.log("en");
     // } else {
     //   push("/rs")
     // }
-  }
+  };
 
   return (
     <div className="home padding-bottom-sm">
-      <h1>{locale}</h1>
+      {/* <h1>{locale}</h1>
       <h2>{lang.home}</h2>
       <div>
         {locales?.map((l) => {
@@ -118,7 +117,7 @@ export default function Main() {
             </button>
           );
         })}
-      </div>
+      </div> */}
       <Head>
         {/* <link
           rel="stylesheet"
@@ -378,8 +377,8 @@ export default function Main() {
                       <div
                         style={{ width: "95%" }}
                         className="d-flex justify-content-between align-items-center"
-                      // data-aos="fade-right"
-                      // data-aos-offset="500"
+                        // data-aos="fade-right"
+                        // data-aos-offset="500"
                       >
                         <h4 className=" align-start mt-2 mb-2 m-0 pt-3 pb-2">
                           Testimonial
@@ -617,7 +616,7 @@ export default function Main() {
                   <>
                     <div
                       className="d-flex justify-content-center align-items-center flex-column mb-5 mt-5"
-                    // data-aos="flip-down"
+                      // data-aos="flip-down"
                     >
                       <h5 style={{ marginBottom: 0, color: "#0F4392" }}>
                         Testimonial

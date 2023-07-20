@@ -218,7 +218,7 @@ const requests = () => {
                     <CardOrderDesk key={i} item={item} />
                   ))}
                 </Col>
-                {CartList.length > 0 && (
+                {CartList?.length > 0 && (
                   <Col md={6}>
                     <div
                       className="promocode bg-white py-4 px-3 rounded-2"
