@@ -92,7 +92,9 @@ const CardProduct = ({ item, id }) => {
 
         <div className={styles.boxinfo}>
           <p className={styles.titlecard}>{item?.name}</p>
-          <p className={styles.txtcard}>{item?.description}</p>
+          <p style={{ maxHeight: "90px" }} className={styles.txtcard}>
+            {item?.description}
+          </p>
         </div>
       </div>
       <Button

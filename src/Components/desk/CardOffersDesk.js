@@ -56,7 +56,7 @@ const CardOffersDesk = () => {
       </div>
 
       <div>
-        <div className="w-100 d-flex justify-content-between align-items-center">
+        {/* <div className="w-100 d-flex justify-content-between align-items-center">
           <h3
             style={{
               fontSize: "13px !important",
@@ -68,7 +68,7 @@ const CardOffersDesk = () => {
           >
             Panadol Extra XX mg
           </h3>
-        </div>
+        </div> */}
 
         <p
           className={styles.heddin}

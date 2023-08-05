@@ -178,7 +178,7 @@ const products = () => {
                   <h3 className="mt-4 mb-2">Panadol Extra XX mg</h3>
                   <p className="mb-1 fs-5">Brand: {details?.brand}</p>
                   <p className="mb-1 fs-5">
-                    Active ingredients : {details?.composition}{" "}
+                    Active ingredients : {details?.active_ingredient}{" "}
                   </p>
                   <p className="mb-1 fs-5">Use: {details?.short_description}</p>
                   <p className="mb-1 fs-5">

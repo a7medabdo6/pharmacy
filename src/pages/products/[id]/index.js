@@ -67,19 +67,38 @@ const products = () => {
   // console.log(id, "iddd");
   const [active, setActive] = useState(1);
   const [items, setitems] = useState([]);
+
   const RenderPaginagtionItems = () => {
     let render = [];
+    console.log(items, "itemsitemsitems");
 
-    for (let number = 1; number <= 6; number++) {
-      render?.push(
-        <Pagination.Item
-          onClick={() => setActive(number)}
-          key={number}
-          active={number === active}
-        >
-          {number}
-        </Pagination.Item>
-      );
+    for (let number = 1; number <= items; number++) {
+      if (number == 5) {
+        render?.push(<Pagination.Ellipsis />);
+      }
+      if (number <= 5) {
+        render?.push(
+          <Pagination.Item
+            onClick={() => setActive(number)}
+            key={number}
+            active={number === active}
+          >
+            {number}
+          </Pagination.Item>
+        );
+      }
+
+      // if (number > items - 3) {
+      //   render?.push(
+      //     <Pagination.Item
+      //       onClick={() => setActive(number)}
+      //       key={number}
+      //       active={number === active}
+      //     >
+      //       {number}
+      //     </Pagination.Item>
+      //   );
+      // }
     }
     render?.push(
       <Pagination.Item
@@ -100,6 +119,8 @@ const products = () => {
       uses: selectedUse,
     });
     setproducts(res?.results);
+    setitems(Math.floor(res?.count / 20));
+
     console.log(res?.results, "res?.results");
     if (res?.results) {
       setisLoading(false);

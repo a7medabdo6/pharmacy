@@ -69,17 +69,35 @@ const products = () => {
 
   const RenderPaginagtionItems = () => {
     let render = [];
+    console.log(items, "itemsitemsitems");
 
-    for (let number = 1; number <= 6; number++) {
-      render?.push(
-        <Pagination.Item
-          onClick={() => setActive(number)}
-          key={number}
-          active={number === active}
-        >
-          {number}
-        </Pagination.Item>
-      );
+    for (let number = 1; number <= items; number++) {
+      if (number == 5) {
+        render?.push(<Pagination.Ellipsis />);
+      }
+      if (number <= 5) {
+        render?.push(
+          <Pagination.Item
+            onClick={() => setActive(number)}
+            key={number}
+            active={number === active}
+          >
+            {number}
+          </Pagination.Item>
+        );
+      }
+
+      // if (number > items - 3) {
+      //   render?.push(
+      //     <Pagination.Item
+      //       onClick={() => setActive(number)}
+      //       key={number}
+      //       active={number === active}
+      //     >
+      //       {number}
+      //     </Pagination.Item>
+      //   );
+      // }
     }
     render?.push(
       <Pagination.Item
@@ -98,7 +116,7 @@ const products = () => {
     if (activeCateFilter == "all") {
       const res = await getallProductsWithNoCategory({ active });
       setproducts(res?.results);
-      setitems(Math.floor(res?.count / 10));
+      setitems(Math.floor(res?.count / 20));
       if (res?.results) {
         setisLoading(false);
       }

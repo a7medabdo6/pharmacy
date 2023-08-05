@@ -3,8 +3,8 @@ import axios from "axios";
 async function getallProducts(data) {
   try {
     const response = await axios.get(
-      `https://backend.well-medic.com/product/?limit=${10}&offset=${
-        (data.active - 1) * 10
+      `https://backend.well-medic.com/product/?limit=${20}&offset=${
+        (data.active - 1) * 20
       }`,
 
       {

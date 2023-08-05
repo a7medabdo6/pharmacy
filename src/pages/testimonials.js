@@ -12,13 +12,14 @@ import getAllReviews from "../Apis/Testimonails";
 const allreview = () => {
   const [open, setOpen] = useState(false);
   const [isLoadingPage, setisLoadingPage] = useState(true);
-  const [openReview, setOpenReview] = useState(true);
+  const [openReview, setOpenReview] = useState(false);
 
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
   useEffect(() => {
     setisLoadingPage(false);
   }, []);
+
   const [reviews, setReviews] = useState([]);
   const getReviewsData = async () => {
     const res = await getAllReviews();
@@ -29,6 +30,18 @@ const allreview = () => {
   useEffect(() => {
     getReviewsData();
   }, []);
+  const [user, setuser] = useState(null);
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      // Perform localStorage action
+      setuser(JSON.parse(localStorage?.getItem("user")));
+    }
+  }, []);
+  useEffect(() => {
+    if (user) {
+      setOpenReview(true);
+    }
+  }, [user]);
   const myStyle = {
     boxShadow: "2px 2px 4px rgba(0, 0, 0, 0.25)", // define the box shadow
     padding: "10px",

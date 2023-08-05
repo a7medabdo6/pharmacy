@@ -12,6 +12,12 @@ const nextConfig = {
         port: "",
         pathname: "/**",
       },
+      {
+        protocol: "https",
+        hostname: "fra1.digitaloceanspaces.com",
+        port: "",
+        pathname: "/**",
+      },
     ],
   },
 

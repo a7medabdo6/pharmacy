@@ -61,13 +61,17 @@ export default function Main() {
   const [phone, setphone] = useState("us");
   const [categories, setcateogies] = useState([]);
   const [products, setbestProducts] = useState([]);
-
+  const router = useRouter();
+  function navigateTo(url) {
+    router.push(url);
+  }
   const getHomeData = async () => {
     const res = await getallCategories();
     const BestSellers = await AllBestSellersProducts();
     console.log(BestSellers, "BestSellers");
     setbestProducts(BestSellers?.results);
-    setcateogies(res?.results);
+    setcateogies(res);
+
     setisLoading(false);
     return res;
   };
@@ -136,7 +140,9 @@ export default function Main() {
       ) : (
         <>
           <div className="container text-center mt-0 mt-md-3 pb-4">
-            <SerachBar showBigScreen={true} />
+            <div onClick={() => navigateTo("/products/all")}>
+              <SerachBar showBigScreen={true} />
+            </div>
             <div className="d-sm-none">
               <main style={{ backgroundColor: "#eaeaea" }}>
                 <div className="d-flex justify-content-center align-items-center flex-column">
