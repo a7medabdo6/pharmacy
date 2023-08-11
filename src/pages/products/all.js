@@ -283,23 +283,12 @@ const products = () => {
                   <h5 className="my-3">Filter by</h5>
 
                   <Filter
-                    label="By diseases"
-                    setvalue={setselectedDisease}
-                    value={selectedDisease}
-                    list={diseases}
-                  />
-                  <Filter
                     setvalue={setselectedUse}
                     value={selectedUse}
                     label="By uses"
                     list={uses}
                   />
-                  <Filter
-                    setvalue={setselectedingredient}
-                    value={selectedingredient}
-                    label="By ingredients"
-                    list={ingredients}
-                  />
+
                   <div
                     style={{ width: "80%" }}
                     className="d-flex justify-content-around my-3 w-100 align-items-end flex-row-reverse "
@@ -415,24 +404,24 @@ const products = () => {
                     className=" d-flex"
                     style={{ width: "90%", flexDirection: "column" }}
                   >
-                    <DropdownFilter
+                    {/* <DropdownFilter
                       setvalue={setselectedDisease}
                       value={selectedDisease}
                       title={"By Disease"}
                       options={diseases}
-                    />
+                    /> */}
                     <DropdownFilter
                       setvalue={setselectedUse}
                       value={selectedUse}
                       title={"By Uses"}
                       options={uses}
                     />
-                    <DropdownFilter
+                    {/* <DropdownFilter
                       title={"By ingredients"}
                       setvalue={setselectedingredient}
                       value={selectedingredient}
                       options={ingredients}
-                    />
+                    /> */}
                     <div className="d-flex justify-content-between mt-5">
                       <div
                         className="btn btn-primary pb-2 pt-2 pr-5 pl-5"
