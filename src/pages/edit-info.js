@@ -209,6 +209,7 @@ const EditInfo = () => {
                       bckColor="white"
                       BRColor="#0F4392"
                       text="Discard"
+                      onClick={() => router.push("/")}
                     />
 
                     <button

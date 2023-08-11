@@ -7,7 +7,6 @@ import Link from "next/link";
 import Sheet from "react-modal-sheet";
 import { ImageGroup } from "semantic-ui-react";
 import { Breadcrumb, Col, Container, Row } from "react-bootstrap";
-import Pagination from "react-bootstrap/Pagination";
 
 // CSS Module
 import styles from "@/styles/products.module.css";
@@ -42,6 +41,9 @@ import getAllCategories, {
   getallUsesApi,
 } from "../../Apis/Category";
 import SizesExample from "../../Components/Spinner";
+
+import ReactPaginate from "react-paginate";
+
 const products = () => {
   const [isOpen, setOpen] = useState(false);
   const [products, setproducts] = useState([]);
@@ -66,55 +68,15 @@ const products = () => {
   const snapPoints = [600, 450]; // Define the height values that the modal can snap to
   const [active, setActive] = useState(1);
   const [items, setitems] = useState([]);
+  const [pageCount, setPageCount] = useState(0);
 
-  const RenderPaginagtionItems = () => {
-    let render = [];
-    console.log(items, "itemsitemsitems");
-
-    for (let number = 1; number <= items; number++) {
-      if (number == 5) {
-        render?.push(<Pagination.Ellipsis />);
-      }
-      if (number <= 5) {
-        render?.push(
-          <Pagination.Item
-            onClick={() => setActive(number)}
-            key={number}
-            active={number === active}
-          >
-            {number}
-          </Pagination.Item>
-        );
-      }
-
-      // if (number > items - 3) {
-      //   render?.push(
-      //     <Pagination.Item
-      //       onClick={() => setActive(number)}
-      //       key={number}
-      //       active={number === active}
-      //     >
-      //       {number}
-      //     </Pagination.Item>
-      //   );
-      // }
-    }
-    render?.push(
-      <Pagination.Item
-        onClick={() => setActive((old) => 1 + old)}
-        key={active + 1}
-      >
-        Next
-      </Pagination.Item>
-    );
-    return render;
-  };
-
+  console.log(active, "active global");
   useEffect(() => {}, [items]);
 
   const getHomeData = async () => {
     if (activeCateFilter == "all") {
       const res = await getallProductsWithNoCategory({ active });
+      setPageCount(res.count);
       setproducts(res?.results);
       setitems(Math.floor(res?.count / 20));
       if (res?.results) {
@@ -204,6 +166,11 @@ const products = () => {
   useEffect(() => {
     getHomeData();
   }, [activeCateFilter, active]);
+
+  const handlePageClick = (e) => {
+    setActive(e.selected + 1);
+    router.push(`/products/all/?page=${e.selected + 1}`);
+  };
 
   return (
     <div className="product-details">
@@ -385,7 +352,28 @@ const products = () => {
                 </Row>
               </Col>
             </Row>
-            <Pagination size="lg">{RenderPaginagtionItems()}</Pagination>
+
+            {/* Pagination */}
+
+            <ReactPaginate
+              breakLabel="..."
+              nextLabel="التالى"
+              onPageChange={handlePageClick}
+              marginPagesDisplayed={2}
+              pageRangeDisplayed={2}
+              pageCount={pageCount}
+              previousLabel="السابق"
+              containerClassName={"pagination justify-content-center p-3"}
+              pageClassName={"page-item"}
+              pageLinkClassName={"page-link"}
+              previousClassName={"page-item"}
+              nextClassName={"page-item"}
+              previousLinkClassName={"page-link"}
+              nextLinkClassName={"page-link"}
+              breakClassName={"page-item"}
+              breakLinkClassName={"page-link"}
+              activeClassName={"active"}
+            />
 
             <div className="w-80 d-flex justify-content-start align-items-center">
               <Sheet

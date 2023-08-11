@@ -52,6 +52,7 @@ const ReviewDesk = ({ modalAddReview }) => {
     if (res) {
       modalAddReview.current.style.opacity = "0";
       handleOpen();
+      console.log("done");
     }
     return res;
   };
@@ -142,7 +143,7 @@ const ReviewDesk = ({ modalAddReview }) => {
                     txtColor="white"
                     bckColor="#0F4392"
                     BRColor="#0F4392"
-                    text="Go To Home Page "
+                    text="Go To Home Page"
                   />
                 </div>
               </Typography>

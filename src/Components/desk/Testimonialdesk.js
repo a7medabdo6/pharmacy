@@ -21,7 +21,7 @@ function Testimonialdesk({ item, atHome = false }) {
         alt="Next.js Logo"
         width={30}
         height={30}
-        style={{ marginTop: "7px", width: "50px", height: "50px" }}
+        style={{ marginTop: "7px", width: "90px", height: "100px" }}
         priority
       />
       <div

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import styles from "@/styles/Tracking.module.css";
 import StepProgress from "../Components/Ulits/StepProgressBar";
 import Group from "../assets/img/Group.png";
@@ -16,11 +16,28 @@ import { useEffect } from "react";
 import { getOrderHistory } from "../Apis/Cart/PostCart";
 import { useRouter } from "next/router";
 import BottomNav from "../Components/Ulits/BottomNav";
+import Box from "@mui/material/Box";
+import Typography from "@mui/material/Typography";
+import Modal from "@mui/material/Modal";
+import ReviewDesk from "../Components/desk/ReviewDesk";
 
 const tracking = () => {
+  const style = {
+    position: "absolute",
+    top: "50%",
+    left: "50%",
+    transform: "translate(-50%, -50%)",
+    width: 450,
+    bgcolor: "background.paper",
+    border: "2px solid white",
+    borderRadius: "10px",
+    padding: "7px",
+  };
   const [openReview, setOpenReview] = useState(false);
 
   const router = useRouter();
+  const modalAddReview = useRef();
+  const [widthScreen, setWidthScreen] = useState(0);
   const { orderId } = router.query;
   const [value, setvalue] = useState(50);
   const getOrderHistoryCall = async () => {
@@ -40,6 +57,7 @@ const tracking = () => {
     if (orderId) {
       getOrderHistoryCall();
     }
+    setWidthScreen(window.innerWidth);
   }, [orderId]);
   const BackCall = () => {
     router.push(`/products/all`);
@@ -220,6 +238,21 @@ const tracking = () => {
                     <button
                       className="btn w-100 btn-primary mt-5  pr-5 pl-5"
                       style={{ fontSize: "20px" }}
+                      onClick={() => {
+                        if (localStorage.getItem("user")) {
+                          if (widthScreen < 700) {
+                            router.push("/review");
+                          } else {
+                            router.push("/testimonials");
+                            setTimeout(() => {
+                              setOpenReview(true);
+                            }, 500);
+                            //
+                          }
+                        } else {
+                          router.push("/testimonials");
+                        }
+                      }}
                     >
                       Write a review
                     </button>
@@ -240,6 +273,35 @@ const tracking = () => {
 
       <WriteReview setOpen={setOpenReview} open={openReview} />
       <Support />
+
+      <Modal
+        ref={modalAddReview}
+        open={openReview}
+        onClose={() => setOpenReview(false)}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
+      >
+        <Box sx={style}>
+          <Typography
+            id="modal-modal-title"
+            variant="h6"
+            component="h2"
+            className="text-center"
+            style={{
+              color: "#0F4392",
+              fontWeight: "bold",
+              fontSize: "20px",
+            }}
+          ></Typography>
+          <Typography
+            id="modal-modal-description"
+            sx={{ mt: 2 }}
+            className="text-center"
+          >
+            <ReviewDesk modalAddReview={modalAddReview} />
+          </Typography>
+        </Box>
+      </Modal>
     </div>
   );
 };

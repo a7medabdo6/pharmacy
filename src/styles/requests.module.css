@@ -48,6 +48,7 @@
   justify-content: center;
   align-items: center;
   margin: 15px;
+  cursor: pointer;
 }
 .btnEditInfo {
   width: 175px;

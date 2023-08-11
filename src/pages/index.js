@@ -387,7 +387,7 @@ export default function Main() {
                         // data-aos-offset="500"
                       >
                         <h4 className=" align-start mt-2 mb-2 m-0 pt-3 pb-2">
-                          Testimonial
+                          Reviews
                         </h4>
                         <Link
                           href="/testimonials"
@@ -625,7 +625,7 @@ export default function Main() {
                       // data-aos="flip-down"
                     >
                       <h5 style={{ marginBottom: 0, color: "#0F4392" }}>
-                        Testimonial
+                        Reviews
                       </h5>
 
                       <div className="d-flex justify-content-between align-items-center mt-5 mb-4 w-100">
