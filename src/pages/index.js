@@ -31,6 +31,7 @@ import SliderCategory from "../Components/SliderCategory";
 import WriteReview from "../Components/Ulits/WriteReview";
 import Support from "../Components/Ulits/Support";
 import CardBestProduct from "../Components/products/CardBestProduct";
+import CardProduct from "../Components/products/CardProduct";
 
 import { useKeenSlider } from "keen-slider/react";
 import "keen-slider/keen-slider.min.css";
@@ -140,9 +141,8 @@ export default function Main() {
       ) : (
         <>
           <div className="container text-center mt-0 mt-md-3 pb-4">
-            <div onClick={() => navigateTo("/products/all")}>
-              <SerachBar showBigScreen={true} />
-            </div>
+            <SerachBar showBigScreen={true} />
+
             <div className="d-sm-none">
               <main style={{ backgroundColor: "#eaeaea" }}>
                 <div className="d-flex justify-content-center align-items-center flex-column">
@@ -428,6 +428,7 @@ export default function Main() {
               </main>
             </div>
           </div>
+
           <div className="d-none d-md-block">
             <div className="d-flex justify-content-between align-items-start flex-column position-relative w-100">
               <div className="d-flex justify-content-start align-items-start flex-column w-100">
