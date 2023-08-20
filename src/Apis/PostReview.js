@@ -16,7 +16,7 @@ async function PostReview(formdata) {
       },
     };
     const response = await axios.post(
-      "https://backend.well-medic.com/reviews/",
+      "https://d465-41-239-186-167.ngrok-free.appreviews/",
       formdata,
       config
     );
