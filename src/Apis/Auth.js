@@ -6,7 +6,7 @@ export const Register = async (credentials) => {
   const { showNotification } = useNotifications();
   try {
     const response = await axios.post(
-      "https://d465-41-239-186-167.ngrok-free.appaccounts/register/",
+      "https://d465-41-239-186-167.ngrok-free.app/accounts/register/",
       credentials
     );
     console.log(response.data);
@@ -32,7 +32,7 @@ export const loginUser = async (credentials) => {
 
   try {
     const response = await axios.post(
-      "https://d465-41-239-186-167.ngrok-free.appaccounts/login/",
+      "https://d465-41-239-186-167.ngrok-free.app/accounts/login/",
       credentials
     );
     console.log(response.data);
@@ -53,7 +53,7 @@ export const loginUser = async (credentials) => {
 export const GetHotels = async (credentials) => {
   try {
     const response = await axios.get(
-      "https://d465-41-239-186-167.ngrok-free.apphotels/"
+      "https://d465-41-239-186-167.ngrok-free.app/hotels/"
     );
 
     return response.data;
@@ -64,7 +64,7 @@ export const GetHotels = async (credentials) => {
 export const GetHotelsDetails = async (credentials) => {
   try {
     const response = await axios.get(
-      "https://d465-41-239-186-167.ngrok-free.apphotels/" +
+      "https://d465-41-239-186-167.ngrok-free.app/hotels/" +
         credentials?.hotel_id
     );
 
@@ -77,7 +77,7 @@ export const GetHotelsDetails = async (credentials) => {
 export const GetRooms = async (credentials) => {
   try {
     const response = await axios.get(
-      "https://d465-41-239-186-167.ngrok-free.apphotels/rooms/"
+      "https://d465-41-239-186-167.ngrok-free.app/hotels/rooms/"
     );
 
     return response.data;
@@ -96,7 +96,7 @@ export const updateUser = async (credentials) => {
       },
     };
     const response = await axios.patch(
-      "https://d465-41-239-186-167.ngrok-free.appaccounts/update_profile/" +
+      "https://d465-41-239-186-167.ngrok-free.app/accounts/update_profile/" +
         credentials?.id +
         "/",
       credentials,

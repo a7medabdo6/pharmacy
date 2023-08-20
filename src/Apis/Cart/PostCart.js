@@ -17,7 +17,7 @@ async function PostCart(formdata) {
       },
     };
     const response = await axios.post(
-      "https://d465-41-239-186-167.ngrok-free.appcart/cart_items/",
+      "https://d465-41-239-186-167.ngrok-free.app/cart/cart_items/",
       formdata,
       config
     );
@@ -47,7 +47,7 @@ export async function CreateOrder(formdata) {
       },
     };
     const response = await axios.post(
-      "https://d465-41-239-186-167.ngrok-free.apporder/",
+      "https://d465-41-239-186-167.ngrok-free.app/order/",
       formdata,
       config
     );
@@ -77,7 +77,7 @@ export async function getOrders(formdata) {
       },
     };
     const response = await axios.get(
-      "https://d465-41-239-186-167.ngrok-free.apporder/",
+      "https://d465-41-239-186-167.ngrok-free.app/order/",
       config
     );
     // showNotification(` Success!`, "success");
@@ -100,7 +100,7 @@ export async function getOrderHistory(formdata) {
       },
     };
     const response = await axios.get(
-      `https://d465-41-239-186-167.ngrok-free.apporder/history/${formdata?.id}`,
+      `https://d465-41-239-186-167.ngrok-free.app/order/history/${formdata?.id}`,
       config
     );
     // showNotification(` Success!`, "success");
@@ -123,7 +123,7 @@ export async function getAllOrdersHistory(formdata) {
       },
     };
     const response = await axios.get(
-      `https://d465-41-239-186-167.ngrok-free.apporder/history/`,
+      `https://d465-41-239-186-167.ngrok-free.app/order/history/`,
       config
     );
     // showNotification(` Success!`, "success");
@@ -146,7 +146,7 @@ export async function DeleteCart(formdata) {
       },
     };
     const response = await axios.delete(
-      `https://d465-41-239-186-167.ngrok-free.appcart/cart_items/${formdata?.id}`,
+      `https://d465-41-239-186-167.ngrok-free.app/cart/cart_items/${formdata?.id}`,
       config
     );
     showNotification(`Item Deleted Successfuly`, "success");

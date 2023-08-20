@@ -154,7 +154,115 @@ export default function Main() {
                   />
                   <SerachBar showBigScreen={false} />
 
-                  <div
+                  <Swiper
+                    spaceBetween={30}
+                    autoplay={{
+                      delay: 2500,
+                    }}
+                    loop={true}
+                    modules={[Autoplay]}
+                    className="mySwiper"
+                  >
+                    <SwiperSlide>
+                      <div
+                        className="fs-6 rounded-3 d-flex justify-content-center align-items-center text-white"
+                        style={{ backgroundColor: "#0F4392", height: "165px" }}
+                      >
+                        <Row>
+                          <Col xs={5}>
+                            <Image src={step1} className="w-100" alt="" />
+                          </Col>
+                          <Col xs={7}>
+                            <h4 className="text-start ms-4">How it Works</h4>
+                            <div className="d-flex flex-column align-items-start">
+                              <span style={{ fontSize: "12px" }}>Step 1</span>
+                              <h5 className="my-1 fw-normal">
+                                Select your products
+                              </h5>
+                              <span
+                                className="text-start"
+                                style={{
+                                  fontSize: "12px",
+                                  lineHeight: "1.2rem",
+                                }}
+                              >
+                                You can contact our pharmacists for help and
+                                consultations
+                              </span>
+                            </div>
+                          </Col>
+                        </Row>
+                      </div>
+                    </SwiperSlide>
+                    <SwiperSlide>
+                      <div
+                        className="fs-6 rounded-3 d-flex justify-content-center align-items-center text-white"
+                        style={{
+                          backgroundColor: "#0F4392",
+                          height: "165px",
+                        }}
+                      >
+                        <Row>
+                          <Col xs={5}>
+                            <Image src={step1} alt="" className="w-100" />
+                          </Col>
+                          <Col xs={7}>
+                            <h4 className="text-start ms-4">How it Works</h4>
+                            <div className="d-flex flex-column align-items-start">
+                              <span style={{ fontSize: "12px" }}>Step 2</span>
+                              <h5 className="my-1 fw-normal">
+                                {" "}
+                                confirm your order
+                              </h5>
+                              <span
+                                className="text-start"
+                                style={{
+                                  fontSize: "12px",
+                                  lineHeight: "1.2rem",
+                                }}
+                              >
+                                We will contact you with prices before we ship
+                                the order to you
+                              </span>
+                            </div>
+                          </Col>
+                        </Row>
+                      </div>
+                    </SwiperSlide>
+                    <SwiperSlide>
+                      <div
+                        className="fs-6 rounded-3 d-flex justify-content-center align-items-center text-white"
+                        style={{ backgroundColor: "#0F4392", height: "165px" }}
+                      >
+                        <Row>
+                          <Col xs={5}>
+                            <Image src={step1} alt="" className="w-100" />
+                          </Col>
+                          <Col xs={7}>
+                            <h4 className="text-start ms-4">How it Works</h4>
+                            <div className="d-flex flex-column align-items-start">
+                              <span style={{ fontSize: "12px" }}>Step 3</span>
+                              <h5 className="my-1 fw-normal">
+                                shipment and delivery
+                              </h5>
+                              <span
+                                className="text-start"
+                                style={{
+                                  fontSize: "12px",
+                                  lineHeight: "1.2rem",
+                                }}
+                              >
+                                After confirming your order price, we will
+                                deliver the order to your address
+                              </span>
+                            </div>
+                          </Col>
+                        </Row>
+                      </div>
+                    </SwiperSlide>
+                  </Swiper>
+
+                  {/* <div
                     ref={sliderRef}
                     className="keen-slider mt-2 animate__animated animate__zoomIn"
                   >
@@ -240,7 +348,7 @@ export default function Main() {
                         </Col>
                       </Row>
                     </div>
-                  </div>
+                  </div> */}
 
                   <div className="d-flex justify-content-between align-itmes-center w-100 pt-3 px-2">
                     <h4 className="align-start m-0 pt-2 pb-2">Big deals</h4>
@@ -253,7 +361,7 @@ export default function Main() {
 
                   <div
                     ref={sliderRef}
-                    className="keen-slider  animate__animated animate__zoomInUp"
+                    className="keen-slider animate__animated animate__zoomInUp"
                     style={{
                       height: "165px",
                     }}
@@ -342,7 +450,7 @@ export default function Main() {
                     <h4 className=" align-start mt-2 mb-2 m-0 pt-3 pb-2">
                       Our services.
                     </h4>
-                    <Link
+                    {/* <Link
                       href="/CategoriesViewall"
                       className="d-flex justify-content-between align-items-center"
                     >
@@ -352,7 +460,7 @@ export default function Main() {
                       >
                         View all
                       </p>
-                    </Link>
+                    </Link> */}
                   </div>
 
                   <div
