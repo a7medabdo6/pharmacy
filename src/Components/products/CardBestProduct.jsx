@@ -101,7 +101,7 @@ const CardBestProduct = ({ item }) => {
               height: "35px",
             }}
           >
-            {item?.description.slice(0, 50)} ...
+            {item?.description?.slice(0, 50)} ...
           </p>
         </div>
       </div>
