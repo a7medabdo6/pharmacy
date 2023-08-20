@@ -382,7 +382,7 @@ export default function Main() {
                         <h4 className="align-start mt-2 mb-2 m-0 pt-3 pb-2">
                           Categories.
                         </h4>
-                        <Link
+                        {/* <Link
                           href="/categoriesViewall"
                           className="d-flex justify-content-between align-items-center"
                         >
@@ -392,7 +392,7 @@ export default function Main() {
                           >
                             View all
                           </p>
-                        </Link>
+                        </Link> */}
                       </div>
 
                       <SliderCategory categories={categories} />

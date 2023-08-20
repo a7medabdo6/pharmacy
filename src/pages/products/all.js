@@ -129,28 +129,28 @@ const products = () => {
     return res;
   };
   const getallDisease = async () => {
-    const res = await getallDiseaseApi();
-    console.log(res, "ressss");
-    setDiseases(res?.results);
-    return res;
+    // const res = await getallDiseaseApi();
+    // console.log(res, "ressss");
+    // // setDiseases(res?.results);
+    // return res;
   };
   const getallBrands = async () => {
-    const res = await getallBrandsApi();
-    console.log(res, "ressss");
-    setbrand(res?.results);
-    return res;
+    // const res = await getallBrandsApi();
+    // console.log(res, "ressss");
+    // // setbrand(res?.results);
+    // return res;
   };
   const getallUses = async () => {
     const res = await getallUsesApi();
     console.log(res, "ressss");
-    setuses(res?.results);
+    setuses(res);
     return res;
   };
   const getallingredients = async () => {
-    const res = await getallIngredientApi();
-    console.log(res, "ressss");
-    setIngredients(res?.results);
-    return res;
+    // const res = await getallIngredientApi();
+    // console.log(res, "ressss");
+    // setIngredients(res);
+    // return res;
   };
   useEffect(() => {
     getHomeData();

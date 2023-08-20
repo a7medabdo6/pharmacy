@@ -45,7 +45,9 @@ const Notifications = () => {
           style={{ width: "95%" }}
           className="d-flex justify-content-start ms-3 mt-3 align-items-center"
         >
-          {!notifications[0]?.read && <p style={{ fontWeight: "bold" }}>new</p>}
+          {!notifications?.[0]?.read && (
+            <p style={{ fontWeight: "bold" }}>new</p>
+          )}
         </div>
         {notifications?.map((item) => (
           <>

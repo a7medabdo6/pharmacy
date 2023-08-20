@@ -16,7 +16,7 @@ async function PostReview(formdata) {
       },
     };
     const response = await axios.post(
-      "https://d465-41-239-186-167.ngrok-free.app/reviews",
+      "https://d465-41-239-186-167.ngrok-free.app/reviews/",
       formdata,
       config
     );

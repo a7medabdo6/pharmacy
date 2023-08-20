@@ -47,7 +47,7 @@ const tracking = () => {
       setvalue(0);
     } else if (res?.status == "Prepared") {
       setvalue(35);
-    } else if (res?.status == "On Its Way") {
+    } else if (res?.status == "ON_ITS_WAY") {
       setvalue(70);
     } else {
       setvalue(100);

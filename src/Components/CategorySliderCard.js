@@ -12,14 +12,16 @@ function CategorySliderCard({ item }) {
         }}
       >
         <div className="CategorySliderCard">
-          <Image
-            className="product"
-            src={item?.icon_image}
-            alt="Next.js Logo"
-            width={150}
-            height={100}
-            priority
-          />
+          {item?.icon_image && (
+            <Image
+              className="product"
+              src={item?.icon_image}
+              alt="Next.js Logo"
+              width={150}
+              height={100}
+              priority
+            />
+          )}
         </div>
         <div className="mt-4" style={{ color: "black", height: "20px" }}>
           {item?.name?.toLowerCase()}
