@@ -16,7 +16,7 @@ async function PostReview(formdata) {
       },
     };
     const response = await axios.post(
-      "https://backend.well-medic.com/reviews/",
+      "https://backend.well-medic.com/reviews",
       formdata,
       config
     );
