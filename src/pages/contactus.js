@@ -99,32 +99,32 @@ const contactus = () => {
                             src={telegram}
                             style={{ margin: "10px" }}
                             alt="Next.js Logo"
-                            width="32px"
-                            height="32px"
+                            width="32"
+                            height="32"
                             priority
                           />
                           <Image
                             src={whatsapp}
                             style={{ margin: "10px" }}
                             alt="Next.js Logo"
-                            width="32px"
-                            height="32px"
+                            width="32"
+                            height="32"
                             priority
                           />
                           <Image
                             src={messenger}
                             style={{ margin: "10px" }}
                             alt="Next.js Logo"
-                            width="32px"
-                            height="32px"
+                            width="32"
+                            height="32"
                             priority
                           />
                           <Image
                             src={viber}
                             style={{ margin: "10px" }}
                             alt="Next.js Logo"
-                            width="32px"
-                            height="32px"
+                            width="32"
+                            height="32"
                             priority
                           />
                         </div>
