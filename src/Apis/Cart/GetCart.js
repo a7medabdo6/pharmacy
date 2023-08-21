@@ -10,7 +10,7 @@ async function GetCart(credentials) {
       },
     };
     const response = await axios.get(
-      "https://d465-41-239-186-167.ngrok-free.app/cart/",
+      "https://backend.well-medic.com//cart/",
       config
     );
     // console.log(response.data)

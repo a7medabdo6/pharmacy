@@ -3,7 +3,7 @@ import axios from "axios";
 async function getAllReviews(credentials) {
   try {
     const response = await axios.get(
-      "https://d465-41-239-186-167.ngrok-free.app/reviews/",
+      "https://backend.well-medic.com//reviews/",
       {
         headers: {
           Authorization: "",

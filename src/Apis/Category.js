@@ -3,7 +3,7 @@ import axios from "axios";
 async function getallCategories(credentials) {
   try {
     const response = await axios.get(
-      "https://d465-41-239-186-167.ngrok-free.app/category/",
+      "https://backend.well-medic.com//category/",
       {
         headers: {
           Authorization: "",
@@ -20,7 +20,7 @@ async function getallCategories(credentials) {
 export async function getallBrandsApi(credentials) {
   try {
     const response = await axios.get(
-      "https://d465-41-239-186-167.ngrok-free.app/category/brands",
+      "https://backend.well-medic.com//category/brands",
       {
         headers: {
           Authorization: "",
@@ -37,7 +37,7 @@ export async function getallBrandsApi(credentials) {
 export async function getallDiseaseApi(credentials) {
   try {
     const response = await axios.get(
-      "https://d465-41-239-186-167.ngrok-free.app/category/disease",
+      "https://backend.well-medic.com//category/disease",
       {
         headers: {
           Authorization: "",
@@ -54,7 +54,7 @@ export async function getallDiseaseApi(credentials) {
 export async function getallIngredientApi(credentials) {
   try {
     const response = await axios.get(
-      "https://d465-41-239-186-167.ngrok-free.app/category/ingredient",
+      "https://backend.well-medic.com//category/ingredient",
       {
         headers: {
           Authorization: "",
@@ -70,7 +70,7 @@ export async function getallIngredientApi(credentials) {
 export async function getallUsesApi(credentials) {
   try {
     const response = await axios.get(
-      "https://d465-41-239-186-167.ngrok-free.app/category/uses",
+      "https://backend.well-medic.com//category/uses",
       {
         headers: {
           Authorization: "",
