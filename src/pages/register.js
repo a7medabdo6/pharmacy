@@ -160,7 +160,9 @@ export default function Home() {
                     Phone Number*
                   </label>
                   <ReactPhoneInput
-                    defaultCountry={"us"}
+                    placeholder="01234567890"
+                    disableDropdown={true}
+                    disableCountryCode={true}
                     className="mt-2 font-sm-16"
                     value={phone}
                     onChange={handleOnChange}
@@ -322,7 +324,9 @@ export default function Home() {
                       <div className="form-group mt-2">
                         <label htmlFor="phone">Phone Number*</label>
                         <ReactPhoneInput
-                          defaultCountry={"us"}
+                          placeholder="01234567890"
+                          disableDropdown={true}
+                          disableCountryCode={true}
                           className="mt-3 font-sm-16"
                           value={phone}
                           onChange={handleOnChange}

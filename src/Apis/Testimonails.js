@@ -3,7 +3,7 @@ import axios from "axios";
 async function getAllReviews(credentials) {
   try {
     const response = await axios.get(
-      "https://backend.well-medic.com//reviews/",
+      "https://backend.well-medic.com/reviews/",
       {
         headers: {
           Authorization: "",

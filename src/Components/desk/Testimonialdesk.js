@@ -48,7 +48,9 @@ function Testimonialdesk({ item, atHome = false }) {
         </div>
 
         <p className="text-dark" style={{ fontSize: "10px !important" }}>
-          {item?.description}
+          {item?.description.length >= 25
+            ? `${item.description.slice(0, 25)} ...`
+            : item.description}
         </p>
       </div>
     </div>

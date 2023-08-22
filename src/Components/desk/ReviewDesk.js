@@ -132,10 +132,10 @@ const ReviewDesk = ({ modalAddReview }) => {
                 <div
                   className="w-100 d-flex justify-content-center align-items-center mt-3"
                   onClick={() => {
-                    if (router.pathname === "/") {
+                    if (router.pathname === "/testimonials") {
                       router.reload();
                     } else {
-                      router.push("/");
+                      router.push("/testimonials");
                     }
                   }}
                 >
@@ -143,7 +143,7 @@ const ReviewDesk = ({ modalAddReview }) => {
                     txtColor="white"
                     bckColor="#0F4392"
                     BRColor="#0F4392"
-                    text="Go To Home Page"
+                    text="Go To REVIEWS Page"
                   />
                 </div>
               </Typography>

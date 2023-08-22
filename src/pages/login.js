@@ -118,7 +118,10 @@ export default function Home() {
                     Phone Number*
                   </label>
                   <ReactPhoneInput
-                    // country={"ng"}
+                    placeholder="01234567890"
+                    disableDropdown={true}
+                    disableCountryCode={true}
+                    country={"eg"}
                     className="mt-2 font-sm-16"
                     value={phone}
                     onChange={handleOnChange}
@@ -250,6 +253,9 @@ export default function Home() {
                           Phone Number*{" "}
                         </label>
                         <ReactPhoneInput
+                          placeholder="01234567890"
+                          disableDropdown={true}
+                          disableCountryCode={true}
                           country={"eg"}
                           className="mt-3 font-sm-16"
                           value={phone}

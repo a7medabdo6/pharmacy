@@ -323,17 +323,20 @@ const products = () => {
                     />
                   </div>
                 </div>
-                <div className={`${styles.boxwhite} order-1`}>
+                <div
+                  className={`${styles.boxwhite} order-1`}
+                  style={{
+                    height: "76px",
+                  }}
+                >
                   <p className={styles.txtExplore}>Explore our products or </p>
 
-                  <Link href={"/contactus"}>
-                    <ButtonContact
-                      txtColor="#0F4392"
-                      bckColor="white"
-                      BRColor="#0F4392"
-                      text="Contact a pharmacist"
-                    />
-                  </Link>
+                  <ButtonContact
+                    txtColor="#0F4392"
+                    bckColor="white"
+                    BRColor="#0F4392"
+                    text="Contact a pharmacist"
+                  />
                 </div>
                 <Row
                   className="order-3 gap-50"
