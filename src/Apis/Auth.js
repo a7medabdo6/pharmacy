@@ -6,7 +6,7 @@ export const Register = async (credentials) => {
   const { showNotification } = useNotifications();
   try {
     const response = await axios.post(
-      "https://backend.well-medic.com//accounts/register/",
+      "https://backend.well-medic.com/accounts/register/",
       credentials
     );
     console.log(response.data);
@@ -32,7 +32,7 @@ export const loginUser = async (credentials) => {
 
   try {
     const response = await axios.post(
-      "https://backend.well-medic.com//accounts/login/",
+      "https://backend.well-medic.com/accounts/login",
       credentials
     );
     console.log(response.data);
@@ -52,7 +52,7 @@ export const loginUser = async (credentials) => {
 };
 export const GetHotels = async (credentials) => {
   try {
-    const response = await axios.get("https://backend.well-medic.com//hotels/");
+    const response = await axios.get("https://backend.well-medic.com/hotels");
 
     return response.data;
   } catch (error) {
@@ -62,7 +62,7 @@ export const GetHotels = async (credentials) => {
 export const GetHotelsDetails = async (credentials) => {
   try {
     const response = await axios.get(
-      "https://backend.well-medic.com//hotels/" + credentials?.hotel_id
+      "https://backend.well-medic.com/hotels" + credentials?.hotel_id
     );
 
     return response.data;
@@ -74,7 +74,7 @@ export const GetHotelsDetails = async (credentials) => {
 export const GetRooms = async (credentials) => {
   try {
     const response = await axios.get(
-      "https://backend.well-medic.com//hotels/rooms/"
+      "https://backend.well-medic.com/hotels/rooms"
     );
 
     return response.data;
@@ -93,7 +93,7 @@ export const updateUser = async (credentials) => {
       },
     };
     const response = await axios.patch(
-      "https://backend.well-medic.com//accounts/update_profile/" +
+      "https://backend.well-medic.com/accounts/update_profile" +
         credentials?.id +
         "/",
       credentials,

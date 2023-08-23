@@ -3,7 +3,7 @@ import axios from "axios";
 async function getallProducts(data) {
   try {
     const response = await axios.get(
-      `https://backend.well-medic.com//product/?limit=${20}&offset=${
+      `https://backend.well-medic.com/product/?limit=${20}&offset=${
         (data.active - 1) * 20
       }`,
 
@@ -24,7 +24,7 @@ async function getallProducts(data) {
 export async function GetOneProduct(data) {
   try {
     const response = await axios.get(
-      `https://backend.well-medic.com//product/${data.id}`,
+      `https://backend.well-medic.com/product/${data.id}`,
       {
         headers: {
           Authorization: "",
@@ -41,7 +41,7 @@ export async function GetOneProduct(data) {
 export async function getallProductsWithNoCategory(data) {
   try {
     const response = await axios.get(
-      `https://backend.well-medic.com//product/?limit=${10}&offset=${
+      `https://backend.well-medic.com/product/?limit=${10}&offset=${
         (data.active - 1) * 10
       }`,
       {
@@ -60,7 +60,7 @@ export async function getallProductsWithNoCategory(data) {
 export async function searchAllProducts(txt) {
   try {
     const response = await axios.get(
-      `https://backend.well-medic.com//product/?name=${txt}`,
+      `https://backend.well-medic.com/product/?name=${txt}`,
       {
         headers: {
           Authorization: "",
@@ -77,7 +77,7 @@ export async function searchAllProducts(txt) {
 export async function AllBestSellersProducts(txt) {
   try {
     const response = await axios.get(
-      `https://backend.well-medic.com//product/?best_seller=true`,
+      `https://backend.well-medic.com/product/?best_seller=true`,
       {
         headers: {
           Authorization: "",

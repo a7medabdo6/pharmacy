@@ -184,7 +184,7 @@ export default function Home() {
                   >
                     <option>Select Hotel Name</option>
 
-                    {hotels.map((item) => (
+                    {hotels?.map((item) => (
                       <option value={item?.id}>{item.name}</option>
                     ))}
                   </select>
@@ -215,7 +215,7 @@ export default function Home() {
                     placeholder="Select here"
                   >
                     <option>Select Room Number</option>
-                    {rooms.map((item) => (
+                    {rooms?.map((item) => (
                       <option selected={rooms == item?.id} value={item?.id}>
                         {item.room_number}
                       </option>
@@ -327,6 +327,7 @@ export default function Home() {
                           placeholder="01234567890"
                           disableDropdown={true}
                           disableCountryCode={true}
+                          country={"eg"}
                           className="mt-3 font-sm-16"
                           value={phone}
                           onChange={handleOnChange}
@@ -345,7 +346,7 @@ export default function Home() {
                         >
                           <option>Select Hotel Name</option>
 
-                          {hotels.map((item) => (
+                          {hotels?.map((item) => (
                             <option value={item?.id}>{item.name}</option>
                           ))}
                         </select>
@@ -376,7 +377,7 @@ export default function Home() {
                           placeholder="Select here"
                         >
                           <option>Select Room Number</option>
-                          {rooms.map((item) => (
+                          {rooms?.map((item) => (
                             <option
                               selected={rooms == item?.id}
                               value={item?.id}

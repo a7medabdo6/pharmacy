@@ -10,7 +10,7 @@ async function GetCart(credentials) {
       },
     };
     const response = await axios.get(
-      "https://backend.well-medic.com//cart/",
+      "https://backend.well-medic.com/cart/",
       config
     );
     // console.log(response.data)

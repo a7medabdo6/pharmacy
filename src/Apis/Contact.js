@@ -3,7 +3,7 @@ import axios from "axios";
 async function Postcontactus(Data) {
   try {
     const response = await axios.post(
-      "https://backend.well-medic.com//contactus/",
+      "https://backend.well-medic.com/contactus",
       Data
     );
     console.log(response.data);
