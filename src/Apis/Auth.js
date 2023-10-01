@@ -13,9 +13,9 @@ export const Register = async (credentials) => {
     localStorage.setItem("user", JSON.stringify(response.data));
     localStorage.setItem("token", JSON.stringify(response.data.token));
     showNotification(`User Registered Successfuly`, "success");
-    setTimeout(() => {
-      window.location.replace("/login");
-    }, 2000);
+
+    window.location.replace("/login");
+
     return response.data;
   } catch (error) {
     for (const key in error?.response?.data) {
@@ -32,7 +32,7 @@ export const loginUser = async (credentials) => {
 
   try {
     const response = await axios.post(
-      "https://backend.well-medic.com/accounts/login",
+      "https://backend.well-medic.com/accounts/login/",
       credentials
     );
     console.log(response.data);
